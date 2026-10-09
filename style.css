@@ -812,6 +812,195 @@ button, input, select, textarea {
 }
 
 /* ==========================================================================
+   SIX CORE SERVICES GRID (HOME PAGE)
+   ========================================================================== */
+.services-header-title {
+  color: #2563eb;
+  font-size: 2.6rem;
+  font-weight: 800;
+  text-align: center;
+  font-family: var(--font-heading);
+  letter-spacing: -0.5px;
+  margin-bottom: 40px;
+}
+
+.services-grid-6 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  margin-bottom: 40px;
+}
+
+@media (max-width: 1080px) {
+  .services-grid-6 {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+}
+
+@media (max-width: 720px) {
+  .services-grid-6 {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}
+
+.service-card-item {
+  background: #ffffff;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.05);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.service-card-item:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 32px rgba(15, 23, 42, 0.12);
+  border-color: #93c5fd;
+}
+
+.service-card-item .service-card-media {
+  position: relative;
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+  background: #0f172a;
+}
+
+.service-card-item .service-card-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.service-card-item:hover .service-card-media img {
+  transform: scale(1.05);
+}
+
+.service-card-content {
+  padding: 24px 22px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.service-card-heading {
+  margin: 0 0 16px 0;
+  text-align: center;
+}
+
+.service-title-link {
+  color: #2563eb;
+  font-family: var(--font-heading);
+  font-size: 1.28rem;
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  transition: color 0.2s ease;
+  line-height: 1.35;
+  display: inline-block;
+}
+
+.service-title-link:hover {
+  color: #1d4ed8;
+}
+
+.service-card-text {
+  font-size: 0.92rem;
+  line-height: 1.62;
+  color: #475569;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.service-card-text p {
+  margin-bottom: 12px;
+  color: #475569;
+}
+
+.service-subheading {
+  font-size: 0.96rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0 0 12px 0;
+  line-height: 1.45;
+}
+
+.service-text-divider {
+  height: 1px;
+  background: #e2e8f0;
+  margin: 14px 0 16px 0;
+}
+
+.service-highlight-title {
+  font-weight: 700;
+  color: #c2410c;
+  margin: 0 0 8px 0;
+  font-size: 0.94rem;
+}
+
+.service-bullet-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 12px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 0.88rem;
+  color: #334155;
+}
+
+.service-check-list {
+  list-style: none;
+  padding: 0;
+  margin: 8px 0 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #16a34a;
+}
+
+.service-list-intro {
+  font-weight: 600;
+  color: #1e293b;
+  margin: 8px 0 6px 0;
+  font-size: 0.9rem;
+}
+
+.service-card-action {
+  margin-top: auto;
+  padding-top: 16px;
+  border-top: 1px solid #f1f5f9;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.service-action-link {
+  color: #2563eb;
+  font-size: 0.88rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  text-decoration: none;
+  transition: gap 0.2s ease, color 0.2s ease;
+}
+
+.service-action-link:hover {
+  color: #1d4ed8;
+  gap: 8px;
+}
+
+/* ==========================================================================
    TRAINING & SUMMIT SHOWCASE (MEDIA & VIDEOS)
    ========================================================================== */
 .media-showcase-section {
