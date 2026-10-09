@@ -101,4 +101,32 @@ document.addEventListener('DOMContentLoaded', () => {
       closeModal();
     });
   }
+
+  // 6. FAQ Accordion Toggle Handler
+  const faqQuestions = document.querySelectorAll('.faq-question');
+  faqQuestions.forEach(question => {
+    question.addEventListener('click', () => {
+      const item = question.parentElement;
+      const answer = item.querySelector('.faq-answer');
+      const isExpanded = item.classList.contains('active');
+
+      // Close all other FAQ items
+      document.querySelectorAll('.faq-item').forEach(i => {
+        i.classList.remove('active');
+        const a = i.querySelector('.faq-answer');
+        if (a) a.style.display = 'none';
+      });
+
+      if (!isExpanded && answer) {
+        item.classList.add('active');
+        answer.style.display = 'block';
+      }
+    });
+  });
+
+  // Hide all FAQ answers initially except when active
+  document.querySelectorAll('.faq-item:not(.active) .faq-answer').forEach(a => {
+    a.style.display = 'none';
+  });
 });
+

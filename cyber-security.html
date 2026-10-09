@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Industrial Cybersecurity & OT Security — Omtek Corporation</title>
+  <title>Industrial OT & SCADA Cybersecurity — Omtek Corporation</title>
   <meta name="description" content="Industrial Cybersecurity, SCADA/DCS Protection, and Operational Technology (OT) Security consulting by Omtek Corporation under IEC 62443 & NIST standards for critical infrastructure.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -32,7 +32,7 @@
   </div>
 
   <!-- HEADER -->
-  <header class="main-header">
+  <header class="main-header" id="navbar">
     <div class="container nav-container">
       <a href="index.html" class="brand-logo">
         <img src="assets/images/omtek-logo.png" alt="Omtek Corporation Logo">
@@ -41,7 +41,7 @@
           <span class="brand-tagline">CONSULTING • TRAINING • ADVISORY</span>
         </div>
       </a>
-      <nav class="nav-menu">
+      <nav class="nav-menu" id="navMenu">
         <div class="nav-item"><a href="index.html" class="nav-link">Home</a></div>
         <div class="nav-item"><a href="about.html" class="nav-link">About Leadership</a></div>
         <div class="nav-item">
@@ -49,6 +49,7 @@
             Core Services
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
           </a>
+          <div class="nav-dropdown">
             <a href="corporate-training.html" class="dropdown-link">Corporate Training<span>RCA, Six Sigma, RCM & Asset Integrity</span></a>
             <a href="hse-process-safety.html" class="dropdown-link">HSE & Process Safety<span>PSM, BBS, PTW & Emergency Response</span></a>
             <a href="cyber-security.html" class="dropdown-link">Industrial OT & Cybersecurity<span>IEC 62443, SCADA & Control Security</span></a>
@@ -62,7 +63,7 @@
       </nav>
       <div class="nav-actions">
         <a href="contact.html" class="btn btn-primary open-modal-btn">Request Enquiry</a>
-        <button class="mobile-toggle" aria-label="Toggle Navigation">
+        <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle Navigation">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
         </button>
       </div>
@@ -77,94 +78,245 @@
         <span>/</span>
         <a href="services.html">Services</a>
         <span>/</span>
-        <span>Industrial OT Cybersecurity</span>
+        <span>Industrial OT & SCADA Cybersecurity</span>
       </div>
       <h1 class="page-title">Industrial OT & SCADA Cybersecurity</h1>
-      <p class="page-subtitle">Securing critical energy infrastructure, refinery control networks (DCS/PLC), and emergency shutdown systems against cyber-physical threats.</p>
+      <p class="page-subtitle">Protecting critical infrastructure, refinery control networks (DCS/PLC), and emergency shutdown systems against cyber-physical threats under IEC 62443 standards.</p>
+    </div>
+  </section>
+
+  <!-- STAT METRICS BAR -->
+  <section style="background: var(--obsidian-base); padding: 40px 0; border-bottom: 1px solid rgba(255,255,255,0.08);">
+    <div class="container">
+      <div class="stat-card-grid" style="margin: 0;">
+        <div class="stat-card">
+          <div class="stat-number">IEC 62443</div>
+          <div class="stat-label">Global Compliance Standard</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">Level 0 - 5</div>
+          <div class="stat-label">Purdue Model Hardening</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">Zero</div>
+          <div class="stat-label">Production Interruption Risk</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">50+</div>
+          <div class="stat-label">Refinery & Plant Audits</div>
+        </div>
+      </div>
     </div>
   </section>
 
   <!-- OVERVIEW SECTION -->
-  <section style="padding: 90px 0; background: #ffffff;">
+  <section style="padding: 80px 0; background: #ffffff;">
     <div class="container">
       <div class="deepdive-grid">
         <div class="deepdive-content">
           <span class="section-label">Operational Technology (OT) Security Standard</span>
           <h3>Protecting Plant Floor Control Networks (DCS, PLC, SCADA)</h3>
           <p>
-            As oil refineries, chemical complexes, power plants, and manufacturing facilities digitize their operations, the line between IT networks and Operational Technology (OT) has blurred. A cyber intrusion on a refinery's Distributed Control System (DCS) or Emergency Shutdown (ESD) panel can cause catastrophic plant trips, physical equipment destruction, or environmental releases.
+            As oil refineries, petrochemical complexes, power grids, and water utilities digitize their operations, the boundary between Enterprise IT networks and Operational Technology (OT) has converged. A cyber compromise on a refinery's <strong>Distributed Control System (DCS)</strong> or <strong>Emergency Shutdown (ESD) panel</strong> can lead to catastrophic plant trips, physical asset destruction, or hazardous releases.
           </p>
           <p>
-            Omtek Corporation provides specialized <strong>Industrial Cybersecurity Advisory & OT Vulnerability Audits</strong> aligned strictly with <strong>IEC 62443 and NIST SP 800-82</strong> standards, bridging process safety engineering with cyber defense.
+            Omtek Corporation delivers specialized <strong>Industrial Cybersecurity Advisory, OT Network Vulnerability Audits, and Purdue Model Segmentation</strong> aligned with <strong>IEC 62443 and NIST SP 800-82</strong> standards, bridging physical process engineering with defense-in-depth cyber security.
           </p>
+
+          <div class="curriculum-box">
+            <h4>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--safety-amber)" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+              Core OT Security Specializations
+            </h4>
+            <ul class="curriculum-list">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> IEC 62443-2-1 & 3-3 Cybersecurity Management System Audits</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Purdue Model Zone & Conduit Network Micro-Segmentation</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> SCADA / HMI & PLC Firmware Vulnerability Assessments</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Industrial Firewall (IDMZ) Ruleset Optimization</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Emergency Shutdown (ESD) & Safety Instrumented System (SIS) Integrity</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Industrial Threat Detection (Passive IDS/IPS Monitoring)</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Vendor Remote Access (VPN/PAM) Zero-Trust Hardening</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> OT Cyber Incident Response & Disaster Recovery Playbooks</li>
+            </ul>
+          </div>
         </div>
+
         <div class="deepdive-img-box">
-          <img src="assets/images/service-fire-gas.jpg" alt="Industrial OT Control System Security">
+          <img src="assets/images/service-fire-gas.jpg" alt="OT Cyber & SCADA Control Center Protection">
         </div>
       </div>
     </div>
   </section>
 
-  <!-- CORE CYBERSECURITY PILLARS -->
-  <section style="padding: 90px 0; background: #fafaf9;">
+  <!-- PURDUE MODEL ARCHITECTURE SECTION -->
+  <section style="padding: 80px 0; background: #f8fafc;">
     <div class="container">
-      <div class="section-header-center">
-        <span class="section-label" style="color: #c2410c;">Industrial Advisory Pillars</span>
-        <h2 class="section-title">Our Industrial Cybersecurity Offerings</h2>
-        <p>Comprehensive cyber-physical risk assessments for heavy process plants and energy utilities.</p>
+      <div style="text-align: center; max-width: 800px; margin: 0 auto 40px;">
+        <span class="section-label">Defense-In-Depth Architecture</span>
+        <h2 class="section-title">Purdue Model OT Security Breakdown</h2>
+        <p style="color: #64748b; font-size: 1.05rem;">We audit and isolate every layer of your industrial hierarchy to prevent lateral movement of malware from IT to plant control systems.</p>
       </div>
 
-      <div class="why-grid grid-3-col" style="margin-top: 40px;">
-        <div class="why-card" style="background: #ffffff; border: 1px solid #e4e4e7; color: #0f0f11;">
-          <div class="why-number" style="color: #c2410c;">🛡️ IEC 62443 Audits</div>
-          <h3 class="why-title" style="color: #0f0f11;">Zone & Conduit Segmentation</h3>
-          <p class="why-desc" style="color: #52525b;">Designing robust network zones, conduits, and air-gapped firewalls between corporate IT networks and critical plant-floor OT control loops.</p>
+      <div class="purdue-grid">
+        <div class="purdue-card">
+          <span class="purdue-level">Level 0 & Level 1</span>
+          <h4>Field Instrumentation & Controllers</h4>
+          <p>Sensors, transmitters, actuators, PLCs, RTUs, and Safety Instrumented Systems (SIS). Hardening Modbus, Profibus, and Ethernet/IP protocol integrity.</p>
         </div>
-
-        <div class="why-card" style="background: #ffffff; border: 1px solid #e4e4e7; color: #0f0f11;">
-          <div class="why-number" style="color: #c2410c;">⚡ Cyber-HAZOP / PHA</div>
-          <h3 class="why-title" style="color: #0f0f11;">Cyber Process Hazard Analysis</h3>
-          <p class="why-desc" style="color: #52525b;">Integrating cyber threat scenarios into traditional HAZOP/HAZID process safety reviews to identify vulnerable sensors, PLCs, and safety instrumented functions (SIF).</p>
+        <div class="purdue-card">
+          <span class="purdue-level">Level 2 & Level 3</span>
+          <h4>Area Control & Site Operations</h4>
+          <p>DCS Operator Consoles, HMI Stations, Alarm Servers, Plant Historians, and Batch Engineering Workstations. Restricting USB media and patching legacy OS.</p>
         </div>
-
-        <div class="why-card" style="background: #ffffff; border: 1px solid #e4e4e7; color: #0f0f11;">
-          <div class="why-number" style="color: #c2410c;">📟 ESD & F&G Panel Defense</div>
-          <h3 class="why-title" style="color: #0f0f11;">Safety Instrumented System Security</h3>
-          <p class="why-desc" style="color: #52525b;">Securing SIL-rated safety instrumented systems (Triconex, HIMA, Yokogawa ProSafe) against unauthorized firmware tampering or network manipulation.</p>
-        </div>
-
-        <div class="why-card" style="background: #ffffff; border: 1px solid #e4e4e7; color: #0f0f11;">
-          <div class="why-number" style="color: #c2410c;">🔒 Vendor & OEM Access Control</div>
-          <h3 class="why-title" style="color: #0f0f11;">Secure Remote Access Management</h3>
-          <p class="why-desc" style="color: #52525b;">Hardening vendor remote maintenance portals (Honeywell, ABB, Siemens, Schneider) to prevent unauthorized third-party backdoor access to plant networks.</p>
-        </div>
-
-        <div class="why-card" style="background: #ffffff; border: 1px solid #e4e4e7; color: #0f0f11;">
-          <div class="why-number" style="color: #c2410c;">📋 OT Incident Response</div>
-          <h3 class="why-title" style="color: #0f0f11;">Plant Cyber Incident Recovery</h3>
-          <p class="why-desc" style="color: #52525b;">Developing emergency response drills and backup recovery protocols to restore DCS/PLC logic and plant operations rapidly following a cyber incident.</p>
-        </div>
-
-        <div class="why-card" style="background: #ffffff; border: 1px solid #e4e4e7; color: #0f0f11;">
-          <div class="why-number" style="color: #c2410c;">🎓 Plant Workforce Awareness</div>
-          <h3 class="why-title" style="color: #0f0f11;">OT Cyber Safety Training</h3>
-          <p class="why-desc" style="color: #52525b;">Training plant engineers, instrumentation techs, and operators on USB security, social engineering, and rogue device detection on the plant floor.</p>
+        <div class="purdue-card">
+          <span class="purdue-level">Level 3.5 (IDMZ)</span>
+          <h4>Industrial DMZ Boundary</h4>
+          <p>Dual-homed firewalls, Jump Hosts, OT Active Directory isolation, and Secure Remote Access (PAM) for OEM vendor maintenance.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- CTA BANNER -->
-  <section class="mission-banner-section">
+  <!-- TECHNICAL COMPARISON TABLE -->
+  <section style="padding: 80px 0; background: #ffffff;">
     <div class="container">
-      <div class="mission-box">
-        <span class="mission-badge">Critical Infrastructure Security</span>
-        <h2 class="mission-box-title">Is Your Industrial Control System (OT) Protected Against Cyber Intrusions?</h2>
-        <p class="mission-quote">"Cybersecurity in process industries is not just an IT task — it is a fundamental element of Process Safety Management."</p>
-        <div style="margin-top: 24px;">
-          <a href="contact.html" class="btn btn-primary">Schedule an OT Cybersecurity Audit</a>
+      <span class="section-label">Engineering Comparison</span>
+      <h2 class="section-title" style="margin-bottom: 24px;">IT Security vs. OT Security Matrix</h2>
+      <p style="color: #52525b; margin-bottom: 30px;">Why standard IT security tools fail in industrial control plant environments:</p>
+
+      <div class="tech-table-wrapper">
+        <table class="tech-table">
+          <thead>
+            <tr>
+              <th>Evaluation Parameter</th>
+              <th>Enterprise IT Security</th>
+              <th>Industrial Operational Technology (OT) Security</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Primary Objective</strong></td>
+              <td>Data Confidentiality & Privacy</td>
+              <td><strong>Physical Safety, Process Availability & Human Life</strong></td>
+            </tr>
+            <tr>
+              <td><strong>System Downtime Tolerance</strong></td>
+              <td>Reboot / Maintenance Windows Accepted</td>
+              <td><strong>Zero Downtime (Continuous 24/7/365 Production)</strong></td>
+            </tr>
+            <tr>
+              <td><strong>Vulnerability Scanning</strong></td>
+              <td>Active Port Scanning & Penetration Testing</td>
+              <td><strong>Passive Network Monitoring Only (Active scanning can trip PLCs)</strong></td>
+            </tr>
+            <tr>
+              <td><strong>Protocol Architecture</strong></td>
+              <td>TCP/IP, HTTP, DNS, TLS Encryption</td>
+              <td><strong>Modbus TCP, DNP3, PROFINET, OPC UA, BACnet (Unencrypted Legacy)</strong></td>
+            </tr>
+            <tr>
+              <td><strong>Patching Frequency</strong></td>
+              <td>Weekly / Monthly Automatic Updates</td>
+              <td><strong>Strict Change Management (Quarterly / Shutdown Turnarounds)</strong></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- STANDARDS & FRAMEWORKS GRID -->
+  <section style="padding: 80px 0; background: var(--obsidian-base); color: #ffffff;">
+    <div class="container">
+      <div style="text-align: center; margin-bottom: 40px;">
+        <span class="section-label">Regulatory Compliance Frameworks</span>
+        <h2 class="section-title" style="color: #ffffff;">Global OT Security Standards We Audit Against</h2>
+      </div>
+
+      <div class="rich-feature-grid">
+        <div class="rich-feature-card" style="background: var(--obsidian-card); border-color: rgba(255,255,255,0.08);">
+          <h4 style="color: #ffffff;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--safety-amber)" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+            IEC 62443 Standard Suite
+          </h4>
+          <p style="color: #94a3b8;">Full compliance auditing across IEC 62443-2-1 (Security Program), IEC 62443-3-3 (System Security Requirements), and IEC 62443-4-2 (Component Security).</p>
+        </div>
+
+        <div class="rich-feature-card" style="background: var(--obsidian-card); border-color: rgba(255,255,255,0.08);">
+          <h4 style="color: #ffffff;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--safety-amber)" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+            NIST SP 800-82 Rev 2
+          </h4>
+          <p style="color: #94a3b8;">Guide to Industrial Control Systems (ICS) Security for SCADA, DCS, and Programmable Logic Controllers (PLCs) in critical energy infrastructure.</p>
+        </div>
+
+        <div class="rich-feature-card" style="background: var(--obsidian-card); border-color: rgba(255,255,255,0.08);">
+          <h4 style="color: #ffffff;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--safety-amber)" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+            ISO/IEC 27001 Annex A (OT)
+          </h4>
+          <p style="color: #94a3b8;">Integrating Information Security Management Systems (ISMS) with operational technology boundaries for unified enterprise risk oversight.</p>
+        </div>
+
+        <div class="rich-feature-card" style="background: var(--obsidian-card); border-color: rgba(255,255,255,0.08);">
+          <h4 style="color: #ffffff;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--safety-amber)" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+            Ex - KOC & Regional Energy Audits
+          </h4>
+          <p style="color: #94a3b8;">Advisory rooted in hands-on oilfield DCS experience under Kuwait Oil Company (KOC) and Middle East petroleum safety protocols.</p>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- FAQ SECTION -->
+  <section style="padding: 80px 0; background: #ffffff;">
+    <div class="container" style="max-width: 900px;">
+      <div style="text-align: center; margin-bottom: 40px;">
+        <span class="section-label">Client Technical Queries</span>
+        <h2 class="section-title">Frequently Asked Questions</h2>
+      </div>
+
+      <div class="faq-accordion">
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Will an OT Cybersecurity Audit interrupt plant operations or trigger PLC trips?</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <div class="faq-answer">
+            <p><strong>Absolutely not.</strong> Omtek Corporation strictly utilizes passive network traffic monitoring, SPAN/TAP port packet capture, and offline configuration audits. We never perform intrusive active IP scanning on live DCS/PLC buses during active production.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>How does Purdue Model segmentation help protect legacy unpatched PLCs?</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <div class="faq-answer">
+            <p>Many industrial PLCs run legacy firmware that cannot be easily updated. Purdue Model micro-segmentation places legacy controllers inside dedicated VLAN conduits behind industrial firewalls, blocking unauthorized traffic and preventing lateral malware spread from IT networks.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>What deliverables does Omtek Corporation provide after an OT Audit?</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <div class="faq-answer">
+            <p>We provide a comprehensive Executive Risk Summary, Purdue Model Network Topology Diagrams, Gap Analysis against IEC 62443 standards, Industrial Firewall Rule Optimization Matrix, and a prioritized Remediation Roadmap.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BOX -->
+  <section style="padding: 70px 0; background: var(--obsidian-card);">
+    <div class="container text-center" style="text-align: center;">
+      <h2 style="color: #ffffff; margin-bottom: 16px;">Schedule an OT & SCADA Security Advisory Session</h2>
+      <p style="color: #94a3b8; max-width: 650px; margin: 0 auto 30px;">Speak directly with Mr. Prem Prakash Mishra (Ex - KOC) and our industrial cybersecurity experts to safeguard your facility.</p>
+      <a href="contact.html" class="btn btn-primary">Book OT Security Consultation</a>
     </div>
   </section>
 
