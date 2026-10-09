@@ -217,15 +217,28 @@
       color: #0f0f11;
     }
     .badge-status {
-      padding: 4px 10px;
+      padding: 5px 12px;
       border-radius: 999px;
-      font-size: 0.75rem;
+      font-size: 0.76rem;
       font-weight: 700;
       display: inline-block;
     }
-    .badge-new { background: #dbeafe; color: #1e40af; }
-    .badge-contacted { background: #fef3c7; color: #92400e; }
-    .badge-completed { background: #dcfce7; color: #166534; }
+    .badge-new { background: #dbeafe; color: #1e40af; border: 1px solid #bfdbfe; }
+    .badge-contacted { background: #fef3c7; color: #92400e; border: 1px solid #fde68a; }
+    .badge-inprogress { background: #ffedd5; color: #c2410c; border: 1px solid #fed7aa; }
+    .badge-pending { background: #f3e8ff; color: #6b21a8; border: 1px solid #e9d5ff; }
+    .badge-completed { background: #dcfce7; color: #166534; border: 1px solid #bbf7d0; }
+
+    .status-badge-select {
+      padding: 4px 8px;
+      border-radius: 6px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      cursor: pointer;
+      border: 1px solid #d4d4d8;
+      outline: none;
+      transition: all 0.2s;
+    }
     .form-card-box {
       background: #ffffff;
       padding: 28px;
@@ -334,26 +347,26 @@
 
           <div class="stats-cards-grid">
             <div class="stat-box">
-              <div class="stat-box-num" id="totalLeadsCount">5</div>
+              <div class="stat-box-num" id="totalLeadsCount">0</div>
               <div class="stat-box-lbl">Total Enquiries Received</div>
             </div>
             <div class="stat-box">
-              <div class="stat-box-num" style="color: #2563eb;">2</div>
+              <div class="stat-box-num" id="newLeadsCount" style="color: #2563eb;">0</div>
               <div class="stat-box-lbl">New Unread Leads</div>
             </div>
             <div class="stat-box">
-              <div class="stat-box-num" style="color: #d97706;">2</div>
-              <div class="stat-box-lbl">In Progress / Contacted</div>
+              <div class="stat-box-num" id="contactedLeadsCount" style="color: #d97706;">0</div>
+              <div class="stat-box-lbl">In Progress / Contacted / Pending</div>
             </div>
             <div class="stat-box">
-              <div class="stat-box-num" style="color: #16a34a;">1</div>
+              <div class="stat-box-num" id="completedLeadsCount" style="color: #16a34a;">0</div>
               <div class="stat-box-lbl">Converted Accounts</div>
             </div>
           </div>
 
           <div style="margin-bottom: 16px; display: flex; justify-content: space-between; align-items: center;">
             <h3 style="font-size: 1.1rem; font-weight: 700; color: #0f0f11;">Recent RFQ Submissions</h3>
-            <span style="font-size: 0.84rem; color: #71717a;">Auto-syncs with contact forms</span>
+            <span style="font-size: 0.84rem; color: #71717a;">Auto-syncs with contact forms in real-time</span>
           </div>
 
           <table class="data-table">
@@ -364,7 +377,7 @@
                 <th>Company / Organization</th>
                 <th>Contact Details</th>
                 <th>Service Required</th>
-                <th>Status</th>
+                <th>Status (Select to Update)</th>
                 <th>Action</th>
               </tr>
             </thead>
@@ -587,6 +600,61 @@
     </div>
   </div>
 
+  <!-- LEAD DETAILS & STATUS MODAL -->
+  <div class="modal-overlay" id="leadDetailsModal" style="display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.6); z-index: 99999; align-items: center; justify-content: center; padding: 20px;">
+    <div style="background: #ffffff; width: 100%; max-width: 560px; border-radius: 12px; padding: 28px; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.4); border: 1px solid #e4e4e7; position: relative;">
+      <button onclick="closeLeadModal()" style="position: absolute; top: 16px; right: 16px; background: none; border: none; font-size: 1.5rem; cursor: pointer; color: #71717a;">&times;</button>
+      <div style="margin-bottom: 20px;">
+        <span style="font-size: 0.78rem; font-weight: 700; color: #c2410c; text-transform: uppercase;">Lead Inspection & Status Management</span>
+        <h3 id="modalClientTitle" style="font-family: var(--font-heading); font-size: 1.4rem; font-weight: 800; color: #0f0f11; margin-top: 4px;">Client RFQ Details</h3>
+      </div>
+      
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 20px; background: #fafaf9; padding: 16px; border-radius: 8px; border: 1px solid #e4e4e7; font-size: 0.88rem;">
+        <div>
+          <span style="color: #71717a; font-size: 0.78rem; display: block;">Client Name</span>
+          <strong id="modalLeadName" style="color: #0f0f11; font-size: 0.95rem;">-</strong>
+        </div>
+        <div>
+          <span style="color: #71717a; font-size: 0.78rem; display: block;">Company / Plant</span>
+          <strong id="modalLeadCompany" style="color: #0f0f11; font-size: 0.95rem;">-</strong>
+        </div>
+        <div>
+          <span style="color: #71717a; font-size: 0.78rem; display: block;">Submission Date</span>
+          <span id="modalLeadDate" style="color: #3f3f46;">-</span>
+        </div>
+        <div>
+          <span style="color: #71717a; font-size: 0.78rem; display: block;">Service Required</span>
+          <strong id="modalLeadService" style="color: #c2410c;">-</strong>
+        </div>
+        <div style="grid-column: span 2;">
+          <span style="color: #71717a; font-size: 0.78rem; display: block;">Contact Info / Email & Phone</span>
+          <span id="modalLeadContact" style="color: #0f0f11; font-weight: 600;">-</span>
+        </div>
+      </div>
+
+      <div class="form-group" style="margin-bottom: 20px;">
+        <label class="form-label" style="font-weight: 700; color: #0f0f11; margin-bottom: 6px; display: block;">Update Lead Status</label>
+        <select id="modalStatusSelect" class="form-select" style="width: 100%; padding: 10px; border-radius: 8px; font-weight: 700; border: 1px solid #d4d4d8;">
+          <option value="New">🔵 New (Unread)</option>
+          <option value="Contacted">🟡 Contacted (In Touch)</option>
+          <option value="In Progress">🟠 In Progress (Proposal Sent)</option>
+          <option value="Pending">🟣 Pending (Awaiting Feedback)</option>
+          <option value="Completed">🟢 Completed / Converted Account</option>
+        </select>
+      </div>
+
+      <div style="display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-top: 24px;">
+        <button onclick="deleteCurrentModalLead()" style="background: #fee2e2; color: #dc2626; border: 1px solid #fca5a5; padding: 10px 16px; border-radius: 8px; font-size: 0.85rem; font-weight: 700; cursor: pointer;">
+          🗑️ Delete Lead
+        </button>
+        <div style="display: flex; gap: 10px;">
+          <button onclick="closeLeadModal()" class="btn btn-dark" style="padding: 10px 16px; font-size: 0.88rem;">Cancel</button>
+          <button onclick="saveModalLeadStatus()" class="btn btn-primary" style="padding: 10px 20px; font-size: 0.88rem; font-weight: 700;">💾 Save Status Update</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <script>
     const DEFAULT_PASSCODE = "omtek2026";
 
@@ -595,8 +663,10 @@
       { id: 2, date: "2026-09-28 11:45", name: "Rajesh K. Sharma", company: "IOCL Mathura Plant", contact: "rksharma@iocl.in / +91 98111 22334", service: "Asset Integrity Management", status: "Contacted" },
       { id: 3, date: "2026-09-27 16:30", name: "Amitabh Sen", company: "Haldia Petrochemicals", contact: "a.sen@haldia.com / +91 97333 44556", service: "Corporate Industrial Training", status: "In Progress" },
       { id: 4, date: "2026-09-25 09:15", name: "Vikramjit Singh", company: "BHEL Power Sector", contact: "vjsingh@bhel.in / +91 99000 11223", service: "QA/QC Vendor Audit", status: "Completed" },
-      { id: 5, date: "2026-09-24 18:00", name: "Tariq Al-Mansoor", company: "GCC EPC Contracting", contact: "tariq@gulfepc.com / +965 9912 3456", service: "Process Safety Consulting", status: "New" }
+      { id: 5, date: "2026-09-24 18:00", name: "Tariq Al-Mansoor", company: "GCC EPC Contracting", contact: "tariq@gulfepc.com / +965 9912 3456", service: "Process Safety Consulting", status: "Pending" }
     ];
+
+    let currentActiveLeadId = null;
 
     document.addEventListener("DOMContentLoaded", () => {
       if (sessionStorage.getItem("omtek_admin_logged_in") === "true") {
@@ -647,28 +717,109 @@
       btnElement.classList.add("active");
     }
 
+    function getBadgeClass(status) {
+      const s = (status || 'New').toLowerCase();
+      if (s === 'new') return 'badge-new';
+      if (s === 'contacted') return 'badge-contacted';
+      if (s === 'in progress') return 'badge-inprogress';
+      if (s === 'pending') return 'badge-pending';
+      if (s === 'completed' || s === 'converted') return 'badge-completed';
+      return 'badge-new';
+    }
+
     function renderEnquiries() {
       const stored = JSON.parse(localStorage.getItem("omtek_enquiries")) || sampleEnquiries;
       const tbody = document.getElementById("enquiriesTableBody");
-      document.getElementById("totalLeadsCount").innerText = stored.length;
       
+      const newCount = stored.filter(x => x.status === 'New').length;
+      const inProgressCount = stored.filter(x => x.status === 'Contacted' || x.status === 'In Progress' || x.status === 'Pending').length;
+      const completedCount = stored.filter(x => x.status === 'Completed' || x.status === 'Converted').length;
+
+      document.getElementById("totalLeadsCount").innerText = stored.length;
+      document.getElementById("newLeadsCount").innerText = newCount;
+      document.getElementById("contactedLeadsCount").innerText = inProgressCount;
+      document.getElementById("completedLeadsCount").innerText = completedCount;
+
       tbody.innerHTML = stored.map(item => `
         <tr>
-          <td>${item.date}</td>
+          <td style="font-size: 0.82rem; color: #52525b;">${item.date}</td>
           <td><strong>${item.name}</strong></td>
           <td>${item.company}</td>
-          <td>${item.contact}</td>
+          <td><span style="font-size: 0.84rem; color: #3f3f46;">${item.contact}</span></td>
           <td><span style="font-weight: 600; color: #c2410c;">${item.service}</span></td>
           <td>
-            <span class="badge-status ${item.status === 'New' ? 'badge-new' : item.status === 'Contacted' ? 'badge-contacted' : 'badge-completed'}">
-              ${item.status}
-            </span>
+            <select class="status-badge-select ${getBadgeClass(item.status)}" onchange="updateLeadStatusDirectly(${item.id}, this.value)">
+              <option value="New" ${item.status === 'New' ? 'selected' : ''}>🔵 New</option>
+              <option value="Contacted" ${item.status === 'Contacted' ? 'selected' : ''}>🟡 Contacted</option>
+              <option value="In Progress" ${item.status === 'In Progress' ? 'selected' : ''}>🟠 In Progress</option>
+              <option value="Pending" ${item.status === 'Pending' ? 'selected' : ''}>🟣 Pending</option>
+              <option value="Completed" ${item.status === 'Completed' || item.status === 'Converted' ? 'selected' : ''}>🟢 Completed</option>
+            </select>
           </td>
           <td>
-            <button class="btn btn-dark" style="padding: 4px 8px; font-size: 0.76rem;" onclick="alert('Lead details for ${item.name}: ${item.contact}')">View</button>
+            <div style="display: flex; gap: 6px;">
+              <button class="btn btn-primary" style="padding: 5px 10px; font-size: 0.78rem;" onclick="openLeadModal(${item.id})">👁️ View</button>
+              <button style="padding: 5px 8px; font-size: 0.78rem; background: #fee2e2; color: #dc2626; border: 1px solid #fca5a5; border-radius: 6px; cursor: pointer;" onclick="deleteLeadDirectly(${item.id})" title="Delete Lead">🗑️</button>
+            </div>
           </td>
         </tr>
       `).join('');
+    }
+
+    function updateLeadStatusDirectly(id, newStatus) {
+      let stored = JSON.parse(localStorage.getItem("omtek_enquiries")) || sampleEnquiries;
+      const index = stored.findIndex(x => x.id === id);
+      if (index !== -1) {
+        stored[index].status = newStatus;
+        localStorage.setItem("omtek_enquiries", JSON.stringify(stored));
+        renderEnquiries();
+      }
+    }
+
+    function openLeadModal(id) {
+      let stored = JSON.parse(localStorage.getItem("omtek_enquiries")) || sampleEnquiries;
+      const item = stored.find(x => x.id === id);
+      if (!item) return;
+
+      currentActiveLeadId = id;
+      document.getElementById("modalClientTitle").innerText = `Lead: ${item.name}`;
+      document.getElementById("modalLeadName").innerText = item.name;
+      document.getElementById("modalLeadCompany").innerText = item.company || 'N/A';
+      document.getElementById("modalLeadDate").innerText = item.date;
+      document.getElementById("modalLeadService").innerText = item.service;
+      document.getElementById("modalLeadContact").innerText = item.contact;
+      document.getElementById("modalStatusSelect").value = item.status || 'New';
+
+      const modal = document.getElementById("leadDetailsModal");
+      modal.style.display = "flex";
+    }
+
+    function closeLeadModal() {
+      document.getElementById("leadDetailsModal").style.display = "none";
+      currentActiveLeadId = null;
+    }
+
+    function saveModalLeadStatus() {
+      if (!currentActiveLeadId) return;
+      const newStatus = document.getElementById("modalStatusSelect").value;
+      updateLeadStatusDirectly(currentActiveLeadId, newStatus);
+      closeLeadModal();
+    }
+
+    function deleteLeadDirectly(id) {
+      if (confirm("Are you sure you want to delete this enquiry lead?")) {
+        let stored = JSON.parse(localStorage.getItem("omtek_enquiries")) || sampleEnquiries;
+        stored = stored.filter(x => x.id !== id);
+        localStorage.setItem("omtek_enquiries", JSON.stringify(stored));
+        renderEnquiries();
+      }
+    }
+
+    function deleteCurrentModalLead() {
+      if (currentActiveLeadId) {
+        deleteLeadDirectly(currentActiveLeadId);
+        closeLeadModal();
+      }
     }
 
     function exportEnquiriesCSV() {
