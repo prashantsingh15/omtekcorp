@@ -206,10 +206,12 @@
     .industries-pill-row { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
     .industries-pill { background: #0f0f11; color: #ffffff; font-size: 0.85rem; font-weight: 600; padding: 8px 18px; border-radius: 999px; }
 
-    @media (max-width: 768px) {
+    @media (max-width: 900px) {
       .fire-hero-photo-grid { grid-template-columns: 1fr; }
       .fire-hero-photo-grid img.span-2 { height: 200px; }
       .why-check-grid { grid-template-columns: 1fr; }
+      .industries-pill-row { gap: 8px; }
+      .industries-pill { font-size: 0.82rem; padding: 6px 14px; }
     }
   </style>
 </head>
@@ -246,15 +248,39 @@
         <div class="nav-item"><a href="index.html" class="nav-link">Home</a></div>
         <div class="nav-item"><a href="about.html" class="nav-link">About Leadership</a></div>
         <div class="nav-item">
-          <a href="services.html" class="nav-link active">Core Services
+          <a href="services.html" class="nav-link active">
+            Services
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
           </a>
           <div class="nav-dropdown">
-            <a href="corporate-training.html" class="dropdown-link">Corporate Training<span>RCA, Six Sigma, RCM &amp; Asset Integrity</span></a>
-            <a href="hse-process-safety.html" class="dropdown-link">HSE &amp; Process Safety<span>PSM, BBS, PTW &amp; Emergency Response</span></a>
-            <a href="cyber-security.html" class="dropdown-link">Industrial OT &amp; Cybersecurity<span>IEC 62443, SCADA &amp; Control Security</span></a>
-            <a href="fire-gas-systems.html" class="dropdown-link" style="border-left: 3px solid #c2410c; background: #fff7ed;">Fire &amp; Gas Systems<span>EPC, Commissioning, Deluge &amp; AMC</span></a>
-            <a href="water-treatment.html" class="dropdown-link">Water &amp; Environmental<span>RO, STP, ETP &amp; Zero Liquid Discharge</span></a>
+            <a href="services.html" class="dropdown-link" style="border-bottom: 1px dashed #e2e8f0; font-weight: 700; color: var(--safety-amber);">
+              All Core Services Overview ↗
+              <span>Explore Complete Industrial & Advisory Solutions</span>
+            </a>
+            <a href="fire-gas-systems.html" class="dropdown-link">
+              Fire Protection
+              <span>Fire Alarm, Deluge, Smoke Detection & Suppression</span>
+            </a>
+            <a href="water-treatment.html" class="dropdown-link">
+              Plumbing and Bulk Drinking Water Solution
+              <span>End-to-End Plumbing & Bulk Quantity Drinking Water</span>
+            </a>
+            <a href="corporate-training.html#iso" class="dropdown-link">
+              ISO Audit & Certification For 9001,14001 & 45001
+              <span>Quality, Environmental & OHS Management Audits</span>
+            </a>
+            <a href="cyber-security.html" class="dropdown-link">
+              Cyber Security Professional Training
+              <span>Defense, Threat Prevention, Analysis & Upskilling</span>
+            </a>
+            <a href="services.html#digital-marketing" class="dropdown-link">
+              Web Site Design, SEO, SMO, SEM, SMM & Direct Marketing
+              <span>Online Presence, Digital Visibility & Marketing</span>
+            </a>
+            <a href="services.html#virtual-design-studio" class="dropdown-link">
+              Virtual Design Studio
+              <span>Innovative Technology-Enabled Digital Design Services</span>
+            </a>
           </div>
         </div>
         <div class="nav-item"><a href="gallery.html" class="nav-link">Media &amp; Videos</a></div>
@@ -563,10 +589,10 @@
   <!-- WHY OMTEK CORPORATION -->
   <section style="padding: 90px 0; background: #ffffff;">
     <div class="container">
-      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;">
+      <div class="responsive-two-col align-center">
         <div>
           <span class="section-label">Why Choose Us</span>
-          <h2 class="section-title">Why Omtek Corporation?</h2>
+          <h2 class="section-title">Why Omtek <span style="white-space: nowrap;">Corporation?</span></h2>
           <p style="color: #52525b; font-size: 0.95rem; line-height: 1.75; margin-bottom: 28px;">We combine engineering expertise, certified professionals, and reliable after-sales support to deliver turnkey fire protection and security solutions that meet international quality benchmarks.</p>
           <div class="why-check-grid">
             <div class="why-check-item"><span>End-to-end turnkey solutions</span></div>
@@ -580,7 +606,7 @@
         <div>
           <div style="display: flex; flex-direction: column; gap: 16px;">
             <img src="assets/images/fireprotection10.jpg" alt="Fire Safety Inspection Process" style="width:100%; border-radius:14px; box-shadow:0 12px 32px rgba(0,0,0,0.1); border:1px solid #e4e4e7;">
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
+            <div class="mobile-stack-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
               <img src="assets/images/fireprotection5.jpeg" alt="Gas Extinguishing System Skid" style="width:100%; height:160px; object-fit:cover; border-radius:10px; box-shadow:0 4px 16px rgba(0,0,0,0.08);">
               <img src="assets/images/fireprotection11.jpeg" alt="Technician Installing Security Camera" style="width:100%; height:160px; object-fit:cover; border-radius:10px; box-shadow:0 4px 16px rgba(0,0,0,0.08);">
             </div>
@@ -593,7 +619,7 @@
   <!-- INDUSTRIES WE SERVE + SERVICE LIFECYCLE -->
   <section style="padding: 90px 0; background: #fafaf9; border-top: 1px solid #e4e4e7;">
     <div class="container">
-      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 60px;">
+      <div class="responsive-two-col">
 
         <!-- Industries -->
         <div>
@@ -723,12 +749,12 @@
 
         <div>
           <h4 class="footer-col-title">Offices &amp; Contact</h4>
-          <div class="footer-address">
-            <span style="font-size: 0.88rem; color: #cbd5e1;">Kanpur Branch Office:</span>
+          <div class="footer-links">
+            <span style="font-size: 0.88rem; color: #cbd5e1; font-weight: 700;">Kanpur Branch Office:</span>
             <span style="font-size: 0.82rem; color: #94a3b8;">128/166, Hari Prem Apt, Kidwai Nagar, Kanpur - 208011</span>
-            <span style="font-size: 0.88rem; color: #cbd5e1; margin-top: 8px;">Delhi NCR Regd. Office:</span>
+            <span style="font-size: 0.88rem; color: #cbd5e1; font-weight: 700; margin-top: 6px;">Delhi NCR Regd. Office:</span>
             <span style="font-size: 0.82rem; color: #94a3b8;">Najafgarh, New Delhi - 110043</span>
-            <span style="font-size: 0.88rem; color: #cbd5e1; margin-top: 8px;">Navi Mumbai Operating Office:</span>
+            <span style="font-size: 0.88rem; color: #cbd5e1; font-weight: 700; margin-top: 6px;">Navi Mumbai Operating Office:</span>
             <span style="font-size: 0.82rem; color: #94a3b8;">Navi Mumbai, Maharashtra</span>
             <div style="margin-top: 10px;">
               <a href="tel:+919810772284" class="footer-link" style="color: var(--safety-amber);">📞 +91-9810772284 / +91-9987079111</a>

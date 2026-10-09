@@ -15,19 +15,61 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 2. Mobile Menu Toggle
+  // 2. Mobile Menu Toggle & Dropdown Accordion Handling
   const mobileToggle = document.getElementById('mobileToggle');
   const navMenu = document.getElementById('navMenu');
   if (mobileToggle && navMenu) {
-    mobileToggle.addEventListener('click', () => {
+    mobileToggle.addEventListener('click', (e) => {
+      e.stopPropagation();
       navMenu.classList.toggle('open');
     });
 
-    // Close menu when clicking any nav-link or CTA
-    navMenu.querySelectorAll('.nav-link, .dropdown-link, .mobile-menu-cta-btn').forEach(link => {
+    // Handle dropdown accordion toggles on mobile / touch screens
+    const navItems = navMenu.querySelectorAll('.nav-item');
+    navItems.forEach(item => {
+      const dropdown = item.querySelector('.nav-dropdown');
+      const navLink = item.querySelector('.nav-link');
+      
+      if (dropdown && navLink) {
+        item.classList.add('has-dropdown');
+        navLink.addEventListener('click', (e) => {
+          // Whenever mobile drawer is active or screen is mobile/tablet
+          if (navMenu.classList.contains('open') || window.innerWidth <= 1024) {
+            e.preventDefault();
+            e.stopPropagation();
+            const isOpen = item.classList.contains('dropdown-open');
+            navItems.forEach(other => {
+              if (other !== item) other.classList.remove('dropdown-open');
+            });
+            item.classList.toggle('dropdown-open', !isOpen);
+          }
+        });
+      }
+    });
+
+    // Close mobile menu when clicking actual destination links
+    navMenu.querySelectorAll('.dropdown-link, .mobile-menu-cta-btn').forEach(link => {
       link.addEventListener('click', () => {
         navMenu.classList.remove('open');
       });
+    });
+
+    // Close mobile menu when clicking regular non-dropdown top-level nav links
+    navItems.forEach(item => {
+      const dropdown = item.querySelector('.nav-dropdown');
+      const navLink = item.querySelector('.nav-link');
+      if (!dropdown && navLink) {
+        navLink.addEventListener('click', () => {
+          navMenu.classList.remove('open');
+        });
+      }
+    });
+
+    // Close menu when tapping outside
+    document.addEventListener('click', (e) => {
+      if (navMenu.classList.contains('open') && !navMenu.contains(e.target) && !mobileToggle.contains(e.target)) {
+        navMenu.classList.remove('open');
+      }
     });
   }
 

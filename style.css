@@ -1901,6 +1901,14 @@ img[src*="zonal-leadership-framed"],
     align-items: center;
     border-bottom: 1px solid #f1f5f9;
   }
+  .nav-link svg {
+    transition: transform 0.25s ease;
+    flex-shrink: 0;
+  }
+  .nav-item.dropdown-open > .nav-link svg {
+    transform: rotate(180deg);
+    color: var(--safety-amber);
+  }
   .nav-link:hover, .nav-link.active {
     background: #f8fafc;
     color: var(--safety-amber);
@@ -1915,19 +1923,29 @@ img[src*="zonal-leadership-framed"],
     border-radius: var(--radius-sm);
     background: #f8fafc;
     margin: 8px 0;
-    padding: 8px;
+    padding: 10px;
     display: none;
+    flex-direction: column;
+    gap: 6px;
   }
   .nav-item.dropdown-open .nav-dropdown,
-  .nav-item:hover .nav-dropdown {
-    display: block;
+  .nav-menu.open .nav-item.dropdown-open .nav-dropdown {
+    display: flex !important;
   }
   .dropdown-link {
-    padding: 8px 10px;
-    font-size: 0.88rem;
+    padding: 10px 12px;
+    font-size: 0.92rem;
+    border-radius: 6px;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+  }
+  .dropdown-link:hover {
+    background: #f0fdf4;
+    border-color: var(--safety-amber);
   }
   .dropdown-link span {
-    font-size: 0.74rem;
+    font-size: 0.78rem;
+    color: #64748b;
   }
   .mobile-menu-cta {
     display: block !important;
@@ -2766,6 +2784,42 @@ img[src*="zonal-leadership-framed"],
   .stat-card-grid {
     grid-template-columns: 1fr;
   }
+}
+
+/* ==========================================================================
+   GLOBAL RESPONSIVE 2-COLUMN GRID & FOOTER ADDRESS POLISH
+   ========================================================================== */
+.responsive-two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+}
+.responsive-two-col.align-center {
+  align-items: center;
+}
+
+@media (max-width: 900px) {
+  .responsive-two-col {
+    grid-template-columns: 1fr !important;
+    gap: 36px !important;
+  }
+}
+
+@media (max-width: 580px) {
+  .mobile-stack-grid {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+}
+
+.footer-address {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 8px !important;
+}
+.footer-address span {
+  display: block !important;
+  line-height: 1.5 !important;
 }
 
 
