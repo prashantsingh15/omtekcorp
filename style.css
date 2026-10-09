@@ -394,9 +394,9 @@ button, input, select, textarea {
   min-height: 88vh;
   display: flex;
   align-items: center;
-  background: radial-gradient(circle at 80% 25%, rgba(234, 88, 12, 0.20) 0%, transparent 45%),
-              radial-gradient(circle at 15% 75%, rgba(194, 65, 12, 0.25) 0%, transparent 50%),
-              linear-gradient(135deg, rgba(15, 15, 17, 0.95) 0%, rgba(26, 26, 30, 0.91) 100%),
+  background: radial-gradient(circle at 80% 25%, rgba(234, 88, 12, 0.25) 0%, transparent 45%),
+              radial-gradient(circle at 15% 75%, rgba(194, 65, 12, 0.30) 0%, transparent 50%),
+              linear-gradient(135deg, rgba(15, 15, 17, 0.52) 0%, rgba(26, 26, 30, 0.62) 100%),
               url('assets/images/hero-refinery.jpg') center/cover no-repeat;
   color: var(--text-light);
   padding: 110px 0 90px;
@@ -1874,12 +1874,54 @@ img[src*="zonal-leadership-framed"],
    ========================================================================== */
 .page-header {
   position: relative;
-  background: radial-gradient(circle at 80% 25%, rgba(234, 88, 12, 0.20) 0%, transparent 45%),
-              linear-gradient(135deg, rgba(15, 15, 17, 0.95) 0%, rgba(26, 26, 30, 0.90) 100%),
+  background: radial-gradient(circle at 80% 25%, rgba(234, 88, 12, 0.25) 0%, transparent 45%),
+              linear-gradient(135deg, rgba(15, 15, 17, 0.48) 0%, rgba(26, 26, 30, 0.62) 100%),
               url('assets/images/hero-refinery.jpg') center/cover no-repeat;
   color: #ffffff;
-  padding: 80px 0 60px;
+  padding: 85px 0 65px;
   text-align: center;
+}
+
+.page-header-training {
+  background: radial-gradient(circle at 80% 25%, rgba(234, 88, 12, 0.25) 0%, transparent 45%),
+              linear-gradient(135deg, rgba(15, 15, 17, 0.45) 0%, rgba(26, 26, 30, 0.60) 100%),
+              url('assets/images/training-rca-poka-yoke-stage.jpeg') center/cover no-repeat !important;
+}
+
+.page-header-hse {
+  background: radial-gradient(circle at 80% 25%, rgba(234, 88, 12, 0.25) 0%, transparent 45%),
+              linear-gradient(135deg, rgba(15, 15, 17, 0.45) 0%, rgba(26, 26, 30, 0.60) 100%),
+              url('assets/images/service-hse-safety.jpg') center/cover no-repeat !important;
+}
+
+.page-header-cyber {
+  background: radial-gradient(circle at 80% 25%, rgba(234, 88, 12, 0.25) 0%, transparent 45%),
+              linear-gradient(135deg, rgba(15, 15, 17, 0.45) 0%, rgba(26, 26, 30, 0.60) 100%),
+              url('assets/images/service-fire-gas.jpg') center/cover no-repeat !important;
+}
+
+.page-header-fire {
+  background: radial-gradient(circle at 80% 25%, rgba(234, 88, 12, 0.25) 0%, transparent 45%),
+              linear-gradient(135deg, rgba(15, 15, 17, 0.45) 0%, rgba(26, 26, 30, 0.60) 100%),
+              url('assets/images/service-fire-gas.jpg') center/cover no-repeat !important;
+}
+
+.page-header-water {
+  background: radial-gradient(circle at 80% 25%, rgba(234, 88, 12, 0.25) 0%, transparent 45%),
+              linear-gradient(135deg, rgba(15, 15, 17, 0.45) 0%, rgba(26, 26, 30, 0.60) 100%),
+              url('assets/images/service-water-environmental.jpg') center/cover no-repeat !important;
+}
+
+.page-header-about {
+  background: radial-gradient(circle at 80% 25%, rgba(234, 88, 12, 0.25) 0%, transparent 45%),
+              linear-gradient(135deg, rgba(15, 15, 17, 0.45) 0%, rgba(26, 26, 30, 0.60) 100%),
+              url('assets/images/prem-prakash-mishra-portrait.jpeg') center/cover no-repeat !important;
+}
+
+.page-header-gallery {
+  background: radial-gradient(circle at 80% 25%, rgba(234, 88, 12, 0.25) 0%, transparent 45%),
+              linear-gradient(135deg, rgba(15, 15, 17, 0.45) 0%, rgba(26, 26, 30, 0.60) 100%),
+              url('assets/images/summit-vip-delegates.jpeg') center/cover no-repeat !important;
 }
 
 .breadcrumb-nav {
@@ -1888,12 +1930,13 @@ img[src*="zonal-leadership-framed"],
   justify-content: center;
   gap: 8px;
   font-size: 0.85rem;
-  color: #94a3b8;
+  color: #e2e8f0;
   margin-bottom: 16px;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.8);
 }
 
 .breadcrumb-nav a {
-  color: var(--safety-amber);
+  color: #fdba74;
 }
 
 .breadcrumb-nav a:hover {
@@ -1906,14 +1949,16 @@ img[src*="zonal-leadership-framed"],
   font-weight: 800;
   line-height: 1.2;
   margin-bottom: 12px;
+  text-shadow: 0 3px 12px rgba(0, 0, 0, 0.9);
 }
 
 .page-subtitle {
   font-size: 1.15rem;
-  color: #cbd5e1;
-  max-width: 720px;
+  color: #f1f5f9;
+  max-width: 760px;
   margin: 0 auto;
   line-height: 1.6;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9);
 }
 
 /* Deep Dive Service Cards */
