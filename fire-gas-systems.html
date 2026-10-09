@@ -2,13 +2,73 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Fire & Gas Systems (EPC, Commissioning & AMC) — Omtek Corporation</title>
-  <meta name="description" content="Turnkey Fire & Gas engineering, deluge systems, hazardous gas detectors, and ESD panel AMC by Omtek Corporation under NFPA & OISD compliance.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>Fire Protection, Security Systems & Smart Building Solutions — Omtek Corporation</title>
+  <meta name="description" content="Omtek Corporation delivers end-to-end Fire Protection, Life Safety, Security Systems, CCTV Surveillance, and Integrated Building Management Solutions (IBMS) under IS, NBC & NFPA compliance.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <style>
+    /* ── Page-specific overrides ── */
+    .fire-hero-photo-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 32px;
+    }
+    .fire-hero-photo-grid img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+      transition: transform 0.3s ease;
+    }
+    .fire-hero-photo-grid img:hover { transform: scale(1.02); }
+    .fire-hero-photo-grid img.span-2 { grid-column: 1/-1; height: 280px; }
+
+    .expertise-card {
+      background: #ffffff;
+      border: 1px solid #e4e4e7;
+      border-radius: 16px;
+      padding: 32px 28px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+    .expertise-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,0.1); }
+    .expertise-card-icon { font-size: 2rem; margin-bottom: 14px; }
+    .expertise-card h3 { font-family: var(--font-heading); font-size: 1.2rem; font-weight: 700; color: #0f0f11; margin-bottom: 10px; }
+    .expertise-card p  { color: #52525b; font-size: 0.9rem; line-height: 1.65; margin-bottom: 14px; }
+    .expertise-tick-list { list-style: none; padding: 0; margin: 0; }
+    .expertise-tick-list li { font-size: 0.88rem; color: #3f3f46; padding: 4px 0; display: flex; align-items: flex-start; gap: 8px; }
+    .expertise-tick-list li::before { content: "✔"; color: #c2410c; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+    .expertise-check-pills { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; }
+    .expertise-check-pills span { background: #fef3c7; color: #92400e; font-size: 0.78rem; font-weight: 600; padding: 4px 10px; border-radius: 999px; }
+
+    .lifecycle-stepper { display: flex; flex-direction: column; gap: 0; }
+    .lifecycle-step { display: flex; gap: 24px; align-items: flex-start; position: relative; padding-bottom: 32px; }
+    .lifecycle-step:last-child { padding-bottom: 0; }
+    .lifecycle-step::before { content: ''; position: absolute; left: 24px; top: 52px; bottom: 0; width: 2px; background: #e4e4e7; }
+    .lifecycle-step:last-child::before { display: none; }
+    .lifecycle-step-num { width: 50px; height: 50px; border-radius: 50%; background: #c2410c; color: #ffffff; font-family: var(--font-heading); font-size: 1.1rem; font-weight: 800; display: flex; align-items: center; justify-content: center; flex-shrink: 0; box-shadow: 0 4px 12px rgba(194,65,12,0.3); }
+    .lifecycle-step-content h4 { font-family: var(--font-heading); font-weight: 700; font-size: 1.05rem; color: #0f0f11; margin-bottom: 6px; }
+    .lifecycle-step-content p  { font-size: 0.9rem; color: #52525b; line-height: 1.6; margin: 0; }
+
+    .why-check-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .why-check-item { display: flex; align-items: flex-start; gap: 10px; background: #f8fafc; border-radius: 10px; padding: 14px 16px; }
+    .why-check-item::before { content: "✔"; color: #c2410c; font-weight: 800; font-size: 1rem; flex-shrink: 0; margin-top: 1px; }
+    .why-check-item span { font-size: 0.92rem; color: #3f3f46; font-weight: 500; line-height: 1.5; }
+
+    .industries-pill-row { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
+    .industries-pill { background: #0f0f11; color: #ffffff; font-size: 0.85rem; font-weight: 600; padding: 8px 18px; border-radius: 999px; }
+
+    @media (max-width: 768px) {
+      .fire-hero-photo-grid { grid-template-columns: 1fr; }
+      .fire-hero-photo-grid img.span-2 { height: 220px; }
+      .why-check-grid { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
 <body>
 
@@ -25,9 +85,7 @@
           omtechcorp2402@gmail.com
         </a>
       </div>
-      <div class="top-badge">
-        ★ FIRE & GAS SUPPRESSION SYSTEMS IS OUR CORE BUSINESS
-      </div>
+      <div class="top-badge">★ FIRE &amp; GAS SUPPRESSION SYSTEMS IS OUR CORE BUSINESS</div>
     </div>
   </div>
 
@@ -45,19 +103,18 @@
         <div class="nav-item"><a href="index.html" class="nav-link">Home</a></div>
         <div class="nav-item"><a href="about.html" class="nav-link">About Leadership</a></div>
         <div class="nav-item">
-          <a href="services.html" class="nav-link active">
-            Core Services
+          <a href="services.html" class="nav-link active">Core Services
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
           </a>
           <div class="nav-dropdown">
-            <a href="corporate-training.html" class="dropdown-link">Corporate Training<span>RCA, Six Sigma, RCM & Asset Integrity</span></a>
-            <a href="hse-process-safety.html" class="dropdown-link">HSE & Process Safety<span>PSM, BBS, PTW & Emergency Response</span></a>
-            <a href="cyber-security.html" class="dropdown-link">Industrial OT & Cybersecurity<span>IEC 62443, SCADA & Control Security</span></a>
-            <a href="fire-gas-systems.html" class="dropdown-link">Fire & Gas Systems<span>EPC, Commissioning, Deluge & AMC</span></a>
-            <a href="water-treatment.html" class="dropdown-link">Water & Environmental<span>RO, STP, ETP & Zero Liquid Discharge</span></a>
+            <a href="corporate-training.html" class="dropdown-link">Corporate Training<span>RCA, Six Sigma, RCM &amp; Asset Integrity</span></a>
+            <a href="hse-process-safety.html" class="dropdown-link">HSE &amp; Process Safety<span>PSM, BBS, PTW &amp; Emergency Response</span></a>
+            <a href="cyber-security.html" class="dropdown-link">Industrial OT &amp; Cybersecurity<span>IEC 62443, SCADA &amp; Control Security</span></a>
+            <a href="fire-gas-systems.html" class="dropdown-link">Fire &amp; Gas Systems<span>EPC, Commissioning, Deluge &amp; AMC</span></a>
+            <a href="water-treatment.html" class="dropdown-link">Water &amp; Environmental<span>RO, STP, ETP &amp; Zero Liquid Discharge</span></a>
           </div>
         </div>
-        <div class="nav-item"><a href="gallery.html" class="nav-link">Media & Videos</a></div>
+        <div class="nav-item"><a href="gallery.html" class="nav-link">Media &amp; Videos</a></div>
         <div class="nav-item"><a href="industries.html" class="nav-link">Industries</a></div>
         <div class="nav-item"><a href="contact.html" class="nav-link">Contact</a></div>
       </nav>
@@ -74,14 +131,12 @@
   <section class="page-header page-header-fire">
     <div class="container">
       <div class="breadcrumb-nav">
-        <a href="index.html">Home</a>
-        <span>/</span>
-        <a href="services.html">Services</a>
-        <span>/</span>
-        <span>Fire & Gas Systems (Core Business)</span>
+        <a href="index.html">Home</a><span>/</span>
+        <a href="services.html">Services</a><span>/</span>
+        <span>Fire Protection &amp; Security Systems</span>
       </div>
-      <h1 class="page-title">Fire & Gas Suppression Systems Engineering</h1>
-      <p class="page-subtitle"><strong>Fire and gas suppression systems is our core business.</strong> Turnkey F&G hazard mapping, deluge valves, ESD logic panels, and active fire protection designed to applicable NFPA & OISD codes.</p>
+      <h1 class="page-title">Fire Protection | Security Systems | Smart Building Solutions</h1>
+      <p class="page-subtitle"><strong>Fire and gas suppression systems is our core business.</strong> End-to-end design, installation, commissioning, and AMC for life safety, security, and intelligent building infrastructure.</p>
     </div>
   </section>
 
@@ -91,69 +146,268 @@
       <div class="stat-card-grid" style="margin: 0;">
         <div class="stat-card" style="background: #1a1a1e; border: 1px solid rgba(255,255,255,0.12);">
           <div class="stat-number" style="color: #c2410c;">CORE BUSINESS</div>
-          <div class="stat-label" style="color: #94a3b8;">Fire & Gas Engineering Specialization</div>
+          <div class="stat-label" style="color: #94a3b8;">Fire &amp; Gas Engineering Specialization</div>
         </div>
         <div class="stat-card" style="background: #1a1a1e; border: 1px solid rgba(255,255,255,0.12);">
-          <div class="stat-number" style="color: #c2410c;">NFPA & OISD</div>
-          <div class="stat-label" style="color: #94a3b8;">Applicable Safety Codes</div>
+          <div class="stat-number" style="color: #c2410c;">NFPA &amp; OISD</div>
+          <div class="stat-label" style="color: #94a3b8;">IS, NBC &amp; International Standards</div>
         </div>
         <div class="stat-card" style="background: #1a1a1e; border: 1px solid rgba(255,255,255,0.12);">
-          <div class="stat-number" style="color: #c2410c;">Deluge & Foam</div>
-          <div class="stat-label" style="color: #94a3b8;">High Velocity Suppression</div>
+          <div class="stat-number" style="color: #c2410c;">Turnkey EPC</div>
+          <div class="stat-label" style="color: #94a3b8;">Design → Install → Commission</div>
         </div>
         <div class="stat-card" style="background: #1a1a1e; border: 1px solid rgba(255,255,255,0.12);">
-          <div class="stat-number" style="color: #c2410c;">Turnkey AMC</div>
-          <div class="stat-label" style="color: #94a3b8;">Lifecycle Maintenance & Audits</div>
+          <div class="stat-number" style="color: #c2410c;">Reliable AMC</div>
+          <div class="stat-label" style="color: #94a3b8;">After-Sales Support &amp; Maintenance</div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- OVERVIEW SECTION -->
+  <!-- WHO WE ARE + PHOTO GRID -->
   <section style="padding: 80px 0; background: #ffffff;">
     <div class="container">
       <div class="deepdive-grid">
         <div class="deepdive-content">
-          <span class="section-label">Active & Passive Emergency Protection</span>
-          <h3>Turnkey Fire & Gas Lifecycle Engineering</h3>
-          <p>
-            Operating high-pressure hydrocarbon, LPG, LNG, and chemical handling facilities requires fault-tolerant <strong>Fire & Gas (F&G) Systems</strong>. A failure to detect gas leaks or trigger deluge suppression instantly can lead to catastrophic loss of life and equipment.
+          <span class="section-label">Core Business Engineering Pillar</span>
+          <h2 style="font-family: var(--font-heading); font-size: 2rem; font-weight: 800; color: #0f0f11; margin-bottom: 20px; line-height: 1.25;">Who We Are</h2>
+          <p style="color: #52525b; font-size: 1rem; line-height: 1.75; margin-bottom: 16px;">
+            <strong>Omtek Corporation</strong> is a professionally managed organization delivering end-to-end <strong>Fire Protection, Life Safety, Security, and Integrated Building Management Solutions</strong>.
           </p>
-          <p>
-            Omtek Corporation provides complete end-to-end engineering, procurement support, pre-commissioning, live testing, and turnkey <strong>Annual Maintenance Contracts (AMC)</strong> strictly following <strong>NFPA (72, 15, 16) and OISD-116/117</strong> guidelines.
+          <p style="color: #52525b; font-size: 0.95rem; line-height: 1.75; margin-bottom: 16px;">
+            We specialize in designing, installing, commissioning, and maintaining systems that <strong>protect lives, secure assets, and enhance building intelligence</strong>. With a strong focus on quality, compliance, and reliability, we serve diverse sectors including commercial, industrial, residential, healthcare, and institutional projects.
           </p>
-
-          <div class="curriculum-box">
-            <h4>
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--safety-amber)" stroke-width="2"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"></path></svg>
-              F&G Systems Engineering Scope
-            </h4>
-            <ul class="curriculum-list">
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Mechanical Erection & Fire Network Piping</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Pre-Commissioning, Loop Checking & Live Commissioning</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> LEL Hydrocarbon & Toxic (H2S, CO) Gas Detectors</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> IR/UV Flame Detectors & Optical Smoke Detection</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> High-Velocity Water Deluge & Foam Spray Systems</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Dedicated Fire Water Ring Main Hydraulics</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Cause & Effect Matrix Validation & PLC Interlocks</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Comprehensive Annual Maintenance Contracts (AMC)</li>
-            </ul>
+          <div style="background: linear-gradient(135deg, #fef3c7, #fde68a); border-left: 4px solid #c2410c; border-radius: 10px; padding: 20px 24px; margin-top: 24px;">
+            <p style="margin: 0; font-size: 0.95rem; color: #78350f; font-weight: 600; line-height: 1.6;">"Safety is our responsibility — we deliver solutions that are reliable, scalable, and future-ready, ensuring complete protection for people, property, and operations."</p>
+          </div>
+          <div style="margin-top: 28px; display: flex; gap: 12px; flex-wrap: wrap;">
+            <a href="contact.html" class="btn btn-primary" style="display: inline-flex; align-items: center; gap: 8px;">Request F&amp;G Proposal →</a>
+            <a href="contact.html" class="btn btn-secondary">Discuss Your Requirement</a>
           </div>
         </div>
 
         <div class="deepdive-img-box">
-          <img src="assets/images/service-fire-gas.jpg" alt="Industrial Fire Deluge and Gas Detection Station">
+          <div class="fire-hero-photo-grid">
+            <img src="assets/images/fire-protection-workstation-1.jpg" alt="Fire Protection System Engineering and CAD Design" class="span-2">
+            <img src="assets/images/fire-protection-workstation-2.jpg" alt="Fire Detection System Control Panel Design">
+            <img src="assets/images/fire-protection-workstation-3.jpg" alt="Fire Suppression System Layout Engineering">
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- CTA BOX -->
-  <section style="padding: 70px 0; background: #0f0f11; color: #ffffff;">
-    <div class="container text-center" style="text-align: center;">
-      <h2 style="color: #ffffff; margin-bottom: 16px; font-family: var(--font-heading);">Enquire for Fire & Gas EPC or Annual Maintenance (AMC)</h2>
-      <p style="color: #cbd5e1; max-width: 650px; margin: 0 auto 30px; line-height: 1.7;">Get turnkey assistance for F&G mapping, deluge valve testing, and panel maintenance.</p>
-      <a href="contact.html" class="btn btn-primary">Request F&G Proposal</a>
+  <!-- CORE EXPERTISE CARDS -->
+  <section style="padding: 90px 0; background: #fafaf9; border-top: 1px solid #e4e4e7;">
+    <div class="container">
+      <div class="section-header-center">
+        <span class="section-label" style="color: #c2410c;">Our Core Expertise</span>
+        <h2 class="section-title">Fire Protection &amp; Security Systems</h2>
+        <p>Comprehensive solutions across fire detection, suppression, security surveillance, and integrated building management.</p>
+      </div>
+
+      <div class="services-grid-4" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px;">
+
+        <!-- Card 1: Fire Detection -->
+        <div class="expertise-card">
+          <div class="expertise-card-icon">🔥</div>
+          <h3>Fire Detection &amp; Alarm Systems</h3>
+          <p>Comprehensive fire alarm infrastructure covering conventional and addressable systems for early fire detection and occupant life safety.</p>
+          <ul class="expertise-tick-list">
+            <li>Conventional &amp; Addressable Fire Alarm Systems</li>
+            <li>Smoke, Heat &amp; Flame Detectors</li>
+            <li>Manual Call Points, Hooters &amp; Strobes</li>
+            <li>Fire Alarm Control Panels (FACP)</li>
+          </ul>
+          <div class="expertise-check-pills">
+            <span>Early Detection</span>
+            <span>Fast Response</span>
+            <span>Life Safety Compliance</span>
+          </div>
+        </div>
+
+        <!-- Card 2: Suppression -->
+        <div class="expertise-card">
+          <div class="expertise-card-icon">💨</div>
+          <h3>Fire Suppression Systems</h3>
+          <p>Automatic and engineered suppression solutions designed to rapidly control fire while minimizing equipment damage and operational downtime.</p>
+          <ul class="expertise-tick-list">
+            <li>Automatic Sprinkler &amp; Deluge Systems</li>
+            <li>FM-200 / NOVEC 1230 Clean Agent Systems</li>
+            <li>CO₂ &amp; Inert Gas Suppression</li>
+            <li>Water Mist &amp; Kitchen Hood Systems</li>
+            <li>High-Velocity Foam Spray Systems</li>
+          </ul>
+          <div class="expertise-check-pills">
+            <span>Rapid Fire Control</span>
+            <span>Safe for Equipment</span>
+            <span>Minimal Downtime</span>
+          </div>
+        </div>
+
+        <!-- Card 3: Security -->
+        <div class="expertise-card">
+          <div class="expertise-card-icon">🔐</div>
+          <h3>Security &amp; Surveillance Solutions</h3>
+          <p>End-to-end security infrastructure covering access control, intrusion detection, and HD CCTV surveillance for 24×7 site protection.</p>
+          <ul class="expertise-tick-list">
+            <li>Access Control — RFID &amp; Biometric Systems</li>
+            <li>Intrusion &amp; Burglar Alarm Systems</li>
+            <li>Perimeter Security Solutions</li>
+            <li>IP &amp; HD CCTV Camera Systems</li>
+            <li>PTZ &amp; Night Vision Cameras</li>
+            <li>Central Monitoring &amp; Remote Viewing</li>
+          </ul>
+          <div class="expertise-check-pills">
+            <span>24×7 Monitoring</span>
+            <span>Controlled Access</span>
+            <span>Threat Prevention</span>
+          </div>
+        </div>
+
+        <!-- Card 4: IBMS -->
+        <div class="expertise-card">
+          <div class="expertise-card-icon">🏢</div>
+          <h3>Integrated Building Management System (IBMS)</h3>
+          <p>Centralized platform integrating all building systems into a single intelligent controller enabling efficient operations and fast incident response.</p>
+          <ul class="expertise-tick-list">
+            <li>Fire &amp; Safety Systems Integration</li>
+            <li>Security &amp; CCTV Unified Management</li>
+            <li>HVAC &amp; Electrical Monitoring</li>
+            <li>Energy &amp; Lighting Control</li>
+          </ul>
+          <div class="expertise-check-pills">
+            <span>Centralized Control</span>
+            <span>Energy Efficiency</span>
+            <span>Faster Incident Response</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FIRE PROTECTION PHOTOS GALLERY STRIP -->
+  <section style="padding: 60px 0; background: #0f0f11;">
+    <div class="container">
+      <div class="section-header-center" style="margin-bottom: 40px;">
+        <span class="section-label" style="color: var(--safety-amber);">Our Work in Action</span>
+        <h2 class="section-title" style="color: #ffffff;">Fire Protection System Engineering</h2>
+        <p style="color: #94a3b8;">CAD-designed, precision-engineered fire protection layouts for industrial, commercial, and institutional facilities.</p>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px;">
+        <img src="assets/images/fire-protection-workstation-4.jpg" alt="Fire System CAD Layout Design" style="width:100%; height:200px; object-fit:cover; border-radius:12px; box-shadow:0 8px 24px rgba(0,0,0,0.4);">
+        <img src="assets/images/fire-protection-workstation-5.jpg" alt="Fire Protection Engineering Workstation" style="width:100%; height:200px; object-fit:cover; border-radius:12px; box-shadow:0 8px 24px rgba(0,0,0,0.4);">
+        <img src="assets/images/fire-protection-workstation-6.jpg" alt="Fire Detection Network Design" style="width:100%; height:200px; object-fit:cover; border-radius:12px; box-shadow:0 8px 24px rgba(0,0,0,0.4);">
+        <img src="assets/images/fire-protection-workstation-7.jpg" alt="Fire Suppression System Drawing" style="width:100%; height:200px; object-fit:cover; border-radius:12px; box-shadow:0 8px 24px rgba(0,0,0,0.4);">
+        <img src="assets/images/service-fire-gas.jpg" alt="Industrial Fire and Gas Pump Station" style="width:100%; height:200px; object-fit:cover; border-radius:12px; box-shadow:0 8px 24px rgba(0,0,0,0.4);">
+        <img src="assets/images/fire-protection-workstation-1.jpg" alt="Fire Protection System Installation" style="width:100%; height:200px; object-fit:cover; border-radius:12px; box-shadow:0 8px 24px rgba(0,0,0,0.4);">
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY OMTEK CORPORATION -->
+  <section style="padding: 90px 0; background: #ffffff;">
+    <div class="container">
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;">
+        <div>
+          <span class="section-label">Why Choose Us</span>
+          <h2 class="section-title">Why Omtek Corporation?</h2>
+          <p style="color: #52525b; font-size: 0.95rem; line-height: 1.75; margin-bottom: 28px;">We combine engineering expertise, certified professionals, and reliable after-sales support to deliver turnkey fire protection and security solutions that meet international quality benchmarks.</p>
+          <div class="why-check-grid">
+            <div class="why-check-item"><span>End-to-end turnkey solutions</span></div>
+            <div class="why-check-item"><span>Certified engineers &amp; trained technicians</span></div>
+            <div class="why-check-item"><span>Compliance with IS, NBC &amp; international standards</span></div>
+            <div class="why-check-item"><span>Customized system design</span></div>
+            <div class="why-check-item"><span>Reliable AMC &amp; after-sales support</span></div>
+            <div class="why-check-item"><span>On-time project delivery</span></div>
+          </div>
+        </div>
+        <div>
+          <img src="assets/images/fire-protection-workstation-2.jpg" alt="Fire Protection System Design and Engineering" style="width:100%; border-radius:16px; box-shadow:0 16px 40px rgba(0,0,0,0.12); object-fit:cover; height:420px;">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INDUSTRIES WE SERVE + SERVICE LIFECYCLE -->
+  <section style="padding: 90px 0; background: #fafaf9; border-top: 1px solid #e4e4e7;">
+    <div class="container">
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 60px;">
+
+        <!-- Industries -->
+        <div>
+          <span class="section-label">Sectors Covered</span>
+          <h2 class="section-title" style="font-size: 1.8rem;">Industries We Serve</h2>
+          <p style="color: #52525b; font-size: 0.94rem; line-height: 1.7; margin-bottom: 8px;">Our fire protection and security solutions are deployed across a wide range of sectors requiring life safety and asset protection.</p>
+          <div class="industries-pill-row">
+            <span class="industries-pill">🏢 Commercial Buildings</span>
+            <span class="industries-pill">🏭 Industrial Plants</span>
+            <span class="industries-pill">💻 Data Centers</span>
+            <span class="industries-pill">🏥 Hospitals &amp; Healthcare</span>
+            <span class="industries-pill">🎓 Educational Institutions</span>
+            <span class="industries-pill">🏘️ Residential Complexes</span>
+            <span class="industries-pill">🛍️ Retail &amp; Shopping Malls</span>
+          </div>
+        </div>
+
+        <!-- Lifecycle -->
+        <div>
+          <span class="section-label">Proven Process</span>
+          <h2 class="section-title" style="font-size: 1.8rem;">Our Services Lifecycle</h2>
+          <div class="lifecycle-stepper" style="margin-top: 28px;">
+            <div class="lifecycle-step">
+              <div class="lifecycle-step-num">1</div>
+              <div class="lifecycle-step-content">
+                <h4>Site Survey &amp; Risk Assessment</h4>
+                <p>Thorough on-site evaluation of fire hazards, occupancy type, and building layout to define system requirements.</p>
+              </div>
+            </div>
+            <div class="lifecycle-step">
+              <div class="lifecycle-step-num">2</div>
+              <div class="lifecycle-step-content">
+                <h4>System Design &amp; Engineering</h4>
+                <p>CAD-based fire protection drawings, hydraulic calculations, and security system schematics per applicable codes.</p>
+              </div>
+            </div>
+            <div class="lifecycle-step">
+              <div class="lifecycle-step-num">3</div>
+              <div class="lifecycle-step-content">
+                <h4>Installation &amp; Commissioning</h4>
+                <p>Professional installation with loop checks, functional testing, and live commissioning by certified engineers.</p>
+              </div>
+            </div>
+            <div class="lifecycle-step">
+              <div class="lifecycle-step-num">4</div>
+              <div class="lifecycle-step-content">
+                <h4>Testing, Training &amp; Documentation</h4>
+                <p>System acceptance testing, as-built drawings, operation manuals, and staff training for emergency procedures.</p>
+              </div>
+            </div>
+            <div class="lifecycle-step">
+              <div class="lifecycle-step-num">5</div>
+              <div class="lifecycle-step-content">
+                <h4>Annual Maintenance &amp; Support (AMC)</h4>
+                <p>Scheduled preventive maintenance, 24×7 emergency response, and system upgrade support under AMC contracts.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BANNER -->
+  <section style="padding: 80px 0; background: linear-gradient(135deg, #0a1128 0%, #c2410c 100%); color: #ffffff;">
+    <div class="container" style="text-align: center;">
+      <span style="background: rgba(255,255,255,0.15); color: #fde68a; padding: 6px 16px; border-radius: 999px; font-size: 0.82rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em;">Get Started Today</span>
+      <h2 style="font-family: var(--font-heading); font-size: 2.2rem; font-weight: 800; color: #ffffff; margin: 20px 0 16px;">Enquire for Fire &amp; Gas EPC, Security Systems or AMC</h2>
+      <p style="color: rgba(255,255,255,0.8); max-width: 640px; margin: 0 auto 32px; font-size: 1rem; line-height: 1.7;">Get turnkey assistance for fire protection design, suppression system installation, CCTV &amp; access control, or lifecycle annual maintenance contracts.</p>
+      <div style="display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;">
+        <a href="contact.html" class="btn btn-primary" style="padding: 14px 32px; font-size: 1rem;">Request F&amp;G Proposal →</a>
+        <a href="tel:+919810772284" class="btn btn-secondary" style="padding: 14px 32px; font-size: 1rem; background: rgba(255,255,255,0.15); border-color: rgba(255,255,255,0.4); color: #ffffff;">📞 Call Us Now</a>
+      </div>
     </div>
   </section>
 
@@ -170,7 +424,7 @@
             </div>
           </div>
           <p>A professional industrial consulting and corporate training organization committed to safety, reliability, and asset integrity across global energy sectors.</p>
-          <span class="top-badge">Founder: Mr. Prem Prakash Mishra (Ex - KOC)</span>
+          <span class="top-badge">Founder: Mr. Prem Prakash Mishra</span>
         </div>
 
         <div>
@@ -179,7 +433,7 @@
             <a href="index.html" class="footer-link">Home</a>
             <a href="about.html" class="footer-link">About Leadership</a>
             <a href="services.html" class="footer-link">Core Services</a>
-            <a href="gallery.html" class="footer-link">Media & Videos</a>
+            <a href="gallery.html" class="footer-link">Media &amp; Videos</a>
             <a href="industries.html" class="footer-link">Industries We Serve</a>
             <a href="contact.html" class="footer-link">Contact Us</a>
           </div>
@@ -190,14 +444,14 @@
           <div class="footer-links">
             <a href="corporate-training.html" class="footer-link">Corporate Industrial Training</a>
             <a href="hse-process-safety.html" class="footer-link">Process Safety (PSM)</a>
-            <a href="cyber-security.html" class="footer-link">OT & SCADA Cybersecurity</a>
-            <a href="fire-gas-systems.html" class="footer-link" style="color: var(--safety-amber);">Fire & Gas Systems EPC</a>
-            <a href="water-treatment.html" class="footer-link">Water & ZLD Environmental</a>
+            <a href="cyber-security.html" class="footer-link">OT &amp; SCADA Cybersecurity</a>
+            <a href="fire-gas-systems.html" class="footer-link" style="color: var(--safety-amber);">Fire &amp; Gas Systems EPC</a>
+            <a href="water-treatment.html" class="footer-link">Water &amp; ZLD Environmental</a>
           </div>
         </div>
 
         <div>
-          <h4 class="footer-col-title">Operating Locations & Contacts</h4>
+          <h4 class="footer-col-title">Operating Locations &amp; Contacts</h4>
           <div class="footer-links">
             <span style="font-size: 0.88rem; color: #cbd5e1;">Kanpur Branch Office:</span>
             <span style="font-size: 0.82rem; color: #94a3b8;">128/166, Hari Prem Apt, Kidwai Nagar, Kanpur - 208011</span>
@@ -222,6 +476,14 @@
       </div>
     </div>
   </footer>
+
+  <!-- FLOATING BUTTONS -->
+  <a href="https://wa.me/919810772284?text=Hello%20Omtek%20Corporation,%20I%20would%20like%20to%20enquire%20about%20your%20Fire%20Protection%20services" target="_blank" class="floating-btn floating-whatsapp" title="Chat on WhatsApp">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
+  <a href="tel:+919810772284" class="floating-btn floating-call" title="Call Us">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+  </a>
 
   <script src="app.js"></script>
 </body>
