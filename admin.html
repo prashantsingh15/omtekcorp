@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard & Content Portal — Omtek Corporation</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Admin Specific Styling */
+    .admin-login-screen {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: radial-gradient(circle at 50% 30%, rgba(194, 65, 12, 0.15) 0%, transparent 60%),
+                  linear-gradient(135deg, #0f0f11 0%, #1a1a1e 100%);
+      padding: 24px;
+    }
+    .login-card {
+      background: #ffffff;
+      width: 100%;
+      max-width: 440px;
+      padding: 40px;
+      border-radius: var(--radius-lg);
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.35);
+      border: 1px solid var(--border-subtle);
+    }
+    .login-header {
+      text-align: center;
+      margin-bottom: 28px;
+    }
+    .login-header img {
+      height: 54px;
+      margin: 0 auto 14px;
+    }
+    .login-header h2 {
+      font-family: var(--font-heading);
+      font-size: 1.5rem;
+      color: #0f0f11;
+      font-weight: 800;
+    }
+    .login-header p {
+      color: #52525b;
+      font-size: 0.88rem;
+      margin-top: 4px;
+    }
+    .admin-app {
+      display: none;
+      min-height: 100vh;
+      background: #fafaf9;
+    }
+    .admin-header {
+      background: #0f0f11;
+      color: #ffffff;
+      padding: 16px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 3px solid #c2410c;
+    }
+    .admin-brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .admin-brand h1 {
+      font-family: var(--font-heading);
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #ffffff;
+    }
+    .admin-badge {
+      background: rgba(194, 65, 12, 0.25);
+      color: #fdba74;
+      padding: 4px 10px;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      border: 1px solid rgba(234, 88, 12, 0.4);
+    }
+    .admin-user-info {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .btn-logout {
+      background: rgba(255, 255, 255, 0.1);
+      color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      padding: 6px 14px;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .btn-logout:hover {
+      background: #dc2626;
+      border-color: #dc2626;
+    }
+    .admin-body {
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      min-height: calc(100vh - 68px);
+    }
+    .admin-sidebar {
+      background: #ffffff;
+      border-right: 1px solid #e4e4e7;
+      padding: 24px 16px;
+    }
+    .sidebar-nav {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .nav-tab-btn {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 16px;
+      border-radius: 8px;
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: #52525b;
+      background: transparent;
+      border: none;
+      width: 100%;
+      text-align: left;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .nav-tab-btn:hover {
+      background: #f4f4f5;
+      color: #0f0f11;
+    }
+    .nav-tab-btn.active {
+      background: #fff7ed;
+      color: #c2410c;
+      font-weight: 700;
+      border-left: 3px solid #c2410c;
+    }
+    .admin-main {
+      padding: 36px;
+      overflow-y: auto;
+    }
+    .admin-panel {
+      display: none;
+    }
+    .admin-panel.active {
+      display: block;
+    }
+    .panel-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 28px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid #e4e4e7;
+    }
+    .panel-title h2 {
+      font-family: var(--font-heading);
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: #0f0f11;
+    }
+    .panel-title p {
+      color: #71717a;
+      font-size: 0.9rem;
+      margin-top: 2px;
+    }
+    .stats-cards-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      margin-bottom: 28px;
+    }
+    .stat-box {
+      background: #ffffff;
+      padding: 20px;
+      border-radius: 12px;
+      border: 1px solid #e4e4e7;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    }
+    .stat-box-num {
+      font-family: var(--font-heading);
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: #c2410c;
+    }
+    .stat-box-lbl {
+      font-size: 0.84rem;
+      color: #71717a;
+      margin-top: 4px;
+    }
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: #ffffff;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+      border: 1px solid #e4e4e7;
+    }
+    .data-table th, .data-table td {
+      padding: 14px 18px;
+      text-align: left;
+      font-size: 0.88rem;
+      border-bottom: 1px solid #f4f4f5;
+    }
+    .data-table th {
+      background: #fafaf9;
+      font-weight: 700;
+      color: #0f0f11;
+    }
+    .badge-status {
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      display: inline-block;
+    }
+    .badge-new { background: #dbeafe; color: #1e40af; }
+    .badge-contacted { background: #fef3c7; color: #92400e; }
+    .badge-completed { background: #dcfce7; color: #166534; }
+    .form-card-box {
+      background: #ffffff;
+      padding: 28px;
+      border-radius: 12px;
+      border: 1px solid #e4e4e7;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+      margin-bottom: 24px;
+    }
+    .form-grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- LOGIN SCREEN -->
+  <div class="admin-login-screen" id="loginScreen">
+    <div class="login-card">
+      <div class="login-header">
+        <img src="assets/images/omtek-logo.png" alt="Omtek Corporation Logo">
+        <h2>Content Management Portal</h2>
+        <p>Omtek Corporation Admin Access</p>
+      </div>
+      <form id="loginForm">
+        <div class="form-group">
+          <label class="form-label">Passcode / Access Key</label>
+          <input type="password" id="passcodeInput" class="form-input" placeholder="Enter Admin Passcode" required>
+          <span style="font-size: 0.75rem; color: #71717a; margin-top: 4px;">Default Key: <strong>omtek2026</strong></span>
+        </div>
+        <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 14px;">Log In to Dashboard</button>
+      </form>
+      <div id="loginError" style="color: #dc2626; font-size: 0.85rem; text-align: center; margin-top: 12px; display: none;">
+        Invalid passcode! Please try again.
+      </div>
+      <div style="text-align: center; margin-top: 20px;">
+        <a href="index.html" style="font-size: 0.84rem; color: #52525b; text-decoration: underline;">← Back to Main Website</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAIN DASHBOARD APP -->
+  <div class="admin-app" id="adminApp">
+    
+    <!-- HEADER -->
+    <header class="admin-header">
+      <div class="admin-brand">
+        <img src="assets/images/omtek-logo.png" alt="Logo" style="height: 38px;">
+        <div>
+          <h1>Omtek Corporation</h1>
+          <span class="admin-badge">Admin Content & Lead Portal</span>
+        </div>
+      </div>
+      <div class="admin-user-info">
+        <span style="font-size: 0.88rem; color: #d4d4d8;">Logged in as: <strong>Prem Prakash Mishra (Admin)</strong></span>
+        <button class="btn-logout" onclick="logoutAdmin()">Sign Out</button>
+      </div>
+    </header>
+
+    <div class="admin-body">
+      <!-- SIDEBAR NAV -->
+      <aside class="admin-sidebar">
+        <nav class="sidebar-nav">
+          <button class="nav-tab-btn active" onclick="switchTab('leadsTab', this)">
+            📥 Client Enquiries (RFQ)
+          </button>
+          <button class="nav-tab-btn" onclick="switchTab('homepageTab', this)">
+            ✏️ Homepage & Bio Content
+          </button>
+          <button class="nav-tab-btn" onclick="switchTab('servicesTab', this)">
+            ⚙️ Services & Solutions
+          </button>
+          <button class="nav-tab-btn" onclick="switchTab('galleryTab', this)">
+            🖼️ Training & Media Gallery
+          </button>
+          <button class="nav-tab-btn" onclick="switchTab('settingsTab', this)">
+            🔒 Portal & Security Settings
+          </button>
+        </nav>
+        
+        <div style="margin-top: 40px; padding: 16px; background: #fafaf9; border-radius: 8px; border: 1px solid #e4e4e7;">
+          <strong style="font-size: 0.82rem; color: #0f0f11; display: block; margin-bottom: 4px;">Website Status</strong>
+          <span style="font-size: 0.78rem; color: #166534; display: flex; align-items: center; gap: 4px;">
+            <span style="width: 8px; height: 8px; background: #22c55e; border-radius: 50%; display: inline-block;"></span>
+            Live Staging & Ready
+          </span>
+          <a href="index.html" target="_blank" style="display: inline-block; font-size: 0.8rem; color: #c2410c; margin-top: 10px; font-weight: 600;">View Live Website ↗</a>
+        </div>
+      </aside>
+
+      <!-- MAIN CONTENT -->
+      <main class="admin-main">
+        
+        <!-- TAB 1: LEADS & RFQ -->
+        <div class="admin-panel active" id="leadsTab">
+          <div class="panel-header">
+            <div class="panel-title">
+              <h2>Incoming Client Enquiries (RFQ)</h2>
+              <p>Manage and download prospective industrial consulting leads sent from the website.</p>
+            </div>
+            <button class="btn btn-primary" onclick="exportEnquiriesCSV()">
+              📥 Export All Enquiries (CSV)
+            </button>
+          </div>
+
+          <div class="stats-cards-grid">
+            <div class="stat-box">
+              <div class="stat-box-num" id="totalLeadsCount">5</div>
+              <div class="stat-box-lbl">Total Enquiries Received</div>
+            </div>
+            <div class="stat-box">
+              <div class="stat-box-num" style="color: #2563eb;">2</div>
+              <div class="stat-box-lbl">New Unread Leads</div>
+            </div>
+            <div class="stat-box">
+              <div class="stat-box-num" style="color: #d97706;">2</div>
+              <div class="stat-box-lbl">In Progress / Contacted</div>
+            </div>
+            <div class="stat-box">
+              <div class="stat-box-num" style="color: #16a34a;">1</div>
+              <div class="stat-box-lbl">Converted Accounts</div>
+            </div>
+          </div>
+
+          <div style="margin-bottom: 16px; display: flex; justify-content: space-between; align-items: center;">
+            <h3 style="font-size: 1.1rem; font-weight: 700; color: #0f0f11;">Recent RFQ Submissions</h3>
+            <span style="font-size: 0.84rem; color: #71717a;">Auto-syncs with contact forms</span>
+          </div>
+
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Date & Time</th>
+                <th>Client Name</th>
+                <th>Company / Organization</th>
+                <th>Contact Details</th>
+                <th>Service Required</th>
+                <th>Status</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody id="enquiriesTableBody">
+              <!-- Rendered dynamically via JS -->
+            </tbody>
+          </table>
+        </div>
+
+        <!-- TAB 2: HOMEPAGE & BIO CONTENT -->
+        <div class="admin-panel" id="homepageTab">
+          <div class="panel-header">
+            <div class="panel-title">
+              <h2>Edit Homepage & Founder Bio</h2>
+              <p>Update headline text, founder credentials, experience numbers, and mission statements.</p>
+            </div>
+            <button class="btn btn-primary" onclick="saveHomepageContent()">💾 Save Homepage Changes</button>
+          </div>
+
+          <div class="form-card-box">
+            <h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 18px; color: #0f0f11;">Hero Banner Settings</h3>
+            <div class="form-grid-2">
+              <div class="form-group">
+                <label class="form-label">Hero Banner Headline</label>
+                <input type="text" id="heroTitleInput" class="form-input" value="Building Safer, Smarter, & More Reliable Industries">
+              </div>
+              <div class="form-group">
+                <label class="form-label">Years of Experience Highlight</label>
+                <input type="text" id="expYearsInput" class="form-input" value="39+ Years of Industrial & International Excellence">
+              </div>
+            </div>
+            <div class="form-group" style="margin-top: 14px;">
+              <label class="form-label">Hero Description Subtitle</label>
+              <textarea id="heroDescInput" class="form-textarea" style="min-height: 80px;">Omtek Corporation is a professional industrial consulting and corporate training organization committed to helping industries achieve peak operational performance, process safety, asset integrity, and total quality excellence.</textarea>
+            </div>
+          </div>
+
+          <div class="form-card-box">
+            <h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 18px; color: #0f0f11;">Founder Spotlight (Mr. Prem Prakash Mishra)</h3>
+            <div class="form-grid-2">
+              <div class="form-group">
+                <label class="form-label">Founder Name & Designation</label>
+                <input type="text" id="founderNameInput" class="form-input" value="Mr. Prem Prakash Mishra (Founder & Principal Consultant)">
+              </div>
+              <div class="form-group">
+                <label class="form-label">Official Credentials Tagline</label>
+                <input type="text" id="founderTitleTagInput" class="form-input" value="Ex - KOC (Kuwait Oil Company) | 39+ Years Industrial Authority">
+              </div>
+            </div>
+            <div class="form-group" style="margin-top: 14px;">
+              <label class="form-label">Founder Personal Quote / Mission Statement</label>
+              <textarea id="founderQuoteInput" class="form-textarea" style="min-height: 80px;">"Real industrial excellence is not achieved through theoretical binders on an executive shelf. It is achieved when engineers on the plant floor know how to trace a failure to its root cause, enforce zero-compromise safety, and optimize machinery to operate without unpredicted trips."</textarea>
+            </div>
+          </div>
+        </div>
+
+        <!-- TAB 3: SERVICES MANAGER -->
+        <div class="admin-panel" id="servicesTab">
+          <div class="panel-header">
+            <div class="panel-title">
+              <h2>Manage Services & Consulting Offerings</h2>
+              <p>Add new training programs, modify service descriptions, or manage core consulting pillars.</p>
+            </div>
+            <button class="btn btn-primary" onclick="alert('Service Manager: You can modify active service pillars.')">+ Add New Service Offering</button>
+          </div>
+
+          <div class="stats-cards-grid" style="grid-template-columns: repeat(3, 1fr);">
+            <div class="stat-box">
+              <div class="stat-box-num">6</div>
+              <div class="stat-box-lbl">Core Services Published</div>
+            </div>
+            <div class="stat-box">
+              <div class="stat-box-num" style="color: #2563eb;">12+</div>
+              <div class="stat-box-lbl">Training Modules Covered</div>
+            </div>
+            <div class="stat-box">
+              <div class="stat-box-num" style="color: #16a34a;">Active</div>
+              <div class="stat-box-lbl">Service Page Status</div>
+            </div>
+          </div>
+
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Service Name</th>
+                <th>Category</th>
+                <th>Target Industry</th>
+                <th>Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Process Safety Management (PSM)</strong></td>
+                <td>Safety & Audit</td>
+                <td>Oil & Gas, Refineries, Chemicals</td>
+                <td><span class="badge-status badge-completed">Published</span></td>
+                <td><button class="btn btn-dark" style="padding: 4px 10px; font-size: 0.78rem;">Edit</button></td>
+              </tr>
+              <tr>
+                <td><strong>HAZOP & HAZID Risk Analysis</strong></td>
+                <td>Risk Assessment</td>
+                <td>Petrochemicals & Power Plants</td>
+                <td><span class="badge-status badge-completed">Published</span></td>
+                <td><button class="btn btn-dark" style="padding: 4px 10px; font-size: 0.78rem;">Edit</button></td>
+              </tr>
+              <tr>
+                <td><strong>Asset Integrity & Reliability Management</strong></td>
+                <td>Maintenance Engg</td>
+                <td>Heavy Manufacturing & Mining</td>
+                <td><span class="badge-status badge-completed">Published</span></td>
+                <td><button class="btn btn-dark" style="padding: 4px 10px; font-size: 0.78rem;">Edit</button></td>
+              </tr>
+              <tr>
+                <td><strong>QA/QC & Vendor Inspection Audits</strong></td>
+                <td>Quality Compliance</td>
+                <td>EPC & Plant Fabrication</td>
+                <td><span class="badge-status badge-completed">Published</span></td>
+                <td><button class="btn btn-dark" style="padding: 4px 10px; font-size: 0.78rem;">Edit</button></td>
+              </tr>
+              <tr>
+                <td><strong>Corporate Industrial Training Programs</strong></td>
+                <td>Capability Building</td>
+                <td>Engineers, Techs & Managers</td>
+                <td><span class="badge-status badge-completed">Published</span></td>
+                <td><button class="btn btn-dark" style="padding: 4px 10px; font-size: 0.78rem;">Edit</button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- TAB 4: MEDIA GALLERY -->
+        <div class="admin-panel" id="galleryTab">
+          <div class="panel-header">
+            <div class="panel-title">
+              <h2>Media & Plant Training Photo Gallery</h2>
+              <p>Upload new site audit photos, training session images, and video files directly from your computer.</p>
+            </div>
+          </div>
+
+          <div class="form-card-box">
+            <h3 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 10px; color: #0f0f11;">
+              📁 Local System File Uploader (Images & Videos)
+            </h3>
+            <p style="font-size: 0.88rem; color: #52525b; margin-bottom: 18px;">
+              Select photo or video files directly from your laptop/PC or phone. Converts automatically for high-speed local website display.
+            </p>
+
+            <div class="form-grid-2">
+              <div class="form-group">
+                <label class="form-label">Asset Title / Program Name *</label>
+                <input type="text" id="assetTitleInput" class="form-input" placeholder="e.g. Jamnagar Refinery Safety Workshop">
+              </div>
+              <div class="form-group">
+                <label class="form-label">Category / Tag *</label>
+                <select id="assetCategoryInput" class="form-select">
+                  <option value="Training Sessions">Training Sessions</option>
+                  <option value="Plant Audit">Plant Audit & Site Sessions</option>
+                  <option value="International Delegations">International Delegations</option>
+                  <option value="Certificates & ID">Certificates & Credentials</option>
+                  <option value="Video Showcase">Video Walkthroughs</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Drag & Drop / File Input Box -->
+            <div style="border: 2px dashed #c2410c; border-radius: 12px; padding: 28px; text-align: center; background: #fff7ed; margin-top: 16px; cursor: pointer;" onclick="document.getElementById('localFileInput').click()">
+              <div style="font-size: 2.2rem; margin-bottom: 8px;">📷 📹</div>
+              <strong style="font-size: 1rem; color: #0f0f11; display: block; margin-bottom: 4px;">Click to Select Local Image or Video File</strong>
+              <span style="font-size: 0.82rem; color: #71717a;">Supports JPG, PNG, WEBP, MP4, MOV files from your computer</span>
+              <input type="file" id="localFileInput" accept="image/*,video/*" style="display: none;" onchange="handleLocalFileSelect(event)">
+            </div>
+
+            <!-- Preview Container -->
+            <div id="filePreviewContainer" style="display: none; margin-top: 18px; padding: 16px; background: #fafaf9; border-radius: 8px; border: 1px solid #e4e4e7;">
+              <strong style="font-size: 0.86rem; color: #0f0f11; display: block; margin-bottom: 10px;">Local File Preview:</strong>
+              <div id="previewMediaBox" style="max-height: 220px; overflow: hidden; border-radius: 8px; margin-bottom: 10px;"></div>
+              <span id="previewFileInfo" style="font-size: 0.8rem; color: #52525b; font-weight: 600;"></span>
+            </div>
+
+            <div style="margin-top: 18px; display: flex; gap: 12px; align-items: center;">
+              <button class="btn btn-primary" onclick="saveUploadedAsset()">Upload & Publish to Website</button>
+              <span style="font-size: 0.82rem; color: #71717a;">Instant sync with live site gallery</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- TAB 5: SETTINGS -->
+        <div class="admin-panel" id="settingsTab">
+          <div class="panel-header">
+            <div class="panel-title">
+              <h2>Portal Security & Settings</h2>
+              <p>Manage admin passcodes, backup site content, and view technical health status.</p>
+            </div>
+          </div>
+
+          <div class="form-card-box">
+            <h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 14px;">Change Admin Passcode</h3>
+            <div class="form-grid-2">
+              <div class="form-group">
+                <label class="form-label">New Passcode</label>
+                <input type="password" id="newPasscodeInput" class="form-input" placeholder="Enter new secret key">
+              </div>
+              <div class="form-group">
+                <label class="form-label">Confirm New Passcode</label>
+                <input type="password" id="confirmPasscodeInput" class="form-input" placeholder="Confirm new secret key">
+              </div>
+            </div>
+            <button class="btn btn-primary" style="margin-top: 14px;" onclick="updatePasscode()">Update Admin Security Key</button>
+          </div>
+
+          <div class="form-card-box">
+            <h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 14px;">Full Data Backup & Export</h3>
+            <p style="color: #52525b; font-size: 0.9rem; margin-bottom: 14px;">Download a complete JSON database archive of all text content, uploaded leads, and settings.</p>
+            <button class="btn btn-secondary" style="background: #0f0f11; color: #ffffff;" onclick="exportFullSiteBackup()">💾 Download Complete Site Backup (JSON)</button>
+          </div>
+        </div>
+
+      </main>
+    </div>
+  </div>
+
+  <script>
+    const DEFAULT_PASSCODE = "omtek2026";
+
+    const sampleEnquiries = [
+      { id: 1, date: "2026-09-29 14:20", name: "Sanjay Verma", company: "Jamnagar Refinery Operations", contact: "s.verma@refinery.com / +91 98765 43210", service: "HAZOP & PSM Audit", status: "New" },
+      { id: 2, date: "2026-09-28 11:45", name: "Rajesh K. Sharma", company: "IOCL Mathura Plant", contact: "rksharma@iocl.in / +91 98111 22334", service: "Asset Integrity Management", status: "Contacted" },
+      { id: 3, date: "2026-09-27 16:30", name: "Amitabh Sen", company: "Haldia Petrochemicals", contact: "a.sen@haldia.com / +91 97333 44556", service: "Corporate Industrial Training", status: "In Progress" },
+      { id: 4, date: "2026-09-25 09:15", name: "Vikramjit Singh", company: "BHEL Power Sector", contact: "vjsingh@bhel.in / +91 99000 11223", service: "QA/QC Vendor Audit", status: "Completed" },
+      { id: 5, date: "2026-09-24 18:00", name: "Tariq Al-Mansoor", company: "GCC EPC Contracting", contact: "tariq@gulfepc.com / +965 9912 3456", service: "Process Safety Consulting", status: "New" }
+    ];
+
+    document.addEventListener("DOMContentLoaded", () => {
+      if (sessionStorage.getItem("omtek_admin_logged_in") === "true") {
+        showDashboard();
+      }
+
+      document.getElementById("loginForm").addEventListener("submit", (e) => {
+        e.preventDefault();
+        const entered = document.getElementById("passcodeInput").value.trim();
+        const storedKey = localStorage.getItem("omtek_admin_passcode") || DEFAULT_PASSCODE;
+        
+        if (entered === storedKey) {
+          sessionStorage.setItem("omtek_admin_logged_in", "true");
+          showDashboard();
+        } else {
+          document.getElementById("loginError").style.display = "block";
+        }
+      });
+
+      renderEnquiries();
+    });
+
+    function showDashboard() {
+      document.getElementById("loginScreen").style.display = "none";
+      document.getElementById("adminApp").style.display = "block";
+      renderEnquiries();
+    }
+
+    function logoutAdmin() {
+      sessionStorage.removeItem("omtek_admin_logged_in");
+      window.location.reload();
+    }
+
+    function switchTab(tabId, btnElement) {
+      document.querySelectorAll(".admin-panel").forEach(panel => panel.classList.remove("active"));
+      document.querySelectorAll(".nav-tab-btn").forEach(btn => btn.classList.remove("active"));
+      
+      document.getElementById(tabId).classList.add("active");
+      btnElement.classList.add("active");
+    }
+
+    function renderEnquiries() {
+      const stored = JSON.parse(localStorage.getItem("omtek_enquiries")) || sampleEnquiries;
+      const tbody = document.getElementById("enquiriesTableBody");
+      document.getElementById("totalLeadsCount").innerText = stored.length;
+      
+      tbody.innerHTML = stored.map(item => `
+        <tr>
+          <td>${item.date}</td>
+          <td><strong>${item.name}</strong></td>
+          <td>${item.company}</td>
+          <td>${item.contact}</td>
+          <td><span style="font-weight: 600; color: #c2410c;">${item.service}</span></td>
+          <td>
+            <span class="badge-status ${item.status === 'New' ? 'badge-new' : item.status === 'Contacted' ? 'badge-contacted' : 'badge-completed'}">
+              ${item.status}
+            </span>
+          </td>
+          <td>
+            <button class="btn btn-dark" style="padding: 4px 8px; font-size: 0.76rem;" onclick="alert('Lead details for ${item.name}: ${item.contact}')">View</button>
+          </td>
+        </tr>
+      `).join('');
+    }
+
+    function exportEnquiriesCSV() {
+      const stored = JSON.parse(localStorage.getItem("omtek_enquiries")) || sampleEnquiries;
+      let csvContent = "data:text/csv;charset=utf-8,Date,Name,Company,Contact,Service,Status\n";
+      
+      stored.forEach(row => {
+        csvContent += `"${row.date}","${row.name}","${row.company}","${row.contact}","${row.service}","${row.status}"\n`;
+      });
+
+      const encodedUri = encodeURI(csvContent);
+      const link = document.createElement("a");
+      link.setAttribute("href", encodedUri);
+      link.setAttribute("download", `Omtek_Enquiries_Export_${new Date().toISOString().slice(0,10)}.csv`);
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+
+    function saveHomepageContent() {
+      const data = {
+        heroTitle: document.getElementById("heroTitleInput").value,
+        expYears: document.getElementById("expYearsInput").value,
+        heroDesc: document.getElementById("heroDescInput").value,
+        founderName: document.getElementById("founderNameInput").value,
+        founderTag: document.getElementById("founderTitleTagInput").value,
+        founderQuote: document.getElementById("founderQuoteInput").value
+      };
+
+      localStorage.setItem("omtek_homepage_content", JSON.stringify(data));
+      alert("Homepage changes saved successfully! They are live in system storage.");
+    }
+
+    function updatePasscode() {
+      const p1 = document.getElementById("newPasscodeInput").value.trim();
+      const p2 = document.getElementById("confirmPasscodeInput").value.trim();
+
+      if (!p1 || p1 !== p2) {
+        alert("Passcodes do not match or are empty!");
+        return;
+      }
+
+      localStorage.setItem("omtek_admin_passcode", p1);
+      alert("Admin security passcode updated successfully!");
+    }
+
+    let currentUploadedDataUrl = "";
+    let currentUploadedType = "";
+
+    function handleLocalFileSelect(event) {
+      const file = event.target.files[0];
+      if (!file) return;
+
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        currentUploadedDataUrl = e.target.result;
+        currentUploadedType = file.type.startsWith("video") ? "video" : "image";
+
+        const previewBox = document.getElementById("previewMediaBox");
+        const previewInfo = document.getElementById("previewFileInfo");
+        document.getElementById("filePreviewContainer").style.display = "block";
+
+        if (currentUploadedType === "video") {
+          previewBox.innerHTML = `<video src="${currentUploadedDataUrl}" controls style="max-height: 200px; width: 100%; object-fit: cover; border-radius: 6px;"></video>`;
+        } else {
+          previewBox.innerHTML = `<img src="${currentUploadedDataUrl}" style="max-height: 200px; width: 100%; object-fit: cover; border-radius: 6px;">`;
+        }
+
+        previewInfo.innerText = `Selected File: ${file.name} (${(file.size / 1024 / 1024).toFixed(2)} MB)`;
+      };
+
+      reader.readAsDataURL(file);
+    }
+
+    function saveUploadedAsset() {
+      const title = document.getElementById("assetTitleInput").value.trim();
+      const category = document.getElementById("assetCategoryInput").value;
+
+      if (!title) {
+        alert("Please enter an Asset Title / Program Name!");
+        return;
+      }
+
+      if (!currentUploadedDataUrl) {
+        alert("Please select a local image or video file first!");
+        return;
+      }
+
+      const storedGallery = JSON.parse(localStorage.getItem("omtek_uploaded_gallery")) || [];
+      storedGallery.unshift({
+        id: Date.now(),
+        title: title,
+        category: category,
+        url: currentUploadedDataUrl,
+        type: currentUploadedType,
+        date: new Date().toLocaleDateString()
+      });
+
+      localStorage.setItem("omtek_uploaded_gallery", JSON.stringify(storedGallery));
+      alert(`Successfully uploaded "${title}" to live website storage!`);
+
+      document.getElementById("assetTitleInput").value = "";
+      document.getElementById("localFileInput").value = "";
+      document.getElementById("filePreviewContainer").style.display = "none";
+      currentUploadedDataUrl = "";
+    }
+
+    function exportFullSiteBackup() {
+      const backup = {
+        timestamp: new Date().toISOString(),
+        site: "Omtek Corporation",
+        homepage: JSON.parse(localStorage.getItem("omtek_homepage_content")) || {},
+        enquiries: JSON.parse(localStorage.getItem("omtek_enquiries")) || sampleEnquiries,
+        gallery: JSON.parse(localStorage.getItem("omtek_uploaded_gallery")) || []
+      };
+
+      const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(backup, null, 2));
+      const link = document.createElement("a");
+      link.setAttribute("href", dataStr);
+      link.setAttribute("download", `Omtek_Full_Site_Backup_${new Date().toISOString().slice(0,10)}.json`);
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+  </script>
+</body>
+</html>
