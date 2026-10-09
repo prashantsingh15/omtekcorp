@@ -617,6 +617,15 @@
       });
 
       renderEnquiries();
+
+      // Real-time listener for incoming submissions from other tabs/windows
+      window.addEventListener("storage", (e) => {
+        if (e.key === "omtek_enquiries" || !e.key) {
+          renderEnquiries();
+        }
+      });
+      // Auto polling every 3 seconds for seamless real-time dashboard updates
+      setInterval(renderEnquiries, 3000);
     });
 
     function showDashboard() {
