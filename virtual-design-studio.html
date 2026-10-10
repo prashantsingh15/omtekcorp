@@ -1,0 +1,1107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>Virtual Design Studio — Design Without Boundaries | Omtek Corporation</title>
+  <meta name="description" content="Omtek Corporation is a modern Virtual Design Studio delivering innovative, technology-enabled architectural visualization, 3D modeling, interior space planning, product rendering, and real estate digital design.">
+  <!-- Favicon / Brand Logo -->
+  <link rel="icon" type="image/png" href="assets/images/omtek-logo.png">
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" href="assets/images/omtek-logo.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* ── Page-specific styles for Virtual Design Studio ── */
+    .vds-hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(168, 85, 247, 0.16);
+      border: 1px solid rgba(192, 132, 252, 0.45);
+      color: #d8b4fe;
+      padding: 6px 16px;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+
+    .vds-grid-6 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 28px;
+    }
+
+    .vds-service-card {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      display: flex;
+      flex-direction: column;
+    }
+    .vds-service-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 16px 36px rgba(147, 51, 234, 0.12);
+      border-color: #c084fc;
+    }
+    .vds-service-media {
+      width: 100%;
+      height: 220px;
+      overflow: hidden;
+      background: #0f172a;
+      position: relative;
+    }
+    .vds-service-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.35s ease;
+    }
+    .vds-service-card:hover .vds-service-media img {
+      transform: scale(1.05);
+    }
+    .vds-service-num-badge {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      background: #9333ea;
+      color: #ffffff;
+      font-family: var(--font-heading);
+      font-weight: 800;
+      font-size: 0.82rem;
+      padding: 4px 12px;
+      border-radius: 999px;
+      box-shadow: 0 4px 12px rgba(147, 51, 234, 0.4);
+    }
+    .vds-service-body {
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+    .vds-service-body h3 {
+      font-family: var(--font-heading);
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #0f172a;
+      margin-bottom: 8px;
+      line-height: 1.35;
+    }
+    .vds-tagline-text {
+      color: #7c3aed;
+      font-size: 0.88rem;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+    .vds-subhead {
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      color: #64748b;
+      margin: 10px 0 6px 0;
+    }
+    .vds-bullet-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 14px 0;
+    }
+    .vds-bullet-list li {
+      font-size: 0.88rem;
+      color: #334155;
+      padding: 3px 0;
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      line-height: 1.45;
+    }
+    .vds-bullet-list li::before {
+      content: "•";
+      color: #9333ea;
+      font-weight: 800;
+      font-size: 1.2rem;
+      line-height: 1;
+    }
+    .vds-value-box {
+      background: #faf5ff;
+      border: 1px solid #f3e8ff;
+      border-radius: 8px;
+      padding: 10px 12px;
+      margin-top: auto;
+    }
+    .vds-value-title {
+      font-size: 0.78rem;
+      font-weight: 800;
+      color: #6b21a8;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+    .vds-value-box ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .vds-value-box li {
+      font-size: 0.82rem;
+      color: #7e22ce;
+      padding: 2px 0;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .vds-value-box li::before {
+      content: "✔";
+      font-size: 0.75rem;
+    }
+
+    /* Process Flow Stepper */
+    .process-timeline {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      margin-top: 36px;
+    }
+    .process-step-box {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 22px 18px;
+      position: relative;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+    .process-step-box:hover {
+      transform: translateY(-4px);
+      border-color: #9333ea;
+    }
+    .step-badge {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: #9333ea;
+      color: #ffffff;
+      font-family: var(--font-heading);
+      font-weight: 800;
+      font-size: 0.95rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 12px;
+      box-shadow: 0 4px 10px rgba(147, 51, 234, 0.3);
+    }
+    .step-title {
+      font-family: var(--font-heading);
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #0f172a;
+      margin-bottom: 8px;
+    }
+    .step-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .step-list li {
+      font-size: 0.82rem;
+      color: #64748b;
+      padding: 3px 0;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .step-list li::before {
+      content: "›";
+      color: #9333ea;
+      font-weight: 800;
+      font-size: 1rem;
+    }
+
+    .tools-chip-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 20px;
+    }
+    .tool-chip {
+      background: #1e1b4b;
+      color: #e0e7ff;
+      border: 1px solid rgba(192, 132, 252, 0.25);
+      padding: 8px 16px;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+
+    .why-vds-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-top: 24px;
+    }
+    .why-vds-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: #f8fafc;
+      padding: 14px 16px;
+      border-radius: 10px;
+      border: 1px solid #e2e8f0;
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: #1e293b;
+    }
+    .why-vds-item span.check {
+      color: #9333ea;
+      font-weight: 800;
+      font-size: 1.1rem;
+    }
+
+    @media (max-width: 900px) {
+      .why-vds-list {
+        grid-template-columns: 1fr;
+      }
+      .process-timeline {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOP UTILITY BAR -->
+  <div class="top-bar">
+    <div class="container top-bar-inner">
+      <div class="top-contact-links">
+        <a href="tel:+919810772284" class="top-link">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+          +91-9810772284 / +91-9987079111
+        </a>
+        <a href="mailto:omtechcorp2402@gmail.com" class="top-link">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+          omtechcorp2402@gmail.com
+        </a>
+      </div>
+      <div class="top-badge">
+        ★ VIRTUAL DESIGN STUDIO — VISUALIZE BEFORE YOU BUILD
+      </div>
+    </div>
+  </div>
+
+  <!-- HEADER -->
+  <header class="main-header" id="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="brand-logo">
+        <img src="assets/images/omtek-logo.png" alt="Omtek Corporation Logo">
+        <div class="brand-text">
+          <span class="brand-name">OMTEK CORPORATION</span>
+          <span class="brand-tagline">CONSULTING • TRAINING • ADVISORY</span>
+        </div>
+      </a>
+      <nav class="nav-menu" id="navMenu">
+        <div class="nav-item"><a href="index.html" class="nav-link">Home</a></div>
+        <div class="nav-item"><a href="about.html" class="nav-link">About Us</a></div>
+        <div class="nav-item">
+          <a href="services.html" class="nav-link active">
+            Services
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </a>
+          <div class="nav-dropdown">
+            <a href="services.html" class="dropdown-link" style="border-bottom: 1px dashed #e2e8f0; font-weight: 700; color: var(--safety-amber);">
+              All Core Services Overview ↗
+              <span>Explore Complete Industrial &amp; Advisory Solutions</span>
+            </a>
+            <a href="fire-gas-systems.html" class="dropdown-link">
+              Fire Protection
+              <span>Fire Alarm, Deluge, Smoke Detection & Suppression</span>
+            </a>
+            <a href="water-treatment.html" class="dropdown-link">
+              Plumbing and Bulk Drinking Water Solution
+              <span>End-to-End Plumbing & Bulk Quantity Drinking Water</span>
+            </a>
+            <a href="corporate-training.html#iso" class="dropdown-link">
+              ISO Audit & Certification For 9001,14001 & 45001
+              <span>Quality, Environmental & OHS Management Audits</span>
+            </a>
+            <a href="cyber-security.html" class="dropdown-link">
+              Cyber Security Professional Training
+              <span>Defense, Threat Prevention, Analysis & Upskilling</span>
+            </a>
+            <a href="virtual-design-studio.html" class="dropdown-link" style="color: #9333ea; font-weight: 700;">
+              Virtual Design Studio
+              <span>Innovative Technology-Enabled Digital Design Services</span>
+            </a>
+          </div>
+        </div>
+        <div class="nav-item"><a href="gallery.html" class="nav-link">Media &amp; Videos</a></div>
+        <div class="nav-item"><a href="industries.html" class="nav-link">Industries</a></div>
+        <div class="nav-item"><a href="contact.html" class="nav-link">Contact</a></div>
+      </nav>
+      <div class="nav-actions">
+        <button class="btn btn-primary open-modal-btn" data-service="Virtual Design Studio">Request Consultation</button>
+        <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle Navigation">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- PAGE HERO -->
+  <section class="page-header" style="background: radial-gradient(circle at 80% 25%, rgba(147, 51, 234, 0.35) 0%, transparent 50%), linear-gradient(135deg, #090e1a 0%, #171126 50%, #2e1065 100%); padding: 85px 0 70px;">
+    <div class="container">
+      <div class="breadcrumb-nav">
+        <a href="index.html">Home</a>
+        <span>/</span>
+        <a href="services.html">Services</a>
+        <span>/</span>
+        <span>Virtual Design Studio</span>
+      </div>
+      <div class="vds-hero-badge">✨ VIRTUAL DESIGN STUDIO</div>
+      <h1 class="page-title" style="max-width: 900px; margin: 0 auto 16px;">Design Without Boundaries. Visualize Before You Build.</h1>
+      <p class="page-subtitle" style="max-width: 840px; margin: 0 auto 24px; color: #e9d5ff; font-size: 1.05rem; line-height: 1.7;">
+        <strong>Omtech Corporation</strong> is a modern Virtual Design Studio delivering innovative, technology-enabled design services to clients across industries. We help businesses, architects, developers, and brands transform ideas into clear, compelling, and visually rich digital designs—without the limitations of physical studios.
+      </p>
+
+      <div style="background: rgba(23, 17, 38, 0.7); border: 1px solid rgba(192, 132, 252, 0.25); border-radius: 14px; padding: 22px 24px; max-width: 860px; margin: 0 auto; text-align: left;">
+        <p style="color: #f3e8ff; font-size: 0.94rem; line-height: 1.65; margin-bottom: 12px;">
+          In today’s fast-paced, digitally connected world, design decisions must be <strong>accurate, collaborative, and future-ready</strong>. Our virtual design studio model allows us to work seamlessly with clients across geographies, offering cost-effective, scalable, and high-quality design solutions.
+        </p>
+        <p style="color: #d8b4fe; font-size: 0.95rem; font-weight: 700; margin: 0;">
+          At Omtech Corporation, we don’t just create designs—we create experiences, clarity, and confidence.
+        </p>
+      </div>
+
+      <div style="margin-top: 28px; display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;">
+        <a href="#services-list" class="btn btn-primary" style="background: #9333ea; border-color: #9333ea;">Explore 6 Virtual Services ↓</a>
+        <button class="btn btn-secondary open-modal-btn" data-service="Virtual Design Studio" style="color: #ffffff; border-color: rgba(255,255,255,0.4); background: rgba(255,255,255,0.1);">Request Project Estimate</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- METRICS BAR -->
+  <section style="background: #0f0a1c; padding: 36px 0; border-bottom: 1px solid rgba(255,255,255,0.08);">
+    <div class="container">
+      <div class="stat-card-grid" style="margin: 0;">
+        <div class="stat-card" style="background: #19122c; border: 1px solid rgba(192, 132, 252, 0.2);">
+          <div class="stat-number" style="color: #c084fc;">100%</div>
+          <div class="stat-label" style="color: #cbd5e1;">Virtual &amp; Cloud Collaboration</div>
+        </div>
+        <div class="stat-card" style="background: #19122c; border: 1px solid rgba(192, 132, 252, 0.2);">
+          <div class="stat-number" style="color: #c084fc;">4K / 3D</div>
+          <div class="stat-label" style="color: #cbd5e1;">Photorealistic Visualization</div>
+        </div>
+        <div class="stat-card" style="background: #19122c; border: 1px solid rgba(192, 132, 252, 0.2);">
+          <div class="stat-number" style="color: #c084fc;">Fast</div>
+          <div class="stat-label" style="color: #cbd5e1;">Iterative Design Cycles</div>
+        </div>
+        <div class="stat-card" style="background: #19122c; border: 1px solid rgba(192, 132, 252, 0.2);">
+          <div class="stat-number" style="color: #c084fc;">Global</div>
+          <div class="stat-label" style="color: #cbd5e1;">Cross-Border Project Delivery</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHO WE ARE SECTION -->
+  <section style="padding: 85px 0; background: #ffffff;">
+    <div class="container">
+      <div class="responsive-two-col" style="align-items: center;">
+        <div>
+          <span class="section-label" style="color: #9333ea;">Digital Innovation &amp; Creative Synergy</span>
+          <h2 class="section-title">Who We Are</h2>
+          <p style="font-size: 1.02rem; color: #334155; line-height: 1.7; margin-bottom: 16px;">
+            <strong>Omtech Corporation</strong> is built on the belief that great design drives better decisions. As a virtual design studio, we combine creative expertise, advanced digital tools, and collaborative workflows to deliver design outcomes that are both visually impressive and functionally effective.
+          </p>
+          <p style="font-size: 0.95rem; color: #475569; line-height: 1.7; margin-bottom: 20px;">
+            Our virtual studio approach enables us to:
+          </p>
+
+          <div style="display: flex; flex-direction: column; gap: 10px; margin-bottom: 22px;">
+            <div style="display: flex; align-items: center; gap: 10px; font-weight: 600; color: #0f172a;">
+              <span style="color: #9333ea; font-weight: 800; font-size: 1.1rem;">✔</span> Collaborate remotely in real time
+            </div>
+            <div style="display: flex; align-items: center; gap: 10px; font-weight: 600; color: #0f172a;">
+              <span style="color: #9333ea; font-weight: 800; font-size: 1.1rem;">✔</span> Reduce project timelines and costs
+            </div>
+            <div style="display: flex; align-items: center; gap: 10px; font-weight: 600; color: #0f172a;">
+              <span style="color: #9333ea; font-weight: 800; font-size: 1.1rem;">✔</span> Offer flexibility and scalability
+            </div>
+            <div style="display: flex; align-items: center; gap: 10px; font-weight: 600; color: #0f172a;">
+              <span style="color: #9333ea; font-weight: 800; font-size: 1.1rem;">✔</span> Serve global clients efficiently
+            </div>
+          </div>
+
+          <div style="background: #faf5ff; border-left: 4px solid #9333ea; padding: 16px 20px; border-radius: 0 10px 10px 0;">
+            <p style="margin: 0; color: #6b21a8; font-size: 0.92rem; line-height: 1.6; font-weight: 600;">
+              We work as an <strong>extension of your team</strong>, ensuring your vision is accurately translated into design.
+            </p>
+          </div>
+        </div>
+
+        <div>
+          <div style="display: flex; flex-direction: column; gap: 16px;">
+            <div style="position: relative; border-radius: 14px; overflow: hidden; box-shadow: 0 12px 32px rgba(0,0,0,0.12); border: 1px solid #e2e8f0;">
+              <img src="assets/images/vds-studio-workspace.jpg" alt="Omtech Corporation Virtual Design Studio Workspace" style="width: 100%; height: 260px; object-fit: cover;">
+              <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(15,23,42,0.9) 0%, transparent 100%); padding: 14px 18px; color: #ffffff; font-size: 0.85rem; font-weight: 600;">
+                Contemporary Digital Design Studio &amp; Multi-Display Workstations
+              </div>
+            </div>
+            <div class="mobile-stack-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
+              <div style="border-radius: 12px; overflow: hidden; box-shadow: 0 6px 18px rgba(0,0,0,0.08); border: 1px solid #e2e8f0;">
+                <img src="assets/images/vds-team-collaboration.jpg" alt="Design Team Remote Brainstorming" style="width: 100%; height: 160px; object-fit: cover;">
+              </div>
+              <div style="border-radius: 12px; overflow: hidden; box-shadow: 0 6px 18px rgba(0,0,0,0.08); border: 1px solid #e2e8f0;">
+                <img src="assets/images/vds-vr-collaboration.jpg" alt="Virtual 3D Spatial Walkthroughs" style="width: 100%; height: 160px; object-fit: cover;">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT IS A VIRTUAL DESIGN STUDIO SECTION -->
+  <section style="padding: 85px 0; background: #fafaf9; border-top: 1px solid #e2e8f0; border-bottom: 1px solid #e2e8f0;">
+    <div class="container">
+      <div class="section-header-center" style="max-width: 800px; margin: 0 auto 40px; text-align: center;">
+        <span class="section-label" style="color: #9333ea;">Modern Studio Model</span>
+        <h2 class="section-title">What Is a Virtual Design Studio?</h2>
+        <p style="color: #475569; font-size: 1.02rem; line-height: 1.7;">
+          A virtual design studio operates entirely through <strong>digital collaboration platforms, cloud tools, and advanced design software</strong>, eliminating the need for a physical design office while enhancing productivity and reach.
+        </p>
+      </div>
+
+      <div class="responsive-two-col" style="align-items: center;">
+        <div>
+          <div style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 16px; padding: 32px; box-shadow: 0 6px 20px rgba(0,0,0,0.05);">
+            <h3 style="font-family: var(--font-heading); font-size: 1.25rem; font-weight: 800; color: #0f172a; margin-bottom: 18px;">
+              Benefits of a Virtual Design Studio:
+            </h3>
+            <ul style="list-style: none; padding: 0; margin: 0 0 20px 0;">
+              <li style="padding: 10px 0; border-bottom: 1px solid #f1f5f9; display: flex; align-items: flex-start; gap: 12px; color: #334155; font-size: 0.95rem; font-weight: 500;">
+                <span style="color: #9333ea; font-weight: 800; font-size: 1.2rem; line-height: 1;">⚡</span>
+                <span><strong>Faster collaboration and feedback</strong> through real-time cloud review</span>
+              </li>
+              <li style="padding: 10px 0; border-bottom: 1px solid #f1f5f9; display: flex; align-items: flex-start; gap: 12px; color: #334155; font-size: 0.95rem; font-weight: 500;">
+                <span style="color: #9333ea; font-weight: 800; font-size: 1.2rem; line-height: 1;">🌐</span>
+                <span><strong>Access to diverse design expertise</strong> across multi-disciplinary teams</span>
+              </li>
+              <li style="padding: 10px 0; border-bottom: 1px solid #f1f5f9; display: flex; align-items: flex-start; gap: 12px; color: #334155; font-size: 0.95rem; font-weight: 500;">
+                <span style="color: #9333ea; font-weight: 800; font-size: 1.2rem; line-height: 1;">💰</span>
+                <span><strong>Lower overhead and operational costs</strong> without brick-and-mortar markups</span>
+              </li>
+              <li style="padding: 10px 0; border-bottom: 1px solid #f1f5f9; display: flex; align-items: flex-start; gap: 12px; color: #334155; font-size: 0.95rem; font-weight: 500;">
+                <span style="color: #9333ea; font-weight: 800; font-size: 1.2rem; line-height: 1;">🔄</span>
+                <span><strong>Flexible engagement models</strong> (per-project, retainer, or on-demand)</span>
+              </li>
+              <li style="padding: 10px 0; display: flex; align-items: flex-start; gap: 12px; color: #334155; font-size: 0.95rem; font-weight: 500;">
+                <span style="color: #9333ea; font-weight: 800; font-size: 1.2rem; line-height: 1;">🌍</span>
+                <span><strong>Global project delivery</strong> with seamless multi-timezone coordination</span>
+              </li>
+            </ul>
+
+            <div style="background: #faf5ff; border: 1px solid #f3e8ff; border-radius: 10px; padding: 14px 18px; text-align: center;">
+              <p style="margin: 0; color: #6b21a8; font-weight: 700; font-size: 0.92rem;">
+                Omtech Corporation leverages this model to deliver high-quality design services with speed, precision, and transparency.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div style="border-radius: 16px; overflow: hidden; border: 1px solid #e2e8f0; box-shadow: 0 8px 24px rgba(0,0,0,0.08);">
+            <img src="assets/images/vds-vr-collaboration.jpg" alt="Virtual Design Studio Cloud Collaboration" style="width: 100%; height: auto; display: block;">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OUR VIRTUAL DESIGN STUDIO SERVICES (6 CORE SERVICES) -->
+  <section id="services-list" style="padding: 90px 0; background: #ffffff;">
+    <div class="container">
+      <div class="section-header-center" style="max-width: 820px; margin: 0 auto 52px; text-align: center;">
+        <span class="section-label" style="color: #9333ea;">End-to-End Solutions</span>
+        <h2 class="section-title">Our Virtual Design Studio Services</h2>
+        <p style="color: #475569; font-size: 1rem; line-height: 1.7;">
+          We offer a comprehensive range of virtual design services, tailored to meet the needs of different industries and project scales.
+        </p>
+      </div>
+
+      <div class="vds-grid-6">
+
+        <!-- Service 1 -->
+        <article class="vds-service-card">
+          <div class="vds-service-media">
+            <span class="vds-service-num-badge">Service 01</span>
+            <img src="assets/images/vds-architectural-villa-render.jpg" alt="Architectural Design and Visualization">
+          </div>
+          <div class="vds-service-body">
+            <h3>1. Architectural Design &amp; Visualization</h3>
+            <div class="vds-tagline-text">Communicating intent clearly before construction begins</div>
+            <p style="font-size: 0.88rem; color: #475569; line-height: 1.55; margin-bottom: 12px;">
+              Our virtual studio supports architects and developers with high-quality design and visualization services.
+            </p>
+
+            <div class="vds-subhead">Services Include:</div>
+            <ul class="vds-bullet-list">
+              <li>Conceptual architectural design support</li>
+              <li>2D drawings and layouts</li>
+              <li>3D architectural modeling</li>
+              <li>Photorealistic exterior &amp; interior renders</li>
+              <li>Walkthroughs and fly-through animations</li>
+            </ul>
+
+            <div class="vds-value-box">
+              <div class="vds-value-title">Value Delivered:</div>
+              <ul>
+                <li>Better design clarity</li>
+                <li>Improved stakeholder communication</li>
+                <li>Reduced design revisions</li>
+                <li>Confident decision-making</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+        <!-- Service 2 -->
+        <article class="vds-service-card">
+          <div class="vds-service-media">
+            <span class="vds-service-num-badge">Service 02</span>
+            <img src="assets/images/vds-interior-moodboard-package.jpg" alt="Interior Design and Space Planning">
+          </div>
+          <div class="vds-service-body">
+            <h3>2. Interior Design &amp; Space Planning</h3>
+            <div class="vds-tagline-text">Visualizing interior spaces before execution</div>
+            <p style="font-size: 0.88rem; color: #475569; line-height: 1.55; margin-bottom: 12px;">
+              Ensuring aesthetics, functionality, and comfort align perfectly before investing in physical execution.
+            </p>
+
+            <div class="vds-subhead">Our Interior Design Services:</div>
+            <ul class="vds-bullet-list">
+              <li>Space planning &amp; layout optimization</li>
+              <li>Furniture and fixture visualization</li>
+              <li>Lighting design concepts</li>
+              <li>Material and color selection visuals</li>
+              <li>Residential, commercial, and workspace interiors</li>
+            </ul>
+
+            <div class="vds-value-box">
+              <div class="vds-value-title">Value Delivered:</div>
+              <ul>
+                <li>Experience space virtually</li>
+                <li>Accurate material selection</li>
+                <li>Zero on-site guesswork</li>
+                <li>Optimized spatial ergonomics</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+        <!-- Service 3 -->
+        <article class="vds-service-card">
+          <div class="vds-service-media">
+            <span class="vds-service-num-badge">Service 03</span>
+            <img src="assets/images/service-card-virtual-design.jpg" alt="3D Modeling Rendering and Visualization">
+          </div>
+          <div class="vds-service-body">
+            <h3>3. 3D Modeling, Rendering &amp; Visualization</h3>
+            <div class="vds-tagline-text">Photorealistic 3D at the core of our studio</div>
+            <p style="font-size: 0.88rem; color: #475569; line-height: 1.55; margin-bottom: 12px;">
+              Translating complex concepts into striking visual assets for approvals, investors, and public presentation.
+            </p>
+
+            <div class="vds-subhead">We Deliver:</div>
+            <ul class="vds-bullet-list">
+              <li>High-quality 3D models</li>
+              <li>Photorealistic renders</li>
+              <li>Product and environment visualization</li>
+              <li>Exploded views and technical visuals</li>
+            </ul>
+
+            <div class="vds-value-box">
+              <div class="vds-value-title">Ideal Applications:</div>
+              <ul>
+                <li>High-impact client presentations</li>
+                <li>Marketing campaigns &amp; pitch decks</li>
+                <li>Statutory &amp; investor approvals</li>
+                <li>Technical communication</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+        <!-- Service 4 -->
+        <article class="vds-service-card">
+          <div class="vds-service-media">
+            <span class="vds-service-num-badge">Service 04</span>
+            <img src="assets/images/vds-bim-building-model.jpg" alt="Virtual Design for Real Estate and Construction">
+          </div>
+          <div class="vds-service-body">
+            <h3>4. Virtual Design for Real Estate &amp; Construction</h3>
+            <div class="vds-tagline-text">Design visualization &amp; coordination support</div>
+            <p style="font-size: 0.88rem; color: #475569; line-height: 1.55; margin-bottom: 12px;">
+              Supporting real estate developers and construction firms with design coordination and sales collateral.
+            </p>
+
+            <div class="vds-subhead">Applications Include:</div>
+            <ul class="vds-bullet-list">
+              <li>Pre-construction visualization</li>
+              <li>Marketing and sales collateral</li>
+              <li>Design coordination support</li>
+              <li>Client approval presentations</li>
+            </ul>
+
+            <div class="vds-value-box">
+              <div class="vds-value-title">Value Delivered:</div>
+              <ul>
+                <li>Reduces project ambiguity early</li>
+                <li>Accelerates pre-leasing &amp; sales</li>
+                <li>Aligns contractor expectations</li>
+                <li>Prevents costly site conflicts</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+        <!-- Service 5 -->
+        <article class="vds-service-card">
+          <div class="vds-service-media">
+            <span class="vds-service-num-badge">Service 05</span>
+            <img src="assets/images/vds-product-cad-exploded.jpg" alt="Product Design and Industrial Visualization">
+          </div>
+          <div class="vds-service-body">
+            <h3>5. Product Design &amp; Industrial Visualization</h3>
+            <div class="vds-tagline-text">Virtual product modeling for manufacturers</div>
+            <p style="font-size: 0.88rem; color: #475569; line-height: 1.55; margin-bottom: 12px;">
+              For manufacturers and product companies looking for faster design iterations and better go-to-market readiness.
+            </p>
+
+            <div class="vds-subhead">Services Include:</div>
+            <ul class="vds-bullet-list">
+              <li>Concept design visualization</li>
+              <li>Functional and aesthetic modeling</li>
+              <li>Product presentation renders</li>
+              <li>Assembly and component visualization</li>
+            </ul>
+
+            <div class="vds-value-box">
+              <div class="vds-value-title">Value Delivered:</div>
+              <ul>
+                <li>Rapid prototype iterations</li>
+                <li>Engineering component clarity</li>
+                <li>Marketing-ready packaging assets</li>
+                <li>Early customer validation</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+        <!-- Service 6 -->
+        <article class="vds-service-card">
+          <div class="vds-service-media">
+            <span class="vds-service-num-badge">Service 06</span>
+            <img src="assets/images/vds-service-branding.jpg" alt="Brand Presentation and Digital Design Support">
+          </div>
+          <div class="vds-service-body">
+            <h3>6. Brand, Presentation &amp; Digital Design Support</h3>
+            <div class="vds-tagline-text">Design as a powerful business communication tool</div>
+            <p style="font-size: 0.88rem; color: #475569; line-height: 1.55; margin-bottom: 12px;">
+              Supporting businesses with cohesive visual communication, brand assets, and investor presentations.
+            </p>
+
+            <div class="vds-subhead">Design Support Includes:</div>
+            <ul class="vds-bullet-list">
+              <li>Corporate presentations &amp; pitch decks</li>
+              <li>Concept decks and pitch visuals</li>
+              <li>Digital marketing creatives</li>
+              <li>Brand-aligned visual assets &amp; identity</li>
+            </ul>
+
+            <div class="vds-value-box">
+              <div class="vds-value-title">Value Delivered:</div>
+              <ul>
+                <li>Executive-level polish</li>
+                <li>Compelling investor storytelling</li>
+                <li>High social &amp; digital engagement</li>
+                <li>Unified corporate branding</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- OUR VIRTUAL DESIGN PROCESS (5-STEP WORKFLOW) -->
+  <section style="padding: 85px 0; background: #fafaf9; border-top: 1px solid #e2e8f0; border-bottom: 1px solid #e2e8f0;">
+    <div class="container">
+      <div class="section-header-center" style="max-width: 800px; margin: 0 auto 36px; text-align: center;">
+        <span class="section-label" style="color: #9333ea;">Structured Workflow</span>
+        <h2 class="section-title">Our Virtual Design Process</h2>
+        <p style="color: #475569; font-size: 1.02rem; line-height: 1.7;">
+          We follow a structured and collaborative design workflow to ensure clarity, efficiency, and flawless delivery.
+        </p>
+      </div>
+
+      <div class="process-timeline">
+        <div class="process-step-box">
+          <div class="step-badge">1</div>
+          <div class="step-title">Step 1: Requirement Understanding</div>
+          <ul class="step-list">
+            <li>Project objectives</li>
+            <li>Design scope &amp; constraints</li>
+            <li>Target audience and usage</li>
+          </ul>
+        </div>
+
+        <div class="process-step-box">
+          <div class="step-badge">2</div>
+          <div class="step-title">Step 2: Concept Development</div>
+          <ul class="step-list">
+            <li>Initial design concepts</li>
+            <li>Mood boards and references</li>
+            <li>Early visualization drafts</li>
+          </ul>
+        </div>
+
+        <div class="process-step-box">
+          <div class="step-badge">3</div>
+          <div class="step-title">Step 3: Design Development</div>
+          <ul class="step-list">
+            <li>Detailed modeling and layouts</li>
+            <li>Visual refinement</li>
+            <li>Iterative feedback cycles</li>
+          </ul>
+        </div>
+
+        <div class="process-step-box">
+          <div class="step-badge">4</div>
+          <div class="step-title">Step 4: Review &amp; Finalization</div>
+          <ul class="step-list">
+            <li>Client review sessions</li>
+            <li>Final adjustments</li>
+            <li>High-quality deliverables</li>
+          </ul>
+        </div>
+
+        <div class="process-step-box">
+          <div class="step-badge">5</div>
+          <div class="step-title">Step 5: Delivery &amp; Support</div>
+          <ul class="step-list">
+            <li>Final files and formats</li>
+            <li>Multi-resolution exports</li>
+            <li>Ongoing design support</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHO WE SERVE & TECHNOLOGY TOOLS -->
+  <section style="padding: 85px 0; background: #ffffff;">
+    <div class="container">
+      <div class="responsive-two-col">
+
+        <!-- Who We Serve -->
+        <div>
+          <span class="section-label" style="color: #9333ea;">Our Client Ecosystem</span>
+          <h2 class="section-title">Who We Serve</h2>
+          <p style="color: #475569; font-size: 0.95rem; line-height: 1.65; margin-bottom: 20px;">
+            We collaborate with visionaries across diverse industry segments:
+          </p>
+          <div style="display: flex; flex-direction: column; gap: 10px;">
+            <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 12px 16px; font-weight: 600; color: #1e293b; display: flex; align-items: center; gap: 10px;">
+              <span style="color: #9333ea;">📐</span> Architects &amp; interior designers
+            </div>
+            <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 12px 16px; font-weight: 600; color: #1e293b; display: flex; align-items: center; gap: 10px;">
+              <span style="color: #9333ea;">🏢</span> Real estate developers
+            </div>
+            <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 12px 16px; font-weight: 600; color: #1e293b; display: flex; align-items: center; gap: 10px;">
+              <span style="color: #9333ea;">🏗️</span> Construction &amp; infrastructure companies
+            </div>
+            <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 12px 16px; font-weight: 600; color: #1e293b; display: flex; align-items: center; gap: 10px;">
+              <span style="color: #9333ea;">⚙️</span> Product manufacturers &amp; industrial brands
+            </div>
+            <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 12px 16px; font-weight: 600; color: #1e293b; display: flex; align-items: center; gap: 10px;">
+              <span style="color: #9333ea;">🚀</span> Startups &amp; enterprises
+            </div>
+            <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 12px 16px; font-weight: 600; color: #1e293b; display: flex; align-items: center; gap: 10px;">
+              <span style="color: #9333ea;">🎨</span> Marketing &amp; branding teams
+            </div>
+          </div>
+        </div>
+
+        <!-- Technology & Tools We Use -->
+        <div>
+          <span class="section-label" style="color: #9333ea;">Software Stack</span>
+          <h2 class="section-title">Technology &amp; Tools We Use</h2>
+          <p style="color: #475569; font-size: 0.95rem; line-height: 1.65;">
+            Our virtual design studio is powered by industry-standard tools and platforms, ensuring professional-grade output, technical accuracy, and multi-disciplinary compatibility:
+          </p>
+
+          <div class="tools-chip-grid">
+            <span class="tool-chip">⚡ 3D Modeling (3ds Max, Blender, SketchUp, Rhino)</span>
+            <span class="tool-chip">🏗️ BIM &amp; Architectural (Autodesk Revit, AutoCAD)</span>
+            <span class="tool-chip">🌟 Photorealistic Rendering (V-Ray, Corona, Lumion)</span>
+            <span class="tool-chip">🎮 Real-Time 3D (Unreal Engine 5, Twinmotion)</span>
+            <span class="tool-chip">☁️ Cloud Collaboration (Miro, Figma, Autodesk BIM 360)</span>
+            <span class="tool-chip">📋 Digital Review (Frame.io, Bluebeam Revu)</span>
+            <span class="tool-chip">🔒 Secure File Sharing &amp; Version Control</span>
+          </div>
+
+          <div style="margin-top: 24px; padding: 20px; background: #faf5ff; border-radius: 12px; border: 1px solid #f3e8ff;">
+            <p style="color: #6b21a8; font-size: 0.9rem; margin: 0; line-height: 1.6; font-weight: 600;">
+              ✨ This state-of-the-art software infrastructure ensures accuracy, visual consistency, and smooth real-time collaboration across all project stages.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY CHOOSE OMTECH & QUALITY COMMITMENT -->
+  <section style="padding: 85px 0; background: #f8fafc; border-top: 1px solid #e2e8f0; border-bottom: 1px solid #e2e8f0;">
+    <div class="container">
+      <div class="responsive-two-col">
+
+        <!-- Why Choose -->
+        <div>
+          <span class="section-label" style="color: #9333ea;">Why Choose Us</span>
+          <h2 class="section-title">Why Choose Omtech Corporation as Your Virtual Design Studio?</h2>
+          <p style="color: #475569; font-size: 0.95rem; line-height: 1.65;">
+            We combine creativity with technical precision to deliver unmatched design experiences:
+          </p>
+
+          <div class="why-vds-list">
+            <div class="why-vds-item"><span class="check">✔</span> Experienced designers &amp; 3D visualization experts</div>
+            <div class="why-vds-item"><span class="check">✔</span> Fully virtual, flexible engagement model</div>
+            <div class="why-vds-item"><span class="check">✔</span> High-quality, professional design output</div>
+            <div class="why-vds-item"><span class="check">✔</span> Faster turnaround times</div>
+            <div class="why-vds-item"><span class="check">✔</span> Cost-effective solutions</div>
+            <div class="why-vds-item"><span class="check">✔</span> Clear communication &amp; collaboration</div>
+            <div class="why-vds-item" style="grid-column: 1/-1;"><span class="check">✔</span> Scalable services for small to large projects</div>
+          </div>
+        </div>
+
+        <!-- Commitment to Quality -->
+        <div>
+          <span class="section-label" style="color: #9333ea;">Our Design Philosophy</span>
+          <h2 class="section-title">Commitment to Quality &amp; Innovation</h2>
+          <p style="color: #475569; font-size: 0.95rem; line-height: 1.65; margin-bottom: 20px;">
+            At <strong>Omtech Corporation</strong>, we believe design should be:
+          </p>
+
+          <div style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 14px; padding: 26px; box-shadow: 0 4px 16px rgba(0,0,0,0.04);">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 16px;">
+              <div style="background: #faf5ff; padding: 14px; border-radius: 8px; border: 1px solid #f3e8ff;">
+                <strong style="color: #7e22ce; font-size: 0.95rem;">🎯 Purpose-Driven</strong>
+                <p style="color: #64748b; font-size: 0.82rem; margin: 4px 0 0 0;">Solving real business and spatial objectives.</p>
+              </div>
+              <div style="background: #faf5ff; padding: 14px; border-radius: 8px; border: 1px solid #f3e8ff;">
+                <strong style="color: #7e22ce; font-size: 0.95rem;">📐 Technically Accurate</strong>
+                <p style="color: #64748b; font-size: 0.82rem; margin: 4px 0 0 0;">True-to-scale modeling and engineering fidelity.</p>
+              </div>
+              <div style="background: #faf5ff; padding: 14px; border-radius: 8px; border: 1px solid #f3e8ff;">
+                <strong style="color: #7e22ce; font-size: 0.95rem;">🎨 Visually Compelling</strong>
+                <p style="color: #64748b; font-size: 0.82rem; margin: 4px 0 0 0;">Stunning lighting, textures, and compositions.</p>
+              </div>
+              <div style="background: #faf5ff; padding: 14px; border-radius: 8px; border: 1px solid #f3e8ff;">
+                <strong style="color: #7e22ce; font-size: 0.95rem;">💡 Easy to Understand</strong>
+                <p style="color: #64748b; font-size: 0.82rem; margin: 4px 0 0 0;">Clarity that accelerates stakeholder approvals.</p>
+              </div>
+            </div>
+            <p style="margin: 0; color: #475569; font-size: 0.88rem; line-height: 1.6;">
+              We continuously upgrade our tools, skills, and processes to stay aligned with evolving design and visualization trends.
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- VISION & MISSION -->
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 40px;">
+        <div style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 14px; padding: 28px; box-shadow: 0 4px 16px rgba(0,0,0,0.04);">
+          <h3 style="font-family: var(--font-heading); font-size: 1.25rem; font-weight: 800; color: #9333ea; margin-bottom: 12px; display: flex; align-items: center; gap: 10px;">
+            👁️ Our Vision
+          </h3>
+          <p style="color: #475569; font-size: 0.94rem; line-height: 1.7; margin: 0;">
+            To be a <strong>trusted virtual design studio partner</strong>, delivering innovative, reliable, and visually powerful design solutions across industries.
+          </p>
+        </div>
+
+        <div style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 14px; padding: 28px; box-shadow: 0 4px 16px rgba(0,0,0,0.04);">
+          <h3 style="font-family: var(--font-heading); font-size: 1.25rem; font-weight: 800; color: #c2410c; margin-bottom: 12px; display: flex; align-items: center; gap: 10px;">
+            🎯 Our Mission
+          </h3>
+          <ul style="list-style: none; padding: 0; margin: 0;">
+            <li style="padding: 4px 0; display: flex; align-items: center; gap: 8px; color: #475569; font-size: 0.92rem;"><span style="color: #c2410c; font-weight: 800;">✔</span> Deliver high-quality virtual design services</li>
+            <li style="padding: 4px 0; display: flex; align-items: center; gap: 8px; color: #475569; font-size: 0.92rem;"><span style="color: #c2410c; font-weight: 800;">✔</span> Enable better decision-making through visualization</li>
+            <li style="padding: 4px 0; display: flex; align-items: center; gap: 8px; color: #475569; font-size: 0.92rem;"><span style="color: #c2410c; font-weight: 800;">✔</span> Support clients with flexible and scalable design solutions</li>
+            <li style="padding: 4px 0; display: flex; align-items: center; gap: 8px; color: #475569; font-size: 0.92rem;"><span style="color: #c2410c; font-weight: 800;">✔</span> Combine creativity with technology</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CTA BANNER -->
+  <section style="padding: 80px 0; background: linear-gradient(135deg, #171126 0%, #7e22ce 100%); color: #ffffff;">
+    <div class="container" style="text-align: center;">
+      <span style="background: rgba(255,255,255,0.15); color: #f3e8ff; padding: 6px 16px; border-radius: 999px; font-size: 0.82rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em;">Start Your Virtual Design Project</span>
+      <h2 style="font-family: var(--font-heading); font-size: 2.2rem; font-weight: 800; color: #ffffff; margin: 20px 0 16px;">Bring Your Concept to Life Before You Build</h2>
+      <p style="color: rgba(255,255,255,0.9); max-width: 660px; margin: 0 auto 32px; font-size: 1.02rem; line-height: 1.7;">
+        Collaborate with our visualization specialists for architectural 3D renders, space planning, product modeling, or corporate pitch collateral.
+      </p>
+      <div style="display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;">
+        <button class="btn btn-primary open-modal-btn" data-service="Virtual Design Studio" style="padding: 14px 32px; font-size: 1rem; background: #ffffff; color: #7e22ce; font-weight: 700; border-color: #ffffff;">Request Service Proposal →</button>
+        <a href="tel:+919810772284" class="btn btn-secondary" style="padding: 14px 32px; font-size: 1rem; background: rgba(255,255,255,0.15); border-color: rgba(255,255,255,0.4); color: #ffffff;">📞 Call +91-9810772284</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="main-footer">
+    <div class="container">
+      <div class="footer-top-grid">
+        <div class="footer-brand">
+          <div class="brand-logo" style="margin-bottom: 16px;">
+            <img src="assets/images/omtek-logo.png" alt="Omtek Corporation Logo" style="height: 48px; width: auto; background: #ffffff; padding: 4px 8px; border-radius: 6px; box-shadow: 0 4px 12px rgba(0,0,0,0.3);">
+            <div class="brand-text">
+              <span class="brand-name" style="color: #ffffff; font-weight: 800;">OMTEK CORPORATION</span>
+              <span class="brand-tagline" style="color: var(--safety-amber);">CONSULTING • TRAINING • ADVISORY</span>
+            </div>
+          </div>
+          <p>
+            Modern Virtual Design Studio delivering innovative, technology-enabled design services across industries. Design without boundaries—visualize before you build.
+          </p>
+          <div class="footer-credential-chip" style="background: rgba(147, 51, 234, 0.2); border: 1px solid rgba(192, 132, 252, 0.4); color: #e9d5ff;">
+            ★ Virtual Design Studio Services
+          </div>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Navigation</h4>
+          <div class="footer-links">
+            <a href="index.html" class="footer-link">Home</a>
+            <a href="about.html" class="footer-link">About Us</a>
+            <a href="services.html" class="footer-link">Core Services</a>
+            <a href="virtual-design-studio.html" class="footer-link" style="color: #c084fc; font-weight: 700;">Virtual Design Studio</a>
+            <a href="gallery.html" class="footer-link">Media &amp; Videos</a>
+            <a href="industries.html" class="footer-link">Industries We Serve</a>
+            <a href="contact.html" class="footer-link">Contact Us</a>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Core Services</h4>
+          <div class="footer-links">
+            <a href="virtual-design-studio.html" class="footer-link" style="color: #c084fc; font-weight: 700;">Virtual Design Studio</a>
+            <a href="fire-gas-systems.html" class="footer-link">Fire Protection &amp; Gas Systems</a>
+            <a href="water-treatment.html" class="footer-link">Plumbing &amp; Bulk Drinking Water</a>
+            <a href="cyber-security.html" class="footer-link">Cyber Security Professional Training</a>
+            <a href="corporate-training.html#iso" class="footer-link">ISO Audit &amp; Certification (9001/14001/45001)</a>
+            <a href="corporate-training.html" class="footer-link">Corporate Industrial Training</a>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Operating Locations &amp; Contacts</h4>
+          <div class="footer-links">
+            <span style="font-size: 0.88rem; color: #cbd5e1; font-weight: 700;">Kanpur Branch Office:</span>
+            <span style="font-size: 0.82rem; color: #94a3b8;">128/166, Hari Prem Apt, Kidwai Nagar, Kanpur - 208011</span>
+            <span style="font-size: 0.88rem; color: #cbd5e1; font-weight: 700; margin-top: 6px;">Delhi NCR Regd. Office:</span>
+            <span style="font-size: 0.82rem; color: #94a3b8;">Najafgarh, New Delhi - 110043</span>
+            <span style="font-size: 0.88rem; color: #cbd5e1; font-weight: 700; margin-top: 6px;">Navi Mumbai Operating Office:</span>
+            <span style="font-size: 0.82rem; color: #94a3b8;">Navi Mumbai, Maharashtra</span>
+            <div style="margin-top: 10px;">
+              <a href="tel:+919810772284" class="footer-link" style="color: #c084fc;">📞 +91-9810772284 / +91-9987079111</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p class="copyright-text">© 2026 <strong>Omtek Corporation</strong>. All Rights Reserved. Led by Founder <strong>Mr. Prem Prakash Mishra</strong>.</p>
+        <div class="footer-links-row" style="display: flex; gap: 16px; flex-wrap: wrap;">
+          <a href="privacy.html" class="footer-link">Privacy Policy</a>
+          <a href="terms.html" class="footer-link">Terms of Service</a>
+          <a href="admin.html" class="footer-link" style="color: #c084fc; font-weight: 700;">Admin Portal ↗</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- FLOATING ACTIONS HUB -->
+  <div class="floating-actions-hub">
+    <a href="https://wa.me/919810772284?text=Hello%20Omtek%20Corporation,%20I%20would%20like%20to%20enquire%20about%20Virtual%20Design%20Studio%20services" target="_blank" class="floating-btn floating-whatsapp" title="Chat on WhatsApp">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    </a>
+    <a href="tel:+919810772284" class="floating-btn floating-call" title="Call Us Directly">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+    </a>
+  </div>
+
+  <!-- MODAL POPUP -->
+  <div class="modal-overlay" id="enquiryModal">
+    <div class="modal-content-box">
+      <button class="modal-close-btn" id="modalCloseBtn">&times;</button>
+      <div class="form-header">
+        <span class="section-label" style="font-size: 0.78rem; color: #9333ea;">Virtual Design Studio</span>
+        <h3 id="modalTitle">Request Design Project Consultation</h3>
+        <p>Connect with our 3D visualization and design team for architectural, interior, or product design estimates.</p>
+      </div>
+      <form id="modalForm">
+        <div class="form-group">
+          <label class="form-label">Full Name *</label>
+          <input type="text" class="form-input" id="mName" placeholder="Your Name" required>
+        </div>
+        <div class="form-row-2">
+          <div class="form-group">
+            <label class="form-label">Email *</label>
+            <input type="email" class="form-input" id="mEmail" placeholder="name@company.com" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Phone Number *</label>
+            <input type="tel" class="form-input" id="mPhone" placeholder="+91-..." required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Design Service Requirement *</label>
+          <select class="form-select" id="mService" required>
+            <option value="Architectural Design &amp; Visualization">1. Architectural Design &amp; Visualization</option>
+            <option value="Interior Design &amp; Space Planning">2. Interior Design &amp; Space Planning</option>
+            <option value="3D Modeling, Rendering &amp; Visualization">3. 3D Modeling, Rendering &amp; Visualization</option>
+            <option value="Virtual Design for Real Estate &amp; Construction">4. Virtual Design for Real Estate &amp; Construction</option>
+            <option value="Product Design &amp; Industrial Visualization">5. Product Design &amp; Industrial Visualization</option>
+            <option value="Brand, Presentation &amp; Digital Design Support">6. Brand, Presentation &amp; Digital Design Support</option>
+            <option value="Full Turnkey Virtual Design Package">Full Turnkey Virtual Design Package</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Project Brief / Scope Details</label>
+          <textarea class="form-textarea" id="mNotes" style="min-height: 80px;" placeholder="Tell us about your project, space dimensions, CAD files available, or rendering deliverables..."></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary" style="width: 100%; padding: 14px; background: #9333ea; border-color: #9333ea;">Submit Project Enquiry</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
