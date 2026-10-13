@@ -265,7 +265,7 @@
   <div class="admin-login-screen" id="loginScreen">
     <div class="login-card">
       <div class="login-header">
-        <img src="assets/images/omtek-logo.png" alt="Omtek Corporation Logo">
+        <img decoding="async" src="assets/images/omtek-logo.png" alt="Omtek Corporation Logo">
         <h2>Content Management Portal</h2>
         <p>Omtek Corporation Admin Access</p>
       </div>
@@ -292,7 +292,7 @@
     <!-- HEADER -->
     <header class="admin-header">
       <div class="admin-brand">
-        <img src="assets/images/omtek-logo.png" alt="Logo" style="height: 38px;">
+        <img decoding="async" src="assets/images/omtek-logo.png" alt="Logo" style="height: 38px;">
         <div>
           <h1>Omtek Corporation</h1>
           <span class="admin-badge">Admin Content & Lead Portal</span>
@@ -888,9 +888,9 @@
         document.getElementById("filePreviewContainer").style.display = "block";
 
         if (currentUploadedType === "video") {
-          previewBox.innerHTML = `<video src="${currentUploadedDataUrl}" controls style="max-height: 200px; width: 100%; object-fit: cover; border-radius: 6px;"></video>`;
+          previewBox.innerHTML = `<video preload="none" src="${currentUploadedDataUrl}" controls style="max-height: 200px; width: 100%; object-fit: cover; border-radius: 6px;"></video>`;
         } else {
-          previewBox.innerHTML = `<img src="${currentUploadedDataUrl}" style="max-height: 200px; width: 100%; object-fit: cover; border-radius: 6px;">`;
+          previewBox.innerHTML = `<img loading="lazy" decoding="async" src="${currentUploadedDataUrl}" style="max-height: 200px; width: 100%; object-fit: cover; border-radius: 6px;">`;
         }
 
         previewInfo.innerText = `Selected File: ${file.name} (${(file.size / 1024 / 1024).toFixed(2)} MB)`;
