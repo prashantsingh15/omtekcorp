@@ -228,6 +228,28 @@ document.addEventListener('DOMContentLoaded', () => {
       }).catch(() => {});
     } catch (e) {}
 
+    const clientOrg = (payload.company && payload.company !== 'Direct Engagement' && payload.company !== 'Modal Lead' && payload.company !== 'Not Specified') 
+      ? payload.company 
+      : '';
+    const subjectLine = clientOrg 
+      ? `⚡ [Omtech Proposal] ${payload.service} — ${clientOrg}`
+      : `⚡ [Omtech Proposal] ${payload.service} — ${payload.name}`;
+
+    const formSubmitPayload = {
+      _subject: subjectLine,
+      _template: 'table',
+      _captcha: 'false',
+      'Client Name': payload.name,
+      'Company / Plant': clientOrg || 'Direct Engagement',
+      'Contact Phone': payload.phone || 'Not Provided',
+      'Email Address': payload.email || 'Not Provided',
+      'Requested Service': payload.service,
+      'Project Scope & Details': payload.message || 'Direct proposal intake through website'
+    };
+    if (payload.email) {
+      formSubmitPayload._replyto = payload.email;
+    }
+
     // 2. Direct instant Gmail forward via serverless relay
     try {
       fetch('https://formsubmit.co/ajax/omtechcorp2402@gmail.com', {
@@ -236,18 +258,7 @@ document.addEventListener('DOMContentLoaded', () => {
           'Content-Type': 'application/json',
           'Accept': 'application/json'
         },
-        body: JSON.stringify({
-          _subject: `⚡ [Omtech RFP] ${payload.service} — ${payload.company}`,
-          _template: 'table',
-          _replyto: payload.email,
-          _captcha: 'false',
-          'Client Name': payload.name,
-          'Company / Facility': payload.company,
-          'Contact Phone': payload.phone,
-          'Email Address': payload.email,
-          'Requested Division': payload.service,
-          'Project Scope & Details': payload.message || 'Direct website inquiry'
-        })
+        body: JSON.stringify(formSubmitPayload)
       }).catch(() => {});
     } catch (e) {}
 
@@ -259,32 +270,7 @@ document.addEventListener('DOMContentLoaded', () => {
           'Content-Type': 'application/json',
           'Accept': 'application/json'
         },
-        body: JSON.stringify({
-          _subject: `⚡ [Omtech RFP] ${payload.service} — ${payload.company}`,
-          _template: 'table',
-          _replyto: payload.email,
-          _captcha: 'false',
-          'Client Name': payload.name,
-          'Company / Facility': payload.company,
-          'Contact Phone': payload.phone,
-          'Email Address': payload.email,
-          'Requested Division': payload.service,
-          'Project Scope & Details': payload.message || 'Direct website inquiry'
-        })
-      }).catch(() => {});
-    } catch (e) {}
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
-        },
-        body: JSON.stringify({
-          _subject: `New Website Proposal: ${payload.service} — ${payload.company}`,
-          name: payload.name,
-          email: payload.email,
-          phone: payload.phone,
-          company: payload.company,
-          service: payload.service,
-          message: payload.message || 'Direct inquiry from website'
-        })
+        body: JSON.stringify(formSubmitPayload)
       }).catch(() => {});
     } catch (e) {}
   };
@@ -294,21 +280,22 @@ document.addEventListener('DOMContentLoaded', () => {
   if (enquiryForm) {
     enquiryForm.addEventListener('submit', (e) => {
       e.preventDefault();
-      const name = document.getElementById('clientName')?.value.trim() || 'Anonymous Client';
+      const name = document.getElementById('clientName')?.value.trim() || 'Prospective Client';
       const email = document.getElementById('clientEmail')?.value.trim() || '';
       const phone = document.getElementById('clientPhone')?.value.trim() || '';
-      const company = document.getElementById('clientCompany')?.value.trim() || 'Not Specified';
-      const service = document.getElementById('clientService')?.value || 'General Technical Advisory';
+      const rawCompany = document.getElementById('clientCompany')?.value.trim() || '';
+      const company = rawCompany || 'Direct Engagement';
+      const service = document.getElementById('clientService')?.value || 'Technical & HSE Advisory';
       const message = document.getElementById('clientMessage')?.value.trim() || '';
 
-      const contactDetail = [email, phone].filter(Boolean).join(' / ') || 'Direct Website Submission';
+      const contactDetail = [email, phone].filter(Boolean).join(' | ');
 
       const leadData = {
         id: Date.now(),
         date: getFormattedDateTime(),
         name: name,
         company: company,
-        contact: contactDetail + (message ? ` (Note: ${message})` : ''),
+        contact: contactDetail + (message ? ` (Scope: ${message})` : ''),
         service: service,
         status: "New"
       };
@@ -316,9 +303,10 @@ document.addEventListener('DOMContentLoaded', () => {
       saveEnquiryToStorage(leadData);
       dispatchEnquiryToBackend({ name, email, phone, company, service, message });
 
+      const companyNote = rawCompany ? ` (${rawCompany})` : '';
       showConfirmationNotification(
         "Proposal Request Received",
-        `Thank you, ${name} (${company}). Your request for "${service}" has been received and saved. Our principal consultants will review your scope and get in touch at ${contactDetail}.`
+        `Thank you, ${name}${companyNote}. Your technical inquiry for "${service}" has been successfully received. Our advisory team will review your requirements and contact you promptly at ${contactDetail}.`
       );
       enquiryForm.reset();
     });
@@ -329,30 +317,30 @@ document.addEventListener('DOMContentLoaded', () => {
   if (modalForm) {
     modalForm.addEventListener('submit', (e) => {
       e.preventDefault();
-      const name = document.getElementById('mName')?.value.trim() || 'Client';
+      const name = document.getElementById('mName')?.value.trim() || 'Prospective Client';
       const email = document.getElementById('mEmail')?.value.trim() || '';
       const phone = document.getElementById('mPhone')?.value.trim() || '';
-      const service = document.getElementById('mService')?.value || 'Proposal Request';
+      const service = document.getElementById('mService')?.value || 'Technical & HSE Advisory';
       const notes = document.getElementById('mNotes')?.value.trim() || '';
 
-      const contactDetail = [email, phone].filter(Boolean).join(' / ') || 'Modal Submission';
+      const contactDetail = [email, phone].filter(Boolean).join(' | ');
 
       const leadData = {
         id: Date.now(),
         date: getFormattedDateTime(),
         name: name,
-        company: "Modal Lead",
-        contact: contactDetail + (notes ? ` (Details: ${notes})` : ''),
+        company: "Direct Engagement",
+        contact: contactDetail + (notes ? ` (Scope: ${notes})` : ''),
         service: service,
         status: "New"
       };
 
       saveEnquiryToStorage(leadData);
-      dispatchEnquiryToBackend({ name, email, phone, company: 'Modal Lead', service, message: notes });
+      dispatchEnquiryToBackend({ name, email, phone, company: 'Direct Engagement', service, message: notes });
 
       showConfirmationNotification(
-        "Proposal Request Saved",
-        `Thank you, ${name}. Your proposal request for "${service}" has been logged. A principal consultant will contact you promptly at ${contactDetail}.`
+        "Proposal Request Received",
+        `Thank you, ${name}. Your proposal request for "${service}" has been successfully received. Our advisory team will review your requirements and connect with you shortly at ${contactDetail}.`
       );
       modalForm.reset();
       closeModal();
@@ -364,30 +352,34 @@ document.addEventListener('DOMContentLoaded', () => {
   if (waterForm) {
     waterForm.addEventListener('submit', (e) => {
       e.preventDefault();
-      const name = document.getElementById('wName')?.value.trim() || 'Water Client';
+      const name = document.getElementById('wName')?.value.trim() || 'Prospective Client';
       const email = document.getElementById('wEmail')?.value.trim() || '';
       const phone = document.getElementById('wPhone')?.value.trim() || '';
-      const company = document.getElementById('wCompany')?.value.trim() || 'Plant Operator';
+      const rawCompany = document.getElementById('wCompany')?.value.trim() || '';
+      const company = rawCompany || 'Industrial Facility';
       const service = document.getElementById('wSystem')?.value || 'Water & Environmental Solutions';
       const capacity = document.getElementById('wCapacity')?.value.trim() || '';
 
-      const contactDetail = [email, phone].filter(Boolean).join(' / ') || 'Water Audit Form';
+      const contactDetail = [email, phone].filter(Boolean).join(' | ');
+      const messageNotes = capacity ? `Flow / Treatment Capacity: ${capacity}` : '';
 
       const leadData = {
         id: Date.now(),
         date: getFormattedDateTime(),
         name: name,
         company: company,
-        contact: contactDetail + (capacity ? ` (Flow Capacity: ${capacity})` : ''),
+        contact: contactDetail + (messageNotes ? ` (${messageNotes})` : ''),
         service: service,
         status: "New"
       };
 
       saveEnquiryToStorage(leadData);
+      dispatchEnquiryToBackend({ name, email, phone, company, service, message: messageNotes });
 
+      const companyNote = rawCompany ? ` (${rawCompany})` : '';
       showConfirmationNotification(
         "Water & Environmental Request Received",
-        `Thank you, ${name} (${company}). Your Water & Infrastructure request (${service}) has been received. Our engineering team will contact you at ${contactDetail}.`
+        `Thank you, ${name}${companyNote}. Your inquiry for "${service}" has been successfully received. Our water engineering team will contact you at ${contactDetail}.`
       );
       waterForm.reset();
     });

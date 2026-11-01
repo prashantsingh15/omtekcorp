@@ -26,11 +26,11 @@ if (!$input) {
     $input = $_POST;
 }
 
-$name    = isset($input['name']) ? trim(strip_tags($input['name'])) : 'Prospective Client';
+$name    = isset($input['name']) && trim($input['name']) !== '' ? trim(strip_tags($input['name'])) : 'Client';
 $email   = isset($input['email']) ? trim(filter_var($input['email'], FILTER_SANITIZE_EMAIL)) : '';
 $phone   = isset($input['phone']) ? trim(strip_tags($input['phone'])) : '';
-$company = isset($input['company']) ? trim(strip_tags($input['company'])) : 'Not Specified';
-$service = isset($input['service']) ? trim(strip_tags($input['service'])) : 'General Technical Advisory';
+$company = isset($input['company']) && trim($input['company']) !== '' && trim($input['company']) !== 'Not Specified' && trim($input['company']) !== 'Modal Lead' ? trim(strip_tags($input['company'])) : 'Direct Engagement';
+$service = isset($input['service']) && trim($input['service']) !== '' ? trim(strip_tags($input['service'])) : 'Technical & HSE Advisory';
 $message = isset($input['message']) ? trim(strip_tags($input['message'])) : '';
 
 if (empty($name) || (empty($email) && empty($phone))) {
@@ -42,7 +42,9 @@ if (empty($name) || (empty($email) && empty($phone))) {
 // Destination and routing (Corporate Inbox + Direct Gmail Forward)
 $to = "safehands@omtechcorporation.com, omtechcorp2402@gmail.com";
 $cc = "kkamleshmishra2@gmail.com";
-$subject = "⚡ New RFP / Proposal: " . $service . " — " . $company;
+$subject = ($company !== 'Direct Engagement') 
+    ? "⚡ [Omtech Proposal] " . $service . " — " . $company
+    : "⚡ [Omtech Proposal] " . $service . " — " . $name;
 
 // Professional Executive HTML Email Template
 $safe_name    = htmlspecialchars($name, ENT_QUOTES, 'UTF-8');
