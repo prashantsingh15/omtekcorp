@@ -1,5 +1,5 @@
 // ==========================================================================
-// OMTEK CORPORATION - FIREBASE CLOUD INTEGRATION
+// OMTECH CORPORATION - FIREBASE CLOUD INTEGRATION
 // Project ID: omtechcorp-91f41
 // Provides Cloud Firestore (Enquiries) & Firebase Storage (Media Uploads)
 // ==========================================================================

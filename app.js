@@ -1,5 +1,5 @@
 // ==========================================================================
-// OMTEK CORPORATION - INTERACTIVE LOGIC & FORM HANDLING
+// OMTECH CORPORATION - INTERACTIVE LOGIC & FORM HANDLING
 // ==========================================================================
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -127,11 +127,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Elegant in-page confirmation banner
   const showConfirmationNotification = (title, message) => {
-    const existing = document.getElementById('omtek-confirmation-banner');
+    const existing = document.getElementById('omtech-confirmation-banner');
     if (existing) existing.remove();
 
     const banner = document.createElement('div');
-    banner.id = 'omtek-confirmation-banner';
+    banner.id = 'omtech-confirmation-banner';
     banner.style.cssText = `
       position: fixed;
       top: 30px;
@@ -184,7 +184,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 7000);
   };
 
-  // Helper function to save lead to localStorage omtek_enquiries
+  // Helper function to save lead to localStorage omtech_enquiries
   const saveEnquiryToStorage = (newLead) => {
     const defaultSample = [
       { id: 1, date: "2026-09-29 14:20", name: "Sanjay Verma", company: "Jamnagar Refinery Operations", contact: "s.verma@refinery.com / +91 98765 43210", service: "HAZOP & PSM Audit", status: "New" },
@@ -196,13 +196,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let enquiries = [];
     try {
-      enquiries = JSON.parse(localStorage.getItem("omtek_enquiries")) || defaultSample;
+      enquiries = JSON.parse(localStorage.getItem("omtech_enquiries")) || JSON.parse(localStorage.getItem("omtek_enquiries")) || defaultSample;
     } catch (err) {
       enquiries = defaultSample;
     }
 
     enquiries.unshift(newLead);
-    localStorage.setItem("omtek_enquiries", JSON.stringify(enquiries));
+    localStorage.setItem("omtech_enquiries", JSON.stringify(enquiries));
     window.dispatchEvent(new Event('storage'));
   };
 

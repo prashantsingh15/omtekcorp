@@ -4,11 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- Favicon / Brand Logo -->
-  <link rel="icon" type="image/png" href="assets/images/omtek-logo.png">
+  <link rel="icon" type="image/png" href="assets/images/omtech-logo.png">
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-  <link rel="apple-touch-icon" href="assets/images/omtek-logo.png">
+  <link rel="apple-touch-icon" href="assets/images/omtech-logo.png">
 
-  <title>Admin Dashboard & Content Portal — Omtek Corporation</title>
+  <title>Admin Dashboard & Content Portal — Omtech Corporation</title>
   <meta name="robots" content="noindex, nofollow">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -265,15 +265,15 @@
   <div class="admin-login-screen" id="loginScreen">
     <div class="login-card">
       <div class="login-header">
-        <img decoding="async" src="assets/images/omtek-logo.png" alt="Omtek Corporation Logo">
+        <img decoding="async" src="assets/images/omtech-logo.png" alt="Omtech Corporation Logo">
         <h2>Content Management Portal</h2>
-        <p>Omtek Corporation Admin Access</p>
+        <p>Omtech Corporation Admin Access</p>
       </div>
       <form id="loginForm">
         <div class="form-group">
           <label class="form-label">Passcode / Access Key</label>
           <input type="password" id="passcodeInput" class="form-input" placeholder="Enter Admin Passcode" required>
-          <span style="font-size: 0.75rem; color: #71717a; margin-top: 4px;">Default Key: <strong>omtek2026</strong></span>
+          <span style="font-size: 0.75rem; color: #71717a; margin-top: 4px;">Default Key: <strong>omtech2026</strong></span>
         </div>
         <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 14px;">Log In to Dashboard</button>
       </form>
@@ -292,9 +292,9 @@
     <!-- HEADER -->
     <header class="admin-header">
       <div class="admin-brand">
-        <img decoding="async" src="assets/images/omtek-logo.png" alt="Logo" style="height: 38px;">
+        <img decoding="async" src="assets/images/omtech-logo.png" alt="Logo" style="height: 38px;">
         <div>
-          <h1>Omtek Corporation</h1>
+          <h1>Omtech Corporation</h1>
           <span class="admin-badge">Admin Content & Lead Portal</span>
         </div>
       </div>
@@ -416,7 +416,7 @@
             </div>
             <div class="form-group" style="margin-top: 14px;">
               <label class="form-label">Hero Description Subtitle</label>
-              <textarea id="heroDescInput" class="form-textarea" style="min-height: 80px;">Omtek Corporation is a professional industrial consulting and corporate training organization committed to helping industries achieve peak operational performance, process safety, asset integrity, and total quality excellence.</textarea>
+              <textarea id="heroDescInput" class="form-textarea" style="min-height: 80px;">Omtech Corporation is a professional industrial consulting and corporate training organization committed to helping industries achieve peak operational performance, process safety, asset integrity, and total quality excellence.</textarea>
             </div>
           </div>
 
@@ -661,7 +661,7 @@
   </div>
 
   <script>
-    const DEFAULT_PASSCODE = "omtek2026";
+    const DEFAULT_PASSCODE = "omtech2026";
 
     const sampleEnquiries = [
       { id: 1, date: "2026-09-29 14:20", name: "Sanjay Verma", company: "Jamnagar Refinery Operations", contact: "s.verma@refinery.com / +91 98765 43210", service: "HAZOP & PSM Audit", status: "New" },
@@ -674,17 +674,17 @@
     let currentActiveLeadId = null;
 
     document.addEventListener("DOMContentLoaded", () => {
-      if (sessionStorage.getItem("omtek_admin_logged_in") === "true") {
+      if (sessionStorage.getItem("omtech_admin_logged_in") === "true") {
         showDashboard();
       }
 
       document.getElementById("loginForm").addEventListener("submit", (e) => {
         e.preventDefault();
         const entered = document.getElementById("passcodeInput").value.trim();
-        const storedKey = localStorage.getItem("omtek_admin_passcode") || DEFAULT_PASSCODE;
+        const storedKey = localStorage.getItem("omtech_admin_passcode") || DEFAULT_PASSCODE;
         
         if (entered === storedKey) {
-          sessionStorage.setItem("omtek_admin_logged_in", "true");
+          sessionStorage.setItem("omtech_admin_logged_in", "true");
           showDashboard();
         } else {
           document.getElementById("loginError").style.display = "block";
@@ -695,7 +695,7 @@
 
       // Real-time listener for incoming submissions from other tabs/windows
       window.addEventListener("storage", (e) => {
-        if (e.key === "omtek_enquiries" || !e.key) {
+        if (e.key === "omtech_enquiries" || !e.key) {
           renderEnquiries();
         }
       });
@@ -710,7 +710,7 @@
     }
 
     function logoutAdmin() {
-      sessionStorage.removeItem("omtek_admin_logged_in");
+      sessionStorage.removeItem("omtech_admin_logged_in");
       window.location.reload();
     }
 
@@ -733,7 +733,7 @@
     }
 
     function renderEnquiries() {
-      const stored = JSON.parse(localStorage.getItem("omtek_enquiries")) || sampleEnquiries;
+      const stored = JSON.parse(localStorage.getItem("omtech_enquiries")) || JSON.parse(localStorage.getItem("omtek_enquiries")) || sampleEnquiries;
       const tbody = document.getElementById("enquiriesTableBody");
       
       const newCount = stored.filter(x => x.status === 'New').length;
@@ -772,17 +772,17 @@
     }
 
     function updateLeadStatusDirectly(id, newStatus) {
-      let stored = JSON.parse(localStorage.getItem("omtek_enquiries")) || sampleEnquiries;
+      let stored = JSON.parse(localStorage.getItem("omtech_enquiries")) || JSON.parse(localStorage.getItem("omtek_enquiries")) || sampleEnquiries;
       const index = stored.findIndex(x => x.id === id);
       if (index !== -1) {
         stored[index].status = newStatus;
-        localStorage.setItem("omtek_enquiries", JSON.stringify(stored));
+        localStorage.setItem("omtech_enquiries", JSON.stringify(stored));
         renderEnquiries();
       }
     }
 
     function openLeadModal(id) {
-      let stored = JSON.parse(localStorage.getItem("omtek_enquiries")) || sampleEnquiries;
+      let stored = JSON.parse(localStorage.getItem("omtech_enquiries")) || JSON.parse(localStorage.getItem("omtek_enquiries")) || sampleEnquiries;
       const item = stored.find(x => x.id === id);
       if (!item) return;
 
@@ -813,9 +813,9 @@
 
     function deleteLeadDirectly(id) {
       if (confirm("Are you sure you want to delete this enquiry lead?")) {
-        let stored = JSON.parse(localStorage.getItem("omtek_enquiries")) || sampleEnquiries;
+        let stored = JSON.parse(localStorage.getItem("omtech_enquiries")) || JSON.parse(localStorage.getItem("omtek_enquiries")) || sampleEnquiries;
         stored = stored.filter(x => x.id !== id);
-        localStorage.setItem("omtek_enquiries", JSON.stringify(stored));
+        localStorage.setItem("omtech_enquiries", JSON.stringify(stored));
         renderEnquiries();
       }
     }
@@ -828,7 +828,7 @@
     }
 
     function exportEnquiriesCSV() {
-      const stored = JSON.parse(localStorage.getItem("omtek_enquiries")) || sampleEnquiries;
+      const stored = JSON.parse(localStorage.getItem("omtech_enquiries")) || JSON.parse(localStorage.getItem("omtek_enquiries")) || sampleEnquiries;
       let csvContent = "data:text/csv;charset=utf-8,Date,Name,Company,Contact,Service,Status\n";
       
       stored.forEach(row => {
@@ -838,7 +838,7 @@
       const encodedUri = encodeURI(csvContent);
       const link = document.createElement("a");
       link.setAttribute("href", encodedUri);
-      link.setAttribute("download", `Omtek_Enquiries_Export_${new Date().toISOString().slice(0,10)}.csv`);
+      link.setAttribute("download", `Omtech_Enquiries_Export_${new Date().toISOString().slice(0,10)}.csv`);
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
@@ -854,7 +854,7 @@
         founderQuote: document.getElementById("founderQuoteInput").value
       };
 
-      localStorage.setItem("omtek_homepage_content", JSON.stringify(data));
+      localStorage.setItem("omtech_homepage_content", JSON.stringify(data));
       alert("Homepage changes saved successfully! They are live in system storage.");
     }
 
@@ -867,7 +867,7 @@
         return;
       }
 
-      localStorage.setItem("omtek_admin_passcode", p1);
+      localStorage.setItem("omtech_admin_passcode", p1);
       alert("Admin security passcode updated successfully!");
     }
 
@@ -913,7 +913,7 @@
         return;
       }
 
-      const storedGallery = JSON.parse(localStorage.getItem("omtek_uploaded_gallery")) || [];
+      const storedGallery = JSON.parse(localStorage.getItem("omtech_uploaded_gallery")) || [];
       storedGallery.unshift({
         id: Date.now(),
         title: title,
@@ -923,7 +923,7 @@
         date: new Date().toLocaleDateString()
       });
 
-      localStorage.setItem("omtek_uploaded_gallery", JSON.stringify(storedGallery));
+      localStorage.setItem("omtech_uploaded_gallery", JSON.stringify(storedGallery));
       alert(`Successfully uploaded "${title}" to live website storage!`);
 
       document.getElementById("assetTitleInput").value = "";
@@ -935,16 +935,16 @@
     function exportFullSiteBackup() {
       const backup = {
         timestamp: new Date().toISOString(),
-        site: "Omtek Corporation",
-        homepage: JSON.parse(localStorage.getItem("omtek_homepage_content")) || {},
-        enquiries: JSON.parse(localStorage.getItem("omtek_enquiries")) || sampleEnquiries,
-        gallery: JSON.parse(localStorage.getItem("omtek_uploaded_gallery")) || []
+        site: "Omtech Corporation",
+        homepage: JSON.parse(localStorage.getItem("omtech_homepage_content")) || {},
+        enquiries: JSON.parse(localStorage.getItem("omtech_enquiries")) || sampleEnquiries,
+        gallery: JSON.parse(localStorage.getItem("omtech_uploaded_gallery")) || []
       };
 
       const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(backup, null, 2));
       const link = document.createElement("a");
       link.setAttribute("href", dataStr);
-      link.setAttribute("download", `Omtek_Full_Site_Backup_${new Date().toISOString().slice(0,10)}.json`);
+      link.setAttribute("download", `Omtech_Full_Site_Backup_${new Date().toISOString().slice(0,10)}.json`);
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
