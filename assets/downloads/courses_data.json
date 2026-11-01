@@ -1,0 +1,818 @@
+[
+  {
+    "code": "OTC-01",
+    "title": "Centrifugal Pumps & Mechanical Seal Reliability",
+    "category": "ROTATING EQUIPMENT",
+    "duration": "3 DAYS  |  IN-COMPANY / LIVE ONLINE",
+    "description": "Recurring seal leakage often reflects a wider pump-system problem. This programme connects hydraulic duty, installation, operating practice and seal support conditions so teams investigate the mechanism before replacing parts.",
+    "audience": "Maintenance, operations and reliability engineers; pump technicians; supervisors and plant managers.",
+    "objectives": [
+      "Read pump duty, performance curves and the relationship between head, pressure and density.",
+      "Recognise cavitation, low-flow operation, misalignment and seal-support problems.",
+      "Develop an evidence-based action plan to improve pump and seal reliability."
+    ],
+    "outline": [
+      "Day 1 | Hydraulic duty and operating behaviour",
+      "Head, flow, system resistance and duty-point interpretation; BEP and manufacturer operating limits; NPSH",
+      "available, NPSH required and margin; suction piping, minimum-flow protection and field measurements.",
+      "Day 2 | Mechanical seals and supporting systems",
+      "Seal components and leakage mechanisms; materials and service compatibility; single and dual seal concepts;",
+      "selected API 682 support-plan principles; flush, quench, barrier and buffer arrangements; start-up and",
+      "shutdown precautions.",
+      "Day 3 | Diagnose recurring failures",
+      "Alignment, soft foot, runout, bearings and lubrication; interpret vibration, temperature and leakage evidence;",
+      "distinguish symptom from mechanism; build a pump/seal failure investigation and reliability action plan."
+    ],
+    "workshops": [
+      "Caustic transfer pump seal failure",
+      "Use an illustrative operating history, seal photographs and flush readings to test possible causes; propose safe",
+      "checks and rank corrective actions.",
+      "Pump duty review",
+      "Locate the operating point on supplied curves and identify the data needed before recommending throttling,",
+      "speed change or impeller modification."
+    ],
+    "tools": "Pump inspection checklist; seal investigation worksheet; operating-data log; prioritised reliability action-plan template.",
+    "delivery": "Facilitated explanations, worked examples, case discussions and small-group exercises. A short baseline check establishes starting knowledge; a closing knowledge check and practical review assess learning. Assessment can be adapted for operators, technicians or experienced engineers.",
+    "pdf_filename": "OTC-01_Pump_and_Seal_Reliability.pdf"
+  },
+  {
+    "code": "OTC-02",
+    "title": "Rotating Equipment Engineering Fundamentals",
+    "category": "ROTATING EQUIPMENT",
+    "duration": "5 DAYS  |  IN-COMPANY / LIVE ONLINE",
+    "description": "A structured introduction from process requirement to reliable operation. Participants learn how machinery types, duty conditions, package interfaces and maintenance decisions fit together.",
+    "audience": "Early-career engineers, mechanical designers, operations engineers and maintenance personnel moving into machinery engineering.",
+    "objectives": [
+      "Distinguish pump, compressor, fan and positive-displacement machine applications.",
+      "Prepare a basic design basis and identify essential datasheet information.",
+      "Explain key interfaces between the machine, driver, piping and protection systems."
+    ],
+    "outline": [
+      "Day 1 | Requirement and machine selection",
+      "Process duty and fluid characteristics; pressure, head, flow, power and efficiency; centrifugal versus",
+      "positive-displacement machines; equipment lifecycle and operating scenarios.",
+      "Day 2 | Pump engineering foundations",
+      "Pump curves and system curves; duty selection, NPSH and minimum flow; multistage concepts; casing and",
+      "impeller arrangements; introduction to API 610 applications.",
+      "Day 3 | Compressors, fans and drivers",
+      "Gas properties and compression principles; centrifugal and reciprocating behaviour; fans and blowers; motors,",
+      "couplings, speed control and package utilities.",
+      "Day 4 | Mechanical integrity and installation",
+      "Shafts, bearings, seals and lubrication; alignment and foundations; piping loads and maintainability; inspection,",
+      "FAT/SAT and installation checks.",
+      "Day 5 | Commissioning and reliability",
+      "Start-up readiness, operating envelopes and protective functions; common symptoms and troubleshooting;",
+      "condition monitoring; lifecycle case review and assessment."
+    ],
+    "workshops": [
+      "Select a machine",
+      "Compare equipment options for a water-transfer duty and a gas-service duty; record assumptions and missing",
+      "information.",
+      "Package interface review",
+      "Mark mechanical, electrical and instrumentation interfaces on an illustrative package drawing and prepare a",
+      "readiness checklist."
+    ],
+    "tools": "Equipment selection worksheet; basic datasheet checklist; package interface register; lifecycle review checklist.",
+    "delivery": "Facilitated explanations, worked examples, case discussions and small-group exercises. A short baseline check establishes starting knowledge; a closing knowledge check and practical review assess learning. Assessment can be adapted for operators, technicians or experienced engineers.",
+    "pdf_filename": "OTC-02_Rotating_Equipment_Fundamentals.pdf"
+  },
+  {
+    "code": "OTC-03",
+    "title": "Compressor Operation, Troubleshooting & Reliability",
+    "category": "ROTATING EQUIPMENT",
+    "duration": "3 DAYS  |  IN-COMPANY / LIVE ONLINE",
+    "description": "Build a practical understanding of compressor behaviour and the evidence required to investigate trips, capacity loss, high temperatures, vibration and seal-system problems.",
+    "audience": "Compressor operations and maintenance teams, machinery engineers, reliability engineers and technical supervisors.",
+    "objectives": [
+      "Distinguish centrifugal surge from reciprocating-compressor operating limitations.",
+      "Interpret basic performance and condition trends before recommending action.",
+      "Prepare a coordinated investigation involving operations, maintenance and instrumentation."
+    ],
+    "outline": [
+      "Day 1 | Compression and operating behaviour",
+      "Gas conditions, pressure ratio, capacity and power; centrifugal performance maps and surge/choke concepts;",
+      "reciprocating cylinders, valves, clearance and unloading; rod-load and reversal awareness.",
+      "Day 2 | Package systems and protection",
+      "Lube oil and cooling systems; dry gas seal and packing-system principles; separation and liquid carryover;",
+      "vibration and temperature monitoring; trips, interlocks and OEM operating restrictions.",
+      "Day 3 | Troubleshooting and reliability",
+      "High discharge temperature, valve leakage, fouling and vibration; trend comparison and instrument validation;",
+      "controlled shutdown decision-making; inspection findings, corrective actions and restart readiness."
+    ],
+    "workshops": [
+      "Rising vibration and seal temperature",
+      "Review an illustrative gas-compressor trend pack, agree verification steps and develop an escalation plan with",
+      "defined responsibilities.",
+      "Capacity loss diagnosis",
+      "Compare centrifugal fouling symptoms with reciprocating valve leakage and distinguish the evidence needed",
+      "for each machine type."
+    ],
+    "tools": "Compressor data checklist; symptom/evidence matrix; trip-review worksheet; controlled-restart readiness checklist.",
+    "delivery": "Facilitated explanations, worked examples, case discussions and small-group exercises. A short baseline check establishes starting knowledge; a closing knowledge check and practical review assess learning. Assessment can be adapted for operators, technicians or experienced engineers.",
+    "pdf_filename": "OTC-03_Compressor_Reliability.pdf"
+  },
+  {
+    "code": "OTC-04",
+    "title": "Equipment Lifecycle Engineering",
+    "category": "ENGINEERING & PROJECTS",
+    "duration": "5 DAYS  |  IN-COMPANY / LIVE ONLINE",
+    "description": "Follow equipment from the initial requirement through engineering, purchasing, installation, commissioning and long-term service. The focus is preventing decisions in one phase from creating failures in the next.",
+    "audience": "EPC and site engineers, project managers, procurement engineers, commissioning teams and maintenance/reliability personnel.",
+    "objectives": [
+      "Translate operating needs into a coherent design basis and procurement package.",
+      "Identify lifecycle risks at design, vendor, construction and commissioning interfaces.",
+      "Build a stage-gate checklist linking handover quality with operating reliability."
+    ],
+    "outline": [
+      "Day 1 | Requirement and design basis",
+      "Operating scenarios and design cases; utility conditions; equipment criticality; reliability, maintainability and",
+      "total cost of ownership; design responsibility and interface definition.",
+      "Day 2 | Detailed engineering and selection",
+      "Equipment datasheets and specifications; layouts, access and lifting; materials and service compatibility;",
+      "piping, civil, electrical and instrument interfaces; design-review action tracking.",
+      "Day 3 | Procurement and vendor assurance",
+      "Material requisition, technical queries and bid comparison; deviations and guarantees; vendor documents,",
+      "inspection plans and FAT; spare parts and documentation.",
+      "Day 4 | Construction and commissioning",
+      "Receipt, preservation and installation checks; alignment and mechanical completion; SAT and",
+      "pre-commissioning; punch lists, operating procedures and start-up readiness.",
+      "Day 5 | Operation to retirement",
+      "Operating envelopes, performance monitoring and maintenance strategy; failure learning, modifications and",
+      "management of change; obsolescence, life extension and replacement decisions."
+    ],
+    "workshops": [
+      "Lifecycle gate review",
+      "Review a pump-package dossier, identify missing evidence at each gate and assign an owner and closure",
+      "requirement.",
+      "Lowest price or lowest lifecycle cost?",
+      "Compare two fictional bids with different efficiency, maintenance and spares assumptions; explain the decision",
+      "and sensitivity."
+    ],
+    "tools": "Lifecycle gate checklist; interface register; vendor review checklist; handover index; lifecycle risk/action register.",
+    "delivery": "Facilitated explanations, worked examples, case discussions and small-group exercises. A short baseline check establishes starting knowledge; a closing knowledge check and practical review assess learning. Assessment can be adapted for operators, technicians or experienced engineers.",
+    "pdf_filename": "OTC-04_Equipment_Lifecycle_Engineering.pdf"
+  },
+  {
+    "code": "OTC-05",
+    "title": "Technical Procurement, Specifications & Bid Evaluation",
+    "category": "ENGINEERING & PROJECTS",
+    "duration": "2 DAYS  |  IN-COMPANY / LIVE ONLINE",
+    "description": "Learn to define a clear technical requirement and compare supplier offers on a consistent basis. Pump-package examples show how omissions and unresolved deviations become delivery or operating problems.",
+    "audience": "Procurement and package engineers, project engineers, maintenance engineers, technical buyers and vendor coordinators.",
+    "objectives": [
+      "Prepare the structure of a datasheet, technical specification and material requisition.",
+      "Separate mandatory requirements, preferences, exclusions and vendor deviations.",
+      "Write traceable technical queries and a defensible bid recommendation."
+    ],
+    "outline": [
+      "Day 1 | Define an enquiry that suppliers can answer",
+      "Duty cases, battery limits and interface responsibilities; datasheet fields and applicable project requirements;",
+      "package scope, inspection, testing, documentation, guarantees and spares; requisition completeness review.",
+      "Day 2 | Evaluate and recommend",
+      "Offer compliance matrix; clarification cycles and equal information to bidders; technical deviations and residual",
+      "risks; lifecycle cost inputs; technical recommendation, purchase handover and vendor document follow-up."
+    ],
+    "workshops": [
+      "Pump-package enquiry review",
+      "Find scope gaps in an illustrative requisition including driver, seals, relief protection, testing and installation",
+      "responsibilities.",
+      "Three-offer evaluation",
+      "Compare fictional supplier offers, prepare technical queries and write a recommendation with qualifications and",
+      "open issues."
+    ],
+    "tools": "Datasheet completeness checklist; technical query log; TBE matrix; deviation register; recommendation template.",
+    "delivery": "Facilitated explanations, worked examples, case discussions and small-group exercises. A short baseline check establishes starting knowledge; a closing knowledge check and practical review assess learning. Assessment can be adapted for operators, technicians or experienced engineers.",
+    "pdf_filename": "OTC-05_Technical_Procurement_TBE.pdf"
+  },
+  {
+    "code": "OTC-06",
+    "title": "Root Cause Analysis & Failure Investigation",
+    "category": "RELIABILITY & MAINTENANCE",
+    "duration": "3 DAYS  |  IN-COMPANY / LIVE ONLINE",
+    "description": "Move from repeated repairs to verified causes and effective corrective actions. Participants use a structured evidence trail to distinguish the physical failure mechanism from human and organisational contributors.",
+    "audience": "Maintenance, operations, quality and HSE teams; reliability engineers; supervisors and cross-functional investigation leaders.",
+    "objectives": [
+      "Define a clear problem statement and preserve relevant evidence.",
+      "Use timelines, cause-and-effect analysis, 5-Why and hypothesis testing appropriately.",
+      "Select corrective actions with owners, completion evidence and effectiveness checks."
+    ],
+    "outline": [
+      "Day 1 | Define and investigate",
+      "Failure event, scope and consequence; safe evidence preservation; operating history, interviews and physical",
+      "evidence; timelines, barriers and problem definition; avoid blame and premature conclusions.",
+      "Day 2 | Analyse causes",
+      "Fishbone and 5-Why; physical mechanisms and contributing conditions; evidence-based causal chains;",
+      "distinguish correlation from causation; test alternatives and document uncertainty.",
+      "Day 3 | Prevent recurrence",
+      "Corrective action hierarchy; feasibility, risk and management of change; action ownership and verification;",
+      "effectiveness measures; communicating findings and applying lessons to similar assets."
+    ],
+    "workshops": [
+      "Recurring bearing failure",
+      "Investigate an illustrative pump history with competing lubrication, alignment and operating explanations;",
+      "identify evidence that would discriminate between them.",
+      "Investigation review panel",
+      "Groups present a causal chain and action plan; peers challenge unsupported assumptions and propose an",
+      "effectiveness review."
+    ],
+    "tools": "RCA problem statement; evidence register; cause validation worksheet; CAPA/action tracker; investigation report outline.",
+    "delivery": "Facilitated explanations, worked examples, case discussions and small-group exercises. A short baseline check establishes starting knowledge; a closing knowledge check and practical review assess learning. Assessment can be adapted for operators, technicians or experienced engineers.",
+    "pdf_filename": "OTC-06_Root_Cause_Failure_Analysis.pdf"
+  },
+  {
+    "code": "OTC-07",
+    "title": "Reliability-Centred Maintenance & PM Optimisation",
+    "category": "RELIABILITY & MAINTENANCE",
+    "duration": "3 DAYS  |  IN-COMPANY / LIVE ONLINE",
+    "description": "Select maintenance tasks according to equipment function, failure consequences and the ability of a task to manage risk. Participants examine existing PM work for technical value and practical feasibility.",
+    "audience": "Reliability engineers, maintenance planners, asset owners, operations engineers and maintenance leaders.",
+    "objectives": [
+      "Define functions, functional failures, failure modes and consequences.",
+      "Choose condition-based, scheduled and failure-finding tasks where technically justified.",
+      "Identify PM improvements and a process for authorisation and review."
+    ],
+    "outline": [
+      "Day 1 | Functions and failure consequences",
+      "Operating context and system boundaries; required performance; functional failures and failure modes; safety,",
+      "environmental, operational and hidden consequences; criticality and data quality.",
+      "Day 2 | Task selection",
+      "Condition monitoring and P-F interval concepts; restoration and replacement; failure-finding; task applicability",
+      "and effectiveness; run-to-failure and redesign decisions; introduction to RCM evaluation principles.",
+      "Day 3 | Convert analysis into a workable programme",
+      "Review existing PMs; task wording, frequency and acceptance criteria; resource and spares requirements;",
+      "CMMS integration; pilot implementation, approvals and performance review."
+    ],
+    "workshops": [
+      "Boiler feed pump function review",
+      "Build a small failure-mode table and select justified maintenance tasks for a defined operating context.",
+      "PM challenge workshop",
+      "Review sample PM tasks; retain, revise or investigate each task and record the technical basis before any",
+      "authorised change."
+    ],
+    "tools": "Function/failure worksheet; task selection record; PM review matrix; implementation and effectiveness checklist.",
+    "delivery": "Facilitated explanations, worked examples, case discussions and small-group exercises. A short baseline check establishes starting knowledge; a closing knowledge check and practical review assess learning. Assessment can be adapted for operators, technicians or experienced engineers.",
+    "pdf_filename": "OTC-07_RCM_Maintenance_Optimisation.pdf"
+  },
+  {
+    "code": "OTC-08",
+    "title": "Maintenance Planning, Scheduling & CMMS Discipline",
+    "category": "RELIABILITY & MAINTENANCE",
+    "duration": "3 DAYS  |  IN-COMPANY / LIVE ONLINE",
+    "description": "Improve the quality of work from notification to closure. The programme links clear job scopes, material readiness, safe execution and useful equipment history.",
+    "audience": "Maintenance planners, schedulers, supervisors, operations coordinators and engineers using SAP or other CMMS platforms.",
+    "objectives": [
+      "Separate planning, scheduling, execution and close-out responsibilities.",
+      "Develop job packs with resources, materials, permits and acceptance checks.",
+      "Use meaningful backlog and schedule measures to improve work delivery."
+    ],
+    "outline": [
+      "Day 1 | Work identification and prioritisation",
+      "Notifications and work orders; risk-based priority; asset hierarchy and equipment history; backlog screening;",
+      "emergency versus planned work; roles and planning inputs.",
+      "Day 2 | Job planning and readiness",
+      "Scope, task sequence, labour and duration estimates; tools, spares and services; permit/isolation interfaces;",
+      "quality hold points; job-pack review and readiness gates.",
+      "Day 3 | Scheduling, execution and learning",
+      "Weekly scheduling with operations; resource loading and break-in work; progress and handover; technical",
+      "completion and failure coding; schedule compliance, planned work and backlog health."
+    ],
+    "workshops": [
+      "Plan a pump overhaul",
+      "Prepare a job pack including scope, spares, skills, safety interfaces, quality checks and return-to-service",
+      "requirements.",
+      "Weekly schedule negotiation",
+      "Role-play operations and maintenance priorities with limited resources; record trade-offs and reasons for",
+      "deferral."
+    ],
+    "tools": "Job-plan template; readiness checklist; weekly scheduling board; work-order close-out guide; KPI definition sheet.",
+    "delivery": "Facilitated explanations, worked examples, case discussions and small-group exercises. A short baseline check establishes starting knowledge; a closing knowledge check and practical review assess learning. Assessment can be adapted for operators, technicians or experienced engineers.",
+    "pdf_filename": "OTC-08_Maintenance_Planning_CMMS.pdf"
+  },
+  {
+    "code": "OTC-09",
+    "title": "Mechanical Commissioning & Start-Up Readiness",
+    "category": "ENGINEERING & PROJECTS",
+    "duration": "3 DAYS  |  IN-COMPANY / LIVE ONLINE",
+    "description": "Commissioning is an evidence-based transition from construction to operation. This course develops clear system boundaries, readiness checks and ownership of unresolved risks.",
+    "audience": "Project and construction engineers, commissioning teams, operations representatives and maintenance personnel accepting new equipment.",
+    "objectives": [
+      "Distinguish mechanical completion, pre-commissioning, commissioning and performance testing.",
+      "Identify preservation, cleanliness, alignment and protection-system readiness gaps.",
+      "Prepare a documented handover and controlled start-up review."
+    ],
+    "outline": [
+      "Day 1 | Plan the transition",
+      "Systemisation and battery limits; commissioning sequence and responsibilities; test packs, procedures and",
+      "records; preservation and receipt inspection; mechanical completion and punch categorisation.",
+      "Day 2 | Pre-commissioning assurance",
+      "Flushing and cleanliness concepts; alignment and piping checks; lubrication and seal systems; instruments,",
+      "trips and utilities; temporary items, reinstatement and permit/isolation interfaces.",
+      "Day 3 | Start-up and handover",
+      "Readiness review and operating procedures; initial monitoring and stop criteria; performance test basis; defect",
+      "resolution; spares, drawings, manuals, training and final handover dossier."
+    ],
+    "workshops": [
+      "Ready to start?",
+      "Review an illustrative pump-package checklist and distinguish issues requiring closure from items eligible for",
+      "authorised deferral.",
+      "Start-up abnormality",
+      "Investigate increasing bearing temperature after start-up and propose safe verification, escalation and",
+      "handover records."
+    ],
+    "tools": "Readiness checklist; system handover index; punch/action register; start-up monitoring sheet.",
+    "delivery": "Facilitated explanations, worked examples, case discussions and small-group exercises. A short baseline check establishes starting knowledge; a closing knowledge check and practical review assess learning. Assessment can be adapted for operators, technicians or experienced engineers.",
+    "pdf_filename": "OTC-09_Commissioning_Start_Up.pdf"
+  },
+  {
+    "code": "OTC-10",
+    "title": "Cross-Country Pipeline Integrity & Maintenance",
+    "category": "PIPELINES & ASSET INTEGRITY",
+    "duration": "3 DAYS  |  IN-COMPANY / LIVE ONLINE",
+    "description": "Connect pipeline threats with inspection evidence, operating controls and maintenance priorities. Field experience and incident lessons support practical decisions on prevention and response.",
+    "audience": "Pipeline operations and maintenance engineers, integrity teams, inspection coordinators, HSE personnel and asset managers.",
+    "objectives": [
+      "Identify major internal, external, mechanical and third-party damage threats.",
+      "Explain the purpose and limits of common integrity information sources.",
+      "Prepare a threat-based inspection and maintenance action register."
+    ],
+    "outline": [
+      "Day 1 | System and threats",
+      "Pipeline components and operating context; corrosion mechanisms; coatings and cathodic protection",
+      "principles; third-party damage, geohazards and fatigue; threat identification and critical locations.",
+      "Day 2 | Evidence and integrity management",
+      "Patrolling, operating trends and leak detection principles; in-line inspection and direct assessment awareness;",
+      "NDE selection and limitations; data correlation; anomaly review and competent escalation.",
+      "Day 3 | Maintenance and incident learning",
+      "Pigging, valves and stations; repair planning and isolation interfaces; emergency response coordination;",
+      "change control, records and integrity performance; practical risk/action prioritisation."
+    ],
+    "workshops": [
+      "Threat mapping",
+      "Use an illustrative pipeline route and operating history to prioritise locations for investigation and identify",
+      "missing evidence.",
+      "Leak-response tabletop",
+      "Review pressure and field reports, define escalation and coordination responsibilities and identify lessons for",
+      "prevention."
+    ],
+    "tools": "Pipeline threat register; inspection data checklist; maintenance review sheet; incident-learning action plan.",
+    "delivery": "Facilitated explanations, worked examples, case discussions and small-group exercises. A short baseline check establishes starting knowledge; a closing knowledge check and practical review assess learning. Assessment can be adapted for operators, technicians or experienced engineers.",
+    "pdf_filename": "OTC-10_Pipeline_Integrity.pdf"
+  },
+  {
+    "code": "OTC-11",
+    "title": "Mechanical Asset Integrity & Inspection Planning",
+    "category": "PIPELINES & ASSET INTEGRITY",
+    "duration": "3 DAYS  |  IN-COMPANY / LIVE ONLINE",
+    "description": "A practical bridge between inspection findings and operating decisions for piping, vessels and tanks. Participants learn to recognise deterioration, request the right evidence and track corrective actions.",
+    "audience": "Maintenance and inspection engineers, asset owners, reliability teams and operations personnel responsible for static equipment.",
+    "objectives": [
+      "Identify common damage mechanisms and their relationship with service conditions.",
+      "Match inspection questions with suitable NDE methods and their limitations.",
+      "Translate findings into a documented engineering review and action process."
+    ],
+    "outline": [
+      "Day 1 | Integrity foundations",
+      "Asset boundaries, criticality and credible damage mechanisms; corrosion, erosion, fatigue and thermal effects;",
+      "design and operating envelopes; inspection history and integrity data quality.",
+      "Day 2 | Inspection and assessment awareness",
+      "Visual inspection, thickness measurement and selected surface/volumetric NDE; coverage, access and",
+      "limitations; corrosion monitoring and remaining-life concepts; RBI and fitness-for-service awareness.",
+      "Day 3 | From findings to action",
+      "Review recommendations and uncertainty; repair/replacement planning; temporary arrangements and",
+      "management of change; inspection action closure; turnaround interfaces and integrity performance review."
+    ],
+    "workshops": [
+      "Select the inspection method",
+      "Match illustrative defects and locations to inspection questions, then discuss which methods can and cannot",
+      "answer them.",
+      "Inspection backlog review",
+      "Prioritise sample findings, identify those needing competent engineering review and define closure evidence."
+    ],
+    "tools": "Damage-mechanism screening sheet; inspection question checklist; recommendation tracker; integrity review agenda.",
+    "delivery": "Facilitated explanations, worked examples, case discussions and small-group exercises. A short baseline check establishes starting knowledge; a closing knowledge check and practical review assess learning. Assessment can be adapted for operators, technicians or experienced engineers.",
+    "pdf_filename": "OTC-11_Asset_Integrity_Inspection.pdf"
+  },
+  {
+    "code": "OTC-12",
+    "title": "ISO 9001 Quality Management & Internal Audit",
+    "category": "MANAGEMENT SYSTEMS",
+    "duration": "2 DAYS  |  IN-COMPANY / LIVE ONLINE",
+    "description": "Apply quality management to daily work rather than treating it as a documentation exercise. Participants connect process risks, operational controls, evidence and corrective action.",
+    "audience": "Quality managers, process owners, internal auditors, engineers, supervisors and management representatives.",
+    "objectives": [
+      "Interpret quality management requirements in the context of plant and support processes.",
+      "Plan an internal audit and collect objective evidence.",
+      "Write clear findings and evaluate corrective-action effectiveness."
+    ],
+    "outline": [
+      "Day 1 | Process-based quality management",
+      "Context and interested parties; leadership and responsibilities; process mapping and risk-based thinking;",
+      "competence and documented information; operational controls, supplier quality and performance measures.",
+      "Day 2 | Internal audit and improvement",
+      "Audit objectives, scope and criteria; sampling, interviews and records; evidence-based findings and",
+      "nonconformity writing; corrections, cause analysis and corrective action; management review and follow-up."
+    ],
+    "workshops": [
+      "Audit a maintenance process",
+      "Map inputs, outputs, risks and controls; prepare questions and identify objective evidence.",
+      "Write a defensible finding",
+      "Review an evidence pack and draft the requirement, evidence and nonconformity statement; assess the",
+      "proposed action."
+    ],
+    "tools": "Process map worksheet; audit plan; audit checklist structure; finding and corrective-action templates.",
+    "delivery": "Facilitated explanations, worked examples, case discussions and small-group exercises. A short baseline check establishes starting knowledge; a closing knowledge check and practical review assess learning. Assessment can be adapted for operators, technicians or experienced engineers.",
+    "pdf_filename": "OTC-12_ISO_9001_Quality_Management.pdf"
+  },
+  {
+    "code": "OTC-13",
+    "title": "Environmental Management & ISO 14001 Internal Audit",
+    "category": "MANAGEMENT SYSTEMS",
+    "duration": "2 DAYS  |  IN-COMPANY / LIVE ONLINE",
+    "description": "Develop an audit approach that connects environmental aspects, compliance obligations and operating controls with the evidence available at the workplace.",
+    "audience": "EHS personnel, environmental coordinators, internal auditors, operations engineers and departmental process owners.",
+    "objectives": [
+      "Identify environmental aspects and evaluate their significance using client criteria.",
+      "Examine compliance evaluation, operational control and emergency preparedness evidence.",
+      "Prepare an internal audit plan and improvement actions."
+    ],
+    "outline": [
+      "Day 1 | Environmental system in plant practice",
+      "Context and scope; aspects and impacts; compliance obligations register; objectives and responsibilities;",
+      "operational controls, contractor interfaces, competence and environmental emergencies.",
+      "Day 2 | Audit and continual improvement",
+      "Monitoring and measurement; compliance evaluation evidence; audit planning and sampling; workplace",
+      "observations and records; findings, corrective actions, management review and effectiveness checks."
+    ],
+    "workshops": [
+      "Aspect-impact workshop",
+      "Review a maintenance workshop and utility system; identify aspects, impacts, existing controls and data",
+      "needed to rate significance.",
+      "Environmental audit simulation",
+      "Evaluate sample waste, spill and monitoring records; prepare questions, findings and follow-up actions."
+    ],
+    "tools": "Aspect-impact worksheet; compliance evidence checklist; audit plan; environmental corrective-action tracker.",
+    "delivery": "Facilitated explanations, worked examples, case discussions and small-group exercises. A short baseline check establishes starting knowledge; a closing knowledge check and practical review assess learning. Assessment can be adapted for operators, technicians or experienced engineers.",
+    "pdf_filename": "OTC-13_ISO_14001_Environmental_Auditing.pdf"
+  },
+  {
+    "code": "OTC-14",
+    "title": "Occupational Health & Safety Management: ISO 45001",
+    "category": "MANAGEMENT SYSTEMS",
+    "duration": "2 DAYS  |  IN-COMPANY / LIVE ONLINE",
+    "description": "Connect the occupational health and safety management system with workplace hazards, worker participation and practical operating controls.",
+    "audience": "HSE professionals, internal auditors, supervisors, operations and maintenance engineers, worker representatives and process owners.",
+    "objectives": [
+      "Relate hazard identification and risk controls to work activities and responsibilities.",
+      "Review worker consultation, competence, incident learning and emergency preparedness.",
+      "Collect audit evidence and write clear OH",
+      "S findings."
+    ],
+    "outline": [
+      "Day 1 | OH",
+      "S system and workplace control",
+      "Scope, leadership and worker participation; hazards, risks and opportunities; compliance obligations; hierarchy",
+      "of controls; procurement/contractor interfaces; competence, change and emergency preparedness.",
+      "Day 2 | Audit, incidents and improvement",
+      "Monitoring and compliance evaluation; audit planning and interviews; observation of work controls; incident",
+      "investigation and corrective action; management review and follow-up; mock audit."
+    ],
+    "workshops": [
+      "Hazard-to-control review",
+      "Use an illustrative maintenance job to identify hazards, evaluate controls and define who verifies readiness.",
+      "OH",
+      "S audit role-play",
+      "Interview a supervisor, review permit and competence evidence and write findings with appropriate follow-up."
+    ],
+    "tools": "Hazard/control review worksheet; OH S audit plan; evidence checklist; finding and action templates.",
+    "delivery": "Facilitated explanations, worked examples, case discussions and small-group exercises. A short baseline check establishes starting knowledge; a closing knowledge check and practical review assess learning. Assessment can be adapted for operators, technicians or experienced engineers.",
+    "pdf_filename": "OTC-14_ISO_45001_OH_and_S_Auditing.pdf"
+  },
+  {
+    "code": "OTC-15",
+    "title": "Integrated Management System Internal Auditor",
+    "category": "MANAGEMENT SYSTEMS",
+    "duration": "3 DAYS  |  IN-COMPANY / LIVE ONLINE",
+    "description": "Plan integrated audits across quality, environment and occupational health and safety. The course combines shared management-system processes with discipline-specific evidence.",
+    "audience": "Internal auditors, IMS coordinators, quality/EHS managers, engineers and management representatives.",
+    "objectives": [
+      "Map common and distinct requirements across ISO 9001, ISO 14001 and ISO 45001.",
+      "Plan a risk-based integrated audit using ISO 19011 guidance.",
+      "Conduct interviews, write findings and review corrective-action closure."
+    ],
+    "outline": [
+      "Day 1 | Integration and audit preparation",
+      "Context, leadership, planning and support; quality risks, environmental aspects and OH",
+      "S hazards; objectives",
+      "and operational controls; audit programme, scope, criteria and auditor competence.",
+      "Day 2 | Conduct the audit",
+      "Process trails, sampling and objective evidence; opening meeting and interviews; contractor and maintenance",
+      "process audits; distinguish observations from nonconformities; manage audit notes and uncertainty.",
+      "Day 3 | Report and close the loop",
+      "Finding statements, closing meeting and reporting; cause analysis and corrective action; verification and",
+      "effectiveness; management review inputs; integrated mock audit and assessment."
+    ],
+    "workshops": [
+      "Integrated maintenance audit",
+      "Follow one maintenance job through quality, environmental and OH",
+      "S controls without duplicating interviews.",
+      "Audit closing meeting",
+      "Present evidence-based findings, respond to challenges and agree an action follow-up process."
+    ],
+    "tools": "Integrated audit plan; process audit checklist; interview guide; report and corrective-action templates.",
+    "delivery": "Facilitated explanations, worked examples, case discussions and small-group exercises. A short baseline check establishes starting knowledge; a closing knowledge check and practical review assess learning. Assessment can be adapted for operators, technicians or experienced engineers.",
+    "pdf_filename": "OTC-15_Integrated_Internal_Auditor.pdf"
+  },
+  {
+    "code": "OTC-16",
+    "title": "Quality Control & Process Improvement",
+    "category": "QUALITY & OPERATIONAL EXCELLENCE",
+    "duration": "3 DAYS  |  IN-COMPANY / LIVE ONLINE",
+    "description": "Turn quality problems into measurable improvement projects. Practical plant examples connect customer requirements, data quality, variation, root causes and sustainable control.",
+    "audience": "Production, QA/QC, maintenance, technical services and process improvement teams; engineers and supervisors.",
+    "objectives": [
+      "Define a measurable quality problem and select suitable basic quality tools.",
+      "Distinguish variation patterns and investigate causes with evidence.",
+      "Prepare a practical improvement and control plan."
+    ],
+    "outline": [
+      "Day 1 | Define quality and collect useful data",
+      "Customer requirements and CTQs; process mapping and SIPOC; check sheets, Pareto charts, histograms and",
+      "stratification; sampling and measurement-system awareness; problem selection.",
+      "Day 2 | Understand variation and causes",
+      "Scatter and cause-and-effect tools; control-chart concepts; capability and stability distinction; RCA and 5-Why;",
+      "introductory DMAIC logic; FMEA and risk prioritisation.",
+      "Day 3 | Improve and sustain",
+      "Corrective action and mistake-proofing; visual controls and standard work; verify results against baseline;",
+      "control plans and ownership; improvement project presentation."
+    ],
+    "workshops": [
+      "Two populations in one histogram",
+      "Investigate an illustrative two-peaked product-quality distribution by stratifying shifts, machines and material",
+      "batches.",
+      "CAPA improvement workshop",
+      "Use a fictional recurring defect to connect data, cause validation, corrective action and an effectiveness",
+      "measure."
+    ],
+    "tools": "Quality tool worksheets; improvement project charter; CAPA tracker; process control-plan template.",
+    "delivery": "Facilitated explanations, worked examples, case discussions and small-group exercises. A short baseline check establishes starting knowledge; a closing knowledge check and practical review assess learning. Assessment can be adapted for operators, technicians or experienced engineers.",
+    "pdf_filename": "OTC-16_Quality_Control_Process_Improvement.pdf"
+  },
+  {
+    "code": "OTC-17",
+    "title": "Statistical Process Control & Process Capability",
+    "category": "QUALITY & OPERATIONAL EXCELLENCE",
+    "duration": "2 DAYS  |  IN-COMPANY / LIVE ONLINE",
+    "description": "Interpret process data before making improvement decisions. Participants learn when a control chart or capability index is informative and when the underlying assumptions require investigation.",
+    "audience": "QA/QC engineers, production and process engineers, laboratory teams and improvement practitioners familiar with basic arithmetic.",
+    "objectives": [
+      "Distinguish common-cause variation from special-cause signals.",
+      "Select basic variable or attribute charts for an appropriate data structure.",
+      "Interpret Cp/Cpk cautiously and identify prerequisites for meaningful capability analysis."
+    ],
+    "outline": [
+      "Day 1 | Data and control charts",
+      "Measurement definitions and sampling; rational subgrouping; run charts; introduction to I-MR, X-bar/R and",
+      "attribute charts; limits versus specifications; signal interpretation and response plans.",
+      "Day 2 | Capability and decisions",
+      "Stability before capability; specification limits and distribution assumptions; Cp/Cpk interpretation and",
+      "limitations; measurement variation awareness; stratification and improvement verification; reporting to",
+      "managers."
+    ],
+    "workshops": [
+      "Control-chart interpretation",
+      "Build or interpret an illustrative process chart; identify signals and propose verification rather than automatic",
+      "process adjustment.",
+      "Capability comparison",
+      "Compare two fictional processes with different spread and centring; explain why an index alone is insufficient",
+      "for acceptance."
+    ],
+    "tools": "Example datasets; chart selection guide; capability review worksheet; out-of-control response-plan template.",
+    "delivery": "Facilitated explanations, worked examples, case discussions and small-group exercises. A short baseline check establishes starting knowledge; a closing knowledge check and practical review assess learning. Assessment can be adapted for operators, technicians or experienced engineers.",
+    "pdf_filename": "OTC-17_SPC_Process_Capability.pdf"
+  },
+  {
+    "code": "OTC-18",
+    "title": "FMEA, CAPA & Mistake-Proofing",
+    "category": "QUALITY & OPERATIONAL EXCELLENCE",
+    "duration": "2 DAYS  |  IN-COMPANY / LIVE ONLINE",
+    "description": "Identify potential failures before they occur and build corrective actions that prevent recurrence. Participants link failure-mode review with practical controls and verification.",
+    "audience": "Quality, design, maintenance, production and reliability teams; supervisors and improvement facilitators.",
+    "objectives": [
+      "Define functions, failure modes, effects, causes and existing controls.",
+      "Prioritise actions using agreed risk criteria rather than a score alone.",
+      "Develop CAPA and mistake-proofing ideas with ownership and validation."
+    ],
+    "outline": [
+      "Day 1 | Practical FMEA",
+      "System/process boundaries; function and requirement; effects, modes and causes; prevention versus detection",
+      "controls; severity and action priority; scoring limitations and review discipline.",
+      "Day 2 | CAPA and mistake-proofing",
+      "Containment versus correction and corrective action; cause verification; prevention, interlocks and detection",
+      "concepts; feasible Poka-Yoke; implementation risk, change control and effectiveness tracking."
+    ],
+    "workshops": [
+      "Pump seal support FMEA",
+      "Review an illustrative loss-of-flush scenario, separate causes from effects and recommend controls with",
+      "verifiable actions.",
+      "Error-proof a task",
+      "Redesign a fictional assembly or inspection task to prevent an error; describe a trial and acceptance criteria."
+    ],
+    "tools": "FMEA worksheet; action-priority checklist; CAPA template; mistake-proofing concept and validation sheet.",
+    "delivery": "Facilitated explanations, worked examples, case discussions and small-group exercises. A short baseline check establishes starting knowledge; a closing knowledge check and practical review assess learning. Assessment can be adapted for operators, technicians or experienced engineers.",
+    "pdf_filename": "OTC-18_FMEA_CAPA_Poka_Yoke.pdf"
+  },
+  {
+    "code": "OTC-19",
+    "title": "Behaviour-Based Safety & Safety Leadership",
+    "category": "SAFETY & WORKFORCE DEVELOPMENT",
+    "duration": "1 DAY  |  IN-COMPANY / LIVE ONLINE",
+    "description": "Improve safety conversations and the conditions that shape behaviour. The programme connects observation and feedback with hazard control, leadership response and learning.",
+    "audience": "Supervisors, engineers, HSE teams, team leaders and workforce representatives in industrial operations.",
+    "objectives": [
+      "Conduct a respectful observation focused on the task and its conditions.",
+      "Give useful feedback and recognise barriers to safe work.",
+      "Translate recurring observations into accountable system improvements."
+    ],
+    "outline": [
+      "Morning | Understand work and behaviour",
+      "Hazards and critical controls; task demands, equipment, procedures and production pressures; observation",
+      "ethics; safe and at-risk actions; positive reinforcement and avoiding blame.",
+      "Afternoon | Observe, discuss and act",
+      "Structured observation and consent; feedback conversations; escalation of unsafe conditions; supervisor",
+      "response and action closure; trend review and personal safety leadership commitments."
+    ],
+    "workshops": [
+      "Safety conversation role-play",
+      "Discuss an illustrative shortcut under time pressure; practise listening, checking controls and agreeing practical",
+      "action.",
+      "Observation-to-action review",
+      "Sort fictional observations into coaching, equipment, procedure and management issues and assign closure",
+      "responsibility."
+    ],
+    "tools": "Safety observation guide; feedback conversation prompts; barrier/action log; individual leadership action plan.",
+    "delivery": "Facilitated explanations, worked examples, case discussions and small-group exercises. A short baseline check establishes starting knowledge; a closing knowledge check and practical review assess learning. Assessment can be adapted for operators, technicians or experienced engineers.",
+    "pdf_filename": "OTC-19_Behaviour_Based_Safety.pdf"
+  },
+  {
+    "code": "OTC-20",
+    "title": "Permit to Work, Isolation & Job Safety Analysis",
+    "category": "SAFETY & WORKFORCE DEVELOPMENT",
+    "duration": "1 DAY  |  IN-COMPANY / LIVE ONLINE",
+    "description": "Strengthen the planning and communication behind hazardous maintenance work. Participants review task hazards, isolation interfaces and the checks required before work and reinstatement.",
+    "audience": "Operations and maintenance supervisors, permit issuers/receivers, engineers, contractor coordinators and HSE teams.",
+    "objectives": [
+      "Connect the permit with job scope, hazards, controls and simultaneous operations.",
+      "Explain energy isolation and verification responsibilities under site procedures.",
+      "Prepare a clear JSA and identify conditions requiring work to stop and be reassessed."
+    ],
+    "outline": [
+      "Morning | Plan and authorise work",
+      "PTW roles and limits; task definition and JSA; hot work, confined spaces and work at height interfaces;",
+      "simultaneous operations; gas testing and specialist authorisations under site rules.",
+      "Afternoon | Isolation, execution and handback",
+      "Energy sources and isolation planning; lockout/tagout principles and verification by authorised personnel; shift",
+      "handover and changes; suspension, reinstatement and permit closure; control assurance."
+    ],
+    "workshops": [
+      "Pump maintenance permit review",
+      "Find missing controls in an illustrative job pack covering electrical, pressure, stored-energy and",
+      "process-isolation interfaces.",
+      "Scope change scenario",
+      "Respond to an unexpected condition after work starts; decide how to stop, reassess, communicate and",
+      "reauthorise the task."
+    ],
+    "tools": "JSA worksheet; permit review checklist; isolation verification prompts; handback checklist.",
+    "delivery": "Facilitated explanations, worked examples, case discussions and small-group exercises. A short baseline check establishes starting knowledge; a closing knowledge check and practical review assess learning. Assessment can be adapted for operators, technicians or experienced engineers.",
+    "pdf_filename": "OTC-20_PTW_LOTO_JSA.pdf"
+  },
+  {
+    "code": "OTC-21",
+    "title": "Industrial Fire Safety & Emergency Preparedness",
+    "category": "SAFETY & WORKFORCE DEVELOPMENT",
+    "duration": "2 DAYS  |  IN-COMPANY / LIVE ONLINE",
+    "description": "Understand industrial fire hazards, protection-system readiness and coordinated emergency response. Practical reviews focus on prevention, impairment management and reliable inspection routines.",
+    "audience": "Plant supervisors, maintenance and operations engineers, HSE personnel, emergency coordinators and facility managers.",
+    "objectives": [
+      "Recognise common fire scenarios and the purpose of detection and protection layers.",
+      "Identify routine checks and deficiencies requiring specialist escalation.",
+      "Develop a coordinated preparedness and improvement action plan."
+    ],
+    "outline": [
+      "Day 1 | Hazards and protection systems",
+      "Fire and explosion fundamentals; ignition sources and prevention; fire classes and extinguishing principles;",
+      "alarms, detectors, firewater, hydrants, deluge and foam awareness; equipment access and impairment",
+      "reporting.",
+      "Day 2 | Readiness and response",
+      "Inspection/testing/maintenance responsibilities; fire pump and firewater readiness concepts; alarm response",
+      "and evacuation; emergency roles, communication and drills; incident lessons and action closure."
+    ],
+    "workshops": [
+      "Firewater readiness review",
+      "Use an illustrative inspection pack to identify unavailable equipment, overdue checks and escalation priorities.",
+      "Emergency tabletop",
+      "Walk through a fictional fuel leak and fire alarm, focusing on notification, evacuation, command roles and",
+      "accountability."
+    ],
+    "tools": "Fire protection readiness checklist; impairment/action register; emergency tabletop worksheet; drill debrief template.",
+    "delivery": "Facilitated explanations, worked examples, case discussions and small-group exercises. A short baseline check establishes starting knowledge; a closing knowledge check and practical review assess learning. Assessment can be adapted for operators, technicians or experienced engineers.",
+    "pdf_filename": "OTC-21_Industrial_Fire_Safety.pdf"
+  },
+  {
+    "code": "OTC-22",
+    "title": "Water & Wastewater Plants: Mechanical O",
+    "category": "UTILITIES & OPERATOR DEVELOPMENT",
+    "duration": "3 DAYS  |  IN-COMPANY / LIVE ONLINE",
+    "description": "Improve mechanical operation, preventive maintenance and first-level troubleshooting of RO, DM, STP, ETP and ZLD utility equipment. The emphasis is safe routines and reliable equipment.",
+    "audience": "Water and wastewater operators, ITI/diploma technicians, mechanical maintenance staff and utility supervisors.",
+    "objectives": [
+      "Identify major equipment and trace basic process flow and utility interfaces.",
+      "Carry out structured operating observations and maintenance planning checks.",
+      "Distinguish mechanical symptoms from issues requiring process-chemistry support."
+    ],
+    "outline": [
+      "Day 1 | Plant and equipment foundations",
+      "Basic treatment flow and equipment roles; pumps, blowers, agitators, filters and valves; pressure, flow and",
+      "level observations; lubrication, guards, leaks and housekeeping; operator rounds.",
+      "Day 2 | Maintenance and reliability",
+      "Pump and seal care; blower and bearing checks; filters and differential pressure; RO membrane system",
+      "mechanical interfaces; PM routines, spares and isolation; equipment history and reporting.",
+      "Day 3 | Troubleshooting and teamwork",
+      "Low flow, high vibration, leakage and abnormal pressure; verify instruments and operating conditions; interface",
+      "with process and laboratory teams; escalation and emergency awareness; practical operator action plans."
+    ],
+    "workshops": [
+      "Utility pump loses capacity",
+      "Use an illustrative log to separate suction restriction, air ingress, instrument error and downstream resistance.",
+      "Operator round redesign",
+      "Develop a short inspection route with normal observations, escalation triggers and clear shift handover."
+    ],
+    "tools": "Operator round sheet; mechanical PM checklist; symptom/escalation guide; shift handover template.",
+    "delivery": "Facilitated explanations, worked examples, case discussions and small-group exercises. A short baseline check establishes starting knowledge; a closing knowledge check and practical review assess learning. Assessment can be adapted for operators, technicians or experienced engineers.",
+    "pdf_filename": "OTC-22_Water_Treatment_Mechanical_OM.pdf"
+  },
+  {
+    "code": "OTC-23",
+    "title": "Ownership & Accountability in Industrial Teams",
+    "category": "SAFETY & WORKFORCE DEVELOPMENT",
+    "duration": "2 DAYS  |  IN-COMPANY / LIVE ONLINE",
+    "description": "Translate ownership into observable work habits: clear commitments, early escalation, reliable handovers and completed actions. Plant scenarios make the learning relevant to safety, production and maintenance.",
+    "audience": "Supervisors, engineers, shift in-charges, maintenance and operations leaders, and cross-functional plant teams.",
+    "objectives": [
+      "Distinguish responsibility, authority and accountability for a defined task.",
+      "Communicate risks and commitments early across department interfaces.",
+      "Build a measurable personal and team action plan with review dates."
+    ],
+    "outline": [
+      "Day 1 | Own the outcome",
+      "Role clarity and decision authority; commitments and boundaries; facts versus assumptions; handover quality;",
+      "escalation under production pressure; speaking up and learning from mistakes.",
+      "Day 2 | Make accountability work",
+      "Cross-functional coordination; action tracking and closure evidence; constructive feedback; supervisor",
+      "follow-up; leading indicators and review routines; individual commitments and implementation planning."
+    ],
+    "workshops": [
+      "The overdue defect",
+      "Role-play a recurring equipment defect shared by operations and maintenance; agree an owner, action,",
+      "deadline and escalation path.",
+      "Shift handover challenge",
+      "Compare weak and strong handovers for a plant abnormality and build a concise handover standard."
+    ],
+    "tools": "Commitment and escalation matrix; handover checklist; action closure tracker; 30-day individual implementation plan.",
+    "delivery": "Facilitated explanations, worked examples, case discussions and small-group exercises. A short baseline check establishes starting knowledge; a closing knowledge check and practical review assess learning. Assessment can be adapted for operators, technicians or experienced engineers.",
+    "pdf_filename": "OTC-23_Ownership_Accountability.pdf"
+  },
+  {
+    "code": "OTC-24",
+    "title": "Technical Train-the-Trainer for Plant Experts",
+    "category": "SAFETY & WORKFORCE DEVELOPMENT",
+    "duration": "3 DAYS  |  IN-COMPANY / LIVE ONLINE",
+    "description": "Help experienced technical personnel turn knowledge into clear, practical learning. Participants build a short lesson, deliver it, receive feedback and improve its assessment and job application.",
+    "audience": "Plant SMEs, HODs, senior engineers, technical instructors and supervisors who train operators, technicians or engineers.",
+    "objectives": [
+      "Define learning objectives for a specific job and participant level.",
+      "Explain technical concepts using simple visuals, stories and structured practice.",
+      "Design assessments and evaluate learning without relying on attendance alone."
+    ],
+    "outline": [
+      "Day 1 | Design for the learner",
+      "Training needs and job tasks; audience experience and language; measurable objectives; lesson structure;",
+      "explaining fundamentals; relevant stories, diagrams and worked examples.",
+      "Day 2 | Facilitate practice",
+      "Questions and discussion; mixed-experience groups; demonstrations and safety boundaries; case studies and",
+      "role-play; online interaction; managing time and checking understanding.",
+      "Day 3 | Assess and improve",
+      "Pre/post assessment design; fair questions and marking criteria; observed practice and feedback; participant",
+      "micro-teaching; trainer notes, job aids and transfer-to-work follow-up."
+    ],
+    "workshops": [
+      "Micro-teaching laboratory",
+      "Deliver a short plant-topic lesson, receive peer feedback on clarity and engagement and revise the lesson plan.",
+      "Assessment design clinic",
+      "Write questions and a practical observation checklist aligned with a job task, including an answer key or scoring",
+      "criteria."
+    ],
+    "tools": "Lesson-plan template; trainer-note guide; assessment blueprint; facilitation checklist; personal trainer development plan.",
+    "delivery": "Facilitated explanations, worked examples, case discussions and small-group exercises. A short baseline check establishes starting knowledge; a closing knowledge check and practical review assess learning. Assessment can be adapted for operators, technicians or experienced engineers.",
+    "pdf_filename": "OTC-24_Technical_Train_the_Trainer.pdf"
+  }
+]

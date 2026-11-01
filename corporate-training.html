@@ -37,57 +37,86 @@
   </div>
 
   <!-- HEADER -->
-  <header class="main-header" id="navbar">
+    <header class="main-header" id="navbar">
     <div class="container nav-container">
       <a href="index.html" class="brand-logo">
         <img decoding="async" src="assets/images/omtek-logo.png" alt="Omtek Corporation Logo">
         <div class="brand-text">
           <span class="brand-name">OMTEK CORPORATION</span>
-          <span class="brand-tagline">CONSULTING • TRAINING • ADVISORY</span>
+          <span class="brand-tagline">Consulting • Training • Advisory</span>
         </div>
       </a>
+
       <nav class="nav-menu" id="navMenu">
-        <div class="nav-item"><a href="index.html" class="nav-link">Home</a></div>
-        <div class="nav-item"><a href="about.html" class="nav-link">About Us</a></div>
         <div class="nav-item">
-          <a href="services.html" class="nav-link active">
+          <a href="index.html" class="nav-link">Home</a>
+        </div>
+        <div class="nav-item">
+          <a href="about.html" class="nav-link">About Us</a>
+        </div>
+        <div class="nav-item">
+          <a href="services.html" class="nav-link">
             Services
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
           </a>
-                    <div class="nav-dropdown">
+          <div class="nav-dropdown">
             <a href="services.html" class="dropdown-link" style="border-bottom: 1px dashed #e2e8f0; font-weight: 700; color: var(--safety-amber);">
               All Core Services Overview ↗
               <span>Explore Complete Industrial &amp; Advisory Solutions</span>
             </a>
-
+            <a href="corporate-training.html" class="dropdown-link">
+              Corporate Training
+              <span>Rotating Equipment, RCA, RCM, Six Sigma &amp; PSM</span>
+            </a>
+            <a href="services.html#rotating-equipment" class="dropdown-link">
+              Rotating Equipment &amp; Mechanical Seals
+              <span>Pumps, Compressors, API 682 Flush Plans &amp; Overhauls</span>
+            </a>
             <a href="fire-gas-systems.html" class="dropdown-link">
-              Fire Protection
-              <span>Fire Alarm, Deluge, Smoke Detection & Suppression</span>
+              Fire Protection &amp; Life Safety
+              <span>Fire Alarm, Deluge, FM-200 &amp; Gas Suppression</span>
             </a>
+            <a href="services.html#technical-advisory" class="dropdown-link">
+              Technical Advisory &amp; Asset Integrity
+              <span>RCFA, Turnaround QA/QC &amp; Life Extension</span>
+            </a>
+            <div style="padding: 6px 14px 2px 14px; font-size: 0.72rem; font-weight: 800; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.5px;">Specialized Divisions</div>
             <a href="water-treatment.html" class="dropdown-link">
-              Plumbing and Bulk Drinking Water Solution
-              <span>End-to-End Plumbing & Bulk Quantity Drinking Water</span>
-            </a>
-            <a href="corporate-training.html#iso" class="dropdown-link">
-              ISO Audit & Certification For 9001, 14001 & 45001
-              <span>Quality, Environmental & OHS Management Audits</span>
+              Water Infrastructure &amp; Bulk Potable Water
+              <span>End-to-End Plumbing &amp; Bulk Drinking Water</span>
             </a>
             <a href="cyber-security.html" class="dropdown-link">
-              Cyber Security Professional Training
-              <span>Defense, Threat Prevention, Analysis & Upskilling</span>
+              Cyber Security &amp; Industrial Automation
+              <span>OT/SCADA Defense, GRC &amp; Workforce Training</span>
             </a>
             <a href="virtual-design-studio.html" class="dropdown-link">
               Virtual Design Studio
-              <span>Innovative Technology-Enabled Digital Design Services</span>
+              <span>Digital Design, 3D BIM &amp; CAD Modeling</span>
+            </a>
+            <a href="hse-process-safety.html" class="dropdown-link">
+              HSE &amp; Process Safety Management
+              <span>HAZOP, PSM Audits &amp; ISO Management Consulting</span>
             </a>
           </div>
         </div>
-        <div class="nav-item"><a href="gallery.html" class="nav-link">Media & Videos</a></div>
-        <div class="nav-item"><a href="industries.html" class="nav-link">Industries</a></div>
-        <div class="nav-item"><a href="contact.html" class="nav-link">Contact</a></div>
+        <div class="nav-item">
+          <a href="corporate-training.html" class="nav-link active">Training</a>
+        </div>
+        <div class="nav-item">
+          <a href="gallery.html" class="nav-link">Media &amp; Videos</a>
+        </div>
+        <div class="nav-item">
+          <a href="industries.html" class="nav-link">Industries</a>
+        </div>
+        <div class="nav-item">
+          <a href="contact.html" class="nav-link">Contact</a>
+        </div>
       </nav>
+
       <div class="nav-actions">
-        <a href="contact.html" class="btn btn-primary open-modal-btn">Request Enquiry</a>
+        <button class="btn btn-primary open-modal-btn">
+          Request a Proposal
+        </button>
         <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle Navigation">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
         </button>
@@ -172,262 +201,791 @@
   <!-- PROGRAMME CARDS SECTION -->
   <section style="padding: 80px 0; background: #fafaf9; border-top: 1px solid #e4e4e7; border-bottom: 1px solid #e4e4e7;" id="programmes">
     <div class="container">
-      <div class="section-header-center">
+      <div class="section-header-center" style="text-align: center; max-width: 800px; margin: 0 auto 30px;">
         <span class="section-label" style="color: #c2410c; font-weight: 700;">Approved Training Catalog</span>
-        <h2 class="section-title" style="color: #0f0f11;">Priority Corporate Training Programmes</h2>
-        <p style="color: #52525b; max-width: 720px; margin: 0 auto;">Select a programme below to evaluate target audiences, duration, module outlines, and learning outcomes.</p>
+        <h2 class="section-title" style="color: #0f0f11;">Corporate Technical Training Programmes</h2>
+        <p style="color: #52525b; margin: 0 auto;">
+          24 standalone, plant-oriented engineering and operational excellence masterclasses led personally by Mr. Prem Prakash Mishra (Ex-KOC, NTPC, IPCL). Every programme is customizable for your specific plant machinery, logs, and workforce needs.
+        </p>
       </div>
 
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 28px; margin-top: 40px;">
-        
-        <!-- CARD 1: PUMP & SEAL RELIABILITY -->
-        <div style="background: #ffffff; border: 1px solid #e4e4e7; border-radius: 14px; padding: 28px; box-shadow: 0 4px 20px rgba(0,0,0,0.05); display: flex; flex-direction: column; justify-space: space-between;">
+      <!-- MASTER BROCHURE DOWNLOAD HERO CARD -->
+      <div style="background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); border-radius: 16px; padding: 32px 36px; margin-bottom: 36px; box-shadow: 0 10px 30px rgba(0,0,0,0.12); border: 1px solid rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap;">
+        <div style="max-width: 720px;">
+          <div style="display: inline-flex; align-items: center; gap: 8px; background: rgba(234, 88, 12, 0.2); border: 1px solid rgba(234, 88, 12, 0.4); color: #fdba74; font-size: 0.78rem; font-weight: 700; padding: 4px 12px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 12px;">
+            ★ Official Master Course Index Brochure
+          </div>
+          <h3 style="color: #ffffff; font-size: 1.35rem; font-weight: 800; margin-bottom: 10px; font-family: var(--font-heading);">
+            Omtek Corporate Training Portfolio — 24 Standalone Programmes
+          </h3>
+          <p style="color: #cbd5e1; font-size: 0.9rem; margin: 0; line-height: 1.6;">
+            Download our complete 3-page Course Index directory covering all 24 technical disciplines: Rotating Equipment, Projects, Reliability Engineering, Pipeline Integrity, ISO Auditing, Operational Excellence, and Industrial Safety.
+          </p>
+        </div>
+        <div>
+          <a href="assets/downloads/Omtek_Training_Course_Index.pdf" download="Omtek_Training_Course_Index.pdf" target="_blank" class="btn btn-primary" style="background: #ea580c; border-color: #ea580c; padding: 13px 24px; font-weight: 700; display: inline-flex; align-items: center; gap: 8px; box-shadow: 0 4px 14px rgba(234, 88, 12, 0.4);">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+            Download Master Course Index (PDF)
+          </a>
+        </div>
+      </div>
+
+      <!-- CATEGORY FILTER BUTTONS -->
+      <div class="training-filter-bar">
+        <button type="button" class="training-filter-btn active" data-filter="all">All Programmes (24)</button>
+        <button type="button" class="training-filter-btn" data-filter="rotating-equipment">Rotating Equipment (3)</button>
+        <button type="button" class="training-filter-btn" data-filter="engineering-projects">Engineering &amp; Projects (3)</button>
+        <button type="button" class="training-filter-btn" data-filter="reliability-maintenance">Reliability &amp; Maintenance (3)</button>
+        <button type="button" class="training-filter-btn" data-filter="pipelines-integrity">Pipelines &amp; Integrity (2)</button>
+        <button type="button" class="training-filter-btn" data-filter="management-systems">Management Systems (4)</button>
+        <button type="button" class="training-filter-btn" data-filter="quality-excellence">Quality &amp; Six Sigma (3)</button>
+        <button type="button" class="training-filter-btn" data-filter="safety-workforce">Safety &amp; Workforce (6)</button>
+      </div>
+
+      <div class="training-programmes-grid">
+        <!-- CARD: OTC-01 -->
+        <div class="programme-card" data-category="rotating-equipment" style="background: #ffffff; border: 1px solid #e4e4e7; border-radius: 14px; padding: 26px; box-shadow: 0 4px 18px rgba(0,0,0,0.05); display: flex; flex-direction: column; justify-content: space-between; transition: all 0.25s ease;">
           <div>
-            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
-              <span class="pill-badge" style="background: #fff7ed; color: #c2410c; border: 1px solid #fed7aa; font-weight: 700;">Priority Programme 01</span>
-              <span style="font-size: 0.8rem; color: #71717a; font-weight: 600;">3 - 5 Days On-Site</span>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; gap: 8px; flex-wrap: wrap;">
+              <span class="pill-badge" style="background: #fff7ed; color: #c2410c; border: 1px solid #fed7aa; font-weight: 800; font-size: 0.78rem; padding: 3px 10px;">OTC-01 | ROTATING EQUIPMENT</span>
+              <span style="font-size: 0.8rem; color: #71717a; font-weight: 600;">⏱ 3 DAYS</span>
             </div>
-            <h3 style="font-size: 1.25rem; font-weight: 700; color: #0f0f11; margin-bottom: 8px; font-family: var(--font-heading);">Centrifugal Pumps & Mechanical Seal Reliability</h3>
-            <p style="font-size: 0.88rem; color: #52525b; margin-bottom: 16px;"><strong>Target Audience:</strong> Mechanical Engineers, Maintenance Managers, Reliability Engineers & Plant Technicians.</p>
+            
+            <h3 style="font-size: 1.2rem; font-weight: 700; color: #0f0f11; margin-bottom: 10px; font-family: var(--font-heading); line-height: 1.35;">Centrifugal Pumps &amp; Mechanical Seal Reliability</h3>
+            
+            <p style="font-size: 0.86rem; color: #52525b; margin-bottom: 14px; line-height: 1.5;"><strong>Target Audience:</strong> Maintenance, operations and reliability engineers; pump technicians; supervisors and plant managers.</p>
             
             <div style="background: #fafaf9; border-radius: 8px; padding: 14px; margin-bottom: 16px; border: 1px solid #f4f4f5;">
-              <h4 style="font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.5px; color: #c2410c; margin-bottom: 6px;">Module Outline & Learning Objectives:</h4>
+              <h4 style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.5px; color: #c2410c; margin-bottom: 6px; font-weight: 700;">Module Outline &amp; Learning Objectives:</h4>
               <ul style="font-size: 0.84rem; color: #3f3f46; padding-left: 18px; margin: 0; line-height: 1.6;">
-                <li>Pump hydraulics, BEP operation & NPSH margin calculation</li>
-                <li>Mechanical seal API 682 flush plans & failure mode identification</li>
-                <li>Vibration analysis, shaft alignment & bearing lubrication best practices</li>
+                <li>Read pump duty, performance curves and the relationship between head, pressure and density.</li><li>Recognise cavitation, low-flow operation, misalignment and seal-support problems.</li><li>Develop an evidence-based action plan to improve pump and seal reliability.</li>
               </ul>
             </div>
 
-            <div style="font-size: 0.84rem; color: #52525b; margin-bottom: 20px;">
-              <strong>Practical Drills:</strong> Mechanical seal disassembly, flush plan troubleshooting & NPSH failure case studies.<br>
-              <strong>Assessment & Takeaways:</strong> Post-workshop evaluation & plant seal life improvement checklist.
+            <div style="font-size: 0.84rem; color: #52525b; margin-bottom: 20px; line-height: 1.5;">
+              <div style="margin-bottom: 6px;"><strong>Practical Drills / Case Study:</strong> Caustic transfer pump seal failure Use an illustrative operating history, seal photographs and flush readings to test possible causes; propose safe checks and rank corrective actions. Pump duty review Locate the...</div>
+              <div><strong>Assessment &amp; Takeaways:</strong> Pump inspection checklist; seal investigation worksheet; operating-data log; prioritised reliability action-plan template. Assessed via practical review; Omtek Certificate of Technical Participation awarded.</div>
             </div>
           </div>
 
-          <div style="display: flex; gap: 10px; flex-wrap: wrap;">
-            <button class="btn btn-primary open-modal-btn" data-service="Pump & Seal Reliability Training" style="flex: 1; padding: 10px 14px; font-size: 0.85rem;">Request Proposal</button>
-            <button onclick="alert('Downloading Pump & Mechanical Seal Reliability Syllabus (PDF)...')" class="btn btn-dark" style="padding: 10px 14px; font-size: 0.85rem;">Syllabus 📄</button>
+          <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-top: auto; padding-top: 14px; border-top: 1px solid #f4f4f5;">
+            <button class="btn btn-primary open-modal-btn" data-service="OTC-01: Centrifugal Pumps & Mechanical Seal Reliability" style="flex: 1; min-width: 140px; padding: 10px 14px; font-size: 0.85rem; text-align: center;">Request a Proposal</button>
+            <a href="assets/downloads/OTC-01_Pump_and_Seal_Reliability.pdf" download="OTC-01_Pump_and_Seal_Reliability.pdf" target="_blank" class="btn btn-dark" style="padding: 10px 14px; font-size: 0.85rem; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; gap: 4px; white-space: nowrap;">Download Syllabus 📄</a>
           </div>
         </div>
 
-        <!-- CARD 2: ROTATING EQUIPMENT -->
-        <div style="background: #ffffff; border: 1px solid #e4e4e7; border-radius: 14px; padding: 28px; box-shadow: 0 4px 20px rgba(0,0,0,0.05); display: flex; flex-direction: column; justify-content: space-between;">
+        <!-- CARD: OTC-02 -->
+        <div class="programme-card" data-category="rotating-equipment" style="background: #ffffff; border: 1px solid #e4e4e7; border-radius: 14px; padding: 26px; box-shadow: 0 4px 18px rgba(0,0,0,0.05); display: flex; flex-direction: column; justify-content: space-between; transition: all 0.25s ease;">
           <div>
-            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
-              <span class="pill-badge" style="background: #fff7ed; color: #c2410c; border: 1px solid #fed7aa; font-weight: 700;">Priority Programme 02</span>
-              <span style="font-size: 0.8rem; color: #71717a; font-weight: 600;">3 - 5 Days On-Site</span>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; gap: 8px; flex-wrap: wrap;">
+              <span class="pill-badge" style="background: #fff7ed; color: #c2410c; border: 1px solid #fed7aa; font-weight: 800; font-size: 0.78rem; padding: 3px 10px;">OTC-02 | ROTATING EQUIPMENT</span>
+              <span style="font-size: 0.8rem; color: #71717a; font-weight: 600;">⏱ 5 DAYS</span>
             </div>
-            <h3 style="font-size: 1.25rem; font-weight: 700; color: #0f0f11; margin-bottom: 8px; font-family: var(--font-heading);">Compressors & Rotating Equipment Engineering</h3>
-            <p style="font-size: 0.88rem; color: #52525b; margin-bottom: 16px;"><strong>Target Audience:</strong> Operations Leads, Maintenance Supervisors & Machinery Engineers.</p>
+            
+            <h3 style="font-size: 1.2rem; font-weight: 700; color: #0f0f11; margin-bottom: 10px; font-family: var(--font-heading); line-height: 1.35;">Rotating Equipment Engineering Fundamentals</h3>
+            
+            <p style="font-size: 0.86rem; color: #52525b; margin-bottom: 14px; line-height: 1.5;"><strong>Target Audience:</strong> Early-career engineers, mechanical designers, operations engineers and maintenance personnel moving into machinery engineering.</p>
             
             <div style="background: #fafaf9; border-radius: 8px; padding: 14px; margin-bottom: 16px; border: 1px solid #f4f4f5;">
-              <h4 style="font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.5px; color: #c2410c; margin-bottom: 6px;">Module Outline & Learning Objectives:</h4>
+              <h4 style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.5px; color: #c2410c; margin-bottom: 6px; font-weight: 700;">Module Outline &amp; Learning Objectives:</h4>
               <ul style="font-size: 0.84rem; color: #3f3f46; padding-left: 18px; margin: 0; line-height: 1.6;">
-                <li>Centrifugal & reciprocating compressor performance curves & surge control</li>
-                <li>Lube oil system maintenance, dry gas seals & coupling alignment</li>
-                <li>Condition monitoring, thermography & acoustic analysis</li>
+                <li>Distinguish pump, compressor, fan and positive-displacement machine applications.</li><li>Prepare a basic design basis and identify essential datasheet information.</li><li>Explain key interfaces between the machine, driver, piping and protection systems.</li>
               </ul>
             </div>
 
-            <div style="font-size: 0.84rem; color: #52525b; margin-bottom: 20px;">
-              <strong>Practical Drills:</strong> Compressor surge control simulation & lube oil contamination review.<br>
-              <strong>Assessment & Takeaways:</strong> Written assessment & machine health diagnostic template.
+            <div style="font-size: 0.84rem; color: #52525b; margin-bottom: 20px; line-height: 1.5;">
+              <div style="margin-bottom: 6px;"><strong>Practical Drills / Case Study:</strong> Select a machine Compare equipment options for a water-transfer duty and a gas-service duty; record assumptions and missing information. Package interface review Mark mechanical, electrical and instrumentation...</div>
+              <div><strong>Assessment &amp; Takeaways:</strong> Equipment selection worksheet; basic datasheet checklist; package interface register; lifecycle review checklist. Assessed via practical review; Omtek Certificate of Technical Participation awarded.</div>
             </div>
           </div>
 
-          <div style="display: flex; gap: 10px; flex-wrap: wrap;">
-            <button class="btn btn-primary open-modal-btn" data-service="Compressors & Rotating Equipment Training" style="flex: 1; padding: 10px 14px; font-size: 0.85rem;">Request Proposal</button>
-            <button onclick="alert('Downloading Rotating Equipment Syllabus (PDF)...')" class="btn btn-dark" style="padding: 10px 14px; font-size: 0.85rem;">Syllabus 📄</button>
+          <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-top: auto; padding-top: 14px; border-top: 1px solid #f4f4f5;">
+            <button class="btn btn-primary open-modal-btn" data-service="OTC-02: Rotating Equipment Engineering Fundamentals" style="flex: 1; min-width: 140px; padding: 10px 14px; font-size: 0.85rem; text-align: center;">Request a Proposal</button>
+            <a href="assets/downloads/OTC-02_Rotating_Equipment_Fundamentals.pdf" download="OTC-02_Rotating_Equipment_Fundamentals.pdf" target="_blank" class="btn btn-dark" style="padding: 10px 14px; font-size: 0.85rem; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; gap: 4px; white-space: nowrap;">Download Syllabus 📄</a>
           </div>
         </div>
 
-        <!-- CARD 3: RCA & FAILURE PREVENTION -->
-        <div style="background: #ffffff; border: 1px solid #e4e4e7; border-radius: 14px; padding: 28px; box-shadow: 0 4px 20px rgba(0,0,0,0.05); display: flex; flex-direction: column; justify-content: space-between;">
+        <!-- CARD: OTC-03 -->
+        <div class="programme-card" data-category="rotating-equipment" style="background: #ffffff; border: 1px solid #e4e4e7; border-radius: 14px; padding: 26px; box-shadow: 0 4px 18px rgba(0,0,0,0.05); display: flex; flex-direction: column; justify-content: space-between; transition: all 0.25s ease;">
           <div>
-            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
-              <span class="pill-badge" style="background: #fff7ed; color: #c2410c; border: 1px solid #fed7aa; font-weight: 700;">Priority Programme 03</span>
-              <span style="font-size: 0.8rem; color: #71717a; font-weight: 600;">2 - 3 Days Workshop</span>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; gap: 8px; flex-wrap: wrap;">
+              <span class="pill-badge" style="background: #fff7ed; color: #c2410c; border: 1px solid #fed7aa; font-weight: 800; font-size: 0.78rem; padding: 3px 10px;">OTC-03 | ROTATING EQUIPMENT</span>
+              <span style="font-size: 0.8rem; color: #71717a; font-weight: 600;">⏱ 3 DAYS</span>
             </div>
-            <h3 style="font-size: 1.25rem; font-weight: 700; color: #0f0f11; margin-bottom: 8px; font-family: var(--font-heading);">Root Cause Analysis (RCA) & 5-Why Problem Solving</h3>
-            <p style="font-size: 0.88rem; color: #52525b; margin-bottom: 16px;"><strong>Target Audience:</strong> Plant Managers, Quality Leads, Safety Officers & Maintenance Teams.</p>
+            
+            <h3 style="font-size: 1.2rem; font-weight: 700; color: #0f0f11; margin-bottom: 10px; font-family: var(--font-heading); line-height: 1.35;">Compressor Operation, Troubleshooting &amp; Reliability</h3>
+            
+            <p style="font-size: 0.86rem; color: #52525b; margin-bottom: 14px; line-height: 1.5;"><strong>Target Audience:</strong> Compressor operations and maintenance teams, machinery engineers, reliability engineers and technical supervisors.</p>
             
             <div style="background: #fafaf9; border-radius: 8px; padding: 14px; margin-bottom: 16px; border: 1px solid #f4f4f5;">
-              <h4 style="font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.5px; color: #c2410c; margin-bottom: 6px;">Module Outline & Learning Objectives:</h4>
+              <h4 style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.5px; color: #c2410c; margin-bottom: 6px; font-weight: 700;">Module Outline &amp; Learning Objectives:</h4>
               <ul style="font-size: 0.84rem; color: #3f3f46; padding-left: 18px; margin: 0; line-height: 1.6;">
-                <li>5-Why methodology, Ishikawa Fishbone diagrams & Apollo RCA</li>
-                <li>Evidence collection, physical vs. human vs. systemic root causes</li>
-                <li>Developing robust Corrective Action Plans (CAPA) with verification</li>
+                <li>Distinguish centrifugal surge from reciprocating-compressor operating limitations.</li><li>Interpret basic performance and condition trends before recommending action.</li><li>Prepare a coordinated investigation involving operations, maintenance and instrumentation.</li>
               </ul>
             </div>
 
-            <div style="font-size: 0.84rem; color: #52525b; margin-bottom: 20px;">
-              <strong>Practical Drills:</strong> Live group RCA exercise using plant breakdown case logs.<br>
-              <strong>Assessment & Takeaways:</strong> Plant RCA Facilitator Certificate & RCA reporting toolkit.
+            <div style="font-size: 0.84rem; color: #52525b; margin-bottom: 20px; line-height: 1.5;">
+              <div style="margin-bottom: 6px;"><strong>Practical Drills / Case Study:</strong> Rising vibration and seal temperature Review an illustrative gas-compressor trend pack, agree verification steps and develop an escalation plan with defined responsibilities. Capacity loss diagnosis Compare centrifugal...</div>
+              <div><strong>Assessment &amp; Takeaways:</strong> Compressor data checklist; symptom/evidence matrix; trip-review worksheet; controlled-restart readiness checklist. Assessed via practical review; Omtek Certificate of Technical Participation awarded.</div>
             </div>
           </div>
 
-          <div style="display: flex; gap: 10px; flex-wrap: wrap;">
-            <button class="btn btn-primary open-modal-btn" data-service="RCA & 5-Why Training" style="flex: 1; padding: 10px 14px; font-size: 0.85rem;">Request Proposal</button>
-            <button onclick="alert('Downloading RCA Workshop Syllabus (PDF)...')" class="btn btn-dark" style="padding: 10px 14px; font-size: 0.85rem;">Syllabus 📄</button>
+          <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-top: auto; padding-top: 14px; border-top: 1px solid #f4f4f5;">
+            <button class="btn btn-primary open-modal-btn" data-service="OTC-03: Compressor Operation, Troubleshooting & Reliability" style="flex: 1; min-width: 140px; padding: 10px 14px; font-size: 0.85rem; text-align: center;">Request a Proposal</button>
+            <a href="assets/downloads/OTC-03_Compressor_Reliability.pdf" download="OTC-03_Compressor_Reliability.pdf" target="_blank" class="btn btn-dark" style="padding: 10px 14px; font-size: 0.85rem; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; gap: 4px; white-space: nowrap;">Download Syllabus 📄</a>
           </div>
         </div>
 
-        <!-- CARD 4: RCM & ASSET INTEGRITY -->
-        <div style="background: #ffffff; border: 1px solid #e4e4e7; border-radius: 14px; padding: 28px; box-shadow: 0 4px 20px rgba(0,0,0,0.05); display: flex; flex-direction: column; justify-content: space-between;">
+        <!-- CARD: OTC-04 -->
+        <div class="programme-card" data-category="engineering-projects" style="background: #ffffff; border: 1px solid #e4e4e7; border-radius: 14px; padding: 26px; box-shadow: 0 4px 18px rgba(0,0,0,0.05); display: flex; flex-direction: column; justify-content: space-between; transition: all 0.25s ease;">
           <div>
-            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
-              <span class="pill-badge" style="background: #fff7ed; color: #c2410c; border: 1px solid #fed7aa; font-weight: 700;">Priority Programme 04</span>
-              <span style="font-size: 0.8rem; color: #71717a; font-weight: 600;">3 Days Workshop</span>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; gap: 8px; flex-wrap: wrap;">
+              <span class="pill-badge" style="background: #fff7ed; color: #c2410c; border: 1px solid #fed7aa; font-weight: 800; font-size: 0.78rem; padding: 3px 10px;">OTC-04 | ENGINEERING &amp; PROJECTS</span>
+              <span style="font-size: 0.8rem; color: #71717a; font-weight: 600;">⏱ 5 DAYS</span>
             </div>
-            <h3 style="font-size: 1.25rem; font-weight: 700; color: #0f0f11; margin-bottom: 8px; font-family: var(--font-heading);">Reliability-Centred Maintenance (RCM II / JA1011)</h3>
-            <p style="font-size: 0.88rem; color: #52525b; margin-bottom: 16px;"><strong>Target Audience:</strong> Asset Managers, Reliability Engineers & Maintenance Planners.</p>
+            
+            <h3 style="font-size: 1.2rem; font-weight: 700; color: #0f0f11; margin-bottom: 10px; font-family: var(--font-heading); line-height: 1.35;">Equipment Lifecycle Engineering</h3>
+            
+            <p style="font-size: 0.86rem; color: #52525b; margin-bottom: 14px; line-height: 1.5;"><strong>Target Audience:</strong> EPC and site engineers, project managers, procurement engineers, commissioning teams and maintenance/reliability personnel.</p>
             
             <div style="background: #fafaf9; border-radius: 8px; padding: 14px; margin-bottom: 16px; border: 1px solid #f4f4f5;">
-              <h4 style="font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.5px; color: #c2410c; margin-bottom: 6px;">Module Outline & Learning Objectives:</h4>
+              <h4 style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.5px; color: #c2410c; margin-bottom: 6px; font-weight: 700;">Module Outline &amp; Learning Objectives:</h4>
               <ul style="font-size: 0.84rem; color: #3f3f46; padding-left: 18px; margin: 0; line-height: 1.6;">
-                <li>7 RCM Questions according to SAE JA1011 standard</li>
-                <li>FMEA / FMECA development for critical plant systems</li>
-                <li>Optimizing Preventive Maintenance (PM) tasks to eliminate non-value PMs</li>
+                <li>Translate operating needs into a coherent design basis and procurement package.</li><li>Identify lifecycle risks at design, vendor, construction and commissioning interfaces.</li><li>Build a stage-gate checklist linking handover quality with operating reliability.</li>
               </ul>
             </div>
 
-            <div style="font-size: 0.84rem; color: #52525b; margin-bottom: 20px;">
-              <strong>Practical Drills:</strong> FMEA decision logic tree exercise for boiler feed pumps.<br>
-              <strong>Assessment & Takeaways:</strong> RCM Practitioner certificate & PM optimization matrix.
+            <div style="font-size: 0.84rem; color: #52525b; margin-bottom: 20px; line-height: 1.5;">
+              <div style="margin-bottom: 6px;"><strong>Practical Drills / Case Study:</strong> Lifecycle gate review Review a pump-package dossier, identify missing evidence at each gate and assign an owner and closure requirement. Lowest price or lowest lifecycle cost? Compare two fictional bids with different...</div>
+              <div><strong>Assessment &amp; Takeaways:</strong> Lifecycle gate checklist; interface register; vendor review checklist; handover index; lifecycle risk/action register. Assessed via practical review; Omtek Certificate of Technical Participation awarded.</div>
             </div>
           </div>
 
-          <div style="display: flex; gap: 10px; flex-wrap: wrap;">
-            <button class="btn btn-primary open-modal-btn" data-service="RCM & Asset Integrity Training" style="flex: 1; padding: 10px 14px; font-size: 0.85rem;">Request Proposal</button>
-            <button onclick="alert('Downloading RCM Syllabus (PDF)...')" class="btn btn-dark" style="padding: 10px 14px; font-size: 0.85rem;">Syllabus 📄</button>
+          <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-top: auto; padding-top: 14px; border-top: 1px solid #f4f4f5;">
+            <button class="btn btn-primary open-modal-btn" data-service="OTC-04: Equipment Lifecycle Engineering" style="flex: 1; min-width: 140px; padding: 10px 14px; font-size: 0.85rem; text-align: center;">Request a Proposal</button>
+            <a href="assets/downloads/OTC-04_Equipment_Lifecycle_Engineering.pdf" download="OTC-04_Equipment_Lifecycle_Engineering.pdf" target="_blank" class="btn btn-dark" style="padding: 10px 14px; font-size: 0.85rem; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; gap: 4px; white-space: nowrap;">Download Syllabus 📄</a>
           </div>
         </div>
 
-        <!-- CARD 5: EQUIPMENT LIFECYCLE & TPM -->
-        <div style="background: #ffffff; border: 1px solid #e4e4e7; border-radius: 14px; padding: 28px; box-shadow: 0 4px 20px rgba(0,0,0,0.05); display: flex; flex-direction: column; justify-space: space-between;">
+        <!-- CARD: OTC-05 -->
+        <div class="programme-card" data-category="engineering-projects" style="background: #ffffff; border: 1px solid #e4e4e7; border-radius: 14px; padding: 26px; box-shadow: 0 4px 18px rgba(0,0,0,0.05); display: flex; flex-direction: column; justify-content: space-between; transition: all 0.25s ease;">
           <div>
-            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
-              <span class="pill-badge" style="background: #fff7ed; color: #c2410c; border: 1px solid #fed7aa; font-weight: 700;">Priority Programme 05</span>
-              <span style="font-size: 0.8rem; color: #71717a; font-weight: 600;">3 Days Workshop</span>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; gap: 8px; flex-wrap: wrap;">
+              <span class="pill-badge" style="background: #fff7ed; color: #c2410c; border: 1px solid #fed7aa; font-weight: 800; font-size: 0.78rem; padding: 3px 10px;">OTC-05 | ENGINEERING &amp; PROJECTS</span>
+              <span style="font-size: 0.8rem; color: #71717a; font-weight: 600;">⏱ 2 DAYS</span>
             </div>
-            <h3 style="font-size: 1.25rem; font-weight: 700; color: #0f0f11; margin-bottom: 8px; font-family: var(--font-heading);">Equipment Lifecycle Engineering & Maintenance Strategy</h3>
-            <p style="font-size: 0.88rem; color: #52525b; margin-bottom: 16px;"><strong>Target Audience:</strong> Plant Engineers, Shutdown Coordinators & Maintenance Planners.</p>
+            
+            <h3 style="font-size: 1.2rem; font-weight: 700; color: #0f0f11; margin-bottom: 10px; font-family: var(--font-heading); line-height: 1.35;">Technical Procurement, Specifications &amp; Bid Evaluation</h3>
+            
+            <p style="font-size: 0.86rem; color: #52525b; margin-bottom: 14px; line-height: 1.5;"><strong>Target Audience:</strong> Procurement and package engineers, project engineers, maintenance engineers, technical buyers and vendor coordinators.</p>
             
             <div style="background: #fafaf9; border-radius: 8px; padding: 14px; margin-bottom: 16px; border: 1px solid #f4f4f5;">
-              <h4 style="font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.5px; color: #c2410c; margin-bottom: 6px;">Module Outline & Learning Objectives:</h4>
+              <h4 style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.5px; color: #c2410c; margin-bottom: 6px; font-weight: 700;">Module Outline &amp; Learning Objectives:</h4>
               <ul style="font-size: 0.84rem; color: #3f3f46; padding-left: 18px; margin: 0; line-height: 1.6;">
-                <li>Total Cost of Ownership (TCO) & lifecycle asset evaluation</li>
-                <li>Turnaround / Shutdown planning, S-curves & critical path management</li>
-                <li>Spares management, bill of materials (BOM) & vendor qualification</li>
+                <li>Prepare the structure of a datasheet, technical specification and material requisition.</li><li>Separate mandatory requirements, preferences, exclusions and vendor deviations.</li><li>Write traceable technical queries and a defensible bid recommendation.</li>
               </ul>
             </div>
 
-            <div style="font-size: 0.84rem; color: #52525b; margin-bottom: 20px;">
-              <strong>Practical Drills:</strong> Turnaround schedule simulation & spare parts criticality coding.<br>
-              <strong>Assessment & Takeaways:</strong> Plant lifecycle management audit template.
+            <div style="font-size: 0.84rem; color: #52525b; margin-bottom: 20px; line-height: 1.5;">
+              <div style="margin-bottom: 6px;"><strong>Practical Drills / Case Study:</strong> Pump-package enquiry review Find scope gaps in an illustrative requisition including driver, seals, relief protection, testing and installation responsibilities. Three-offer evaluation Compare fictional supplier offers,...</div>
+              <div><strong>Assessment &amp; Takeaways:</strong> Datasheet completeness checklist; technical query log; TBE matrix; deviation register; recommendation template. Assessed via practical review; Omtek Certificate of Technical Participation awarded.</div>
             </div>
           </div>
 
-          <div style="display: flex; gap: 10px; flex-wrap: wrap;">
-            <button class="btn btn-primary open-modal-btn" data-service="Equipment Lifecycle Training" style="flex: 1; padding: 10px 14px; font-size: 0.85rem;">Request Proposal</button>
-            <button onclick="alert('Downloading Lifecycle Engineering Syllabus (PDF)...')" class="btn btn-dark" style="padding: 10px 14px; font-size: 0.85rem;">Syllabus 📄</button>
+          <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-top: auto; padding-top: 14px; border-top: 1px solid #f4f4f5;">
+            <button class="btn btn-primary open-modal-btn" data-service="OTC-05: Technical Procurement, Specifications & Bid Evaluation" style="flex: 1; min-width: 140px; padding: 10px 14px; font-size: 0.85rem; text-align: center;">Request a Proposal</button>
+            <a href="assets/downloads/OTC-05_Technical_Procurement_TBE.pdf" download="OTC-05_Technical_Procurement_TBE.pdf" target="_blank" class="btn btn-dark" style="padding: 10px 14px; font-size: 0.85rem; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; gap: 4px; white-space: nowrap;">Download Syllabus 📄</a>
           </div>
         </div>
 
-        <!-- CARD 6: QUALITY ENGINEERING & SIX SIGMA -->
-        <div style="background: #ffffff; border: 1px solid #e4e4e7; border-radius: 14px; padding: 28px; box-shadow: 0 4px 20px rgba(0,0,0,0.05); display: flex; flex-direction: column; justify-space: space-between;">
+        <!-- CARD: OTC-06 -->
+        <div class="programme-card" data-category="reliability-maintenance" style="background: #ffffff; border: 1px solid #e4e4e7; border-radius: 14px; padding: 26px; box-shadow: 0 4px 18px rgba(0,0,0,0.05); display: flex; flex-direction: column; justify-content: space-between; transition: all 0.25s ease;">
           <div>
-            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
-              <span class="pill-badge" style="background: #fff7ed; color: #c2410c; border: 1px solid #fed7aa; font-weight: 700;">Priority Programme 06</span>
-              <span style="font-size: 0.8rem; color: #71717a; font-weight: 600;">3 - 5 Days Certification</span>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; gap: 8px; flex-wrap: wrap;">
+              <span class="pill-badge" style="background: #fff7ed; color: #c2410c; border: 1px solid #fed7aa; font-weight: 800; font-size: 0.78rem; padding: 3px 10px;">OTC-06 | RELIABILITY &amp; MAINTENANCE</span>
+              <span style="font-size: 0.8rem; color: #71717a; font-weight: 600;">⏱ 3 DAYS</span>
             </div>
-            <h3 style="font-size: 1.25rem; font-weight: 700; color: #0f0f11; margin-bottom: 8px; font-family: var(--font-heading);">Quality Improvement, Six Sigma & CAPA / Poka-Yoke</h3>
-            <p style="font-size: 0.88rem; color: #52525b; margin-bottom: 16px;"><strong>Target Audience:</strong> QA/QC Managers, Process Engineers & Production Heads.</p>
+            
+            <h3 style="font-size: 1.2rem; font-weight: 700; color: #0f0f11; margin-bottom: 10px; font-family: var(--font-heading); line-height: 1.35;">Root Cause Analysis &amp; Failure Investigation</h3>
+            
+            <p style="font-size: 0.86rem; color: #52525b; margin-bottom: 14px; line-height: 1.5;"><strong>Target Audience:</strong> Maintenance, operations, quality and HSE teams; reliability engineers; supervisors and cross-functional investigation leaders.</p>
             
             <div style="background: #fafaf9; border-radius: 8px; padding: 14px; margin-bottom: 16px; border: 1px solid #f4f4f5;">
-              <h4 style="font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.5px; color: #c2410c; margin-bottom: 6px;">Module Outline & Learning Objectives:</h4>
+              <h4 style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.5px; color: #c2410c; margin-bottom: 6px; font-weight: 700;">Module Outline &amp; Learning Objectives:</h4>
               <ul style="font-size: 0.84rem; color: #3f3f46; padding-left: 18px; margin: 0; line-height: 1.6;">
-                <li>Six Sigma DMAIC roadmap & Statistical Process Control (SPC / Cpk)</li>
-                <li>Mistake-proofing (Poka-Yoke) design & zero-defect manufacturing</li>
-                <li>Closed-loop Corrective and Preventive Action (CAPA) implementation</li>
+                <li>Define a clear problem statement and preserve relevant evidence.</li><li>Use timelines, cause-and-effect analysis, 5-Why and hypothesis testing appropriately.</li><li>Select corrective actions with owners, completion evidence and effectiveness checks.</li>
               </ul>
             </div>
 
-            <div style="font-size: 0.84rem; color: #52525b; margin-bottom: 20px;">
-              <strong>Practical Drills:</strong> Process capability calculation & Poka-Yoke fixture design drill.<br>
-              <strong>Assessment & Takeaways:</strong> Quality Engineering certificate & SPC Excel templates.
+            <div style="font-size: 0.84rem; color: #52525b; margin-bottom: 20px; line-height: 1.5;">
+              <div style="margin-bottom: 6px;"><strong>Practical Drills / Case Study:</strong> Recurring bearing failure Investigate an illustrative pump history with competing lubrication, alignment and operating explanations; identify evidence that would discriminate between them. Investigation review panel...</div>
+              <div><strong>Assessment &amp; Takeaways:</strong> RCA problem statement; evidence register; cause validation worksheet; CAPA/action tracker; investigation report outline. Assessed via practical review; Omtek Certificate of Technical Participation awarded.</div>
             </div>
           </div>
 
-          <div style="display: flex; gap: 10px; flex-wrap: wrap;">
-            <button class="btn btn-primary open-modal-btn" data-service="Quality Improvement Training" style="flex: 1; padding: 10px 14px; font-size: 0.85rem;">Request Proposal</button>
-            <button onclick="alert('Downloading Quality Improvement Syllabus (PDF)...')" class="btn btn-dark" style="padding: 10px 14px; font-size: 0.85rem;">Syllabus 📄</button>
+          <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-top: auto; padding-top: 14px; border-top: 1px solid #f4f4f5;">
+            <button class="btn btn-primary open-modal-btn" data-service="OTC-06: Root Cause Analysis & Failure Investigation" style="flex: 1; min-width: 140px; padding: 10px 14px; font-size: 0.85rem; text-align: center;">Request a Proposal</button>
+            <a href="assets/downloads/OTC-06_Root_Cause_Failure_Analysis.pdf" download="OTC-06_Root_Cause_Failure_Analysis.pdf" target="_blank" class="btn btn-dark" style="padding: 10px 14px; font-size: 0.85rem; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; gap: 4px; white-space: nowrap;">Download Syllabus 📄</a>
           </div>
         </div>
 
-        <!-- CARD 7: HSE & PROCESS SAFETY -->
-        <div style="background: #ffffff; border: 1px solid #e4e4e7; border-radius: 14px; padding: 28px; box-shadow: 0 4px 20px rgba(0,0,0,0.05); display: flex; flex-direction: column; justify-space: space-between;">
+        <!-- CARD: OTC-07 -->
+        <div class="programme-card" data-category="reliability-maintenance" style="background: #ffffff; border: 1px solid #e4e4e7; border-radius: 14px; padding: 26px; box-shadow: 0 4px 18px rgba(0,0,0,0.05); display: flex; flex-direction: column; justify-content: space-between; transition: all 0.25s ease;">
           <div>
-            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
-              <span class="pill-badge" style="background: #fff7ed; color: #c2410c; border: 1px solid #fed7aa; font-weight: 700;">Priority Programme 07</span>
-              <span style="font-size: 0.8rem; color: #71717a; font-weight: 600;">3 - 4 Days Workshop</span>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; gap: 8px; flex-wrap: wrap;">
+              <span class="pill-badge" style="background: #fff7ed; color: #c2410c; border: 1px solid #fed7aa; font-weight: 800; font-size: 0.78rem; padding: 3px 10px;">OTC-07 | RELIABILITY &amp; MAINTENANCE</span>
+              <span style="font-size: 0.8rem; color: #71717a; font-weight: 600;">⏱ 3 DAYS</span>
             </div>
-            <h3 style="font-size: 1.25rem; font-weight: 700; color: #0f0f11; margin-bottom: 8px; font-family: var(--font-heading);">HSE & Process Safety Management (PSM) Compliance</h3>
-            <p style="font-size: 0.88rem; color: #52525b; margin-bottom: 16px;"><strong>Target Audience:</strong> HSE Managers, Process Safety Engineers & Plant Operations Officers.</p>
+            
+            <h3 style="font-size: 1.2rem; font-weight: 700; color: #0f0f11; margin-bottom: 10px; font-family: var(--font-heading); line-height: 1.35;">Reliability-Centred Maintenance &amp; PM Optimisation</h3>
+            
+            <p style="font-size: 0.86rem; color: #52525b; margin-bottom: 14px; line-height: 1.5;"><strong>Target Audience:</strong> Reliability engineers, maintenance planners, asset owners, operations engineers and maintenance leaders.</p>
             
             <div style="background: #fafaf9; border-radius: 8px; padding: 14px; margin-bottom: 16px; border: 1px solid #f4f4f5;">
-              <h4 style="font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.5px; color: #c2410c; margin-bottom: 6px;">Module Outline & Learning Objectives:</h4>
+              <h4 style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.5px; color: #c2410c; margin-bottom: 6px; font-weight: 700;">Module Outline &amp; Learning Objectives:</h4>
               <ul style="font-size: 0.84rem; color: #3f3f46; padding-left: 18px; margin: 0; line-height: 1.6;">
-                <li>OSHA 1910.119 14 elements of Process Safety Management (PSM)</li>
-                <li>Permit to Work (PTW), Lockout/Tagout (LOTO) & Job Safety Analysis (JSA)</li>
-                <li>Behaviour-Based Safety (BBS) observation & safety leadership</li>
+                <li>Define functions, functional failures, failure modes and consequences.</li><li>Choose condition-based, scheduled and failure-finding tasks where technically justified.</li><li>Identify PM improvements and a process for authorisation and review.</li>
               </ul>
             </div>
 
-            <div style="font-size: 0.84rem; color: #52525b; margin-bottom: 20px;">
-              <strong>Practical Drills:</strong> JSA generation exercise & PTW audit roleplay.<br>
-              <strong>Assessment & Takeaways:</strong> PSM compliance checklist & auditor certificate.
+            <div style="font-size: 0.84rem; color: #52525b; margin-bottom: 20px; line-height: 1.5;">
+              <div style="margin-bottom: 6px;"><strong>Practical Drills / Case Study:</strong> Boiler feed pump function review Build a small failure-mode table and select justified maintenance tasks for a defined operating context. PM challenge workshop Review sample PM tasks; retain, revise or investigate each...</div>
+              <div><strong>Assessment &amp; Takeaways:</strong> Function/failure worksheet; task selection record; PM review matrix; implementation and effectiveness checklist. Assessed via practical review; Omtek Certificate of Technical Participation awarded.</div>
             </div>
           </div>
 
-          <div style="display: flex; gap: 10px; flex-wrap: wrap;">
-            <button class="btn btn-primary open-modal-btn" data-service="HSE & PSM Training" style="flex: 1; padding: 10px 14px; font-size: 0.85rem;">Request Proposal</button>
-            <button onclick="alert('Downloading HSE & PSM Syllabus (PDF)...')" class="btn btn-dark" style="padding: 10px 14px; font-size: 0.85rem;">Syllabus 📄</button>
+          <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-top: auto; padding-top: 14px; border-top: 1px solid #f4f4f5;">
+            <button class="btn btn-primary open-modal-btn" data-service="OTC-07: Reliability-Centred Maintenance & PM Optimisation" style="flex: 1; min-width: 140px; padding: 10px 14px; font-size: 0.85rem; text-align: center;">Request a Proposal</button>
+            <a href="assets/downloads/OTC-07_RCM_Maintenance_Optimisation.pdf" download="OTC-07_RCM_Maintenance_Optimisation.pdf" target="_blank" class="btn btn-dark" style="padding: 10px 14px; font-size: 0.85rem; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; gap: 4px; white-space: nowrap;">Download Syllabus 📄</a>
           </div>
         </div>
 
-        <!-- CARD 8: ISO MANAGEMENT AUDITS -->
-        <div style="background: #ffffff; border: 1px solid #e4e4e7; border-radius: 14px; padding: 28px; box-shadow: 0 4px 20px rgba(0,0,0,0.05); display: flex; flex-direction: column; justify-space: space-between;">
+        <!-- CARD: OTC-08 -->
+        <div class="programme-card" data-category="reliability-maintenance" style="background: #ffffff; border: 1px solid #e4e4e7; border-radius: 14px; padding: 26px; box-shadow: 0 4px 18px rgba(0,0,0,0.05); display: flex; flex-direction: column; justify-content: space-between; transition: all 0.25s ease;">
           <div>
-            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
-              <span class="pill-badge" style="background: #fff7ed; color: #c2410c; border: 1px solid #fed7aa; font-weight: 700;">Priority Programme 08</span>
-              <span style="font-size: 0.8rem; color: #71717a; font-weight: 600;">2 - 3 Days Internal Auditor</span>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; gap: 8px; flex-wrap: wrap;">
+              <span class="pill-badge" style="background: #fff7ed; color: #c2410c; border: 1px solid #fed7aa; font-weight: 800; font-size: 0.78rem; padding: 3px 10px;">OTC-08 | RELIABILITY &amp; MAINTENANCE</span>
+              <span style="font-size: 0.8rem; color: #71717a; font-weight: 600;">⏱ 3 DAYS</span>
             </div>
-            <h3 style="font-size: 1.25rem; font-weight: 700; color: #0f0f11; margin-bottom: 8px; font-family: var(--font-heading);">ISO Management Systems & Internal Auditing</h3>
-            <p style="font-size: 0.88rem; color: #52525b; margin-bottom: 16px;"><strong>Target Audience:</strong> Internal Auditors, Quality Managers, EHS Officers & ISO Management Reps.</p>
+            
+            <h3 style="font-size: 1.2rem; font-weight: 700; color: #0f0f11; margin-bottom: 10px; font-family: var(--font-heading); line-height: 1.35;">Maintenance Planning, Scheduling &amp; CMMS Discipline</h3>
+            
+            <p style="font-size: 0.86rem; color: #52525b; margin-bottom: 14px; line-height: 1.5;"><strong>Target Audience:</strong> Maintenance planners, schedulers, supervisors, operations coordinators and engineers using SAP or other CMMS platforms.</p>
             
             <div style="background: #fafaf9; border-radius: 8px; padding: 14px; margin-bottom: 16px; border: 1px solid #f4f4f5;">
-              <h4 style="font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.5px; color: #c2410c; margin-bottom: 6px;">Module Outline & Learning Objectives:</h4>
+              <h4 style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.5px; color: #c2410c; margin-bottom: 6px; font-weight: 700;">Module Outline &amp; Learning Objectives:</h4>
               <ul style="font-size: 0.84rem; color: #3f3f46; padding-left: 18px; margin: 0; line-height: 1.6;">
-                <li>ISO 9001 (QMS), ISO 14001 (EMS), ISO 45001 (OH&S) & ISO 55001 (Asset Mgmt)</li>
-                <li>Internal audit planning, clause-by-clause evaluation & non-conformity (NC) writing</li>
-                <li>Management Review Meeting (MRM) preparation & audit reporting</li>
+                <li>Separate planning, scheduling, execution and close-out responsibilities.</li><li>Develop job packs with resources, materials, permits and acceptance checks.</li><li>Use meaningful backlog and schedule measures to improve work delivery.</li>
               </ul>
             </div>
 
-            <div style="font-size: 0.84rem; color: #52525b; margin-bottom: 20px;">
-              <strong>Practical Drills:</strong> Mock audit roleplay & NC writing workshop according to ISO 19011.<br>
-              <strong>Assessment & Takeaways:</strong> Certified Internal Auditor qualification & audit checklists.
+            <div style="font-size: 0.84rem; color: #52525b; margin-bottom: 20px; line-height: 1.5;">
+              <div style="margin-bottom: 6px;"><strong>Practical Drills / Case Study:</strong> Plan a pump overhaul Prepare a job pack including scope, spares, skills, safety interfaces, quality checks and return-to-service requirements. Weekly schedule negotiation Role-play operations and maintenance priorities...</div>
+              <div><strong>Assessment &amp; Takeaways:</strong> Job-plan template; readiness checklist; weekly scheduling board; work-order close-out guide; KPI definition sheet. Assessed via practical review; Omtek Certificate of Technical Participation awarded.</div>
             </div>
           </div>
 
-          <div style="display: flex; gap: 10px; flex-wrap: wrap;">
-            <button class="btn btn-primary open-modal-btn" data-service="ISO Internal Auditor Training" style="flex: 1; padding: 10px 14px; font-size: 0.85rem;">Request Proposal</button>
-            <button onclick="alert('Downloading ISO Auditing Syllabus (PDF)...')" class="btn btn-dark" style="padding: 10px 14px; font-size: 0.85rem;">Syllabus 📄</button>
+          <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-top: auto; padding-top: 14px; border-top: 1px solid #f4f4f5;">
+            <button class="btn btn-primary open-modal-btn" data-service="OTC-08: Maintenance Planning, Scheduling & CMMS Discipline" style="flex: 1; min-width: 140px; padding: 10px 14px; font-size: 0.85rem; text-align: center;">Request a Proposal</button>
+            <a href="assets/downloads/OTC-08_Maintenance_Planning_CMMS.pdf" download="OTC-08_Maintenance_Planning_CMMS.pdf" target="_blank" class="btn btn-dark" style="padding: 10px 14px; font-size: 0.85rem; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; gap: 4px; white-space: nowrap;">Download Syllabus 📄</a>
           </div>
         </div>
 
+        <!-- CARD: OTC-09 -->
+        <div class="programme-card" data-category="engineering-projects" style="background: #ffffff; border: 1px solid #e4e4e7; border-radius: 14px; padding: 26px; box-shadow: 0 4px 18px rgba(0,0,0,0.05); display: flex; flex-direction: column; justify-content: space-between; transition: all 0.25s ease;">
+          <div>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; gap: 8px; flex-wrap: wrap;">
+              <span class="pill-badge" style="background: #fff7ed; color: #c2410c; border: 1px solid #fed7aa; font-weight: 800; font-size: 0.78rem; padding: 3px 10px;">OTC-09 | ENGINEERING &amp; PROJECTS</span>
+              <span style="font-size: 0.8rem; color: #71717a; font-weight: 600;">⏱ 3 DAYS</span>
+            </div>
+            
+            <h3 style="font-size: 1.2rem; font-weight: 700; color: #0f0f11; margin-bottom: 10px; font-family: var(--font-heading); line-height: 1.35;">Mechanical Commissioning &amp; Start-Up Readiness</h3>
+            
+            <p style="font-size: 0.86rem; color: #52525b; margin-bottom: 14px; line-height: 1.5;"><strong>Target Audience:</strong> Project and construction engineers, commissioning teams, operations representatives and maintenance personnel accepting new equipment.</p>
+            
+            <div style="background: #fafaf9; border-radius: 8px; padding: 14px; margin-bottom: 16px; border: 1px solid #f4f4f5;">
+              <h4 style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.5px; color: #c2410c; margin-bottom: 6px; font-weight: 700;">Module Outline &amp; Learning Objectives:</h4>
+              <ul style="font-size: 0.84rem; color: #3f3f46; padding-left: 18px; margin: 0; line-height: 1.6;">
+                <li>Distinguish mechanical completion, pre-commissioning, commissioning and performance testing.</li><li>Identify preservation, cleanliness, alignment and protection-system readiness gaps.</li><li>Prepare a documented handover and controlled start-up review.</li>
+              </ul>
+            </div>
+
+            <div style="font-size: 0.84rem; color: #52525b; margin-bottom: 20px; line-height: 1.5;">
+              <div style="margin-bottom: 6px;"><strong>Practical Drills / Case Study:</strong> Ready to start? Review an illustrative pump-package checklist and distinguish issues requiring closure from items eligible for authorised deferral. Start-up abnormality Investigate increasing bearing temperature after...</div>
+              <div><strong>Assessment &amp; Takeaways:</strong> Readiness checklist; system handover index; punch/action register; start-up monitoring sheet. Assessed via practical review; Omtek Certificate of Technical Participation awarded.</div>
+            </div>
+          </div>
+
+          <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-top: auto; padding-top: 14px; border-top: 1px solid #f4f4f5;">
+            <button class="btn btn-primary open-modal-btn" data-service="OTC-09: Mechanical Commissioning & Start-Up Readiness" style="flex: 1; min-width: 140px; padding: 10px 14px; font-size: 0.85rem; text-align: center;">Request a Proposal</button>
+            <a href="assets/downloads/OTC-09_Commissioning_Start_Up.pdf" download="OTC-09_Commissioning_Start_Up.pdf" target="_blank" class="btn btn-dark" style="padding: 10px 14px; font-size: 0.85rem; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; gap: 4px; white-space: nowrap;">Download Syllabus 📄</a>
+          </div>
+        </div>
+
+        <!-- CARD: OTC-10 -->
+        <div class="programme-card" data-category="pipelines-integrity" style="background: #ffffff; border: 1px solid #e4e4e7; border-radius: 14px; padding: 26px; box-shadow: 0 4px 18px rgba(0,0,0,0.05); display: flex; flex-direction: column; justify-content: space-between; transition: all 0.25s ease;">
+          <div>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; gap: 8px; flex-wrap: wrap;">
+              <span class="pill-badge" style="background: #fff7ed; color: #c2410c; border: 1px solid #fed7aa; font-weight: 800; font-size: 0.78rem; padding: 3px 10px;">OTC-10 | PIPELINES &amp; ASSET INTEGRITY</span>
+              <span style="font-size: 0.8rem; color: #71717a; font-weight: 600;">⏱ 3 DAYS</span>
+            </div>
+            
+            <h3 style="font-size: 1.2rem; font-weight: 700; color: #0f0f11; margin-bottom: 10px; font-family: var(--font-heading); line-height: 1.35;">Cross-Country Pipeline Integrity &amp; Maintenance</h3>
+            
+            <p style="font-size: 0.86rem; color: #52525b; margin-bottom: 14px; line-height: 1.5;"><strong>Target Audience:</strong> Pipeline operations and maintenance engineers, integrity teams, inspection coordinators, HSE personnel and asset managers.</p>
+            
+            <div style="background: #fafaf9; border-radius: 8px; padding: 14px; margin-bottom: 16px; border: 1px solid #f4f4f5;">
+              <h4 style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.5px; color: #c2410c; margin-bottom: 6px; font-weight: 700;">Module Outline &amp; Learning Objectives:</h4>
+              <ul style="font-size: 0.84rem; color: #3f3f46; padding-left: 18px; margin: 0; line-height: 1.6;">
+                <li>Identify major internal, external, mechanical and third-party damage threats.</li><li>Explain the purpose and limits of common integrity information sources.</li><li>Prepare a threat-based inspection and maintenance action register.</li>
+              </ul>
+            </div>
+
+            <div style="font-size: 0.84rem; color: #52525b; margin-bottom: 20px; line-height: 1.5;">
+              <div style="margin-bottom: 6px;"><strong>Practical Drills / Case Study:</strong> Threat mapping Use an illustrative pipeline route and operating history to prioritise locations for investigation and identify missing evidence. Leak-response tabletop Review pressure and field reports, define...</div>
+              <div><strong>Assessment &amp; Takeaways:</strong> Pipeline threat register; inspection data checklist; maintenance review sheet; incident-learning action plan. Assessed via practical review; Omtek Certificate of Technical Participation awarded.</div>
+            </div>
+          </div>
+
+          <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-top: auto; padding-top: 14px; border-top: 1px solid #f4f4f5;">
+            <button class="btn btn-primary open-modal-btn" data-service="OTC-10: Cross-Country Pipeline Integrity & Maintenance" style="flex: 1; min-width: 140px; padding: 10px 14px; font-size: 0.85rem; text-align: center;">Request a Proposal</button>
+            <a href="assets/downloads/OTC-10_Pipeline_Integrity.pdf" download="OTC-10_Pipeline_Integrity.pdf" target="_blank" class="btn btn-dark" style="padding: 10px 14px; font-size: 0.85rem; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; gap: 4px; white-space: nowrap;">Download Syllabus 📄</a>
+          </div>
+        </div>
+
+        <!-- CARD: OTC-11 -->
+        <div class="programme-card" data-category="pipelines-integrity" style="background: #ffffff; border: 1px solid #e4e4e7; border-radius: 14px; padding: 26px; box-shadow: 0 4px 18px rgba(0,0,0,0.05); display: flex; flex-direction: column; justify-content: space-between; transition: all 0.25s ease;">
+          <div>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; gap: 8px; flex-wrap: wrap;">
+              <span class="pill-badge" style="background: #fff7ed; color: #c2410c; border: 1px solid #fed7aa; font-weight: 800; font-size: 0.78rem; padding: 3px 10px;">OTC-11 | PIPELINES &amp; ASSET INTEGRITY</span>
+              <span style="font-size: 0.8rem; color: #71717a; font-weight: 600;">⏱ 3 DAYS</span>
+            </div>
+            
+            <h3 style="font-size: 1.2rem; font-weight: 700; color: #0f0f11; margin-bottom: 10px; font-family: var(--font-heading); line-height: 1.35;">Mechanical Asset Integrity &amp; Inspection Planning</h3>
+            
+            <p style="font-size: 0.86rem; color: #52525b; margin-bottom: 14px; line-height: 1.5;"><strong>Target Audience:</strong> Maintenance and inspection engineers, asset owners, reliability teams and operations personnel responsible for static equipment.</p>
+            
+            <div style="background: #fafaf9; border-radius: 8px; padding: 14px; margin-bottom: 16px; border: 1px solid #f4f4f5;">
+              <h4 style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.5px; color: #c2410c; margin-bottom: 6px; font-weight: 700;">Module Outline &amp; Learning Objectives:</h4>
+              <ul style="font-size: 0.84rem; color: #3f3f46; padding-left: 18px; margin: 0; line-height: 1.6;">
+                <li>Identify common damage mechanisms and their relationship with service conditions.</li><li>Match inspection questions with suitable NDE methods and their limitations.</li><li>Translate findings into a documented engineering review and action process.</li>
+              </ul>
+            </div>
+
+            <div style="font-size: 0.84rem; color: #52525b; margin-bottom: 20px; line-height: 1.5;">
+              <div style="margin-bottom: 6px;"><strong>Practical Drills / Case Study:</strong> Select the inspection method Match illustrative defects and locations to inspection questions, then discuss which methods can and cannot answer them. Inspection backlog review Prioritise sample findings, identify those...</div>
+              <div><strong>Assessment &amp; Takeaways:</strong> Damage-mechanism screening sheet; inspection question checklist; recommendation tracker; integrity review agenda. Assessed via practical review; Omtek Certificate of Technical Participation awarded.</div>
+            </div>
+          </div>
+
+          <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-top: auto; padding-top: 14px; border-top: 1px solid #f4f4f5;">
+            <button class="btn btn-primary open-modal-btn" data-service="OTC-11: Mechanical Asset Integrity & Inspection Planning" style="flex: 1; min-width: 140px; padding: 10px 14px; font-size: 0.85rem; text-align: center;">Request a Proposal</button>
+            <a href="assets/downloads/OTC-11_Asset_Integrity_Inspection.pdf" download="OTC-11_Asset_Integrity_Inspection.pdf" target="_blank" class="btn btn-dark" style="padding: 10px 14px; font-size: 0.85rem; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; gap: 4px; white-space: nowrap;">Download Syllabus 📄</a>
+          </div>
+        </div>
+
+        <!-- CARD: OTC-12 -->
+        <div class="programme-card" data-category="management-systems" style="background: #ffffff; border: 1px solid #e4e4e7; border-radius: 14px; padding: 26px; box-shadow: 0 4px 18px rgba(0,0,0,0.05); display: flex; flex-direction: column; justify-content: space-between; transition: all 0.25s ease;">
+          <div>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; gap: 8px; flex-wrap: wrap;">
+              <span class="pill-badge" style="background: #fff7ed; color: #c2410c; border: 1px solid #fed7aa; font-weight: 800; font-size: 0.78rem; padding: 3px 10px;">OTC-12 | MANAGEMENT SYSTEMS</span>
+              <span style="font-size: 0.8rem; color: #71717a; font-weight: 600;">⏱ 2 DAYS</span>
+            </div>
+            
+            <h3 style="font-size: 1.2rem; font-weight: 700; color: #0f0f11; margin-bottom: 10px; font-family: var(--font-heading); line-height: 1.35;">ISO 9001 Quality Management &amp; Internal Audit</h3>
+            
+            <p style="font-size: 0.86rem; color: #52525b; margin-bottom: 14px; line-height: 1.5;"><strong>Target Audience:</strong> Quality managers, process owners, internal auditors, engineers, supervisors and management representatives.</p>
+            
+            <div style="background: #fafaf9; border-radius: 8px; padding: 14px; margin-bottom: 16px; border: 1px solid #f4f4f5;">
+              <h4 style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.5px; color: #c2410c; margin-bottom: 6px; font-weight: 700;">Module Outline &amp; Learning Objectives:</h4>
+              <ul style="font-size: 0.84rem; color: #3f3f46; padding-left: 18px; margin: 0; line-height: 1.6;">
+                <li>Interpret quality management requirements in the context of plant and support processes.</li><li>Plan an internal audit and collect objective evidence.</li><li>Write clear findings and evaluate corrective-action effectiveness.</li>
+              </ul>
+            </div>
+
+            <div style="font-size: 0.84rem; color: #52525b; margin-bottom: 20px; line-height: 1.5;">
+              <div style="margin-bottom: 6px;"><strong>Practical Drills / Case Study:</strong> Audit a maintenance process Map inputs, outputs, risks and controls; prepare questions and identify objective evidence. Write a defensible finding Review an evidence pack and draft the requirement, evidence and...</div>
+              <div><strong>Assessment &amp; Takeaways:</strong> Process map worksheet; audit plan; audit checklist structure; finding and corrective-action templates. Assessed via practical review; Omtek Certificate of Technical Participation awarded.</div>
+            </div>
+          </div>
+
+          <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-top: auto; padding-top: 14px; border-top: 1px solid #f4f4f5;">
+            <button class="btn btn-primary open-modal-btn" data-service="OTC-12: ISO 9001 Quality Management & Internal Audit" style="flex: 1; min-width: 140px; padding: 10px 14px; font-size: 0.85rem; text-align: center;">Request a Proposal</button>
+            <a href="assets/downloads/OTC-12_ISO_9001_Quality_Management.pdf" download="OTC-12_ISO_9001_Quality_Management.pdf" target="_blank" class="btn btn-dark" style="padding: 10px 14px; font-size: 0.85rem; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; gap: 4px; white-space: nowrap;">Download Syllabus 📄</a>
+          </div>
+        </div>
+
+        <!-- CARD: OTC-13 -->
+        <div class="programme-card" data-category="management-systems" style="background: #ffffff; border: 1px solid #e4e4e7; border-radius: 14px; padding: 26px; box-shadow: 0 4px 18px rgba(0,0,0,0.05); display: flex; flex-direction: column; justify-content: space-between; transition: all 0.25s ease;">
+          <div>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; gap: 8px; flex-wrap: wrap;">
+              <span class="pill-badge" style="background: #fff7ed; color: #c2410c; border: 1px solid #fed7aa; font-weight: 800; font-size: 0.78rem; padding: 3px 10px;">OTC-13 | MANAGEMENT SYSTEMS</span>
+              <span style="font-size: 0.8rem; color: #71717a; font-weight: 600;">⏱ 2 DAYS</span>
+            </div>
+            
+            <h3 style="font-size: 1.2rem; font-weight: 700; color: #0f0f11; margin-bottom: 10px; font-family: var(--font-heading); line-height: 1.35;">Environmental Management &amp; ISO 14001 Internal Audit</h3>
+            
+            <p style="font-size: 0.86rem; color: #52525b; margin-bottom: 14px; line-height: 1.5;"><strong>Target Audience:</strong> EHS personnel, environmental coordinators, internal auditors, operations engineers and departmental process owners.</p>
+            
+            <div style="background: #fafaf9; border-radius: 8px; padding: 14px; margin-bottom: 16px; border: 1px solid #f4f4f5;">
+              <h4 style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.5px; color: #c2410c; margin-bottom: 6px; font-weight: 700;">Module Outline &amp; Learning Objectives:</h4>
+              <ul style="font-size: 0.84rem; color: #3f3f46; padding-left: 18px; margin: 0; line-height: 1.6;">
+                <li>Identify environmental aspects and evaluate their significance using client criteria.</li><li>Examine compliance evaluation, operational control and emergency preparedness evidence.</li><li>Prepare an internal audit plan and improvement actions.</li>
+              </ul>
+            </div>
+
+            <div style="font-size: 0.84rem; color: #52525b; margin-bottom: 20px; line-height: 1.5;">
+              <div style="margin-bottom: 6px;"><strong>Practical Drills / Case Study:</strong> Aspect-impact workshop Review a maintenance workshop and utility system; identify aspects, impacts, existing controls and data needed to rate significance. Environmental audit simulation Evaluate sample waste, spill and...</div>
+              <div><strong>Assessment &amp; Takeaways:</strong> Aspect-impact worksheet; compliance evidence checklist; audit plan; environmental corrective-action tracker. Assessed via practical review; Omtek Certificate of Technical Participation awarded.</div>
+            </div>
+          </div>
+
+          <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-top: auto; padding-top: 14px; border-top: 1px solid #f4f4f5;">
+            <button class="btn btn-primary open-modal-btn" data-service="OTC-13: Environmental Management & ISO 14001 Internal Audit" style="flex: 1; min-width: 140px; padding: 10px 14px; font-size: 0.85rem; text-align: center;">Request a Proposal</button>
+            <a href="assets/downloads/OTC-13_ISO_14001_Environmental_Auditing.pdf" download="OTC-13_ISO_14001_Environmental_Auditing.pdf" target="_blank" class="btn btn-dark" style="padding: 10px 14px; font-size: 0.85rem; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; gap: 4px; white-space: nowrap;">Download Syllabus 📄</a>
+          </div>
+        </div>
+
+        <!-- CARD: OTC-14 -->
+        <div class="programme-card" data-category="management-systems" style="background: #ffffff; border: 1px solid #e4e4e7; border-radius: 14px; padding: 26px; box-shadow: 0 4px 18px rgba(0,0,0,0.05); display: flex; flex-direction: column; justify-content: space-between; transition: all 0.25s ease;">
+          <div>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; gap: 8px; flex-wrap: wrap;">
+              <span class="pill-badge" style="background: #fff7ed; color: #c2410c; border: 1px solid #fed7aa; font-weight: 800; font-size: 0.78rem; padding: 3px 10px;">OTC-14 | MANAGEMENT SYSTEMS</span>
+              <span style="font-size: 0.8rem; color: #71717a; font-weight: 600;">⏱ 2 DAYS</span>
+            </div>
+            
+            <h3 style="font-size: 1.2rem; font-weight: 700; color: #0f0f11; margin-bottom: 10px; font-family: var(--font-heading); line-height: 1.35;">Occupational Health &amp; Safety Management: ISO 45001</h3>
+            
+            <p style="font-size: 0.86rem; color: #52525b; margin-bottom: 14px; line-height: 1.5;"><strong>Target Audience:</strong> HSE professionals, internal auditors, supervisors, operations and maintenance engineers, worker representatives and process owners.</p>
+            
+            <div style="background: #fafaf9; border-radius: 8px; padding: 14px; margin-bottom: 16px; border: 1px solid #f4f4f5;">
+              <h4 style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.5px; color: #c2410c; margin-bottom: 6px; font-weight: 700;">Module Outline &amp; Learning Objectives:</h4>
+              <ul style="font-size: 0.84rem; color: #3f3f46; padding-left: 18px; margin: 0; line-height: 1.6;">
+                <li>Relate hazard identification and risk controls to work activities and responsibilities.</li><li>Review worker consultation, competence, incident learning and emergency preparedness.</li><li>Collect audit evidence and write clear OH</li>
+              </ul>
+            </div>
+
+            <div style="font-size: 0.84rem; color: #52525b; margin-bottom: 20px; line-height: 1.5;">
+              <div style="margin-bottom: 6px;"><strong>Practical Drills / Case Study:</strong> Hazard-to-control review Use an illustrative maintenance job to identify hazards, evaluate controls and define who verifies readiness. OH S audit role-play Interview a supervisor, review permit and competence evidence...</div>
+              <div><strong>Assessment &amp; Takeaways:</strong> Hazard/control review worksheet; OH S audit plan; evidence checklist; finding and action templates. Assessed via practical review; Omtek Certificate of Technical Participation awarded.</div>
+            </div>
+          </div>
+
+          <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-top: auto; padding-top: 14px; border-top: 1px solid #f4f4f5;">
+            <button class="btn btn-primary open-modal-btn" data-service="OTC-14: Occupational Health & Safety Management: ISO 45001" style="flex: 1; min-width: 140px; padding: 10px 14px; font-size: 0.85rem; text-align: center;">Request a Proposal</button>
+            <a href="assets/downloads/OTC-14_ISO_45001_OH_and_S_Auditing.pdf" download="OTC-14_ISO_45001_OH_and_S_Auditing.pdf" target="_blank" class="btn btn-dark" style="padding: 10px 14px; font-size: 0.85rem; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; gap: 4px; white-space: nowrap;">Download Syllabus 📄</a>
+          </div>
+        </div>
+
+        <!-- CARD: OTC-15 -->
+        <div class="programme-card" data-category="management-systems" style="background: #ffffff; border: 1px solid #e4e4e7; border-radius: 14px; padding: 26px; box-shadow: 0 4px 18px rgba(0,0,0,0.05); display: flex; flex-direction: column; justify-content: space-between; transition: all 0.25s ease;">
+          <div>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; gap: 8px; flex-wrap: wrap;">
+              <span class="pill-badge" style="background: #fff7ed; color: #c2410c; border: 1px solid #fed7aa; font-weight: 800; font-size: 0.78rem; padding: 3px 10px;">OTC-15 | MANAGEMENT SYSTEMS</span>
+              <span style="font-size: 0.8rem; color: #71717a; font-weight: 600;">⏱ 3 DAYS</span>
+            </div>
+            
+            <h3 style="font-size: 1.2rem; font-weight: 700; color: #0f0f11; margin-bottom: 10px; font-family: var(--font-heading); line-height: 1.35;">Integrated Management System Internal Auditor</h3>
+            
+            <p style="font-size: 0.86rem; color: #52525b; margin-bottom: 14px; line-height: 1.5;"><strong>Target Audience:</strong> Internal auditors, IMS coordinators, quality/EHS managers, engineers and management representatives.</p>
+            
+            <div style="background: #fafaf9; border-radius: 8px; padding: 14px; margin-bottom: 16px; border: 1px solid #f4f4f5;">
+              <h4 style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.5px; color: #c2410c; margin-bottom: 6px; font-weight: 700;">Module Outline &amp; Learning Objectives:</h4>
+              <ul style="font-size: 0.84rem; color: #3f3f46; padding-left: 18px; margin: 0; line-height: 1.6;">
+                <li>Map common and distinct requirements across ISO 9001, ISO 14001 and ISO 45001.</li><li>Plan a risk-based integrated audit using ISO 19011 guidance.</li><li>Conduct interviews, write findings and review corrective-action closure.</li>
+              </ul>
+            </div>
+
+            <div style="font-size: 0.84rem; color: #52525b; margin-bottom: 20px; line-height: 1.5;">
+              <div style="margin-bottom: 6px;"><strong>Practical Drills / Case Study:</strong> Integrated maintenance audit Follow one maintenance job through quality, environmental and OH S controls without duplicating interviews. Audit closing meeting Present evidence-based findings, respond to challenges and...</div>
+              <div><strong>Assessment &amp; Takeaways:</strong> Integrated audit plan; process audit checklist; interview guide; report and corrective-action templates. Assessed via practical review; Omtek Certificate of Technical Participation awarded.</div>
+            </div>
+          </div>
+
+          <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-top: auto; padding-top: 14px; border-top: 1px solid #f4f4f5;">
+            <button class="btn btn-primary open-modal-btn" data-service="OTC-15: Integrated Management System Internal Auditor" style="flex: 1; min-width: 140px; padding: 10px 14px; font-size: 0.85rem; text-align: center;">Request a Proposal</button>
+            <a href="assets/downloads/OTC-15_Integrated_Internal_Auditor.pdf" download="OTC-15_Integrated_Internal_Auditor.pdf" target="_blank" class="btn btn-dark" style="padding: 10px 14px; font-size: 0.85rem; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; gap: 4px; white-space: nowrap;">Download Syllabus 📄</a>
+          </div>
+        </div>
+
+        <!-- CARD: OTC-16 -->
+        <div class="programme-card" data-category="quality-excellence" style="background: #ffffff; border: 1px solid #e4e4e7; border-radius: 14px; padding: 26px; box-shadow: 0 4px 18px rgba(0,0,0,0.05); display: flex; flex-direction: column; justify-content: space-between; transition: all 0.25s ease;">
+          <div>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; gap: 8px; flex-wrap: wrap;">
+              <span class="pill-badge" style="background: #fff7ed; color: #c2410c; border: 1px solid #fed7aa; font-weight: 800; font-size: 0.78rem; padding: 3px 10px;">OTC-16 | QUALITY &amp; OPERATIONAL EXCELLENCE</span>
+              <span style="font-size: 0.8rem; color: #71717a; font-weight: 600;">⏱ 3 DAYS</span>
+            </div>
+            
+            <h3 style="font-size: 1.2rem; font-weight: 700; color: #0f0f11; margin-bottom: 10px; font-family: var(--font-heading); line-height: 1.35;">Quality Control &amp; Process Improvement</h3>
+            
+            <p style="font-size: 0.86rem; color: #52525b; margin-bottom: 14px; line-height: 1.5;"><strong>Target Audience:</strong> Production, QA/QC, maintenance, technical services and process improvement teams; engineers and supervisors.</p>
+            
+            <div style="background: #fafaf9; border-radius: 8px; padding: 14px; margin-bottom: 16px; border: 1px solid #f4f4f5;">
+              <h4 style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.5px; color: #c2410c; margin-bottom: 6px; font-weight: 700;">Module Outline &amp; Learning Objectives:</h4>
+              <ul style="font-size: 0.84rem; color: #3f3f46; padding-left: 18px; margin: 0; line-height: 1.6;">
+                <li>Define a measurable quality problem and select suitable basic quality tools.</li><li>Distinguish variation patterns and investigate causes with evidence.</li><li>Prepare a practical improvement and control plan.</li>
+              </ul>
+            </div>
+
+            <div style="font-size: 0.84rem; color: #52525b; margin-bottom: 20px; line-height: 1.5;">
+              <div style="margin-bottom: 6px;"><strong>Practical Drills / Case Study:</strong> Two populations in one histogram Investigate an illustrative two-peaked product-quality distribution by stratifying shifts, machines and material batches. CAPA improvement workshop Use a fictional recurring defect to...</div>
+              <div><strong>Assessment &amp; Takeaways:</strong> Quality tool worksheets; improvement project charter; CAPA tracker; process control-plan template. Assessed via practical review; Omtek Certificate of Technical Participation awarded.</div>
+            </div>
+          </div>
+
+          <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-top: auto; padding-top: 14px; border-top: 1px solid #f4f4f5;">
+            <button class="btn btn-primary open-modal-btn" data-service="OTC-16: Quality Control & Process Improvement" style="flex: 1; min-width: 140px; padding: 10px 14px; font-size: 0.85rem; text-align: center;">Request a Proposal</button>
+            <a href="assets/downloads/OTC-16_Quality_Control_Process_Improvement.pdf" download="OTC-16_Quality_Control_Process_Improvement.pdf" target="_blank" class="btn btn-dark" style="padding: 10px 14px; font-size: 0.85rem; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; gap: 4px; white-space: nowrap;">Download Syllabus 📄</a>
+          </div>
+        </div>
+
+        <!-- CARD: OTC-17 -->
+        <div class="programme-card" data-category="quality-excellence" style="background: #ffffff; border: 1px solid #e4e4e7; border-radius: 14px; padding: 26px; box-shadow: 0 4px 18px rgba(0,0,0,0.05); display: flex; flex-direction: column; justify-content: space-between; transition: all 0.25s ease;">
+          <div>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; gap: 8px; flex-wrap: wrap;">
+              <span class="pill-badge" style="background: #fff7ed; color: #c2410c; border: 1px solid #fed7aa; font-weight: 800; font-size: 0.78rem; padding: 3px 10px;">OTC-17 | QUALITY &amp; OPERATIONAL EXCELLENCE</span>
+              <span style="font-size: 0.8rem; color: #71717a; font-weight: 600;">⏱ 2 DAYS</span>
+            </div>
+            
+            <h3 style="font-size: 1.2rem; font-weight: 700; color: #0f0f11; margin-bottom: 10px; font-family: var(--font-heading); line-height: 1.35;">Statistical Process Control &amp; Process Capability</h3>
+            
+            <p style="font-size: 0.86rem; color: #52525b; margin-bottom: 14px; line-height: 1.5;"><strong>Target Audience:</strong> QA/QC engineers, production and process engineers, laboratory teams and improvement practitioners familiar with basic arithmetic.</p>
+            
+            <div style="background: #fafaf9; border-radius: 8px; padding: 14px; margin-bottom: 16px; border: 1px solid #f4f4f5;">
+              <h4 style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.5px; color: #c2410c; margin-bottom: 6px; font-weight: 700;">Module Outline &amp; Learning Objectives:</h4>
+              <ul style="font-size: 0.84rem; color: #3f3f46; padding-left: 18px; margin: 0; line-height: 1.6;">
+                <li>Distinguish common-cause variation from special-cause signals.</li><li>Select basic variable or attribute charts for an appropriate data structure.</li><li>Interpret Cp/Cpk cautiously and identify prerequisites for meaningful capability analysis.</li>
+              </ul>
+            </div>
+
+            <div style="font-size: 0.84rem; color: #52525b; margin-bottom: 20px; line-height: 1.5;">
+              <div style="margin-bottom: 6px;"><strong>Practical Drills / Case Study:</strong> Control-chart interpretation Build or interpret an illustrative process chart; identify signals and propose verification rather than automatic process adjustment. Capability comparison Compare two fictional processes...</div>
+              <div><strong>Assessment &amp; Takeaways:</strong> Example datasets; chart selection guide; capability review worksheet; out-of-control response-plan template. Assessed via practical review; Omtek Certificate of Technical Participation awarded.</div>
+            </div>
+          </div>
+
+          <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-top: auto; padding-top: 14px; border-top: 1px solid #f4f4f5;">
+            <button class="btn btn-primary open-modal-btn" data-service="OTC-17: Statistical Process Control & Process Capability" style="flex: 1; min-width: 140px; padding: 10px 14px; font-size: 0.85rem; text-align: center;">Request a Proposal</button>
+            <a href="assets/downloads/OTC-17_SPC_Process_Capability.pdf" download="OTC-17_SPC_Process_Capability.pdf" target="_blank" class="btn btn-dark" style="padding: 10px 14px; font-size: 0.85rem; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; gap: 4px; white-space: nowrap;">Download Syllabus 📄</a>
+          </div>
+        </div>
+
+        <!-- CARD: OTC-18 -->
+        <div class="programme-card" data-category="quality-excellence" style="background: #ffffff; border: 1px solid #e4e4e7; border-radius: 14px; padding: 26px; box-shadow: 0 4px 18px rgba(0,0,0,0.05); display: flex; flex-direction: column; justify-content: space-between; transition: all 0.25s ease;">
+          <div>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; gap: 8px; flex-wrap: wrap;">
+              <span class="pill-badge" style="background: #fff7ed; color: #c2410c; border: 1px solid #fed7aa; font-weight: 800; font-size: 0.78rem; padding: 3px 10px;">OTC-18 | QUALITY &amp; OPERATIONAL EXCELLENCE</span>
+              <span style="font-size: 0.8rem; color: #71717a; font-weight: 600;">⏱ 2 DAYS</span>
+            </div>
+            
+            <h3 style="font-size: 1.2rem; font-weight: 700; color: #0f0f11; margin-bottom: 10px; font-family: var(--font-heading); line-height: 1.35;">FMEA, CAPA &amp; Mistake-Proofing</h3>
+            
+            <p style="font-size: 0.86rem; color: #52525b; margin-bottom: 14px; line-height: 1.5;"><strong>Target Audience:</strong> Quality, design, maintenance, production and reliability teams; supervisors and improvement facilitators.</p>
+            
+            <div style="background: #fafaf9; border-radius: 8px; padding: 14px; margin-bottom: 16px; border: 1px solid #f4f4f5;">
+              <h4 style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.5px; color: #c2410c; margin-bottom: 6px; font-weight: 700;">Module Outline &amp; Learning Objectives:</h4>
+              <ul style="font-size: 0.84rem; color: #3f3f46; padding-left: 18px; margin: 0; line-height: 1.6;">
+                <li>Define functions, failure modes, effects, causes and existing controls.</li><li>Prioritise actions using agreed risk criteria rather than a score alone.</li><li>Develop CAPA and mistake-proofing ideas with ownership and validation.</li>
+              </ul>
+            </div>
+
+            <div style="font-size: 0.84rem; color: #52525b; margin-bottom: 20px; line-height: 1.5;">
+              <div style="margin-bottom: 6px;"><strong>Practical Drills / Case Study:</strong> Pump seal support FMEA Review an illustrative loss-of-flush scenario, separate causes from effects and recommend controls with verifiable actions. Error-proof a task Redesign a fictional assembly or inspection task to...</div>
+              <div><strong>Assessment &amp; Takeaways:</strong> FMEA worksheet; action-priority checklist; CAPA template; mistake-proofing concept and validation sheet. Assessed via practical review; Omtek Certificate of Technical Participation awarded.</div>
+            </div>
+          </div>
+
+          <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-top: auto; padding-top: 14px; border-top: 1px solid #f4f4f5;">
+            <button class="btn btn-primary open-modal-btn" data-service="OTC-18: FMEA, CAPA & Mistake-Proofing" style="flex: 1; min-width: 140px; padding: 10px 14px; font-size: 0.85rem; text-align: center;">Request a Proposal</button>
+            <a href="assets/downloads/OTC-18_FMEA_CAPA_Poka_Yoke.pdf" download="OTC-18_FMEA_CAPA_Poka_Yoke.pdf" target="_blank" class="btn btn-dark" style="padding: 10px 14px; font-size: 0.85rem; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; gap: 4px; white-space: nowrap;">Download Syllabus 📄</a>
+          </div>
+        </div>
+
+        <!-- CARD: OTC-19 -->
+        <div class="programme-card" data-category="safety-workforce" style="background: #ffffff; border: 1px solid #e4e4e7; border-radius: 14px; padding: 26px; box-shadow: 0 4px 18px rgba(0,0,0,0.05); display: flex; flex-direction: column; justify-content: space-between; transition: all 0.25s ease;">
+          <div>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; gap: 8px; flex-wrap: wrap;">
+              <span class="pill-badge" style="background: #fff7ed; color: #c2410c; border: 1px solid #fed7aa; font-weight: 800; font-size: 0.78rem; padding: 3px 10px;">OTC-19 | SAFETY &amp; WORKFORCE DEVELOPMENT</span>
+              <span style="font-size: 0.8rem; color: #71717a; font-weight: 600;">⏱ 1 DAY</span>
+            </div>
+            
+            <h3 style="font-size: 1.2rem; font-weight: 700; color: #0f0f11; margin-bottom: 10px; font-family: var(--font-heading); line-height: 1.35;">Behaviour-Based Safety &amp; Safety Leadership</h3>
+            
+            <p style="font-size: 0.86rem; color: #52525b; margin-bottom: 14px; line-height: 1.5;"><strong>Target Audience:</strong> Supervisors, engineers, HSE teams, team leaders and workforce representatives in industrial operations.</p>
+            
+            <div style="background: #fafaf9; border-radius: 8px; padding: 14px; margin-bottom: 16px; border: 1px solid #f4f4f5;">
+              <h4 style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.5px; color: #c2410c; margin-bottom: 6px; font-weight: 700;">Module Outline &amp; Learning Objectives:</h4>
+              <ul style="font-size: 0.84rem; color: #3f3f46; padding-left: 18px; margin: 0; line-height: 1.6;">
+                <li>Conduct a respectful observation focused on the task and its conditions.</li><li>Give useful feedback and recognise barriers to safe work.</li><li>Translate recurring observations into accountable system improvements.</li>
+              </ul>
+            </div>
+
+            <div style="font-size: 0.84rem; color: #52525b; margin-bottom: 20px; line-height: 1.5;">
+              <div style="margin-bottom: 6px;"><strong>Practical Drills / Case Study:</strong> Safety conversation role-play Discuss an illustrative shortcut under time pressure; practise listening, checking controls and agreeing practical action. Observation-to-action review Sort fictional observations into...</div>
+              <div><strong>Assessment &amp; Takeaways:</strong> Safety observation guide; feedback conversation prompts; barrier/action log; individual leadership action plan. Assessed via practical review; Omtek Certificate of Technical Participation awarded.</div>
+            </div>
+          </div>
+
+          <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-top: auto; padding-top: 14px; border-top: 1px solid #f4f4f5;">
+            <button class="btn btn-primary open-modal-btn" data-service="OTC-19: Behaviour-Based Safety & Safety Leadership" style="flex: 1; min-width: 140px; padding: 10px 14px; font-size: 0.85rem; text-align: center;">Request a Proposal</button>
+            <a href="assets/downloads/OTC-19_Behaviour_Based_Safety.pdf" download="OTC-19_Behaviour_Based_Safety.pdf" target="_blank" class="btn btn-dark" style="padding: 10px 14px; font-size: 0.85rem; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; gap: 4px; white-space: nowrap;">Download Syllabus 📄</a>
+          </div>
+        </div>
+
+        <!-- CARD: OTC-20 -->
+        <div class="programme-card" data-category="safety-workforce" style="background: #ffffff; border: 1px solid #e4e4e7; border-radius: 14px; padding: 26px; box-shadow: 0 4px 18px rgba(0,0,0,0.05); display: flex; flex-direction: column; justify-content: space-between; transition: all 0.25s ease;">
+          <div>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; gap: 8px; flex-wrap: wrap;">
+              <span class="pill-badge" style="background: #fff7ed; color: #c2410c; border: 1px solid #fed7aa; font-weight: 800; font-size: 0.78rem; padding: 3px 10px;">OTC-20 | SAFETY &amp; WORKFORCE DEVELOPMENT</span>
+              <span style="font-size: 0.8rem; color: #71717a; font-weight: 600;">⏱ 1 DAY</span>
+            </div>
+            
+            <h3 style="font-size: 1.2rem; font-weight: 700; color: #0f0f11; margin-bottom: 10px; font-family: var(--font-heading); line-height: 1.35;">Permit to Work, Isolation &amp; Job Safety Analysis</h3>
+            
+            <p style="font-size: 0.86rem; color: #52525b; margin-bottom: 14px; line-height: 1.5;"><strong>Target Audience:</strong> Operations and maintenance supervisors, permit issuers/receivers, engineers, contractor coordinators and HSE teams.</p>
+            
+            <div style="background: #fafaf9; border-radius: 8px; padding: 14px; margin-bottom: 16px; border: 1px solid #f4f4f5;">
+              <h4 style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.5px; color: #c2410c; margin-bottom: 6px; font-weight: 700;">Module Outline &amp; Learning Objectives:</h4>
+              <ul style="font-size: 0.84rem; color: #3f3f46; padding-left: 18px; margin: 0; line-height: 1.6;">
+                <li>Connect the permit with job scope, hazards, controls and simultaneous operations.</li><li>Explain energy isolation and verification responsibilities under site procedures.</li><li>Prepare a clear JSA and identify conditions requiring work to stop and be reassessed.</li>
+              </ul>
+            </div>
+
+            <div style="font-size: 0.84rem; color: #52525b; margin-bottom: 20px; line-height: 1.5;">
+              <div style="margin-bottom: 6px;"><strong>Practical Drills / Case Study:</strong> Pump maintenance permit review Find missing controls in an illustrative job pack covering electrical, pressure, stored-energy and process-isolation interfaces. Scope change scenario Respond to an unexpected condition...</div>
+              <div><strong>Assessment &amp; Takeaways:</strong> JSA worksheet; permit review checklist; isolation verification prompts; handback checklist. Assessed via practical review; Omtek Certificate of Technical Participation awarded.</div>
+            </div>
+          </div>
+
+          <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-top: auto; padding-top: 14px; border-top: 1px solid #f4f4f5;">
+            <button class="btn btn-primary open-modal-btn" data-service="OTC-20: Permit to Work, Isolation & Job Safety Analysis" style="flex: 1; min-width: 140px; padding: 10px 14px; font-size: 0.85rem; text-align: center;">Request a Proposal</button>
+            <a href="assets/downloads/OTC-20_PTW_LOTO_JSA.pdf" download="OTC-20_PTW_LOTO_JSA.pdf" target="_blank" class="btn btn-dark" style="padding: 10px 14px; font-size: 0.85rem; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; gap: 4px; white-space: nowrap;">Download Syllabus 📄</a>
+          </div>
+        </div>
+
+        <!-- CARD: OTC-21 -->
+        <div class="programme-card" data-category="safety-workforce" style="background: #ffffff; border: 1px solid #e4e4e7; border-radius: 14px; padding: 26px; box-shadow: 0 4px 18px rgba(0,0,0,0.05); display: flex; flex-direction: column; justify-content: space-between; transition: all 0.25s ease;">
+          <div>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; gap: 8px; flex-wrap: wrap;">
+              <span class="pill-badge" style="background: #fff7ed; color: #c2410c; border: 1px solid #fed7aa; font-weight: 800; font-size: 0.78rem; padding: 3px 10px;">OTC-21 | SAFETY &amp; WORKFORCE DEVELOPMENT</span>
+              <span style="font-size: 0.8rem; color: #71717a; font-weight: 600;">⏱ 2 DAYS</span>
+            </div>
+            
+            <h3 style="font-size: 1.2rem; font-weight: 700; color: #0f0f11; margin-bottom: 10px; font-family: var(--font-heading); line-height: 1.35;">Industrial Fire Safety &amp; Emergency Preparedness</h3>
+            
+            <p style="font-size: 0.86rem; color: #52525b; margin-bottom: 14px; line-height: 1.5;"><strong>Target Audience:</strong> Plant supervisors, maintenance and operations engineers, HSE personnel, emergency coordinators and facility managers.</p>
+            
+            <div style="background: #fafaf9; border-radius: 8px; padding: 14px; margin-bottom: 16px; border: 1px solid #f4f4f5;">
+              <h4 style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.5px; color: #c2410c; margin-bottom: 6px; font-weight: 700;">Module Outline &amp; Learning Objectives:</h4>
+              <ul style="font-size: 0.84rem; color: #3f3f46; padding-left: 18px; margin: 0; line-height: 1.6;">
+                <li>Recognise common fire scenarios and the purpose of detection and protection layers.</li><li>Identify routine checks and deficiencies requiring specialist escalation.</li><li>Develop a coordinated preparedness and improvement action plan.</li>
+              </ul>
+            </div>
+
+            <div style="font-size: 0.84rem; color: #52525b; margin-bottom: 20px; line-height: 1.5;">
+              <div style="margin-bottom: 6px;"><strong>Practical Drills / Case Study:</strong> Firewater readiness review Use an illustrative inspection pack to identify unavailable equipment, overdue checks and escalation priorities. Emergency tabletop Walk through a fictional fuel leak and fire alarm, focusing...</div>
+              <div><strong>Assessment &amp; Takeaways:</strong> Fire protection readiness checklist; impairment/action register; emergency tabletop worksheet; drill debrief template. Assessed via practical review; Omtek Certificate of Technical Participation awarded.</div>
+            </div>
+          </div>
+
+          <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-top: auto; padding-top: 14px; border-top: 1px solid #f4f4f5;">
+            <button class="btn btn-primary open-modal-btn" data-service="OTC-21: Industrial Fire Safety & Emergency Preparedness" style="flex: 1; min-width: 140px; padding: 10px 14px; font-size: 0.85rem; text-align: center;">Request a Proposal</button>
+            <a href="assets/downloads/OTC-21_Industrial_Fire_Safety.pdf" download="OTC-21_Industrial_Fire_Safety.pdf" target="_blank" class="btn btn-dark" style="padding: 10px 14px; font-size: 0.85rem; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; gap: 4px; white-space: nowrap;">Download Syllabus 📄</a>
+          </div>
+        </div>
+
+        <!-- CARD: OTC-22 -->
+        <div class="programme-card" data-category="safety-workforce" style="background: #ffffff; border: 1px solid #e4e4e7; border-radius: 14px; padding: 26px; box-shadow: 0 4px 18px rgba(0,0,0,0.05); display: flex; flex-direction: column; justify-content: space-between; transition: all 0.25s ease;">
+          <div>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; gap: 8px; flex-wrap: wrap;">
+              <span class="pill-badge" style="background: #fff7ed; color: #c2410c; border: 1px solid #fed7aa; font-weight: 800; font-size: 0.78rem; padding: 3px 10px;">OTC-22 | UTILITIES &amp; WORKFORCE DEVELOPMENT</span>
+              <span style="font-size: 0.8rem; color: #71717a; font-weight: 600;">⏱ 3 DAYS</span>
+            </div>
+            
+            <h3 style="font-size: 1.2rem; font-weight: 700; color: #0f0f11; margin-bottom: 10px; font-family: var(--font-heading); line-height: 1.35;">Water &amp; Wastewater Plants: Mechanical O&amp;M</h3>
+            
+            <p style="font-size: 0.86rem; color: #52525b; margin-bottom: 14px; line-height: 1.5;"><strong>Target Audience:</strong> Water and wastewater operators, ITI/diploma technicians, mechanical maintenance staff and utility supervisors.</p>
+            
+            <div style="background: #fafaf9; border-radius: 8px; padding: 14px; margin-bottom: 16px; border: 1px solid #f4f4f5;">
+              <h4 style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.5px; color: #c2410c; margin-bottom: 6px; font-weight: 700;">Module Outline &amp; Learning Objectives:</h4>
+              <ul style="font-size: 0.84rem; color: #3f3f46; padding-left: 18px; margin: 0; line-height: 1.6;">
+                <li>Identify major equipment and trace basic process flow and utility interfaces.</li><li>Carry out structured operating observations and maintenance planning checks.</li><li>Distinguish mechanical symptoms from issues requiring process-chemistry support.</li>
+              </ul>
+            </div>
+
+            <div style="font-size: 0.84rem; color: #52525b; margin-bottom: 20px; line-height: 1.5;">
+              <div style="margin-bottom: 6px;"><strong>Practical Drills / Case Study:</strong> Utility pump loses capacity Use an illustrative log to separate suction restriction, air ingress, instrument error and downstream resistance. Operator round redesign Develop a short inspection route with normal...</div>
+              <div><strong>Assessment &amp; Takeaways:</strong> Operator round sheet; mechanical PM checklist; symptom/escalation guide; shift handover template. Assessed via practical review; Omtek Certificate of Technical Participation awarded.</div>
+            </div>
+          </div>
+
+          <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-top: auto; padding-top: 14px; border-top: 1px solid #f4f4f5;">
+            <button class="btn btn-primary open-modal-btn" data-service="OTC-22: Water & Wastewater Plants: Mechanical O&M" style="flex: 1; min-width: 140px; padding: 10px 14px; font-size: 0.85rem; text-align: center;">Request a Proposal</button>
+            <a href="assets/downloads/OTC-22_Water_Treatment_Mechanical_OM.pdf" download="OTC-22_Water_Treatment_Mechanical_OM.pdf" target="_blank" class="btn btn-dark" style="padding: 10px 14px; font-size: 0.85rem; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; gap: 4px; white-space: nowrap;">Download Syllabus 📄</a>
+          </div>
+        </div>
+
+        <!-- CARD: OTC-23 -->
+        <div class="programme-card" data-category="safety-workforce" style="background: #ffffff; border: 1px solid #e4e4e7; border-radius: 14px; padding: 26px; box-shadow: 0 4px 18px rgba(0,0,0,0.05); display: flex; flex-direction: column; justify-content: space-between; transition: all 0.25s ease;">
+          <div>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; gap: 8px; flex-wrap: wrap;">
+              <span class="pill-badge" style="background: #fff7ed; color: #c2410c; border: 1px solid #fed7aa; font-weight: 800; font-size: 0.78rem; padding: 3px 10px;">OTC-23 | SAFETY &amp; WORKFORCE DEVELOPMENT</span>
+              <span style="font-size: 0.8rem; color: #71717a; font-weight: 600;">⏱ 2 DAYS</span>
+            </div>
+            
+            <h3 style="font-size: 1.2rem; font-weight: 700; color: #0f0f11; margin-bottom: 10px; font-family: var(--font-heading); line-height: 1.35;">Ownership &amp; Accountability in Industrial Teams</h3>
+            
+            <p style="font-size: 0.86rem; color: #52525b; margin-bottom: 14px; line-height: 1.5;"><strong>Target Audience:</strong> Supervisors, engineers, shift in-charges, maintenance and operations leaders, and cross-functional plant teams.</p>
+            
+            <div style="background: #fafaf9; border-radius: 8px; padding: 14px; margin-bottom: 16px; border: 1px solid #f4f4f5;">
+              <h4 style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.5px; color: #c2410c; margin-bottom: 6px; font-weight: 700;">Module Outline &amp; Learning Objectives:</h4>
+              <ul style="font-size: 0.84rem; color: #3f3f46; padding-left: 18px; margin: 0; line-height: 1.6;">
+                <li>Distinguish responsibility, authority and accountability for a defined task.</li><li>Communicate risks and commitments early across department interfaces.</li><li>Build a measurable personal and team action plan with review dates.</li>
+              </ul>
+            </div>
+
+            <div style="font-size: 0.84rem; color: #52525b; margin-bottom: 20px; line-height: 1.5;">
+              <div style="margin-bottom: 6px;"><strong>Practical Drills / Case Study:</strong> The overdue defect Role-play a recurring equipment defect shared by operations and maintenance; agree an owner, action, deadline and escalation path. Shift handover challenge Compare weak and strong handovers for a...</div>
+              <div><strong>Assessment &amp; Takeaways:</strong> Commitment and escalation matrix; handover checklist; action closure tracker; 30-day individual implementation plan. Assessed via practical review; Omtek Certificate of Technical Participation awarded.</div>
+            </div>
+          </div>
+
+          <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-top: auto; padding-top: 14px; border-top: 1px solid #f4f4f5;">
+            <button class="btn btn-primary open-modal-btn" data-service="OTC-23: Ownership & Accountability in Industrial Teams" style="flex: 1; min-width: 140px; padding: 10px 14px; font-size: 0.85rem; text-align: center;">Request a Proposal</button>
+            <a href="assets/downloads/OTC-23_Ownership_Accountability.pdf" download="OTC-23_Ownership_Accountability.pdf" target="_blank" class="btn btn-dark" style="padding: 10px 14px; font-size: 0.85rem; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; gap: 4px; white-space: nowrap;">Download Syllabus 📄</a>
+          </div>
+        </div>
+
+        <!-- CARD: OTC-24 -->
+        <div class="programme-card" data-category="safety-workforce" style="background: #ffffff; border: 1px solid #e4e4e7; border-radius: 14px; padding: 26px; box-shadow: 0 4px 18px rgba(0,0,0,0.05); display: flex; flex-direction: column; justify-content: space-between; transition: all 0.25s ease;">
+          <div>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; gap: 8px; flex-wrap: wrap;">
+              <span class="pill-badge" style="background: #fff7ed; color: #c2410c; border: 1px solid #fed7aa; font-weight: 800; font-size: 0.78rem; padding: 3px 10px;">OTC-24 | SAFETY &amp; WORKFORCE DEVELOPMENT</span>
+              <span style="font-size: 0.8rem; color: #71717a; font-weight: 600;">⏱ 3 DAYS</span>
+            </div>
+            
+            <h3 style="font-size: 1.2rem; font-weight: 700; color: #0f0f11; margin-bottom: 10px; font-family: var(--font-heading); line-height: 1.35;">Technical Train-the-Trainer for Plant Experts</h3>
+            
+            <p style="font-size: 0.86rem; color: #52525b; margin-bottom: 14px; line-height: 1.5;"><strong>Target Audience:</strong> Plant SMEs, HODs, senior engineers, technical instructors and supervisors who train operators, technicians or engineers.</p>
+            
+            <div style="background: #fafaf9; border-radius: 8px; padding: 14px; margin-bottom: 16px; border: 1px solid #f4f4f5;">
+              <h4 style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.5px; color: #c2410c; margin-bottom: 6px; font-weight: 700;">Module Outline &amp; Learning Objectives:</h4>
+              <ul style="font-size: 0.84rem; color: #3f3f46; padding-left: 18px; margin: 0; line-height: 1.6;">
+                <li>Define learning objectives for a specific job and participant level.</li><li>Explain technical concepts using simple visuals, stories and structured practice.</li><li>Design assessments and evaluate learning without relying on attendance alone.</li>
+              </ul>
+            </div>
+
+            <div style="font-size: 0.84rem; color: #52525b; margin-bottom: 20px; line-height: 1.5;">
+              <div style="margin-bottom: 6px;"><strong>Practical Drills / Case Study:</strong> Micro-teaching laboratory Deliver a short plant-topic lesson, receive peer feedback on clarity and engagement and revise the lesson plan. Assessment design clinic Write questions and a practical observation checklist...</div>
+              <div><strong>Assessment &amp; Takeaways:</strong> Lesson-plan template; trainer-note guide; assessment blueprint; facilitation checklist; personal trainer development plan. Assessed via practical review; Omtek Certificate of Technical Participation awarded.</div>
+            </div>
+          </div>
+
+          <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-top: auto; padding-top: 14px; border-top: 1px solid #f4f4f5;">
+            <button class="btn btn-primary open-modal-btn" data-service="OTC-24: Technical Train-the-Trainer for Plant Experts" style="flex: 1; min-width: 140px; padding: 10px 14px; font-size: 0.85rem; text-align: center;">Request a Proposal</button>
+            <a href="assets/downloads/OTC-24_Technical_Train_the_Trainer.pdf" download="OTC-24_Technical_Train_the_Trainer.pdf" target="_blank" class="btn btn-dark" style="padding: 10px 14px; font-size: 0.85rem; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; gap: 4px; white-space: nowrap;">Download Syllabus 📄</a>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -542,7 +1100,7 @@
             <span style="font-size: 0.88rem; color: #cbd5e1; margin-top: 8px;">Delhi NCR Regd. Office:</span>
             <span style="font-size: 0.82rem; color: #94a3b8;">Najafgarh, New Delhi - 110043</span>
             <span style="font-size: 0.88rem; color: #cbd5e1; margin-top: 8px;">Navi Mumbai Operating Office:</span>
-            <span style="font-size: 0.82rem; color: #94a3b8;">Navi Mumbai, Maharashtra</span>
+            <span style="font-size: 0.82rem; color: #94a3b8;">CBD Belapur, Navi Mumbai, Maharashtra - 400614</span>
             <div style="margin-top: 10px;">
               <a href="tel:+919810772284" class="footer-link" style="color: var(--safety-amber);">📞 +91-9810772284 / +91-9987079111</a>
             </div>

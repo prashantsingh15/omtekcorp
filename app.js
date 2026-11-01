@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
         item.classList.add('has-dropdown');
         navLink.addEventListener('click', (e) => {
           // Whenever mobile drawer is active or screen is mobile/tablet
-          if (navMenu.classList.contains('open') || window.innerWidth <= 1024) {
+          if (navMenu.classList.contains('open') || window.innerWidth <= 991) {
             e.preventDefault();
             e.stopPropagation();
             const isOpen = item.classList.contains('dropdown-open');
@@ -83,7 +83,13 @@ document.addEventListener('DOMContentLoaded', () => {
   const openModal = (serviceName = '') => {
     if (modal) {
       modal.classList.add('active');
+      document.body.classList.add('modal-open');
       if (serviceName && modalServiceSelect) {
+        let optionExists = Array.from(modalServiceSelect.options).some(opt => opt.value === serviceName);
+        if (!optionExists) {
+          const newOpt = new Option(serviceName, serviceName, true, true);
+          modalServiceSelect.add(newOpt);
+        }
         modalServiceSelect.value = serviceName;
         if (modalTitle) modalTitle.textContent = `Request Proposal: ${serviceName}`;
       } else if (modalTitle) {
@@ -95,6 +101,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const closeModal = () => {
     if (modal) {
       modal.classList.remove('active');
+      document.body.classList.remove('modal-open');
     }
   };
 
@@ -117,6 +124,65 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   }
+
+  // Elegant in-page confirmation banner
+  const showConfirmationNotification = (title, message) => {
+    const existing = document.getElementById('omtek-confirmation-banner');
+    if (existing) existing.remove();
+
+    const banner = document.createElement('div');
+    banner.id = 'omtek-confirmation-banner';
+    banner.style.cssText = `
+      position: fixed;
+      top: 30px;
+      left: 50%;
+      transform: translateX(-50%) translateY(-20px);
+      background: #0f172a;
+      color: #ffffff;
+      border: 1px solid #c2410c;
+      border-left: 6px solid #ea580c;
+      padding: 18px 24px;
+      border-radius: 10px;
+      box-shadow: 0 16px 40px rgba(0,0,0,0.35);
+      z-index: 100000;
+      max-width: 90%;
+      width: 520px;
+      opacity: 0;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      font-family: system-ui, -apple-system, sans-serif;
+    `;
+
+    banner.innerHTML = `
+      <div style="background: rgba(194, 65, 12, 0.2); border-radius: 50%; width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: #ea580c;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+      </div>
+      <div style="flex-grow: 1;">
+        <h4 style="margin: 0 0 4px 0; color: #ffffff; font-size: 1.05rem; font-weight: 700;">${title}</h4>
+        <p style="margin: 0; color: #cbd5e1; font-size: 0.88rem; line-height: 1.5;">${message}</p>
+        <div style="margin-top: 10px; font-size: 0.78rem; color: #94a3b8;">
+          Official Inbox: <strong>safehands@omtechcorporation.com</strong> • Direct Review within 24 Hours
+        </div>
+      </div>
+      <button style="background: none; border: none; color: #94a3b8; font-size: 20px; cursor: pointer; padding: 0 4px; line-height: 1;" onclick="this.parentElement.remove()">&times;</button>
+    `;
+
+    document.body.appendChild(banner);
+    setTimeout(() => {
+      banner.style.transform = 'translateX(-50%) translateY(0)';
+      banner.style.opacity = '1';
+    }, 50);
+
+    setTimeout(() => {
+      if (banner.parentElement) {
+        banner.style.transform = 'translateX(-50%) translateY(-20px)';
+        banner.style.opacity = '0';
+        setTimeout(() => banner.remove(), 350);
+      }
+    }, 7000);
+  };
 
   // Helper function to save lead to localStorage omtek_enquiries
   const saveEnquiryToStorage = (newLead) => {
@@ -177,7 +243,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
       saveEnquiryToStorage(leadData);
 
-      alert(`Thank you, ${name} (${company})!\n\nYour enquiry for "${service}" has been received and logged in our Real-Time Portal.\n\nOur technical team at Omtek Corporation will review your plant requirements and contact you within 24 hours at:\n${contactDetail}`);
+      showConfirmationNotification(
+        "Proposal Request Received",
+        `Thank you, ${name} (${company}). Your request for "${service}" has been received and saved. Our principal consultants will review your scope and get in touch at ${contactDetail}.`
+      );
       enquiryForm.reset();
     });
   }
@@ -207,7 +276,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
       saveEnquiryToStorage(leadData);
 
-      alert(`Thank you, ${name}!\n\nYour proposal request for "${service}" has been received and saved.\n\nA principal consultant will get in touch promptly at ${contactDetail}.`);
+      showConfirmationNotification(
+        "Proposal Request Saved",
+        `Thank you, ${name}. Your proposal request for "${service}" has been logged. A principal consultant will contact you promptly at ${contactDetail}.`
+      );
       modalForm.reset();
       closeModal();
     });
@@ -239,7 +311,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
       saveEnquiryToStorage(leadData);
 
-      alert(`Thank you, ${name} (${company})!\n\nYour Water & Environmental Audit Request (${service}) has been received.\n\nOur chemical engineering team will contact you at ${contactDetail}.`);
+      showConfirmationNotification(
+        "Water & Environmental Request Received",
+        `Thank you, ${name} (${company}). Your Water & Infrastructure request (${service}) has been received. Our engineering team will contact you at ${contactDetail}.`
+      );
       waterForm.reset();
     });
   }
@@ -270,6 +345,29 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('.faq-item:not(.active) .faq-answer').forEach(a => {
     a.style.display = 'none';
   });
+
+  // 8. Corporate Training Category Filter
+  const filterBtns = document.querySelectorAll('.training-filter-btn');
+  const programmeCards = document.querySelectorAll('.programme-card');
+  if (filterBtns.length > 0 && programmeCards.length > 0) {
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const filter = btn.getAttribute('data-filter') || 'all';
+        
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        programmeCards.forEach(card => {
+          const cardCat = card.getAttribute('data-category') || '';
+          if (filter === 'all' || cardCat === filter) {
+            card.style.display = 'flex';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+  }
 });
 
 
