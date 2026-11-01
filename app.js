@@ -217,9 +217,9 @@ document.addEventListener('DOMContentLoaded', () => {
     return `${YYYY}-${MM}-${DD} ${hh}:${mm}`;
   };
 
-  // Helper to dispatch email to official inbox safehands@omtechcorporation.com
+  // Helper to dispatch email to official inbox and direct Gmail forward
   const dispatchEnquiryToBackend = (payload) => {
-    // 1. Attempt PHP backend endpoint on server
+    // 1. Attempt PHP backend endpoint on server (Hostinger)
     try {
       fetch('send-enquiry.php', {
         method: 'POST',
@@ -228,7 +228,27 @@ document.addEventListener('DOMContentLoaded', () => {
       }).catch(() => {});
     } catch (e) {}
 
-    // 2. Serverless email relay to safehands@omtechcorporation.com
+    // 2. Direct instant Gmail forward via serverless relay
+    try {
+      fetch('https://formsubmit.co/ajax/omtechcorp2402@gmail.com', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          _subject: `New Website Proposal: ${payload.service} — ${payload.company}`,
+          name: payload.name,
+          email: payload.email,
+          phone: payload.phone,
+          company: payload.company,
+          service: payload.service,
+          message: payload.message || 'Direct inquiry from website'
+        })
+      }).catch(() => {});
+    } catch (e) {}
+
+    // 3. Also relay to corporate inbox
     try {
       fetch('https://formsubmit.co/ajax/safehands@omtechcorporation.com', {
         method: 'POST',

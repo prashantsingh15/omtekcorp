@@ -39,8 +39,8 @@ if (empty($name) || (empty($email) && empty($phone))) {
     exit();
 }
 
-// Destination and routing
-$to = "safehands@omtechcorporation.com";
+// Destination and routing (Corporate Inbox + Direct Gmail Forward)
+$to = "safehands@omtechcorporation.com, omtechcorp2402@gmail.com";
 $cc = "kkamleshmishra2@gmail.com";
 $subject = "New Proposal Request: " . $service . " — " . $company;
 
