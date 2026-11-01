@@ -237,13 +237,16 @@ document.addEventListener('DOMContentLoaded', () => {
           'Accept': 'application/json'
         },
         body: JSON.stringify({
-          _subject: `New Website Proposal: ${payload.service} — ${payload.company}`,
-          name: payload.name,
-          email: payload.email,
-          phone: payload.phone,
-          company: payload.company,
-          service: payload.service,
-          message: payload.message || 'Direct inquiry from website'
+          _subject: `⚡ [Omtech RFP] ${payload.service} — ${payload.company}`,
+          _template: 'table',
+          _replyto: payload.email,
+          _captcha: 'false',
+          'Client Name': payload.name,
+          'Company / Facility': payload.company,
+          'Contact Phone': payload.phone,
+          'Email Address': payload.email,
+          'Requested Division': payload.service,
+          'Project Scope & Details': payload.message || 'Direct website inquiry'
         })
       }).catch(() => {});
     } catch (e) {}
@@ -253,6 +256,23 @@ document.addEventListener('DOMContentLoaded', () => {
       fetch('https://formsubmit.co/ajax/safehands@omtechcorporation.com', {
         method: 'POST',
         headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          _subject: `⚡ [Omtech RFP] ${payload.service} — ${payload.company}`,
+          _template: 'table',
+          _replyto: payload.email,
+          _captcha: 'false',
+          'Client Name': payload.name,
+          'Company / Facility': payload.company,
+          'Contact Phone': payload.phone,
+          'Email Address': payload.email,
+          'Requested Division': payload.service,
+          'Project Scope & Details': payload.message || 'Direct website inquiry'
+        })
+      }).catch(() => {});
+    } catch (e) {}
           'Content-Type': 'application/json',
           'Accept': 'application/json'
         },
