@@ -217,6 +217,38 @@ document.addEventListener('DOMContentLoaded', () => {
     return `${YYYY}-${MM}-${DD} ${hh}:${mm}`;
   };
 
+  // Helper to dispatch email to official inbox safehands@omtechcorporation.com
+  const dispatchEnquiryToBackend = (payload) => {
+    // 1. Attempt PHP backend endpoint on server
+    try {
+      fetch('send-enquiry.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      }).catch(() => {});
+    } catch (e) {}
+
+    // 2. Serverless email relay to safehands@omtechcorporation.com
+    try {
+      fetch('https://formsubmit.co/ajax/safehands@omtechcorporation.com', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          _subject: `New Website Proposal: ${payload.service} — ${payload.company}`,
+          name: payload.name,
+          email: payload.email,
+          phone: payload.phone,
+          company: payload.company,
+          service: payload.service,
+          message: payload.message || 'Direct inquiry from website'
+        })
+      }).catch(() => {});
+    } catch (e) {}
+  };
+
   // 4. Form Submission Handling (Main Enquiry Form)
   const enquiryForm = document.getElementById('enquiryForm');
   if (enquiryForm) {
@@ -242,6 +274,7 @@ document.addEventListener('DOMContentLoaded', () => {
       };
 
       saveEnquiryToStorage(leadData);
+      dispatchEnquiryToBackend({ name, email, phone, company, service, message });
 
       showConfirmationNotification(
         "Proposal Request Received",
@@ -275,6 +308,7 @@ document.addEventListener('DOMContentLoaded', () => {
       };
 
       saveEnquiryToStorage(leadData);
+      dispatchEnquiryToBackend({ name, email, phone, company: 'Modal Lead', service, message: notes });
 
       showConfirmationNotification(
         "Proposal Request Saved",
