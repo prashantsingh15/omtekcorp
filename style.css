@@ -461,43 +461,57 @@ button, input, select, textarea {
 .hero-founder-tag {
   display: flex;
   align-items: center;
-  gap: 16px;
-  background: rgba(255, 255, 255, 0.07);
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  padding: 14px 22px;
-  border-radius: var(--radius-lg);
+  gap: 20px;
+  background: rgba(15, 23, 42, 0.82);
+  border: 1.5px solid rgba(234, 88, 12, 0.48);
+  padding: 10px 28px 10px 12px;
+  border-radius: 65px;
   margin-bottom: 38px;
-  max-width: 650px;
-  backdrop-filter: blur(14px);
-  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.25);
-  transition: transform 0.3s ease, border-color 0.3s ease;
+  max-width: 720px;
+  backdrop-filter: blur(16px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(255, 255, 255, 0.08);
+  transition: all 0.3s ease;
 }
 
 .hero-founder-tag:hover {
-  border-color: rgba(234, 88, 12, 0.5);
+  border-color: #ea580c;
+  background: rgba(15, 23, 42, 0.92);
   transform: translateY(-2px);
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.55), 0 0 25px rgba(234, 88, 12, 0.38);
 }
 
 .founder-avatar-small {
-  width: 50px;
-  height: 50px;
+  width: 84px;
+  height: 84px;
+  min-width: 84px;
   border-radius: 50%;
   object-fit: cover;
-  border: 2.5px solid #ea580c;
-  box-shadow: 0 0 15px rgba(234, 88, 12, 0.4);
+  object-position: center top;
+  border: 3.5px solid #ea580c;
+  box-shadow: 0 0 0 4px rgba(234, 88, 12, 0.3), 0 8px 22px rgba(0, 0, 0, 0.55);
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+
+.hero-founder-tag:hover .founder-avatar-small {
+  transform: scale(1.06);
 }
 
 .founder-tag-text strong {
   display: block;
-  font-size: 1rem;
+  font-size: 1.15rem;
   color: #ffffff;
   font-weight: 700;
+  letter-spacing: 0.2px;
+  margin-bottom: 4px;
 }
 
 .founder-tag-text span {
-  font-size: 0.84rem;
-  color: #fdba74;
-  font-weight: 600;
+  font-size: 0.88rem;
+  color: #fed7aa;
+  font-weight: 500;
+  line-height: 1.45;
+  display: block;
 }
 
 .hero-cta-group {
@@ -2141,14 +2155,27 @@ body.modal-open .floating-actions-hub {
     width: 100% !important;
   }
   .hero-founder-tag {
-    flex-direction: column !important;
-    text-align: center !important;
-    gap: 10px !important;
-    padding: 12px 14px !important;
+    flex-direction: row !important;
+    text-align: left !important;
+    align-items: center !important;
+    gap: 14px !important;
+    padding: 10px 14px !important;
     width: 100% !important;
+    border-radius: 20px !important;
   }
   .founder-avatar-small {
-    margin: 0 auto;
+    width: 68px !important;
+    height: 68px !important;
+    min-width: 68px !important;
+    margin: 0 !important;
+  }
+  .founder-tag-text strong {
+    font-size: 0.95rem !important;
+    line-height: 1.3 !important;
+  }
+  .founder-tag-text span {
+    font-size: 0.74rem !important;
+    line-height: 1.35 !important;
   }
 
   /* Founder section & Bio */
