@@ -2098,12 +2098,14 @@ body.modal-open .floating-actions-hub {
     padding: 40px 0 32px !important;
   }
   .hero-pill {
-    font-size: 0.76rem !important;
-    padding: 6px 12px !important;
+    font-size: 0.74rem !important;
+    line-height: 1.45 !important;
+    padding: 8px 14px !important;
     margin-bottom: 14px !important;
     display: inline-block !important;
     max-width: 100% !important;
     white-space: normal !important;
+    border-radius: 12px !important;
   }
   .hero-title {
     font-size: 1.75rem !important;
