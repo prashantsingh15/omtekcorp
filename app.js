@@ -110,12 +110,14 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   };
 
-  openModalBtns.forEach(btn => {
-    btn.addEventListener('click', (e) => {
+  // Robust click listener for all modal proposal buttons
+  document.addEventListener('click', (e) => {
+    const btn = e.target.closest('.open-modal-btn, .btn-card-enquiry, [data-open-modal]');
+    if (btn) {
       e.preventDefault();
       const service = btn.getAttribute('data-service') || '';
       openModal(service);
-    });
+    }
   });
 
   if (modalCloseBtn) {
