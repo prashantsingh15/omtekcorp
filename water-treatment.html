@@ -1172,7 +1172,7 @@
             <span style="font-size: 0.88rem; color: #cbd5e1; margin-top: 6px;">Navi Mumbai Operating Office:</span>
             <span style="font-size: 0.82rem; color: #94a3b8;">502, Ajaydeep CHS, Plot No. 19, Sector 19, Kharghar, Navi Mumbai, Maharashtra – 410210</span>
             <div style="margin-top: 10px;">
-              <a href="tel:+919810772284" class="footer-link" style="color: var(--safety-amber);">📞 +91-9810772284 / +91-9987079111</a>
+              <span class="footer-link" style="color: var(--safety-amber);">📞 <a href="tel:+919810772284" style="color:inherit;text-decoration:none;">+91-9810772284</a> / <a href="tel:+919987079111" style="color:inherit;text-decoration:none;">+91-9987079111</a></span>
             </div>
           </div>
         </div>
@@ -1226,12 +1226,19 @@
         <div class="form-group">
           <label class="form-label">Service Interested In *</label>
           <select class="form-select" id="mService" required>
-            <option value="Plumbing and Bulk Drinking Water Solution" selected>Plumbing and Bulk Drinking Water Solution</option>
-            <option value="Complete Plumbing Systems">Complete Plumbing Systems</option>
-            <option value="Bulk Quantity Drinking Water Solutions">Bulk Quantity Drinking Water Solutions</option>
-            <option value="Water Storage & Distribution Systems">Water Storage & Distribution Systems</option>
-            <option value="Sewage, Drainage & Wastewater">Sewage, Drainage & Wastewater</option>
-            <option value="Annual Maintenance Contract">Annual Maintenance Contract (AMC)</option>
+            <option value="">-- Please Select Service --</option>
+            <optgroup label="Core Services">
+              <option value="Fire Protection & Life Safety">Fire Protection &amp; Life Safety</option>
+              <option value="Industrial Training">Corporate Industrial Training</option>
+              <option value="Management System Audits">Management System Audits (ISO &amp; PSM)</option>
+              <option value="Cybersecurity">Cybersecurity &amp; Operational Technology</option>
+            </optgroup>
+            <optgroup label="Additional Services">
+              <option value="Rotating Equipment & Reliability">Rotating Equipment &amp; Mechanical Reliability</option>
+              <option value="Technical Advisory & Asset Integrity">Technical Advisory &amp; Asset Integrity</option>
+              <option value="Water Infrastructure & Bulk Potable Water">Water Infrastructure &amp; Bulk Potable Water</option>
+              <option value="Virtual Design Studio">Virtual Design Studio (3D CAD / BIM)</option>
+            </optgroup>
           </select>
         </div>
         <div class="form-group">

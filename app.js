@@ -92,8 +92,13 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         modalServiceSelect.value = serviceName;
         if (modalTitle) modalTitle.textContent = `Request Proposal: ${serviceName}`;
-      } else if (modalTitle) {
-        modalTitle.textContent = `Request a Service Proposal`;
+      } else {
+        if (modalServiceSelect) {
+          modalServiceSelect.value = '';
+        }
+        if (modalTitle) {
+          modalTitle.textContent = 'Request a Proposal';
+        }
       }
     }
   };

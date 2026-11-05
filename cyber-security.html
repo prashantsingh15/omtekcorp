@@ -1124,7 +1124,7 @@
             <span style="font-size: 0.88rem; color: #cbd5e1; font-weight: 700; margin-top: 6px;">Navi Mumbai Operating Office:</span>
             <span style="font-size: 0.82rem; color: #94a3b8;">502, Ajaydeep CHS, Plot No. 19, Sector 19, Kharghar, Navi Mumbai, Maharashtra – 410210</span>
             <div style="margin-top: 10px;">
-              <a href="tel:+919810772284" class="footer-link" style="color: #38bdf8;">📞 +91-9810772284 / +91-9987079111</a>
+              <span class="footer-link" style="color: #38bdf8;">📞 <a href="tel:+919810772284" style="color:inherit;text-decoration:none;">+91-9810772284</a> / <a href="tel:+919987079111" style="color:inherit;text-decoration:none;">+91-9987079111</a></span>
             </div>
           </div>
         </div>
@@ -1178,13 +1178,19 @@
         <div class="form-group">
           <label class="form-label">Select Program *</label>
           <select class="form-select" id="mService" required>
-            <option value="Cyber Security Fundamentals Program">1. Cyber Security Fundamentals Program</option>
-            <option value="Network &amp; Infrastructure Security Training">2. Network &amp; Infrastructure Security Training</option>
-            <option value="Ethical Hacking &amp; Penetration Testing">3. Ethical Hacking &amp; Penetration Testing</option>
-            <option value="SOC Analyst Training">4. Security Operations Center (SOC) Analyst Training</option>
-            <option value="Cloud &amp; Application Security Training">5. Cloud &amp; Application Security Training</option>
-            <option value="GRC &amp; ISO 27001 Training">6. Governance, Risk &amp; Compliance (GRC) Training</option>
-            <option value="Corporate Custom Cyber Training">Corporate Team Upskilling / Enterprise Batch</option>
+            <option value="">-- Please Select Service --</option>
+            <optgroup label="Core Services">
+              <option value="Fire Protection & Life Safety">Fire Protection &amp; Life Safety</option>
+              <option value="Industrial Training">Corporate Industrial Training</option>
+              <option value="Management System Audits">Management System Audits (ISO &amp; PSM)</option>
+              <option value="Cybersecurity">Cybersecurity &amp; Operational Technology</option>
+            </optgroup>
+            <optgroup label="Additional Services">
+              <option value="Rotating Equipment & Reliability">Rotating Equipment &amp; Mechanical Reliability</option>
+              <option value="Technical Advisory & Asset Integrity">Technical Advisory &amp; Asset Integrity</option>
+              <option value="Water Infrastructure & Bulk Potable Water">Water Infrastructure &amp; Bulk Potable Water</option>
+              <option value="Virtual Design Studio">Virtual Design Studio (3D CAD / BIM)</option>
+            </optgroup>
           </select>
         </div>
         <div class="form-group">
