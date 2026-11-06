@@ -117,6 +117,247 @@
       border-right: 1px solid #e4e4e7;
       padding: 24px 16px;
     }
+    .sidebar-mobile-header {
+      display: none;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 14px;
+      margin-bottom: 16px;
+      border-bottom: 1px solid #e4e4e7;
+    }
+    .sidebar-close-btn {
+      background: #fee2e2;
+      color: #dc2626;
+      border: 1px solid #fca5a5;
+      padding: 7px 12px;
+      border-radius: 6px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .sidebar-close-btn:hover {
+      background: #fecaca;
+    }
+    .admin-mobile-toggle {
+      display: none;
+      align-items: center;
+      gap: 8px;
+      background: #1e1e24;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      color: #ffffff;
+      padding: 8px 14px;
+      border-radius: 8px;
+      font-size: 0.88rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .admin-mobile-toggle:hover, .admin-mobile-toggle:active {
+      background: #c2410c;
+      border-color: #c2410c;
+    }
+    .hamburger-icon {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      width: 18px;
+    }
+    .hamburger-icon span {
+      display: block;
+      height: 2px;
+      width: 100%;
+      background: #ffffff;
+      border-radius: 2px;
+    }
+    .admin-sidebar-backdrop {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 15, 17, 0.65);
+      z-index: 998;
+      backdrop-filter: blur(3px);
+      -webkit-backdrop-filter: blur(3px);
+    }
+    .table-responsive-wrapper {
+      width: 100%;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      border-radius: 12px;
+      border: 1px solid #e4e4e7;
+      background: #ffffff;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+      margin-bottom: 24px;
+    }
+    .table-responsive-wrapper .data-table {
+      margin-bottom: 0;
+      box-shadow: none;
+      border: none;
+      min-width: 760px;
+    }
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.7);
+      z-index: 99999;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+    .modal-card {
+      background: #ffffff;
+      width: 100%;
+      max-width: 580px;
+      max-height: 92vh;
+      overflow-y: auto;
+      border-radius: 14px;
+      padding: 26px;
+      box-shadow: 0 25px 50px -12px rgba(0,0,0,0.4);
+      border: 1px solid #e4e4e7;
+      position: relative;
+      margin: auto;
+      box-sizing: border-box;
+      -webkit-overflow-scrolling: touch;
+    }
+    .modal-close-icon {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      background: #f4f4f5;
+      border: 1px solid #e4e4e7;
+      border-radius: 50%;
+      width: 36px;
+      height: 36px;
+      font-size: 1.4rem;
+      line-height: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      color: #52525b;
+      transition: all 0.2s;
+    }
+    .modal-close-icon:hover {
+      background: #fee2e2;
+      color: #dc2626;
+      border-color: #fca5a5;
+    }
+
+    /* Media Queries for Mobile & Tablets */
+    @media (max-width: 991px) {
+      .admin-mobile-toggle {
+        display: inline-flex;
+      }
+      .admin-header {
+        padding: 12px 18px;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+      .admin-brand img {
+        height: 32px;
+      }
+      .admin-brand h1 {
+        font-size: 1.05rem;
+      }
+      .admin-badge {
+        display: none;
+      }
+      .admin-user-info span {
+        display: none;
+      }
+      .admin-body {
+        display: block;
+        position: relative;
+      }
+      .admin-sidebar-backdrop.active {
+        display: block;
+      }
+      .admin-sidebar {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        width: 290px;
+        max-width: 86vw;
+        height: 100vh;
+        z-index: 999;
+        box-shadow: 6px 0 28px rgba(0,0,0,0.35);
+        transform: translateX(-100%);
+        transition: transform 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+        overflow-y: auto;
+        padding: 20px 16px;
+      }
+      .admin-sidebar.open {
+        transform: translateX(0);
+      }
+      .sidebar-mobile-header {
+        display: flex;
+      }
+      .admin-main {
+        padding: 20px 14px;
+        width: 100%;
+        box-sizing: border-box;
+      }
+      .panel-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 14px;
+      }
+      .panel-header button {
+        width: 100%;
+        justify-content: center;
+      }
+      .stats-cards-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 12px;
+      }
+      .form-grid-2 {
+        grid-template-columns: 1fr !important;
+        gap: 14px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .stats-cards-grid {
+        grid-template-columns: 1fr !important;
+      }
+      .stat-box {
+        padding: 16px;
+      }
+      .stat-box-num {
+        font-size: 1.6rem;
+      }
+      .panel-title h2 {
+        font-size: 1.3rem;
+      }
+      .modal-card {
+        padding: 18px 14px;
+      }
+      #modalLeadGrid {
+        grid-template-columns: 1fr !important;
+        gap: 10px !important;
+      }
+      .modal-footer-actions {
+        flex-direction: column !important;
+        gap: 10px !important;
+      }
+      .modal-footer-actions > * {
+        width: 100% !important;
+      }
+      .modal-footer-actions .modal-save-btns {
+        width: 100% !important;
+        display: flex !important;
+        gap: 8px !important;
+      }
+      .modal-footer-actions .modal-save-btns button {
+        flex: 1 !important;
+      }
+    }
     .sidebar-nav {
       display: flex;
       flex-direction: column;
@@ -292,6 +533,14 @@
     <!-- HEADER -->
     <header class="admin-header">
       <div class="admin-brand">
+        <button type="button" class="admin-mobile-toggle" id="adminSidebarToggle" onclick="toggleAdminSidebar()" aria-label="Toggle Navigation Menu">
+          <div class="hamburger-icon">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <span>Menu</span>
+        </button>
         <img decoding="async" src="assets/images/omtech-logo.png" alt="Logo" style="height: 38px;">
         <div>
           <h1>Omtech Corporation</h1>
@@ -304,9 +553,16 @@
       </div>
     </header>
 
+    <!-- MOBILE BACKDROP -->
+    <div class="admin-sidebar-backdrop" id="adminSidebarBackdrop" onclick="closeAdminSidebar()"></div>
+
     <div class="admin-body">
       <!-- SIDEBAR NAV -->
-      <aside class="admin-sidebar">
+      <aside class="admin-sidebar" id="adminSidebar">
+        <div class="sidebar-mobile-header">
+          <strong style="font-size: 0.95rem; color: #0f0f11;">Admin Navigation</strong>
+          <button type="button" class="sidebar-close-btn" onclick="closeAdminSidebar()" aria-label="Close Menu">✕ Close</button>
+        </div>
         <nav class="sidebar-nav">
           <button class="nav-tab-btn active" onclick="switchTab('leadsTab', this)">
             📥 Client Enquiries (RFQ)
@@ -374,22 +630,24 @@
             <span style="font-size: 0.84rem; color: #71717a;">Auto-syncs with contact forms in real-time</span>
           </div>
 
-          <table class="data-table">
-            <thead>
-              <tr>
-                <th>Date & Time</th>
-                <th>Client Name</th>
-                <th>Company / Organization</th>
-                <th>Contact Details</th>
-                <th>Service Required</th>
-                <th>Status (Select to Update)</th>
-                <th>Action</th>
-              </tr>
-            </thead>
-            <tbody id="enquiriesTableBody">
-              <!-- Rendered dynamically via JS -->
-            </tbody>
-          </table>
+          <div class="table-responsive-wrapper">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Date & Time</th>
+                  <th>Client Name</th>
+                  <th>Company / Organization</th>
+                  <th>Contact Details</th>
+                  <th>Service Required</th>
+                  <th>Status (Select to Update)</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody id="enquiriesTableBody">
+                <!-- Rendered dynamically via JS -->
+              </tbody>
+            </table>
+          </div>
         </div>
 
         <!-- TAB 2: HOMEPAGE & BIO CONTENT -->
@@ -606,15 +864,15 @@
   </div>
 
   <!-- LEAD DETAILS & STATUS MODAL -->
-  <div class="modal-overlay" id="leadDetailsModal" style="display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.6); z-index: 99999; align-items: center; justify-content: center; padding: 20px;">
-    <div style="background: #ffffff; width: 100%; max-width: 560px; border-radius: 12px; padding: 28px; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.4); border: 1px solid #e4e4e7; position: relative;">
-      <button onclick="closeLeadModal()" style="position: absolute; top: 16px; right: 16px; background: none; border: none; font-size: 1.5rem; cursor: pointer; color: #71717a;">&times;</button>
+  <div class="modal-overlay" id="leadDetailsModal" onclick="handleModalOverlayClick(event)">
+    <div class="modal-card">
+      <button type="button" class="modal-close-icon" onclick="closeLeadModal()" aria-label="Close Modal">&times;</button>
       <div style="margin-bottom: 20px;">
         <span style="font-size: 0.78rem; font-weight: 700; color: #c2410c; text-transform: uppercase;">Lead Inspection & Status Management</span>
         <h3 id="modalClientTitle" style="font-family: var(--font-heading); font-size: 1.4rem; font-weight: 800; color: #0f0f11; margin-top: 4px;">Client RFQ Details</h3>
       </div>
       
-      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 20px; background: #fafaf9; padding: 16px; border-radius: 8px; border: 1px solid #e4e4e7; font-size: 0.88rem;">
+      <div id="modalLeadGrid" class="modal-info-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 20px; background: #fafaf9; padding: 16px; border-radius: 8px; border: 1px solid #e4e4e7; font-size: 0.88rem;">
         <div>
           <span style="color: #71717a; font-size: 0.78rem; display: block;">Client Name</span>
           <strong id="modalLeadName" style="color: #0f0f11; font-size: 0.95rem;">-</strong>
@@ -652,13 +910,13 @@
         </select>
       </div>
 
-      <div style="display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-top: 24px;">
-        <button onclick="deleteCurrentModalLead()" style="background: #fee2e2; color: #dc2626; border: 1px solid #fca5a5; padding: 10px 16px; border-radius: 8px; font-size: 0.85rem; font-weight: 700; cursor: pointer;">
+      <div class="modal-footer-actions modal-footer-flex" style="display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-top: 24px;">
+        <button type="button" onclick="deleteCurrentModalLead()" style="background: #fee2e2; color: #dc2626; border: 1px solid #fca5a5; padding: 10px 16px; border-radius: 8px; font-size: 0.85rem; font-weight: 700; cursor: pointer;">
           🗑️ Delete Lead
         </button>
-        <div style="display: flex; gap: 10px;">
-          <button onclick="closeLeadModal()" class="btn btn-dark" style="padding: 10px 16px; font-size: 0.88rem;">Cancel</button>
-          <button onclick="saveModalLeadStatus()" class="btn btn-primary" style="padding: 10px 20px; font-size: 0.88rem; font-weight: 700;">💾 Save Status Update</button>
+        <div class="btn-group" style="display: flex; gap: 10px;">
+          <button type="button" onclick="closeLeadModal()" class="btn btn-dark" style="padding: 10px 16px; font-size: 0.88rem;">Cancel</button>
+          <button type="button" onclick="saveModalLeadStatus()" class="btn btn-primary" style="padding: 10px 20px; font-size: 0.88rem; font-weight: 700;">💾 Save Status</button>
         </div>
       </div>
     </div>
@@ -676,6 +934,28 @@
     ];
 
     let currentActiveLeadId = null;
+
+    function toggleAdminSidebar() {
+      const sidebar = document.getElementById("adminSidebar");
+      const backdrop = document.getElementById("adminSidebarBackdrop");
+      if (sidebar && backdrop) {
+        sidebar.classList.toggle("open");
+        backdrop.classList.toggle("active");
+      }
+    }
+
+    function closeAdminSidebar() {
+      const sidebar = document.getElementById("adminSidebar");
+      const backdrop = document.getElementById("adminSidebarBackdrop");
+      if (sidebar) sidebar.classList.remove("open");
+      if (backdrop) backdrop.classList.remove("active");
+    }
+
+    function handleModalOverlayClick(e) {
+      if (e.target && e.target.id === "leadDetailsModal") {
+        closeLeadModal();
+      }
+    }
 
     document.addEventListener("DOMContentLoaded", () => {
       if (sessionStorage.getItem("omtech_admin_logged_in") === "true") {
@@ -696,6 +976,7 @@
       });
 
       renderEnquiries();
+      syncServerLeads();
 
       // Real-time listener for incoming submissions from other tabs/windows
       window.addEventListener("storage", (e) => {
@@ -705,12 +986,43 @@
       });
       // Auto polling every 3 seconds for seamless real-time dashboard updates
       setInterval(renderEnquiries, 3000);
+      setInterval(syncServerLeads, 4000);
     });
+
+    async function syncServerLeads() {
+      try {
+        const res = await fetch("assets/data/leads_backup.json?t=" + Date.now());
+        if (res.ok) {
+          const serverLeads = await res.json();
+          if (Array.isArray(serverLeads) && serverLeads.length > 0) {
+            let local = JSON.parse(localStorage.getItem("omtech_enquiries")) || JSON.parse(localStorage.getItem("omtek_enquiries")) || [];
+            const existingIds = new Set(local.map(x => String(x.id)));
+            let updated = false;
+            
+            serverLeads.forEach(sLead => {
+              if (sLead && sLead.id && !existingIds.has(String(sLead.id))) {
+                local.unshift(sLead);
+                existingIds.add(String(sLead.id));
+                updated = true;
+              }
+            });
+
+            if (updated) {
+              localStorage.setItem("omtech_enquiries", JSON.stringify(local));
+              renderEnquiries();
+            }
+          }
+        }
+      } catch (err) {
+        // Silently handle offline/local mode
+      }
+    }
 
     function showDashboard() {
       document.getElementById("loginScreen").style.display = "none";
       document.getElementById("adminApp").style.display = "block";
       renderEnquiries();
+      syncServerLeads();
     }
 
     function logoutAdmin() {
@@ -722,8 +1034,12 @@
       document.querySelectorAll(".admin-panel").forEach(panel => panel.classList.remove("active"));
       document.querySelectorAll(".nav-tab-btn").forEach(btn => btn.classList.remove("active"));
       
-      document.getElementById(tabId).classList.add("active");
-      btnElement.classList.add("active");
+      const targetPanel = document.getElementById(tabId);
+      if (targetPanel) targetPanel.classList.add("active");
+      if (btnElement) btnElement.classList.add("active");
+
+      // Auto close sidebar on mobile when switching tabs
+      closeAdminSidebar();
     }
 
     function getBadgeClass(status) {
@@ -751,10 +1067,10 @@
 
       tbody.innerHTML = stored.map(item => `
         <tr>
-          <td style="font-size: 0.82rem; color: #52525b;">${item.date}</td>
+          <td style="font-size: 0.82rem; color: #52525b; white-space: nowrap;">${item.date}</td>
           <td><strong>${item.name}</strong></td>
-          <td>${item.company}</td>
-          <td><span style="font-size: 0.84rem; color: #3f3f46;">${item.contact}</span></td>
+          <td>${item.company || 'Direct Engagement'}</td>
+          <td><span style="font-size: 0.84rem; color: #3f3f46;">${item.contact || (item.email ? (item.email + ' | ' + (item.phone || '')) : '-')}</span></td>
           <td><span style="font-weight: 600; color: #c2410c;">${item.service}</span></td>
           <td>
             <select class="status-badge-select ${getBadgeClass(item.status)}" onchange="updateLeadStatusDirectly('${item.id}', this.value)">
@@ -766,9 +1082,9 @@
             </select>
           </td>
           <td>
-            <div style="display: flex; gap: 6px;">
-              <button type="button" class="btn btn-primary" style="padding: 5px 10px; font-size: 0.78rem; cursor: pointer;" onclick="openLeadModal('${item.id}')">👁️ View</button>
-              <button type="button" style="padding: 5px 8px; font-size: 0.78rem; background: #fee2e2; color: #dc2626; border: 1px solid #fca5a5; border-radius: 6px; cursor: pointer;" onclick="deleteLeadDirectly('${item.id}')" title="Delete Lead">🗑️</button>
+            <div style="display: flex; gap: 6px; white-space: nowrap;">
+              <button type="button" class="btn btn-primary" style="padding: 6px 12px; font-size: 0.78rem; cursor: pointer;" onclick="openLeadModal('${item.id}')">👁️ View</button>
+              <button type="button" style="padding: 6px 10px; font-size: 0.78rem; background: #fee2e2; color: #dc2626; border: 1px solid #fca5a5; border-radius: 6px; cursor: pointer;" onclick="deleteLeadDirectly('${item.id}')" title="Delete Lead">🗑️</button>
             </div>
           </td>
         </tr>
@@ -790,6 +1106,7 @@
       const item = stored.find(x => String(x.id) === String(id));
       if (!item) {
         console.warn("Lead not found with id:", id, stored);
+        alert("Enquiry record not found in storage.");
         return;
       }
 
@@ -799,11 +1116,18 @@
       document.getElementById("modalLeadCompany").innerText = item.company || 'Direct Engagement';
       document.getElementById("modalLeadDate").innerText = item.date || '-';
       document.getElementById("modalLeadService").innerText = item.service || '-';
-      document.getElementById("modalLeadContact").innerText = item.contact || '-';
+      document.getElementById("modalLeadContact").innerText = item.contact || (item.email ? (item.email + ' | ' + (item.phone || '')) : '-');
       
       const msgEl = document.getElementById("modalLeadMessage");
       if (msgEl) {
-        msgEl.innerText = item.notes || item.message || 'No additional notes provided.';
+        const rawMsg = item.message || item.notes;
+        if (rawMsg) {
+          msgEl.innerText = rawMsg;
+        } else if (item.contact && item.contact.includes('(Scope:')) {
+          msgEl.innerText = item.contact.split('(Scope:')[1].replace(')', '').trim();
+        } else {
+          msgEl.innerText = 'Direct inquiry submitted from website proposal form.';
+        }
       }
       
       document.getElementById("modalStatusSelect").value = item.status || 'New';
@@ -811,6 +1135,7 @@
       const modal = document.getElementById("leadDetailsModal");
       if (modal) {
         modal.style.display = "flex";
+        document.body.style.overflow = "hidden";
       }
     }
 
@@ -818,6 +1143,7 @@
       const modal = document.getElementById("leadDetailsModal");
       if (modal) {
         modal.style.display = "none";
+        document.body.style.overflow = "";
       }
       currentActiveLeadId = null;
     }

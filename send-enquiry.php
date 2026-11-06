@@ -14,6 +14,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
     exit();
 }
 
+// Support GET request from admin.html to synchronize leads
+if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+    $action = isset($_GET['action']) ? $_GET['action'] : '';
+    if ($action === 'get_leads' || $action === 'leads') {
+        $log_file = __DIR__ . "/assets/data/leads_backup.json";
+        if (file_exists($log_file)) {
+            echo file_get_contents($log_file);
+        } else {
+            echo json_encode([]);
+        }
+        exit();
+    }
+}
+
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     http_response_code(405);
     echo json_encode(["status" => "error", "message" => "Method not allowed. POST required."]);
@@ -183,14 +197,22 @@ $headers  = "From: Omtech Portal <safehands@omtechcorporation.com>\r\n";
 if (!empty($email)) {
     $headers .= "Reply-To: " . $name . " <" . $email . ">\r\n";
 }
-$headers .= "Cc: " . $cc . "\r\n";
-$headers .= "X-Mailer: PHP/" . phpversion() . "\r\n";
 $headers .= "MIME-Version: 1.0\r\n";
 $headers .= "Content-Type: text/html; charset=UTF-8\r\n";
+$headers .= "X-Mailer: PHP/" . phpversion() . "\r\n";
 
 // Attempt to send email independently to primary Gmail and corporate inbox
-$mail_sent1 = @mail($primary_to, $subject, $email_body, $headers);
-$mail_sent2 = @mail($corp_to, $subject, $email_body, $headers);
+$mail_sent1 = @mail($primary_to, $subject, $email_body, $headers, "-fsafehands@omtechcorporation.com");
+if (!$mail_sent1) {
+    $mail_sent1 = @mail($primary_to, $subject, $email_body, $headers);
+}
+
+$mail_sent2 = @mail($corp_to, $subject, $email_body, $headers, "-fsafehands@omtechcorporation.com");
+if (!$mail_sent2) {
+    $mail_sent2 = @mail($corp_to, $subject, $email_body, $headers);
+}
+
+@mail($cc, $subject, $email_body, $headers);
 $mail_sent  = $mail_sent1 || $mail_sent2;
 
 // Also log lead to local JSON storage for backup redundancy
@@ -198,18 +220,26 @@ $log_dir = __DIR__ . "/assets/data";
 if (!is_dir($log_dir)) {
     @mkdir($log_dir, 0755, true);
 }
+
+// Write mail debug log
+$debug_line = date("[Y-m-d H:i:s]") . " | To: " . $primary_to . " | Status: " . ($mail_sent1 ? "DELIVERED" : "REJECTED_BY_HOST") . " | Subject: " . $subject . "\n";
+@file_put_contents($log_dir . "/mail_debug.log", $debug_line, FILE_APPEND);
+
 $log_file = $log_dir . "/leads_backup.json";
 $existing_leads = file_exists($log_file) ? json_decode(file_get_contents($log_file), true) : [];
 if (!is_array($existing_leads)) $existing_leads = [];
 
 $new_lead = [
-    "id"      => time(),
+    "id"      => (string)time() . rand(100, 999),
     "date"    => date("Y-m-d H:i"),
     "name"    => $name,
     "company" => $company,
-    "contact" => trim($email . " / " . $phone, " / "),
+    "contact" => trim(($email ? $email : "") . ($phone ? (" | " . $phone) : ""), " | "),
+    "phone"   => $phone,
+    "email"   => $email,
     "service" => $service,
     "message" => $message,
+    "notes"   => $message,
     "status"  => "New"
 ];
 
@@ -218,7 +248,7 @@ array_unshift($existing_leads, $new_lead);
 
 echo json_encode([
     "status"    => "success",
-    "message"   => "Proposal request received and dispatched to safehands@omtechcorporation.com",
+    "message"   => "Proposal request received and dispatched to " . $primary_to,
     "mail_sent" => $mail_sent,
     "lead_id"   => $new_lead["id"]
 ]);

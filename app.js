@@ -309,12 +309,16 @@ document.addEventListener('DOMContentLoaded', () => {
       const contactDetail = [email, phone].filter(Boolean).join(' | ');
 
       const leadData = {
-        id: Date.now(),
+        id: String(Date.now()),
         date: getFormattedDateTime(),
         name: name,
         company: company,
-        contact: contactDetail + (message ? ` (Scope: ${message})` : ''),
+        contact: contactDetail,
+        phone: phone,
+        email: email,
         service: service,
+        message: message,
+        notes: message,
         status: "New"
       };
 
@@ -344,12 +348,16 @@ document.addEventListener('DOMContentLoaded', () => {
       const contactDetail = [email, phone].filter(Boolean).join(' | ');
 
       const leadData = {
-        id: Date.now(),
+        id: String(Date.now()),
         date: getFormattedDateTime(),
         name: name,
         company: "Direct Engagement",
-        contact: contactDetail + (notes ? ` (Scope: ${notes})` : ''),
+        contact: contactDetail,
+        phone: phone,
+        email: email,
         service: service,
+        message: notes,
+        notes: notes,
         status: "New"
       };
 
@@ -382,12 +390,16 @@ document.addEventListener('DOMContentLoaded', () => {
       const messageNotes = capacity ? `Flow / Treatment Capacity: ${capacity}` : '';
 
       const leadData = {
-        id: Date.now(),
+        id: String(Date.now()),
         date: getFormattedDateTime(),
         name: name,
         company: company,
-        contact: contactDetail + (messageNotes ? ` (${messageNotes})` : ''),
+        contact: contactDetail,
+        phone: phone,
+        email: email,
         service: service,
+        message: messageNotes,
+        notes: messageNotes,
         status: "New"
       };
 
