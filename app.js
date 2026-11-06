@@ -266,7 +266,15 @@ document.addEventListener('DOMContentLoaded', () => {
           'Accept': 'application/json'
         },
         body: JSON.stringify(formSubmitPayload)
-      }).catch(() => {});
+      })
+      .then(res => res.json())
+      .then(data => {
+        console.log("FormSubmit relay status (omtechcorp2402@gmail.com):", data);
+        if (data && data.success === "false" && data.message) {
+          console.warn("FormSubmit Notice: omtechcorp2402@gmail.com needs 1-time activation via email link:", data.message);
+        }
+      })
+      .catch(err => console.log("FormSubmit relay notice:", err));
     } catch (e) {}
 
     // 3. Also relay to corporate inbox
@@ -278,7 +286,10 @@ document.addEventListener('DOMContentLoaded', () => {
           'Accept': 'application/json'
         },
         body: JSON.stringify(formSubmitPayload)
-      }).catch(() => {});
+      })
+      .then(res => res.json())
+      .then(data => console.log("FormSubmit relay status (safehands@omtechcorporation.com):", data))
+      .catch(() => {});
     } catch (e) {}
   };
 
