@@ -10,10 +10,13 @@
 
   <title>Admin Dashboard & Content Portal — Omtech Corporation</title>
   <meta name="robots" content="noindex, nofollow">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css?v=2.6">
   <style>
     /* Admin Specific Styling */
     .admin-login-screen {
@@ -197,17 +200,24 @@
       border: none;
       min-width: 760px;
     }
-    .modal-overlay {
+    .admin-lead-modal-overlay {
       display: none;
       position: fixed;
       inset: 0;
-      background: rgba(0,0,0,0.7);
-      z-index: 99999;
+      background: rgba(15, 15, 17, 0.78) !important;
+      z-index: 999999 !important;
       align-items: center;
       justify-content: center;
       padding: 16px;
       overflow-y: auto;
       -webkit-overflow-scrolling: touch;
+      opacity: 1 !important;
+      visibility: visible !important;
+    }
+    .admin-lead-modal-overlay.open {
+      display: flex !important;
+      opacity: 1 !important;
+      visibility: visible !important;
     }
     .modal-card {
       background: #ffffff;
@@ -544,7 +554,10 @@
         <img decoding="async" src="assets/images/omtech-logo.png" alt="Logo" style="height: 38px;">
         <div>
           <h1>Omtech Corporation</h1>
-          <span class="admin-badge">Admin Content & Lead Portal</span>
+          <div style="display: flex; align-items: center; gap: 6px; margin-top: 2px;">
+            <span class="admin-badge">Admin Portal</span>
+            <span style="background: #16a34a; color: #ffffff; padding: 2px 7px; border-radius: 4px; font-size: 0.72rem; font-weight: 700;">v2.6 (Live Fix)</span>
+          </div>
         </div>
       </div>
       <div class="admin-user-info">
@@ -864,7 +877,7 @@
   </div>
 
   <!-- LEAD DETAILS & STATUS MODAL -->
-  <div class="modal-overlay" id="leadDetailsModal" onclick="handleModalOverlayClick(event)">
+  <div class="admin-lead-modal-overlay" id="leadDetailsModal" onclick="handleModalOverlayClick(event)">
     <div class="modal-card">
       <button type="button" class="modal-close-icon" onclick="closeLeadModal()" aria-label="Close Modal">&times;</button>
       <div style="margin-bottom: 20px;">
@@ -1134,7 +1147,10 @@
 
       const modal = document.getElementById("leadDetailsModal");
       if (modal) {
+        modal.classList.add("open");
         modal.style.display = "flex";
+        modal.style.opacity = "1";
+        modal.style.visibility = "visible";
         document.body.style.overflow = "hidden";
       }
     }
@@ -1142,7 +1158,10 @@
     function closeLeadModal() {
       const modal = document.getElementById("leadDetailsModal");
       if (modal) {
+        modal.classList.remove("open");
         modal.style.display = "none";
+        modal.style.opacity = "0";
+        modal.style.visibility = "hidden";
         document.body.style.overflow = "";
       }
       currentActiveLeadId = null;
