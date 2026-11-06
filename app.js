@@ -132,7 +132,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Elegant in-page confirmation banner
+  // High-visibility in-page confirmation and direct dispatch dialog
   const showConfirmationNotification = (title, message, redirectInfo) => {
     const existing = document.getElementById('omtech-confirmation-banner');
     if (existing) existing.remove();
@@ -141,47 +141,57 @@ document.addEventListener('DOMContentLoaded', () => {
     banner.id = 'omtech-confirmation-banner';
     banner.style.cssText = `
       position: fixed;
-      top: 30px;
+      top: 24px;
       left: 50%;
       transform: translateX(-50%) translateY(-20px);
       background: #0f172a;
       color: #ffffff;
-      border: 1px solid #c2410c;
-      border-left: 6px solid #ea580c;
-      padding: 18px 24px;
-      border-radius: 10px;
-      box-shadow: 0 16px 40px rgba(0,0,0,0.35);
-      z-index: 100000;
-      max-width: 90%;
-      width: 520px;
+      border: 1px solid #ea580c;
+      border-left: 6px solid #f97316;
+      padding: 22px 26px;
+      border-radius: 12px;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.55);
+      z-index: 9999999;
+      max-width: 94%;
+      width: 560px;
       opacity: 0;
       transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
       display: flex;
+      flex-direction: column;
       gap: 14px;
-      align-items: flex-start;
       font-family: system-ui, -apple-system, sans-serif;
+      box-sizing: border-box;
     `;
 
     const redirectButtons = redirectInfo ? `
-      <div style="margin-top: 12px; display: flex; flex-wrap: wrap; gap: 8px;">
-        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=omtechcorp2402@gmail.com&su=${encodeURIComponent(redirectInfo.subject)}&body=${encodeURIComponent(redirectInfo.body)}" target="_blank" rel="noopener noreferrer" style="background: #c2410c; color: #ffffff; padding: 7px 14px; border-radius: 6px; font-weight: 700; font-size: 0.82rem; text-decoration: none; display: inline-flex; align-items: center; gap: 6px;">✉️ Forward to Gmail</a>
-        <a href="https://wa.me/919810772284?text=${encodeURIComponent(redirectInfo.waText)}" target="_blank" rel="noopener noreferrer" style="background: #16a34a; color: #ffffff; padding: 7px 14px; border-radius: 6px; font-weight: 700; font-size: 0.82rem; text-decoration: none; display: inline-flex; align-items: center; gap: 6px;">💬 Chat on WhatsApp</a>
+      <div style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; padding: 12px 14px; margin-top: 4px;">
+        <span style="font-size: 0.76rem; font-weight: 700; color: #fb923c; text-transform: uppercase; letter-spacing: 0.5px; display: block; margin-bottom: 8px;">Direct Transmission Options (No Wait)</span>
+        <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+          <a href="https://mail.google.com/mail/?view=cm&fs=1&to=omtechcorp2402@gmail.com&cc=safehands@omtechcorporation.com,kkamleshmishra2@gmail.com&su=${encodeURIComponent(redirectInfo.subject)}&body=${encodeURIComponent(redirectInfo.body)}" target="_blank" rel="noopener noreferrer" style="background: #ea580c; color: #ffffff; padding: 9px 16px; border-radius: 6px; font-weight: 700; font-size: 0.85rem; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; box-shadow: 0 2px 6px rgba(234,88,12,0.35);">✉️ Open in Gmail</a>
+          <a href="https://wa.me/919810772284?text=${encodeURIComponent(redirectInfo.waText)}" target="_blank" rel="noopener noreferrer" style="background: #16a34a; color: #ffffff; padding: 9px 16px; border-radius: 6px; font-weight: 700; font-size: 0.85rem; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; box-shadow: 0 2px 6px rgba(22,163,74,0.35);">💬 Send on WhatsApp</a>
+          <a href="mailto:omtechcorp2402@gmail.com,safehands@omtechcorporation.com?cc=kkamleshmishra2@gmail.com&subject=${encodeURIComponent(redirectInfo.subject)}&body=${encodeURIComponent(redirectInfo.body)}" style="background: #334155; color: #ffffff; padding: 9px 14px; border-radius: 6px; font-weight: 600; font-size: 0.82rem; text-decoration: none; display: inline-flex; align-items: center; gap: 6px;">📬 Default Mail App</a>
+        </div>
       </div>
     ` : '';
 
     banner.innerHTML = `
-      <div style="background: rgba(194, 65, 12, 0.2); border-radius: 50%; width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: #ea580c;">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-      </div>
-      <div style="flex-grow: 1;">
-        <h4 style="margin: 0 0 4px 0; color: #ffffff; font-size: 1.05rem; font-weight: 700;">${title}</h4>
-        <p style="margin: 0; color: #cbd5e1; font-size: 0.88rem; line-height: 1.5;">${message}</p>
-        ${redirectButtons}
-        <div style="margin-top: 10px; font-size: 0.78rem; color: #94a3b8;">
-          Official Inboxes: <strong>omtechcorp2402@gmail.com</strong> | <strong>safehands@omtechcorporation.com</strong> • Direct Review within 24 Hours
+      <div style="display: flex; gap: 14px; align-items: flex-start;">
+        <div style="background: rgba(234, 88, 12, 0.2); border-radius: 50%; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: #f97316;">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+        </div>
+        <div style="flex-grow: 1;">
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <h4 style="margin: 0; color: #ffffff; font-size: 1.1rem; font-weight: 700;">${title}</h4>
+            <button style="background: none; border: none; color: #94a3b8; font-size: 22px; cursor: pointer; padding: 0 4px; line-height: 1;" onclick="this.closest('#omtech-confirmation-banner').remove()">&times;</button>
+          </div>
+          <p style="margin: 6px 0 0; color: #cbd5e1; font-size: 0.9rem; line-height: 1.5;">${message}</p>
         </div>
       </div>
-      <button style="background: none; border: none; color: #94a3b8; font-size: 20px; cursor: pointer; padding: 0 4px; line-height: 1;" onclick="this.parentElement.remove()">&times;</button>
+      ${redirectButtons}
+      <div style="display: flex; justify-content: space-between; align-items: center; font-size: 0.78rem; color: #94a3b8; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 10px;">
+        <span>Direct Inboxes: <strong style="color: #f1f5f9;">omtechcorp2402@gmail.com</strong> | <strong style="color: #f1f5f9;">safehands@omtechcorporation.com</strong></span>
+        <button type="button" onclick="this.closest('#omtech-confirmation-banner').remove()" style="background: none; border: 1px solid #475569; color: #cbd5e1; padding: 4px 10px; border-radius: 4px; font-size: 0.76rem; cursor: pointer;">Dismiss ✕</button>
+      </div>
     `;
 
     document.body.appendChild(banner);
@@ -196,7 +206,7 @@ document.addEventListener('DOMContentLoaded', () => {
         banner.style.opacity = '0';
         setTimeout(() => banner.remove(), 350);
       }
-    }, 10000);
+    }, 16000);
   };
 
   // Helper function to save lead to localStorage omtech_enquiries
@@ -234,7 +244,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Helper to dispatch email to official inbox and direct Gmail forward
   const dispatchEnquiryToBackend = (payload) => {
-    // 1. Attempt PHP backend endpoint on server (Hostinger)
+    // 1. Attempt PHP backend endpoint on server (Hostinger production)
     try {
       fetch('send-enquiry.php', {
         method: 'POST',
@@ -266,27 +276,7 @@ document.addEventListener('DOMContentLoaded', () => {
       formSubmitPayload._replyto = payload.email;
     }
 
-    // 2. Direct instant Gmail forward via serverless relay
-    try {
-      fetch('https://formsubmit.co/ajax/omtechcorp2402@gmail.com', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
-        },
-        body: JSON.stringify(formSubmitPayload)
-      })
-      .then(res => res.json())
-      .then(data => {
-        console.log("FormSubmit relay status (omtechcorp2402@gmail.com):", data);
-        if (data && data.success === "false" && data.message) {
-          console.warn("FormSubmit Notice: omtechcorp2402@gmail.com needs 1-time activation via email link:", data.message);
-        }
-      })
-      .catch(err => console.log("FormSubmit relay notice:", err));
-    } catch (e) {}
-
-    // 3. Also relay to corporate inbox
+    // 2. Dispatch via verified corporate endpoint with CC to omtechcorp2402@gmail.com
     try {
       fetch('https://formsubmit.co/ajax/safehands@omtechcorporation.com', {
         method: 'POST',
@@ -297,7 +287,7 @@ document.addEventListener('DOMContentLoaded', () => {
         body: JSON.stringify(formSubmitPayload)
       })
       .then(res => res.json())
-      .then(data => console.log("FormSubmit relay status (safehands@omtechcorporation.com):", data))
+      .then(data => console.log("FormSubmit relay status (safehands + cc):", data))
       .catch(() => {});
     } catch (e) {}
   };

@@ -16,7 +16,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=2.6">
+  <link rel="stylesheet" href="style.css?v=3.0">
   <style>
     /* Admin Specific Styling */
     .admin-login-screen {
@@ -132,14 +132,15 @@
       background: #fee2e2;
       color: #dc2626;
       border: 1px solid #fca5a5;
-      padding: 7px 12px;
+      padding: 9px 16px;
       border-radius: 6px;
-      font-size: 0.82rem;
+      font-size: 0.88rem;
       font-weight: 700;
       cursor: pointer;
       display: inline-flex;
       align-items: center;
       gap: 6px;
+      touch-action: manipulation;
     }
     .sidebar-close-btn:hover {
       background: #fecaca;
@@ -157,6 +158,7 @@
       font-weight: 700;
       cursor: pointer;
       transition: all 0.2s ease;
+      touch-action: manipulation;
     }
     .admin-mobile-toggle:hover, .admin-mobile-toggle:active {
       background: #c2410c;
@@ -285,28 +287,32 @@
         position: relative;
       }
       .admin-sidebar-backdrop.active {
-        display: block;
+        display: block !important;
+        z-index: 99998 !important;
       }
       .admin-sidebar {
-        position: fixed;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        width: 290px;
-        max-width: 86vw;
-        height: 100vh;
-        z-index: 999;
-        box-shadow: 6px 0 28px rgba(0,0,0,0.35);
-        transform: translateX(-100%);
-        transition: transform 0.28s cubic-bezier(0.4, 0, 0.2, 1);
-        overflow-y: auto;
-        padding: 20px 16px;
+        position: fixed !important;
+        top: 0 !important;
+        bottom: 0 !important;
+        left: 0 !important;
+        width: 285px !important;
+        max-width: 85% !important;
+        min-width: 250px !important;
+        height: 100vh !important;
+        z-index: 99999 !important;
+        background: #ffffff !important;
+        box-shadow: 6px 0 28px rgba(0,0,0,0.35) !important;
+        transform: translateX(-100%) !important;
+        transition: transform 0.28s cubic-bezier(0.4, 0, 0.2, 1) !important;
+        overflow-y: auto !important;
+        padding: 20px 16px !important;
+        box-sizing: border-box !important;
       }
       .admin-sidebar.open {
-        transform: translateX(0);
+        transform: translateX(0) !important;
       }
       .sidebar-mobile-header {
-        display: flex;
+        display: flex !important;
       }
       .admin-main {
         padding: 20px 14px;
@@ -556,7 +562,7 @@
           <h1>Omtech Corporation</h1>
           <div style="display: flex; align-items: center; gap: 6px; margin-top: 2px;">
             <span class="admin-badge">Admin Portal</span>
-            <span style="background: #16a34a; color: #ffffff; padding: 2px 7px; border-radius: 4px; font-size: 0.72rem; font-weight: 700;">v2.6 (Live Fix)</span>
+            <span style="background: #16a34a; color: #ffffff; padding: 2px 8px; border-radius: 4px; font-size: 0.74rem; font-weight: 700;">v3.0 (Direct Relay Active)</span>
           </div>
         </div>
       </div>
@@ -614,9 +620,18 @@
               <h2>Incoming Client Enquiries (RFQ)</h2>
               <p>Manage and download prospective industrial consulting leads sent from the website.</p>
             </div>
-            <button class="btn btn-primary" onclick="exportEnquiriesCSV()">
-              📥 Export All Enquiries (CSV)
-            </button>
+            <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+              <button class="btn btn-primary" onclick="exportEnquiriesCSV()">
+                📥 Export CSV
+              </button>
+              <button class="btn btn-secondary" style="background: #1e293b; color: #ffffff;" onclick="exportLeadsJSON()" title="Download leads backup as JSON">
+                💾 Backup JSON
+              </button>
+              <button class="btn btn-secondary" style="background: #0f766e; color: #ffffff;" onclick="triggerImportLeadsJSON()" title="Sync or restore leads from JSON backup">
+                📤 Import / Sync Leads
+              </button>
+              <input type="file" id="importLeadsFileInput" accept=".json" style="display: none;" onchange="handleImportLeadsFile(event)">
+            </div>
           </div>
 
           <div class="stats-cards-grid">
@@ -1116,7 +1131,13 @@
 
     function openLeadModal(id) {
       let stored = JSON.parse(localStorage.getItem("omtech_enquiries")) || JSON.parse(localStorage.getItem("omtek_enquiries")) || sampleEnquiries;
-      const item = stored.find(x => String(x.id) === String(id));
+      let item = stored.find(x => String(x.id) === String(id));
+      if (!item && typeof id === 'number') {
+        item = stored[id];
+      }
+      if (!item) {
+        item = stored.find(x => x.id == id);
+      }
       if (!item) {
         console.warn("Lead not found with id:", id, stored);
         alert("Enquiry record not found in storage.");
@@ -1153,6 +1174,55 @@
         modal.style.visibility = "visible";
         document.body.style.overflow = "hidden";
       }
+    }
+
+    function exportLeadsJSON() {
+      const stored = JSON.parse(localStorage.getItem("omtech_enquiries")) || JSON.parse(localStorage.getItem("omtek_enquiries")) || sampleEnquiries;
+      const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(stored, null, 2));
+      const downloadAnchor = document.createElement("a");
+      downloadAnchor.setAttribute("href", dataStr);
+      downloadAnchor.setAttribute("download", `omtech_enquiries_backup_${new Date().toISOString().slice(0,10)}.json`);
+      document.body.appendChild(downloadAnchor);
+      downloadAnchor.click();
+      downloadAnchor.remove();
+    }
+
+    function triggerImportLeadsJSON() {
+      const fileInput = document.getElementById("importLeadsFileInput");
+      if (fileInput) fileInput.click();
+    }
+
+    function handleImportLeadsFile(e) {
+      const file = e.target.files && e.target.files[0];
+      if (!file) return;
+
+      const reader = new FileReader();
+      reader.onload = function(evt) {
+        try {
+          const imported = JSON.parse(evt.target.result);
+          if (Array.isArray(imported)) {
+            let local = JSON.parse(localStorage.getItem("omtech_enquiries")) || [];
+            const existingIds = new Set(local.map(x => String(x.id)));
+            let addedCount = 0;
+            imported.forEach(item => {
+              if (item && item.id && !existingIds.has(String(item.id))) {
+                local.unshift(item);
+                existingIds.add(String(item.id));
+                addedCount++;
+              }
+            });
+            localStorage.setItem("omtech_enquiries", JSON.stringify(local));
+            renderEnquiries();
+            alert(`✅ Successfully imported and synchronized ${addedCount} lead(s). Total: ${local.length}`);
+          } else {
+            alert("⚠️ Invalid file format. Expected a JSON array of leads.");
+          }
+        } catch (err) {
+          alert("❌ Error parsing JSON file: " + err.message);
+        }
+      };
+      reader.readAsText(file);
+      e.target.value = "";
     }
 
     function closeLeadModal() {
