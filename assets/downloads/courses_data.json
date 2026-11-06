@@ -464,26 +464,21 @@
     "objectives": [
       "Relate hazard identification and risk controls to work activities and responsibilities.",
       "Review worker consultation, competence, incident learning and emergency preparedness.",
-      "Collect audit evidence and write clear OH",
-      "S findings."
+      "Collect audit evidence and write clear OH&S findings."
     ],
     "outline": [
-      "Day 1 | OH",
-      "S system and workplace control",
-      "Scope, leadership and worker participation; hazards, risks and opportunities; compliance obligations; hierarchy",
-      "of controls; procurement/contractor interfaces; competence, change and emergency preparedness.",
+      "Day 1 | OH&S system and workplace control",
+      "Scope, leadership and worker participation; hazards, risks and opportunities; compliance obligations; hierarchy of controls; procurement/contractor interfaces; competence, change and emergency preparedness.",
       "Day 2 | Audit, incidents and improvement",
-      "Monitoring and compliance evaluation; audit planning and interviews; observation of work controls; incident",
-      "investigation and corrective action; management review and follow-up; mock audit."
+      "Monitoring and compliance evaluation; audit planning and interviews; observation of work controls; incident investigation and corrective action; management review and follow-up; mock audit."
     ],
     "workshops": [
       "Hazard-to-control review",
       "Use an illustrative maintenance job to identify hazards, evaluate controls and define who verifies readiness.",
-      "OH",
-      "S audit role-play",
+      "OH&S audit role-play",
       "Interview a supervisor, review permit and competence evidence and write findings with appropriate follow-up."
     ],
-    "tools": "Hazard/control review worksheet; OH S audit plan; evidence checklist; finding and action templates.",
+    "tools": "Hazard/control review worksheet; OH&S audit plan; evidence checklist; finding and action templates.",
     "delivery": "Facilitated explanations, worked examples, case discussions and small-group exercises. A short baseline check establishes starting knowledge; a closing knowledge check and practical review assess learning. Assessment can be adapted for operators, technicians or experienced engineers.",
     "pdf_filename": "OTC-14_ISO_45001_OH_and_S_Auditing.pdf"
   },
