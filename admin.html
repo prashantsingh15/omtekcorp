@@ -635,6 +635,10 @@
           <span style="color: #71717a; font-size: 0.78rem; display: block;">Contact Info / Email & Phone</span>
           <span id="modalLeadContact" style="color: #0f0f11; font-weight: 600;">-</span>
         </div>
+        <div style="grid-column: span 2;">
+          <span style="color: #71717a; font-size: 0.78rem; display: block; margin-bottom: 4px;">Project Scope &amp; Client Message</span>
+          <div id="modalLeadMessage" style="background: #ffffff; border: 1px solid #e4e4e7; border-radius: 6px; padding: 10px 12px; color: #18181b; font-size: 0.85rem; line-height: 1.5; max-height: 120px; overflow-y: auto; white-space: pre-wrap;">-</div>
+        </div>
       </div>
 
       <div class="form-group" style="margin-bottom: 20px;">
@@ -753,7 +757,7 @@
           <td><span style="font-size: 0.84rem; color: #3f3f46;">${item.contact}</span></td>
           <td><span style="font-weight: 600; color: #c2410c;">${item.service}</span></td>
           <td>
-            <select class="status-badge-select ${getBadgeClass(item.status)}" onchange="updateLeadStatusDirectly(${item.id}, this.value)">
+            <select class="status-badge-select ${getBadgeClass(item.status)}" onchange="updateLeadStatusDirectly('${item.id}', this.value)">
               <option value="New" ${item.status === 'New' ? 'selected' : ''}>🔵 New</option>
               <option value="Contacted" ${item.status === 'Contacted' ? 'selected' : ''}>🟡 Contacted</option>
               <option value="In Progress" ${item.status === 'In Progress' ? 'selected' : ''}>🟠 In Progress</option>
@@ -763,8 +767,8 @@
           </td>
           <td>
             <div style="display: flex; gap: 6px;">
-              <button class="btn btn-primary" style="padding: 5px 10px; font-size: 0.78rem;" onclick="openLeadModal(${item.id})">👁️ View</button>
-              <button style="padding: 5px 8px; font-size: 0.78rem; background: #fee2e2; color: #dc2626; border: 1px solid #fca5a5; border-radius: 6px; cursor: pointer;" onclick="deleteLeadDirectly(${item.id})" title="Delete Lead">🗑️</button>
+              <button type="button" class="btn btn-primary" style="padding: 5px 10px; font-size: 0.78rem; cursor: pointer;" onclick="openLeadModal('${item.id}')">👁️ View</button>
+              <button type="button" style="padding: 5px 8px; font-size: 0.78rem; background: #fee2e2; color: #dc2626; border: 1px solid #fca5a5; border-radius: 6px; cursor: pointer;" onclick="deleteLeadDirectly('${item.id}')" title="Delete Lead">🗑️</button>
             </div>
           </td>
         </tr>
@@ -773,7 +777,7 @@
 
     function updateLeadStatusDirectly(id, newStatus) {
       let stored = JSON.parse(localStorage.getItem("omtech_enquiries")) || JSON.parse(localStorage.getItem("omtek_enquiries")) || sampleEnquiries;
-      const index = stored.findIndex(x => x.id === id);
+      const index = stored.findIndex(x => String(x.id) === String(id));
       if (index !== -1) {
         stored[index].status = newStatus;
         localStorage.setItem("omtech_enquiries", JSON.stringify(stored));
@@ -783,24 +787,38 @@
 
     function openLeadModal(id) {
       let stored = JSON.parse(localStorage.getItem("omtech_enquiries")) || JSON.parse(localStorage.getItem("omtek_enquiries")) || sampleEnquiries;
-      const item = stored.find(x => x.id === id);
-      if (!item) return;
+      const item = stored.find(x => String(x.id) === String(id));
+      if (!item) {
+        console.warn("Lead not found with id:", id, stored);
+        return;
+      }
 
-      currentActiveLeadId = id;
-      document.getElementById("modalClientTitle").innerText = `Lead: ${item.name}`;
-      document.getElementById("modalLeadName").innerText = item.name;
-      document.getElementById("modalLeadCompany").innerText = item.company || 'N/A';
-      document.getElementById("modalLeadDate").innerText = item.date;
-      document.getElementById("modalLeadService").innerText = item.service;
-      document.getElementById("modalLeadContact").innerText = item.contact;
+      currentActiveLeadId = item.id;
+      document.getElementById("modalClientTitle").innerText = `Lead: ${item.name || 'Client RFQ'}`;
+      document.getElementById("modalLeadName").innerText = item.name || '-';
+      document.getElementById("modalLeadCompany").innerText = item.company || 'Direct Engagement';
+      document.getElementById("modalLeadDate").innerText = item.date || '-';
+      document.getElementById("modalLeadService").innerText = item.service || '-';
+      document.getElementById("modalLeadContact").innerText = item.contact || '-';
+      
+      const msgEl = document.getElementById("modalLeadMessage");
+      if (msgEl) {
+        msgEl.innerText = item.notes || item.message || 'No additional notes provided.';
+      }
+      
       document.getElementById("modalStatusSelect").value = item.status || 'New';
 
       const modal = document.getElementById("leadDetailsModal");
-      modal.style.display = "flex";
+      if (modal) {
+        modal.style.display = "flex";
+      }
     }
 
     function closeLeadModal() {
-      document.getElementById("leadDetailsModal").style.display = "none";
+      const modal = document.getElementById("leadDetailsModal");
+      if (modal) {
+        modal.style.display = "none";
+      }
       currentActiveLeadId = null;
     }
 
@@ -814,7 +832,7 @@
     function deleteLeadDirectly(id) {
       if (confirm("Are you sure you want to delete this enquiry lead?")) {
         let stored = JSON.parse(localStorage.getItem("omtech_enquiries")) || JSON.parse(localStorage.getItem("omtek_enquiries")) || sampleEnquiries;
-        stored = stored.filter(x => x.id !== id);
+        stored = stored.filter(x => String(x.id) !== String(id));
         localStorage.setItem("omtech_enquiries", JSON.stringify(stored));
         renderEnquiries();
       }
