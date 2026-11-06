@@ -170,7 +170,7 @@ document.addEventListener('DOMContentLoaded', () => {
         <h4 style="margin: 0 0 4px 0; color: #ffffff; font-size: 1.05rem; font-weight: 700;">${title}</h4>
         <p style="margin: 0; color: #cbd5e1; font-size: 0.88rem; line-height: 1.5;">${message}</p>
         <div style="margin-top: 10px; font-size: 0.78rem; color: #94a3b8;">
-          Official Inbox: <strong>safehands@omtechcorporation.com</strong> • Direct Review within 24 Hours
+          Official Inboxes: <strong>omtechcorp2402@gmail.com</strong> | <strong>safehands@omtechcorporation.com</strong> • Direct Review within 24 Hours
         </div>
       </div>
       <button style="background: none; border: none; color: #94a3b8; font-size: 20px; cursor: pointer; padding: 0 4px; line-height: 1;" onclick="this.parentElement.remove()">&times;</button>
@@ -246,6 +246,7 @@ document.addEventListener('DOMContentLoaded', () => {
       _subject: subjectLine,
       _template: 'table',
       _captcha: 'false',
+      _cc: 'omtechcorp2402@gmail.com,kkamleshmishra2@gmail.com',
       'Client Name': payload.name,
       'Company / Plant': clientOrg || 'Direct Engagement',
       'Contact Phone': payload.phone || 'Not Provided',
