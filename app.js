@@ -133,7 +133,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // Elegant in-page confirmation banner
-  const showConfirmationNotification = (title, message) => {
+  const showConfirmationNotification = (title, message, redirectInfo) => {
     const existing = document.getElementById('omtech-confirmation-banner');
     if (existing) existing.remove();
 
@@ -162,6 +162,13 @@ document.addEventListener('DOMContentLoaded', () => {
       font-family: system-ui, -apple-system, sans-serif;
     `;
 
+    const redirectButtons = redirectInfo ? `
+      <div style="margin-top: 12px; display: flex; flex-wrap: wrap; gap: 8px;">
+        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=omtechcorp2402@gmail.com&su=${encodeURIComponent(redirectInfo.subject)}&body=${encodeURIComponent(redirectInfo.body)}" target="_blank" rel="noopener noreferrer" style="background: #c2410c; color: #ffffff; padding: 7px 14px; border-radius: 6px; font-weight: 700; font-size: 0.82rem; text-decoration: none; display: inline-flex; align-items: center; gap: 6px;">✉️ Forward to Gmail</a>
+        <a href="https://wa.me/919810772284?text=${encodeURIComponent(redirectInfo.waText)}" target="_blank" rel="noopener noreferrer" style="background: #16a34a; color: #ffffff; padding: 7px 14px; border-radius: 6px; font-weight: 700; font-size: 0.82rem; text-decoration: none; display: inline-flex; align-items: center; gap: 6px;">💬 Chat on WhatsApp</a>
+      </div>
+    ` : '';
+
     banner.innerHTML = `
       <div style="background: rgba(194, 65, 12, 0.2); border-radius: 50%; width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: #ea580c;">
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
@@ -169,6 +176,7 @@ document.addEventListener('DOMContentLoaded', () => {
       <div style="flex-grow: 1;">
         <h4 style="margin: 0 0 4px 0; color: #ffffff; font-size: 1.05rem; font-weight: 700;">${title}</h4>
         <p style="margin: 0; color: #cbd5e1; font-size: 0.88rem; line-height: 1.5;">${message}</p>
+        ${redirectButtons}
         <div style="margin-top: 10px; font-size: 0.78rem; color: #94a3b8;">
           Official Inboxes: <strong>omtechcorp2402@gmail.com</strong> | <strong>safehands@omtechcorporation.com</strong> • Direct Review within 24 Hours
         </div>
@@ -188,7 +196,7 @@ document.addEventListener('DOMContentLoaded', () => {
         banner.style.opacity = '0';
         setTimeout(() => banner.remove(), 350);
       }
-    }, 7000);
+    }, 10000);
   };
 
   // Helper function to save lead to localStorage omtech_enquiries
@@ -327,9 +335,16 @@ document.addEventListener('DOMContentLoaded', () => {
       dispatchEnquiryToBackend({ name, email, phone, company, service, message });
 
       const companyNote = rawCompany ? ` (${rawCompany})` : '';
+      const redirectInfo = {
+        subject: `⚡ [Omtech Proposal] ${service} — ${name}${companyNote}`,
+        body: `Hello Omtech Corporation Team,\n\nI have submitted a proposal request on your website.\n\nService Required: ${service}\nClient Name: ${name}\nCompany: ${company}\nContact Details: ${contactDetail}\nScope & Requirements:\n${message || 'Direct consultation and proposal request'}\n\nPlease review and connect promptly.\n\nRegards,\n${name}`,
+        waText: `Hello Omtech Corporation, I submitted a proposal request for "${service}". Name: ${name}, Contact: ${contactDetail}.`
+      };
+
       showConfirmationNotification(
         "Proposal Request Received",
-        `Thank you, ${name}${companyNote}. Your technical inquiry for "${service}" has been successfully received. Our advisory team will review your requirements and contact you promptly at ${contactDetail}.`
+        `Thank you, ${name}${companyNote}. Your technical inquiry for "${service}" has been successfully received. Our advisory team will review your requirements and contact you promptly at ${contactDetail}.`,
+        redirectInfo
       );
       enquiryForm.reset();
     });
@@ -365,9 +380,16 @@ document.addEventListener('DOMContentLoaded', () => {
       saveEnquiryToStorage(leadData);
       dispatchEnquiryToBackend({ name, email, phone, company: 'Direct Engagement', service, message: notes });
 
+      const redirectInfo = {
+        subject: `⚡ [Omtech Proposal] ${service} — ${name}`,
+        body: `Hello Omtech Corporation Team,\n\nI have requested a proposal via the website.\n\nService: ${service}\nClient Name: ${name}\nContact Details: ${contactDetail}\nProject Notes / Scope:\n${notes || 'Direct proposal intake'}\n\nRegards,\n${name}`,
+        waText: `Hello Omtech Corporation, I submitted a proposal request for "${service}". Name: ${name}, Contact: ${contactDetail}.`
+      };
+
       showConfirmationNotification(
         "Proposal Request Received",
-        `Thank you, ${name}. Your proposal request for "${service}" has been successfully received. Our advisory team will review your requirements and connect with you shortly at ${contactDetail}.`
+        `Thank you, ${name}. Your proposal request for "${service}" has been successfully received. Our advisory team will review your requirements and connect with you shortly at ${contactDetail}.`,
+        redirectInfo
       );
       modalForm.reset();
       closeModal();
@@ -408,9 +430,16 @@ document.addEventListener('DOMContentLoaded', () => {
       dispatchEnquiryToBackend({ name, email, phone, company, service, message: messageNotes });
 
       const companyNote = rawCompany ? ` (${rawCompany})` : '';
+      const redirectInfo = {
+        subject: `⚡ [Omtech Proposal] Water Solutions — ${name}${companyNote}`,
+        body: `Hello Omtech Corporation Team,\n\nI submitted an inquiry for Water & Environmental Solutions.\n\nClient Name: ${name}\nCompany: ${company}\nContact: ${contactDetail}\nSpecifications: ${messageNotes || 'Bulk drinking / industrial treatment'}\n\nRegards,\n${name}`,
+        waText: `Hello Omtech Corporation, I submitted an inquiry for Water Solutions. Name: ${name}, Contact: ${contactDetail}.`
+      };
+
       showConfirmationNotification(
         "Water & Environmental Request Received",
-        `Thank you, ${name}${companyNote}. Your inquiry for "${service}" has been successfully received. Our water engineering team will contact you at ${contactDetail}.`
+        `Thank you, ${name}${companyNote}. Your inquiry for "${service}" has been successfully received. Our water engineering team will contact you at ${contactDetail}.`,
+        redirectInfo
       );
       waterForm.reset();
     });
