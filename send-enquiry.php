@@ -39,9 +39,10 @@ if (empty($name) || (empty($email) && empty($phone))) {
     exit();
 }
 
-// Destination and routing (Corporate Inbox + Direct Gmail Forward)
-$to = "safehands@omtechcorporation.com, omtechcorp2402@gmail.com";
-$cc = "kkamleshmishra2@gmail.com";
+// Destination and routing (Primary Gmail + Corporate Inbox + CC)
+$primary_to = "omtechcorp2402@gmail.com";
+$corp_to    = "safehands@omtechcorporation.com";
+$cc         = "kkamleshmishra2@gmail.com";
 $subject = ($company !== 'Direct Engagement') 
     ? "⚡ [Omtech Proposal] " . $service . " — " . $company
     : "⚡ [Omtech Proposal] " . $service . " — " . $name;
@@ -187,8 +188,10 @@ $headers .= "X-Mailer: PHP/" . phpversion() . "\r\n";
 $headers .= "MIME-Version: 1.0\r\n";
 $headers .= "Content-Type: text/html; charset=UTF-8\r\n";
 
-// Attempt to send email
-$mail_sent = @mail($to, $subject, $email_body, $headers);
+// Attempt to send email independently to primary Gmail and corporate inbox
+$mail_sent1 = @mail($primary_to, $subject, $email_body, $headers);
+$mail_sent2 = @mail($corp_to, $subject, $email_body, $headers);
+$mail_sent  = $mail_sent1 || $mail_sent2;
 
 // Also log lead to local JSON storage for backup redundancy
 $log_dir = __DIR__ . "/assets/data";
