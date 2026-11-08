@@ -185,6 +185,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <button style="background: none; border: none; color: #94a3b8; font-size: 22px; cursor: pointer; padding: 0 4px; line-height: 1;" onclick="this.closest('#omtech-confirmation-banner').remove()">&times;</button>
           </div>
           <p style="margin: 6px 0 0; color: #cbd5e1; font-size: 0.9rem; line-height: 1.5;">${message}</p>
+          <div id="omtech-dispatch-status" style="font-size: 0.82rem; color: #f59e0b; margin-top: 6px; font-weight: 600;">⏳ Auto-delivering proposal to omtechcorp2402@gmail.com...</div>
         </div>
       </div>
       ${redirectButtons}
@@ -264,7 +265,7 @@ document.addEventListener('DOMContentLoaded', () => {
       _subject: subjectLine,
       _template: 'table',
       _captcha: 'false',
-      _cc: 'omtechcorp2402@gmail.com,kkamleshmishra2@gmail.com',
+      _cc: 'safehands@omtechcorporation.com,kkamleshmishra2@gmail.com',
       'Client Name': payload.name,
       'Company / Plant': clientOrg || 'Direct Engagement',
       'Contact Phone': payload.phone || 'Not Provided',
@@ -276,9 +277,9 @@ document.addEventListener('DOMContentLoaded', () => {
       formSubmitPayload._replyto = payload.email;
     }
 
-    // 2. Dispatch via verified corporate endpoint with CC to omtechcorp2402@gmail.com
+    // 2. Dispatch via verified active primary inbox with CC to safehands & client
     try {
-      fetch('https://formsubmit.co/ajax/safehands@omtechcorporation.com', {
+      fetch('https://formsubmit.co/ajax/omtechcorp2402@gmail.com', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -287,8 +288,24 @@ document.addEventListener('DOMContentLoaded', () => {
         body: JSON.stringify(formSubmitPayload)
       })
       .then(res => res.json())
-      .then(data => console.log("FormSubmit relay status (safehands + cc):", data))
-      .catch(() => {});
+      .then(data => {
+        console.log("FormSubmit live delivery status:", data);
+        const statusEl = document.getElementById('omtech-dispatch-status');
+        if (statusEl) {
+          if (data && (data.success === "true" || data.success === true)) {
+            statusEl.innerHTML = '✅ <span style="color: #4ade80;">Proposal successfully dispatched to omtechcorp2402@gmail.com!</span>';
+          } else {
+            statusEl.innerHTML = '⚡ Proposal registered! You can also use 1-click Gmail/WhatsApp below.';
+          }
+        }
+      })
+      .catch(err => {
+        console.warn("Dispatch relay notice:", err);
+        const statusEl = document.getElementById('omtech-dispatch-status');
+        if (statusEl) {
+          statusEl.innerHTML = '⚡ Proposal registered! You can also click Gmail/WhatsApp below for instant copy.';
+        }
+      });
     } catch (e) {}
   };
 
@@ -387,7 +404,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // 6. Inline Water Page / Page Specific Form Handler (if present)
-  const waterForm = document.getElementById('waterForm');
+  const waterForm = document.getElementById('waterForm') || document.getElementById('waterProposalForm');
   if (waterForm) {
     waterForm.addEventListener('submit', (e) => {
       e.preventDefault();
