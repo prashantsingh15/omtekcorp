@@ -660,6 +660,437 @@
         border-bottom: none;
       }
     }
+
+    /* ==========================================================================
+       MISSION, PURPOSE & FOUNDER'S COMMITMENT SECTION
+       ========================================================================== */
+    .mission-purpose-section {
+      padding: 85px 0 95px;
+      background: linear-gradient(180deg, #ffffff 0%, #f8fafc 40%, #f1f5f9 100%);
+      border-top: 1px solid #e2e8f0;
+      border-bottom: 1px solid #e2e8f0;
+      position: relative;
+    }
+
+    /* 1. Tagline Hero Banner */
+    .tagline-hero-banner {
+      background: linear-gradient(135deg, #0f0f11 0%, #1a1a20 50%, #27272a 100%);
+      border: 1px solid rgba(194, 65, 12, 0.45);
+      border-left: 6px solid #ea580c;
+      border-radius: 16px;
+      padding: 32px 36px;
+      margin-bottom: 48px;
+      box-shadow: 0 16px 36px rgba(15, 15, 17, 0.15);
+      position: relative;
+      overflow: hidden;
+    }
+    .tagline-hero-banner::after {
+      content: '';
+      position: absolute;
+      top: -50px;
+      right: -50px;
+      width: 180px;
+      height: 180px;
+      background: radial-gradient(circle, rgba(234, 88, 12, 0.18) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .tagline-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #fb923c;
+      margin-bottom: 10px;
+    }
+    .tagline-highlight {
+      font-family: var(--font-heading);
+      font-size: clamp(1.28rem, 2.6vw, 1.85rem);
+      font-style: italic;
+      font-weight: 700;
+      color: #ffffff;
+      line-height: 1.45;
+      letter-spacing: 0.3px;
+      margin: 0;
+    }
+
+    /* 2. Mission & Mentorship Grid */
+    .mission-grid {
+      display: grid;
+      grid-template-columns: 1.12fr 0.88fr;
+      gap: 40px;
+      align-items: stretch;
+      margin-bottom: 48px;
+    }
+    .mission-card {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 18px;
+      padding: 40px 36px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .mission-card-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: #ea580c;
+      background: rgba(234, 88, 12, 0.09);
+      padding: 6px 14px;
+      border-radius: 999px;
+      width: fit-content;
+      margin-bottom: 14px;
+      border: 1px solid rgba(234, 88, 12, 0.2);
+    }
+    .mission-title {
+      font-family: var(--font-heading);
+      font-size: clamp(1.85rem, 3vw, 2.35rem);
+      font-weight: 800;
+      color: #0f172a;
+      letter-spacing: -0.5px;
+      margin-bottom: 16px;
+      line-height: 1.2;
+    }
+    .mission-text-lead {
+      font-size: 1.12rem;
+      font-weight: 600;
+      color: #0f172a;
+      line-height: 1.65;
+      margin-bottom: 14px;
+      border-left: 3px solid #ea580c;
+      padding-left: 14px;
+    }
+    .mission-text-body {
+      font-size: 1.02rem;
+      color: #475569;
+      line-height: 1.75;
+      margin-bottom: 26px;
+    }
+    .mission-pillars-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      border-top: 1px solid #f1f5f9;
+      padding-top: 22px;
+    }
+    .mission-pillar-item {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+    }
+    .pillar-bullet-icon {
+      font-size: 1.25rem;
+      flex-shrink: 0;
+      background: #fafaf9;
+      width: 38px;
+      height: 38px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 10px;
+      border: 1px solid #e2e8f0;
+    }
+    .mission-pillar-item strong {
+      font-size: 0.96rem;
+      color: #0f172a;
+      display: block;
+      margin-bottom: 3px;
+    }
+    .mission-pillar-item p {
+      font-size: 0.88rem;
+      color: #64748b;
+      line-height: 1.5;
+      margin: 0;
+    }
+
+    /* Mentorship Photo Frame */
+    .mentorship-media-frame {
+      display: flex;
+      flex-direction: column;
+    }
+    .mentorship-image-wrapper {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      min-height: 440px;
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.12);
+      border: 1px solid #cbd5e1;
+    }
+    .mentorship-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+    .mentorship-image-wrapper:hover .mentorship-img {
+      transform: scale(1.03);
+    }
+    .mentorship-floating-card {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      right: 20px;
+      background: rgba(15, 15, 17, 0.94);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      color: #ffffff;
+      padding: 16px 20px;
+      border-radius: 12px;
+      border: 1px solid rgba(234, 88, 12, 0.45);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .mentorship-badge-icon {
+      font-size: 1.8rem;
+      flex-shrink: 0;
+    }
+    .mentorship-badge-title {
+      font-family: var(--font-heading);
+      font-size: 1.02rem;
+      font-weight: 700;
+      color: #ffffff;
+      display: block;
+      line-height: 1.3;
+    }
+    .mentorship-badge-sub {
+      font-size: 0.82rem;
+      color: #fdba74;
+      line-height: 1.4;
+      display: block;
+      margin-top: 2px;
+    }
+
+    /* 3. Founder's Commitment Block */
+    .founder-commitment-block {
+      background: linear-gradient(135deg, #0a1128 0%, #001f3f 60%, #0f172a 100%);
+      border: 1px solid rgba(234, 88, 12, 0.4);
+      border-radius: 18px;
+      padding: 44px 50px;
+      margin-bottom: 48px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 20px 45px rgba(10, 17, 40, 0.22);
+      display: flex;
+      gap: 28px;
+      align-items: flex-start;
+    }
+    .founder-commitment-block::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 6px;
+      height: 100%;
+      background: linear-gradient(180deg, #ea580c 0%, #f97316 100%);
+    }
+    .founder-quote-symbol {
+      font-family: Georgia, serif;
+      font-size: 5.5rem;
+      line-height: 0.8;
+      color: #ea580c;
+      opacity: 0.75;
+      flex-shrink: 0;
+      user-select: none;
+    }
+    .founder-quote-content {
+      flex: 1;
+    }
+    .founder-quote-eyebrow {
+      display: inline-block;
+      font-size: 0.8rem;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #fdba74;
+      margin-bottom: 12px;
+    }
+    .founder-quote-text {
+      font-family: var(--font-heading);
+      font-size: clamp(1.2rem, 2.4vw, 1.6rem);
+      font-style: italic;
+      color: #ffffff;
+      line-height: 1.6;
+      margin: 0 0 24px 0;
+      font-weight: 600;
+    }
+    .founder-quote-author {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.12);
+    }
+    .founder-quote-avatar {
+      width: 62px;
+      height: 62px;
+      border-radius: 50%;
+      border: 3px solid #ea580c;
+      object-fit: cover;
+      object-position: top center;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.4);
+    }
+    .founder-quote-name {
+      font-family: var(--font-heading);
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: #ffffff;
+      margin: 0 0 4px 0;
+    }
+    .founder-quote-title {
+      font-size: 0.88rem;
+      color: #94a3b8;
+      margin: 0;
+      line-height: 1.4;
+    }
+
+    /* 4. Our Larger Purpose / Social Responsibility (Distinct Civic Block) */
+    .larger-purpose-block {
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      border-top: 5px solid #0d9488;
+      border-radius: 18px;
+      padding: 44px 44px;
+      box-shadow: 0 12px 36px rgba(0, 0, 0, 0.05);
+      position: relative;
+    }
+    .larger-purpose-header {
+      margin-bottom: 30px;
+    }
+    .larger-purpose-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(13, 148, 136, 0.1);
+      color: #0f766e;
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 12px;
+      border: 1px solid rgba(13, 148, 136, 0.25);
+    }
+    .larger-purpose-title {
+      font-family: var(--font-heading);
+      font-size: clamp(1.6rem, 2.8vw, 2.15rem);
+      font-weight: 800;
+      color: #0f172a;
+      letter-spacing: -0.3px;
+      margin: 0 0 14px 0;
+    }
+    .larger-purpose-lead {
+      font-size: 1.12rem;
+      color: #334155;
+      line-height: 1.7;
+      max-width: 860px;
+      margin: 0;
+      font-weight: 500;
+    }
+    .larger-purpose-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-top: 26px;
+    }
+    .purpose-card {
+      background: linear-gradient(145deg, #f0fdfa 0%, #f8fafc 100%);
+      border: 1px solid #ccfbf1;
+      border-radius: 14px;
+      padding: 26px 24px;
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+    .purpose-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 24px rgba(13, 148, 136, 0.1);
+    }
+    .purpose-card-icon {
+      font-size: 2rem;
+      flex-shrink: 0;
+      background: #ffffff;
+      width: 52px;
+      height: 52px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid #99f6e4;
+      box-shadow: 0 4px 10px rgba(13, 148, 136, 0.08);
+    }
+    .purpose-card-heading {
+      font-family: var(--font-heading);
+      font-size: 1.12rem;
+      font-weight: 700;
+      color: #0f172a;
+      margin: 0 0 8px 0;
+    }
+    .purpose-card p {
+      font-size: 0.92rem;
+      color: #475569;
+      line-height: 1.65;
+      margin: 0;
+    }
+
+    /* Responsive Queries */
+    @media (max-width: 991px) {
+      .mission-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+      .mentorship-image-wrapper {
+        min-height: 340px;
+        height: 340px;
+      }
+      .founder-commitment-block {
+        padding: 32px 28px;
+      }
+      .founder-quote-symbol {
+        font-size: 4rem;
+      }
+      .larger-purpose-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .tagline-hero-banner {
+        padding: 24px 20px;
+      }
+      .mission-card {
+        padding: 26px 20px;
+      }
+      .founder-commitment-block {
+        flex-direction: column;
+        gap: 12px;
+        padding: 28px 20px;
+      }
+      .founder-quote-symbol {
+        font-size: 3rem;
+        margin-bottom: -10px;
+      }
+      .larger-purpose-block {
+        padding: 28px 20px;
+      }
+      .purpose-card {
+        flex-direction: column;
+      }
+    }
   </style>
 </head>
 <body>
@@ -851,6 +1282,138 @@
           </div>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       MISSION, PURPOSE & FOUNDER'S COMMITMENT SECTION
+       ======================================================================== -->
+  <section class="mission-purpose-section" id="mission-purpose">
+    <div class="container">
+
+      <!-- PROMINENT TAGLINE HERO BANNER -->
+      <div class="tagline-hero-banner">
+        <div class="tagline-eyebrow">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+          Guiding Philosophy &amp; Core Tagline
+        </div>
+        <h2 class="tagline-highlight">“Experience into wisdom. Engineers into leaders. Challenges into solutions.”</h2>
+      </div>
+
+      <!-- MAIN MISSION & MENTORSHIP GRID (COMMERCIAL OBJECTIVE) -->
+      <div class="mission-grid">
+        
+        <!-- Left: Mission Content Card -->
+        <div class="mission-card">
+          <div class="mission-card-badge">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+            Commercial &amp; Technical Mission
+          </div>
+          <h3 class="mission-title">OUR MISSION</h3>
+          <p class="mission-text-lead">
+            To transform nearly four decades of industrial experience into practical knowledge, capable engineers and responsible future leaders.
+          </p>
+          <p class="mission-text-body">
+            <strong>Omtek Corporation</strong> provides industry-focused training, mentoring and technical consultancy to help professionals grow and organisations solve complex operational, reliability, safety and management challenges.
+          </p>
+
+          <div class="mission-pillars-list">
+            <div class="mission-pillar-item">
+              <span class="pillar-bullet-icon">⚙️</span>
+              <div>
+                <strong>Industry-Focused Training &amp; Mentoring</strong>
+                <p>Transferring real plant-floor engineering know-how, root cause mastery, and reliability principles directly to practicing professionals.</p>
+              </div>
+            </div>
+            <div class="mission-pillar-item">
+              <span class="pillar-bullet-icon">🛡️</span>
+              <div>
+                <strong>Operational, Safety &amp; Reliability Consultancy</strong>
+                <p>Partnering with industrial plants to overcome complex mechanical, HSE compliance, asset integrity, and management bottlenecks.</p>
+              </div>
+            </div>
+            <div class="mission-pillar-item">
+              <span class="pillar-bullet-icon">🎓</span>
+              <div>
+                <strong>Nurturing Responsible Future Leaders</strong>
+                <p>Developing capable technical leaders who combine operational excellence with uncompromising safety ethics and accountability.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Mentorship Image Frame -->
+        <div class="mentorship-media-frame">
+          <div class="mentorship-image-wrapper">
+            <img loading="lazy" decoding="async" src="assets/images/training-session-audience.jpeg" alt="Young Engineers Being Mentored and Trained at Omtech Corporation Industrial Technical Session" class="mentorship-img">
+            <div class="mentorship-floating-card">
+              <div class="mentorship-badge-icon">🎓</div>
+              <div>
+                <strong class="mentorship-badge-title">Workforce Mentorship in Action</strong>
+                <span class="mentorship-badge-sub">39+ Years of Hands-on Engineering Heritage Mentoring Future Leaders</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- FOUNDER'S COMMITMENT (EXECUTIVE QUOTE CARD) -->
+      <div class="founder-commitment-block">
+        <div class="founder-quote-symbol">“</div>
+        <div class="founder-quote-content">
+          <span class="founder-quote-eyebrow">FOUNDER’S COMMITMENT</span>
+          <blockquote class="founder-quote-text">
+            “My legacy will be measured not only by the projects I completed, but by the engineers I developed, the organisations I helped improve and the lives I positively touched.”
+          </blockquote>
+          <div class="founder-quote-author">
+            <img loading="lazy" decoding="async" src="assets/images/prem-prakash-mishra-portrait.jpeg" alt="Prem Prakash Mishra - Founder, Omtech Corporation" class="founder-quote-avatar">
+            <div>
+              <h4 class="founder-quote-name">Prem Prakash Mishra</h4>
+              <p class="founder-quote-title">Founder, Omtech Corporation • Former Engineer: Kuwait Oil Company (KOC), NTPC &amp; IPCL</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- OUR LARGER PURPOSE / SOCIAL RESPONSIBILITY (DISTINCT CIVIC SECTION) -->
+      <div class="larger-purpose-block" id="social-responsibility">
+        <div class="larger-purpose-header">
+          <div class="larger-purpose-tag">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+            Social Responsibility &amp; Civic Engagement
+          </div>
+          <h3 class="larger-purpose-title">OUR LARGER PURPOSE</h3>
+          <p class="larger-purpose-lead">
+            Beyond business, we are committed to giving back to society by mentoring young professionals and supporting initiatives that promote dignity, care and wellbeing for senior citizens.
+          </p>
+        </div>
+
+        <div class="larger-purpose-grid">
+          <!-- Pillar 1: Mentoring Young Professionals -->
+          <div class="purpose-card">
+            <div class="purpose-card-icon">🌱</div>
+            <div class="purpose-card-body">
+              <h4 class="purpose-card-heading">Mentoring Young Professionals</h4>
+              <p>
+                Bridging the gap between university education and industrial reality. We actively invest time and technical guidance into mentoring young engineers and technicians from underprivileged or emerging backgrounds, equipping them with practical competencies and ethical leadership skills.
+              </p>
+            </div>
+          </div>
+
+          <!-- Pillar 2: Dignity & Care for Senior Citizens -->
+          <div class="purpose-card">
+            <div class="purpose-card-icon">🤝</div>
+            <div class="purpose-card-body">
+              <h4 class="purpose-card-heading">Dignity &amp; Care for Senior Citizens</h4>
+              <p>
+                Honoring the wisdom and contributions of our elders. We passionately support community initiatives, elder-care awareness, and programs that champion dignity, accessible healthcare, respect, and comprehensive wellbeing for senior citizens across society.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
   </section>
 
