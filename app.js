@@ -28,100 +28,60 @@ document.addEventListener('DOMContentLoaded', () => {
     const navItems = navMenu.querySelectorAll('.nav-item');
     navItems.forEach(item => {
       const dropdown = item.querySelector('.nav-dropdown');
-      const navLink = item.querySelector('.nav-link');
-      
-      if (dropdown && navLink) {
-        item.classList.add('has-dropdown');
-        navLink.addEventListener('click', (e) => {
-          // Whenever mobile drawer is active or screen is mobile/tablet
-          if (navMenu.classList.contains('open') || window.innerWidth <= 991) {
-            e.preventDefault();
-            e.stopPropagation();
-            const isOpen = item.classList.contains('dropdown-open');
-            navItems.forEach(other => {
-              if (other !== item) other.classList.remove('dropdown-open');
-            });
-            item.classList.toggle('dropdown-open', !isOpen);
-          }
-        });
+      if (dropdown) {
+        const navLink = item.querySelector('.nav-link');
+        if (navLink) {
+          navLink.addEventListener('click', (e) => {
+            if (window.innerWidth <= 992) {
+              e.preventDefault();
+              item.classList.toggle('dropdown-active');
+            }
+          });
+        }
       }
     });
 
-    // Close mobile menu when clicking actual destination links
-    navMenu.querySelectorAll('.dropdown-link, .mobile-menu-cta-btn').forEach(link => {
-      link.addEventListener('click', () => {
-        navMenu.classList.remove('open');
-      });
-    });
-
-    // Close mobile menu when clicking regular non-dropdown top-level nav links
-    navItems.forEach(item => {
-      const dropdown = item.querySelector('.nav-dropdown');
-      const navLink = item.querySelector('.nav-link');
-      if (!dropdown && navLink) {
-        navLink.addEventListener('click', () => {
-          navMenu.classList.remove('open');
-        });
-      }
-    });
-
-    // Close menu when tapping outside
+    // Close menu when clicking outside
     document.addEventListener('click', (e) => {
-      if (navMenu.classList.contains('open') && !navMenu.contains(e.target) && !mobileToggle.contains(e.target)) {
+      if (!navMenu.contains(e.target) && !mobileToggle.contains(e.target)) {
         navMenu.classList.remove('open');
       }
     });
   }
 
-  // 3. Modal Popup Logic
+  // 3. Modal Popup Handling
   const modal = document.getElementById('enquiryModal');
-  const modalCloseBtn = document.getElementById('modalCloseBtn');
   const openModalBtns = document.querySelectorAll('.open-modal-btn');
+  const closeModalBtn = document.getElementById('modalCloseBtn');
   const modalServiceSelect = document.getElementById('mService');
-  const modalTitle = document.getElementById('modalTitle');
 
   const openModal = (serviceName = '') => {
-    if (modal) {
-      modal.classList.add('active');
-      document.body.classList.add('modal-open');
-      if (serviceName && modalServiceSelect) {
-        let optionExists = Array.from(modalServiceSelect.options).some(opt => opt.value === serviceName);
-        if (!optionExists) {
-          const newOpt = new Option(serviceName, serviceName, true, true);
-          modalServiceSelect.add(newOpt);
-        }
-        modalServiceSelect.value = serviceName;
-        if (modalTitle) modalTitle.textContent = `Request Proposal: ${serviceName}`;
-      } else {
-        if (modalServiceSelect) {
-          modalServiceSelect.value = '';
-        }
-        if (modalTitle) {
-          modalTitle.textContent = 'Request a Proposal';
-        }
-      }
+    if (!modal) return;
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+    if (serviceName && modalServiceSelect) {
+      modalServiceSelect.value = serviceName;
     }
   };
 
   const closeModal = () => {
-    if (modal) {
-      modal.classList.remove('active');
-      document.body.classList.remove('modal-open');
-    }
+    if (!modal) return;
+    modal.classList.remove('active');
+    document.body.style.overflow = '';
   };
 
-  // Robust click listener for all modal proposal buttons
-  document.addEventListener('click', (e) => {
-    const btn = e.target.closest('.open-modal-btn, .btn-card-enquiry, [data-open-modal]');
-    if (btn) {
-      e.preventDefault();
-      const service = btn.getAttribute('data-service') || '';
-      openModal(service);
-    }
-  });
+  if (openModalBtns.length > 0) {
+    openModalBtns.forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        const service = btn.getAttribute('data-service') || '';
+        openModal(service);
+      });
+    });
+  }
 
-  if (modalCloseBtn) {
-    modalCloseBtn.addEventListener('click', closeModal);
+  if (closeModalBtn) {
+    closeModalBtn.addEventListener('click', closeModal);
   }
 
   if (modal) {
@@ -130,10 +90,24 @@ document.addEventListener('DOMContentLoaded', () => {
         closeModal();
       }
     });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && modal.classList.contains('active')) {
+        closeModal();
+      }
+    });
   }
 
+  // Generate unique business reference number
+  const generateReferenceId = () => {
+    const now = new Date();
+    const YYYY = now.getFullYear();
+    const MM = String(now.getMonth() + 1).padStart(2, '0');
+    const random = Math.floor(1000 + Math.random() * 9000);
+    return `OTC-${YYYY}${MM}-${random}`;
+  };
+
   // High-visibility in-page confirmation and direct dispatch dialog
-  const showConfirmationNotification = (title, message, redirectInfo) => {
+  const showConfirmationNotification = (title, message, redirectInfo, isError = false) => {
     const existing = document.getElementById('omtech-confirmation-banner');
     if (existing) existing.remove();
 
@@ -146,14 +120,14 @@ document.addEventListener('DOMContentLoaded', () => {
       transform: translateX(-50%) translateY(-20px);
       background: #0f172a;
       color: #ffffff;
-      border: 1px solid #ea580c;
-      border-left: 6px solid #f97316;
+      border: 1px solid ${isError ? '#ef4444' : '#ea580c'};
+      border-left: 6px solid ${isError ? '#ef4444' : '#f97316'};
       padding: 22px 26px;
       border-radius: 12px;
       box-shadow: 0 20px 50px rgba(0,0,0,0.55);
       z-index: 9999999;
       max-width: 94%;
-      width: 560px;
+      width: 580px;
       opacity: 0;
       transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
       display: flex;
@@ -165,7 +139,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const redirectButtons = redirectInfo ? `
       <div style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; padding: 12px 14px; margin-top: 4px;">
-        <span style="font-size: 0.76rem; font-weight: 700; color: #fb923c; text-transform: uppercase; letter-spacing: 0.5px; display: block; margin-bottom: 8px;">Direct Transmission Options (No Wait)</span>
+        <span style="font-size: 0.76rem; font-weight: 700; color: #fb923c; text-transform: uppercase; letter-spacing: 0.5px; display: block; margin-bottom: 8px;">Direct Transmission Options (Zero Wait)</span>
         <div style="display: flex; flex-wrap: wrap; gap: 8px;">
           <a href="https://mail.google.com/mail/?view=cm&fs=1&to=omtechcorp2402@gmail.com&cc=safehands@omtechcorporation.com,kkamleshmishra2@gmail.com&su=${encodeURIComponent(redirectInfo.subject)}&body=${encodeURIComponent(redirectInfo.body)}" target="_blank" rel="noopener noreferrer" style="background: #ea580c; color: #ffffff; padding: 9px 16px; border-radius: 6px; font-weight: 700; font-size: 0.85rem; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; box-shadow: 0 2px 6px rgba(234,88,12,0.35);">✉️ Open in Gmail</a>
           <a href="https://wa.me/919810772284?text=${encodeURIComponent(redirectInfo.waText)}" target="_blank" rel="noopener noreferrer" style="background: #16a34a; color: #ffffff; padding: 9px 16px; border-radius: 6px; font-weight: 700; font-size: 0.85rem; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; box-shadow: 0 2px 6px rgba(22,163,74,0.35);">💬 Send on WhatsApp</a>
@@ -174,18 +148,24 @@ document.addEventListener('DOMContentLoaded', () => {
       </div>
     ` : '';
 
+    const iconHtml = isError 
+      ? `<div style="background: rgba(239, 68, 68, 0.2); border-radius: 50%; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: #ef4444; font-size: 20px;">⚠️</div>`
+      : `<div style="background: rgba(234, 88, 12, 0.2); border-radius: 50%; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: #f97316;">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+        </div>`;
+
     banner.innerHTML = `
       <div style="display: flex; gap: 14px; align-items: flex-start;">
-        <div style="background: rgba(234, 88, 12, 0.2); border-radius: 50%; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: #f97316;">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-        </div>
+        ${iconHtml}
         <div style="flex-grow: 1;">
           <div style="display: flex; justify-content: space-between; align-items: center;">
             <h4 style="margin: 0; color: #ffffff; font-size: 1.1rem; font-weight: 700;">${title}</h4>
             <button style="background: none; border: none; color: #94a3b8; font-size: 22px; cursor: pointer; padding: 0 4px; line-height: 1;" onclick="this.closest('#omtech-confirmation-banner').remove()">&times;</button>
           </div>
           <p style="margin: 6px 0 0; color: #cbd5e1; font-size: 0.9rem; line-height: 1.5;">${message}</p>
-          <div id="omtech-dispatch-status" style="font-size: 0.82rem; color: #f59e0b; margin-top: 6px; font-weight: 600;">⏳ Auto-delivering proposal to omtechcorp2402@gmail.com...</div>
+          <div id="omtech-dispatch-status" style="font-size: 0.82rem; color: ${isError ? '#f87171' : '#f59e0b'}; margin-top: 6px; font-weight: 600;">
+            ${isError ? 'Notice: Form details retained below. Direct email/chat buttons ready.' : '⏳ Verified transmission in progress...'}
+          </div>
         </div>
       </div>
       ${redirectButtons}
@@ -205,30 +185,29 @@ document.addEventListener('DOMContentLoaded', () => {
       if (banner.parentElement) {
         banner.style.transform = 'translateX(-50%) translateY(-20px)';
         banner.style.opacity = '0';
-        setTimeout(() => banner.remove(), 350);
+        setTimeout(() => banner.remove(), 20000);
       }
-    }, 16000);
+    }, 20000);
   };
 
   // Helper function to save lead to localStorage omtech_enquiries
   const saveEnquiryToStorage = (newLead) => {
     const defaultSample = [
-      { id: 1, date: "2026-09-29 14:20", name: "Sanjay Verma", company: "Jamnagar Refinery Operations", contact: "s.verma@refinery.com / +91 98765 43210", service: "HAZOP & PSM Audit", status: "New" },
-      { id: 2, date: "2026-09-28 11:45", name: "Rajesh K. Sharma", company: "IOCL Mathura Plant", contact: "rksharma@iocl.in / +91 98111 22334", service: "Asset Integrity Management", status: "Contacted" },
-      { id: 3, date: "2026-09-27 16:30", name: "Amitabh Sen", company: "Haldia Petrochemicals", contact: "a.sen@haldia.com / +91 97333 44556", service: "Corporate Industrial Training", status: "In Progress" },
-      { id: 4, date: "2026-09-25 09:15", name: "Vikramjit Singh", company: "BHEL Power Sector", contact: "vjsingh@bhel.in / +91 99000 11223", service: "QA/QC Vendor Audit", status: "Completed" },
-      { id: 5, date: "2026-09-24 18:00", name: "Tariq Al-Mansoor", company: "GCC EPC Contracting", contact: "tariq@gulfepc.com / +965 9912 3456", service: "Process Safety Consulting", status: "New" }
+      { id: 'OTC-202609-1001', date: '2026-09-29 14:20', name: 'Sanjay Verma', company: 'Jamnagar Refinery Operations', contact: 's.verma@refinery.com / +91 98765 43210', service: 'HAZOP & PSM Audit', status: 'New' },
+      { id: 'OTC-202609-1002', date: '2026-09-28 11:45', name: 'Rajesh K. Sharma', company: 'IOCL Mathura Plant', contact: 'rksharma@iocl.in / +91 98111 22334', service: 'Asset Integrity Management', status: 'Contacted' },
+      { id: 'OTC-202609-1003', date: '2026-09-27 16:30', name: 'Amitabh Sen', company: 'Haldia Petrochemicals', contact: 'a.sen@haldia.com / +91 97333 44556', service: 'Corporate Industrial Training', status: 'In Progress' },
+      { id: 'OTC-202609-1004', date: '2026-09-25 09:15', name: 'Vikramjit Singh', company: 'BHEL Power Sector', contact: 'vjsingh@bhel.in / +91 99000 11223', service: 'QA/QC Vendor Audit', status: 'Completed' }
     ];
 
     let enquiries = [];
     try {
-      enquiries = JSON.parse(localStorage.getItem("omtech_enquiries")) || JSON.parse(localStorage.getItem("omtek_enquiries")) || defaultSample;
+      enquiries = JSON.parse(localStorage.getItem('omtech_enquiries')) || JSON.parse(localStorage.getItem('omtek_enquiries')) || defaultSample;
     } catch (err) {
       enquiries = defaultSample;
     }
 
     enquiries.unshift(newLead);
-    localStorage.setItem("omtech_enquiries", JSON.stringify(enquiries));
+    localStorage.setItem('omtech_enquiries', JSON.stringify(enquiries));
     window.dispatchEvent(new Event('storage'));
   };
 
@@ -243,9 +222,9 @@ document.addEventListener('DOMContentLoaded', () => {
     return `${YYYY}-${MM}-${DD} ${hh}:${mm}`;
   };
 
-  // Helper to dispatch email to official inbox and direct Gmail forward
-  const dispatchEnquiryToBackend = (payload) => {
-    // 1. Attempt PHP backend endpoint on server (Hostinger production)
+  // Helper to dispatch email to official inbox and return Promise
+  const dispatchEnquiryToBackend = async (payload) => {
+    // 1. Attempt PHP backend endpoint on server
     try {
       fetch('send-enquiry.php', {
         method: 'POST',
@@ -257,63 +236,76 @@ document.addEventListener('DOMContentLoaded', () => {
     const clientOrg = (payload.company && payload.company !== 'Direct Engagement' && payload.company !== 'Modal Lead' && payload.company !== 'Not Specified') 
       ? payload.company 
       : '';
+    const refCode = payload.refId || 'OTC-DIRECT';
     const subjectLine = clientOrg 
-      ? `⚡ [Omtech Proposal] ${payload.service} — ${clientOrg}`
-      : `⚡ [Omtech Proposal] ${payload.service} — ${payload.name}`;
+      ? `⚡ [Omtech Proposal ${refCode}] ${payload.service} — ${clientOrg}`
+      : `⚡ [Omtech Proposal ${refCode}] ${payload.service} — ${payload.name}`;
 
     const formSubmitPayload = {
       _subject: subjectLine,
       _template: 'table',
       _captcha: 'false',
       _cc: 'safehands@omtechcorporation.com,kkamleshmishra2@gmail.com',
+      'Reference ID': refCode,
       'Client Name': payload.name,
       'Company / Plant': clientOrg || 'Direct Engagement',
       'Contact Phone': payload.phone || 'Not Provided',
       'Email Address': payload.email || 'Not Provided',
       'Requested Service': payload.service,
+      'Participant Level': payload.participantLevel || 'Not Specified',
+      'Approx Batch Size': payload.batchSize || 'Not Specified',
+      'Preferred Timeline': payload.preferredDates || 'Flexible',
+      'Delivery Mode': payload.deliveryMode || 'Onsite / Hybrid',
       'Project Scope & Details': payload.message || 'Direct proposal intake through website'
     };
     if (payload.email) {
       formSubmitPayload._replyto = payload.email;
     }
 
-    // 2. Dispatch via verified active primary inbox with CC to safehands & client
     try {
-      fetch('https://formsubmit.co/ajax/omtechcorp2402@gmail.com', {
+      const response = await fetch('https://formsubmit.co/ajax/omtechcorp2402@gmail.com', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
           'Accept': 'application/json'
         },
         body: JSON.stringify(formSubmitPayload)
-      })
-      .then(res => res.json())
-      .then(data => {
-        console.log("FormSubmit live delivery status:", data);
-        const statusEl = document.getElementById('omtech-dispatch-status');
-        if (statusEl) {
-          if (data && (data.success === "true" || data.success === true)) {
-            statusEl.innerHTML = '✅ <span style="color: #4ade80;">Proposal successfully dispatched to omtechcorp2402@gmail.com!</span>';
-          } else {
-            statusEl.innerHTML = '⚡ Proposal registered! You can also use 1-click Gmail/WhatsApp below.';
-          }
-        }
-      })
-      .catch(err => {
-        console.warn("Dispatch relay notice:", err);
-        const statusEl = document.getElementById('omtech-dispatch-status');
-        if (statusEl) {
-          statusEl.innerHTML = '⚡ Proposal registered! You can also click Gmail/WhatsApp below for instant copy.';
-        }
       });
-    } catch (e) {}
+      const data = await response.json();
+      return { success: (data && (data.success === 'true' || data.success === true)), data };
+    } catch (err) {
+      console.warn('FormSubmit fetch error:', err);
+      return { success: false, error: err };
+    }
   };
 
   // 4. Form Submission Handling (Main Enquiry Form)
   const enquiryForm = document.getElementById('enquiryForm');
   if (enquiryForm) {
-    enquiryForm.addEventListener('submit', (e) => {
+    let isSubmitting = false;
+
+    enquiryForm.addEventListener('submit', async (e) => {
       e.preventDefault();
+
+      // Basic Spam Honeypot Check
+      const honeypot = enquiryForm.querySelector('input[name="_website_hp"], input[name="_gotcha"]');
+      if (honeypot && honeypot.value.trim() !== '') {
+        console.warn('Spam submission suppressed.');
+        enquiryForm.reset();
+        return;
+      }
+
+      if (isSubmitting) return; // Duplicate submission prevention
+      isSubmitting = true;
+
+      const submitBtn = enquiryForm.querySelector('button[type="submit"]');
+      const originalBtnHtml = submitBtn ? submitBtn.innerHTML : 'Submit Proposal Request';
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '⏳ Transmitting Proposal...';
+        submitBtn.style.opacity = '0.75';
+      }
+
       const name = document.getElementById('clientName')?.value.trim() || 'Prospective Client';
       const email = document.getElementById('clientEmail')?.value.trim() || '';
       const phone = document.getElementById('clientPhone')?.value.trim() || '';
@@ -322,10 +314,17 @@ document.addEventListener('DOMContentLoaded', () => {
       const service = document.getElementById('clientService')?.value || 'Technical & HSE Advisory';
       const message = document.getElementById('clientMessage')?.value.trim() || '';
 
+      // Training specific optional fields
+      const participantLevel = document.getElementById('participantLevel')?.value || 'Not Specified';
+      const batchSize = document.getElementById('batchSize')?.value.trim() || 'Not Specified';
+      const preferredDates = document.getElementById('preferredDates')?.value.trim() || 'Flexible';
+      const deliveryMode = document.getElementById('deliveryMode')?.value || 'Onsite / Hybrid';
+
       const contactDetail = [email, phone].filter(Boolean).join(' | ');
+      const refId = generateReferenceId();
 
       const leadData = {
-        id: String(Date.now()),
+        id: refId,
         date: getFormattedDateTime(),
         name: name,
         company: company,
@@ -333,81 +332,199 @@ document.addEventListener('DOMContentLoaded', () => {
         phone: phone,
         email: email,
         service: service,
+        participantLevel: participantLevel,
+        batchSize: batchSize,
+        preferredDates: preferredDates,
+        deliveryMode: deliveryMode,
         message: message,
         notes: message,
-        status: "New"
+        status: 'New'
       };
-
-      saveEnquiryToStorage(leadData);
-      dispatchEnquiryToBackend({ name, email, phone, company, service, message });
 
       const companyNote = rawCompany ? ` (${rawCompany})` : '';
       const redirectInfo = {
-        subject: `⚡ [Omtech Proposal] ${service} — ${name}${companyNote}`,
-        body: `Hello Omtech Corporation Team,\n\nI have submitted a proposal request on your website.\n\nService Required: ${service}\nClient Name: ${name}\nCompany: ${company}\nContact Details: ${contactDetail}\nScope & Requirements:\n${message || 'Direct consultation and proposal request'}\n\nPlease review and connect promptly.\n\nRegards,\n${name}`,
-        waText: `Hello Omtech Corporation, I submitted a proposal request for "${service}". Name: ${name}, Contact: ${contactDetail}.`
+        subject: `⚡ [Omtech Proposal ${refId}] ${service} — ${name}${companyNote}`,
+        body: `Hello Omtech Corporation Team,\n\nI have submitted a proposal request on your website (Ref: ${refId}).\n\nService Required: ${service}\nClient Name: ${name}\nCompany: ${company}\nContact Details: ${contactDetail}\nParticipant Level: ${participantLevel}\nBatch Size: ${batchSize}\nPreferred Timeline: ${preferredDates}\nDelivery Mode: ${deliveryMode}\nScope & Requirements:\n${message || 'Direct consultation and proposal request'}\n\nPlease review and connect promptly.\n\nRegards,\n${name}`,
+        waText: `Hello Omtech Corporation, I submitted proposal request ${refId} for "${service}". Name: ${name}, Contact: ${contactDetail}.`
       };
 
-      showConfirmationNotification(
-        "Proposal Request Received",
-        `Thank you, ${name}${companyNote}. Your technical inquiry for "${service}" has been successfully received. Our advisory team will review your requirements and contact you promptly at ${contactDetail}.`,
-        redirectInfo
-      );
-      enquiryForm.reset();
+      try {
+        const result = await dispatchEnquiryToBackend({ 
+          refId, name, email, phone, company, service, 
+          participantLevel, batchSize, preferredDates, deliveryMode, 
+          message 
+        });
+
+        // Always save lead locally
+        saveEnquiryToStorage(leadData);
+
+        if (result.success) {
+          showConfirmationNotification(
+            `Proposal Request Accepted (Ref: ${refId})`,
+            `Thank you, ${name}${companyNote}. Your technical inquiry for "${service}" has been successfully delivered to our advisory team. Reference ID: <strong>${refId}</strong>. We will review your plant context and respond promptly at ${contactDetail}.`,
+            redirectInfo,
+            false
+          );
+          const statusEl = document.getElementById('omtech-dispatch-status');
+          if (statusEl) {
+            statusEl.innerHTML = `✅ <span style="color: #4ade80;">Dispatched to omtechcorp2402@gmail.com with CC to safehands!</span>`;
+          }
+          enquiryForm.reset();
+        } else {
+          // Failure with input details retained!
+          showConfirmationNotification(
+            `Proposal Registered (Ref: ${refId})`,
+            `Thank you, ${name}. Your request is registered under Ref: <strong>${refId}</strong>. Network dispatch is pending. All your entered details are safely preserved below. Please click "Open in Gmail" or "Send on WhatsApp" for instant delivery.`,
+            redirectInfo,
+            true
+          );
+        }
+      } catch (err) {
+        saveEnquiryToStorage(leadData);
+        showConfirmationNotification(
+          `Proposal Registered (Ref: ${refId})`,
+          `Thank you, ${name}. Your request is registered under Ref: <strong>${refId}</strong>. Your details have been retained below. Please use the instant Gmail or WhatsApp buttons to transmit.`,
+          redirectInfo,
+          true
+        );
+      } finally {
+        isSubmitting = false;
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = originalBtnHtml;
+          submitBtn.style.opacity = '1';
+        }
+      }
     });
   }
 
   // 5. Modal Form Submission Handling
   const modalForm = document.getElementById('modalForm');
   if (modalForm) {
-    modalForm.addEventListener('submit', (e) => {
+    let isModalSubmitting = false;
+
+    modalForm.addEventListener('submit', async (e) => {
       e.preventDefault();
+
+      // Honeypot check
+      const honeypot = modalForm.querySelector('input[name="_website_hp"], input[name="_gotcha"]');
+      if (honeypot && honeypot.value.trim() !== '') {
+        modalForm.reset();
+        closeModal();
+        return;
+      }
+
+      if (isModalSubmitting) return;
+      isModalSubmitting = true;
+
+      const submitBtn = modalForm.querySelector('button[type="submit"]');
+      const originalBtnHtml = submitBtn ? submitBtn.innerHTML : 'Submit Request';
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '⏳ Transmitting...';
+        submitBtn.style.opacity = '0.75';
+      }
+
       const name = document.getElementById('mName')?.value.trim() || 'Prospective Client';
       const email = document.getElementById('mEmail')?.value.trim() || '';
       const phone = document.getElementById('mPhone')?.value.trim() || '';
       const service = document.getElementById('mService')?.value || 'Technical & HSE Advisory';
       const notes = document.getElementById('mNotes')?.value.trim() || '';
 
+      const participantLevel = document.getElementById('mParticipantLevel')?.value || '';
+      const batchSize = document.getElementById('mBatchSize')?.value.trim() || '';
+
       const contactDetail = [email, phone].filter(Boolean).join(' | ');
+      const refId = generateReferenceId();
 
       const leadData = {
-        id: String(Date.now()),
+        id: refId,
         date: getFormattedDateTime(),
         name: name,
-        company: "Direct Engagement",
+        company: 'Direct Engagement',
         contact: contactDetail,
         phone: phone,
         email: email,
         service: service,
+        participantLevel: participantLevel,
+        batchSize: batchSize,
         message: notes,
         notes: notes,
-        status: "New"
+        status: 'New'
       };
-
-      saveEnquiryToStorage(leadData);
-      dispatchEnquiryToBackend({ name, email, phone, company: 'Direct Engagement', service, message: notes });
 
       const redirectInfo = {
-        subject: `⚡ [Omtech Proposal] ${service} — ${name}`,
-        body: `Hello Omtech Corporation Team,\n\nI have requested a proposal via the website.\n\nService: ${service}\nClient Name: ${name}\nContact Details: ${contactDetail}\nProject Notes / Scope:\n${notes || 'Direct proposal intake'}\n\nRegards,\n${name}`,
-        waText: `Hello Omtech Corporation, I submitted a proposal request for "${service}". Name: ${name}, Contact: ${contactDetail}.`
+        subject: `⚡ [Omtech Proposal ${refId}] ${service} — ${name}`,
+        body: `Hello Omtech Corporation Team,\n\nI have requested a proposal via the website (Ref: ${refId}).\n\nService: ${service}\nClient Name: ${name}\nContact Details: ${contactDetail}\n${participantLevel ? 'Participant Level: ' + participantLevel + '\n' : ''}${batchSize ? 'Approx Batch Size: ' + batchSize + '\n' : ''}Project Notes / Scope:\n${notes || 'Direct proposal intake'}\n\nRegards,\n${name}`,
+        waText: `Hello Omtech Corporation, I submitted proposal request ${refId} for "${service}". Name: ${name}, Contact: ${contactDetail}.`
       };
 
-      showConfirmationNotification(
-        "Proposal Request Received",
-        `Thank you, ${name}. Your proposal request for "${service}" has been successfully received. Our advisory team will review your requirements and connect with you shortly at ${contactDetail}.`,
-        redirectInfo
-      );
-      modalForm.reset();
-      closeModal();
+      try {
+        const result = await dispatchEnquiryToBackend({ 
+          refId, name, email, phone, company: 'Direct Engagement', 
+          service, participantLevel, batchSize, message: notes 
+        });
+
+        saveEnquiryToStorage(leadData);
+
+        if (result.success) {
+          showConfirmationNotification(
+            `Proposal Request Accepted (Ref: ${refId})`,
+            `Thank you, ${name}. Your proposal request for "${service}" (Ref: <strong>${refId}</strong>) has been confirmed. Our team will review your requirements and connect with you shortly at ${contactDetail}.`,
+            redirectInfo,
+            false
+          );
+          const statusEl = document.getElementById('omtech-dispatch-status');
+          if (statusEl) {
+            statusEl.innerHTML = `✅ <span style="color: #4ade80;">Dispatched to omtechcorp2402@gmail.com with CC to safehands!</span>`;
+          }
+          modalForm.reset();
+          closeModal();
+        } else {
+          showConfirmationNotification(
+            `Proposal Registered (Ref: ${refId})`,
+            `Thank you, ${name}. Your request is registered under Ref: <strong>${refId}</strong>. Entered details are preserved. You can click Gmail or WhatsApp below for instant copy.`,
+            redirectInfo,
+            true
+          );
+        }
+      } catch (err) {
+        saveEnquiryToStorage(leadData);
+        showConfirmationNotification(
+          `Proposal Registered (Ref: ${refId})`,
+          `Thank you, ${name}. Your request is registered under Ref: <strong>${refId}</strong>. You can click Gmail or WhatsApp below for instant copy.`,
+          redirectInfo,
+          true
+        );
+      } finally {
+        isModalSubmitting = false;
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = originalBtnHtml;
+          submitBtn.style.opacity = '1';
+        }
+      }
     });
   }
 
   // 6. Inline Water Page / Page Specific Form Handler (if present)
   const waterForm = document.getElementById('waterForm') || document.getElementById('waterProposalForm');
   if (waterForm) {
-    waterForm.addEventListener('submit', (e) => {
+    let isWaterSubmitting = false;
+
+    waterForm.addEventListener('submit', async (e) => {
       e.preventDefault();
+
+      if (isWaterSubmitting) return;
+      isWaterSubmitting = true;
+
+      const submitBtn = waterForm.querySelector('button[type="submit"]');
+      const originalBtnHtml = submitBtn ? submitBtn.innerHTML : 'Submit Water Inquiry';
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '⏳ Transmitting...';
+      }
+
       const name = document.getElementById('wName')?.value.trim() || 'Prospective Client';
       const email = document.getElementById('wEmail')?.value.trim() || '';
       const phone = document.getElementById('wPhone')?.value.trim() || '';
@@ -418,9 +535,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const contactDetail = [email, phone].filter(Boolean).join(' | ');
       const messageNotes = capacity ? `Flow / Treatment Capacity: ${capacity}` : '';
+      const refId = generateReferenceId();
 
       const leadData = {
-        id: String(Date.now()),
+        id: refId,
         date: getFormattedDateTime(),
         name: name,
         company: company,
@@ -430,25 +548,54 @@ document.addEventListener('DOMContentLoaded', () => {
         service: service,
         message: messageNotes,
         notes: messageNotes,
-        status: "New"
+        status: 'New'
       };
-
-      saveEnquiryToStorage(leadData);
-      dispatchEnquiryToBackend({ name, email, phone, company, service, message: messageNotes });
 
       const companyNote = rawCompany ? ` (${rawCompany})` : '';
       const redirectInfo = {
-        subject: `⚡ [Omtech Proposal] Water Solutions — ${name}${companyNote}`,
-        body: `Hello Omtech Corporation Team,\n\nI submitted an inquiry for Water & Environmental Solutions.\n\nClient Name: ${name}\nCompany: ${company}\nContact: ${contactDetail}\nSpecifications: ${messageNotes || 'Bulk drinking / industrial treatment'}\n\nRegards,\n${name}`,
-        waText: `Hello Omtech Corporation, I submitted an inquiry for Water Solutions. Name: ${name}, Contact: ${contactDetail}.`
+        subject: `⚡ [Omtech Proposal ${refId}] Water Solutions — ${name}${companyNote}`,
+        body: `Hello Omtech Corporation Team,\n\nI submitted an inquiry for Water & Environmental Solutions (Ref: ${refId}).\n\nClient Name: ${name}\nCompany: ${company}\nContact: ${contactDetail}\nSpecifications: ${messageNotes || 'Bulk drinking / industrial treatment'}\n\nRegards,\n${name}`,
+        waText: `Hello Omtech Corporation, I submitted an inquiry for Water Solutions (${refId}). Name: ${name}, Contact: ${contactDetail}.`
       };
 
-      showConfirmationNotification(
-        "Water & Environmental Request Received",
-        `Thank you, ${name}${companyNote}. Your inquiry for "${service}" has been successfully received. Our water engineering team will contact you at ${contactDetail}.`,
-        redirectInfo
-      );
-      waterForm.reset();
+      try {
+        const result = await dispatchEnquiryToBackend({ 
+          refId, name, email, phone, company, service, message: messageNotes 
+        });
+
+        saveEnquiryToStorage(leadData);
+
+        if (result.success) {
+          showConfirmationNotification(
+            `Water & Environmental Request Accepted (Ref: ${refId})`,
+            `Thank you, ${name}${companyNote}. Your inquiry for "${service}" has been received. Our water engineering team will contact you at ${contactDetail}.`,
+            redirectInfo,
+            false
+          );
+          waterForm.reset();
+        } else {
+          showConfirmationNotification(
+            `Request Registered (Ref: ${refId})`,
+            `Thank you, ${name}. Your request is registered under Ref: <strong>${refId}</strong>. Entered details are preserved below. Please click Gmail or WhatsApp to transmit directly.`,
+            redirectInfo,
+            true
+          );
+        }
+      } catch (err) {
+        saveEnquiryToStorage(leadData);
+        showConfirmationNotification(
+          `Request Registered (Ref: ${refId})`,
+          `Thank you, ${name}. Your request is registered under Ref: <strong>${refId}</strong>. Please use Gmail or WhatsApp buttons to complete.`,
+          redirectInfo,
+          true
+        );
+      } finally {
+        isWaterSubmitting = false;
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = originalBtnHtml;
+        }
+      }
     });
   }
 
@@ -479,28 +626,50 @@ document.addEventListener('DOMContentLoaded', () => {
     a.style.display = 'none';
   });
 
-  // 8. Corporate Training Category Filter
+  // 8. Corporate Training Pathways Filter & Live Search
   const filterBtns = document.querySelectorAll('.training-filter-btn');
   const programmeCards = document.querySelectorAll('.programme-card');
+  const searchInput = document.getElementById('trainingSearchInput');
+
+  let currentFilter = 'all';
+  let currentSearch = '';
+
+  const filterProgrammes = () => {
+    programmeCards.forEach(card => {
+      const cardPathway = card.getAttribute('data-pathway') || '';
+      const cardCategory = card.getAttribute('data-category') || '';
+      const cardText = card.textContent.toLowerCase();
+
+      const matchesPathway = (currentFilter === 'all') || 
+                             cardPathway.includes(currentFilter) || 
+                             cardCategory.includes(currentFilter);
+
+      const matchesSearch = !currentSearch || cardText.includes(currentSearch);
+
+      if (matchesPathway && matchesSearch) {
+        card.style.display = 'flex';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  };
+
   if (filterBtns.length > 0 && programmeCards.length > 0) {
     filterBtns.forEach(btn => {
       btn.addEventListener('click', () => {
-        const filter = btn.getAttribute('data-filter') || 'all';
+        currentFilter = btn.getAttribute('data-pathway') || btn.getAttribute('data-filter') || 'all';
         
         filterBtns.forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
-
-        programmeCards.forEach(card => {
-          const cardCat = card.getAttribute('data-category') || '';
-          if (filter === 'all' || cardCat === filter) {
-            card.style.display = 'flex';
-          } else {
-            card.style.display = 'none';
-          }
-        });
+        filterProgrammes();
       });
     });
   }
+
+  if (searchInput && programmeCards.length > 0) {
+    searchInput.addEventListener('input', (e) => {
+      currentSearch = e.target.value.trim().toLowerCase();
+      filterProgrammes();
+    });
+  }
 });
-
-
