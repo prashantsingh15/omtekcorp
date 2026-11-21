@@ -208,12 +208,13 @@ button, input, select, textarea {
 .brand-logo {
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 12px;
   flex-shrink: 0;
+  max-width: 320px;
 }
 
 .brand-logo img {
-  height: 52px;
+  height: 48px;
   width: auto;
   object-fit: contain;
 }
@@ -221,32 +222,35 @@ button, input, select, textarea {
 .brand-text {
   display: flex;
   flex-direction: column;
+  justify-content: center;
 }
 
 .brand-name {
   font-family: var(--font-heading);
-  font-size: 1.35rem;
+  font-size: 1.25rem;
   font-weight: 800;
   color: #0f0f11;
-  letter-spacing: -0.4px;
+  letter-spacing: -0.3px;
   line-height: 1.1;
   white-space: nowrap;
 }
 
 .brand-tagline {
-  font-size: 0.7rem;
+  font-size: 0.65rem;
   font-weight: 700;
   color: #c2410c;
   text-transform: uppercase;
-  letter-spacing: 0.8px;
-  margin-top: 3px;
+  letter-spacing: 0.5px;
+  margin-top: 2px;
   white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .nav-menu {
   display: flex;
   align-items: center;
-  gap: 24px;
+  gap: 18px;
   flex-wrap: nowrap;
   flex-shrink: 0;
 }
@@ -257,13 +261,13 @@ button, input, select, textarea {
 }
 
 .nav-link {
-  font-size: 0.92rem;
+  font-size: 0.88rem;
   font-weight: 600;
   color: #1a1a1e;
-  padding: 10px 0;
+  padding: 8px 0;
   display: flex;
   align-items: center;
-  gap: 5px;
+  gap: 4px;
   white-space: nowrap;
   transition: var(--transition);
   border-bottom: 2px solid transparent;
@@ -1919,22 +1923,52 @@ body.modal-open .floating-actions-hub {
   }
 }
 
-@media (max-width: 1240px) and (min-width: 992px) {
+@media (max-width: 1366px) and (min-width: 992px) {
+  .nav-container {
+    gap: 12px;
+  }
   .nav-menu {
-    gap: 16px;
+    gap: 12px;
   }
   .nav-link {
-    font-size: 0.88rem;
+    font-size: 0.84rem;
+    padding: 6px 0;
+  }
+  .brand-logo img {
+    height: 42px;
   }
   .brand-name {
-    font-size: 1.18rem;
+    font-size: 1.15rem;
   }
   .brand-tagline {
-    font-size: 0.64rem;
+    font-size: 0.58rem;
   }
   .nav-actions .btn {
     padding: 8px 14px;
-    font-size: 0.84rem;
+    font-size: 0.82rem;
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 1120px) and (min-width: 992px) {
+  .nav-menu {
+    gap: 8px;
+  }
+  .nav-link {
+    font-size: 0.8rem;
+  }
+  .brand-logo img {
+    height: 38px;
+  }
+  .brand-name {
+    font-size: 1.05rem;
+  }
+  .brand-tagline {
+    font-size: 0.54rem;
+  }
+  .nav-actions .btn {
+    padding: 7px 10px;
+    font-size: 0.78rem;
   }
 }
 
