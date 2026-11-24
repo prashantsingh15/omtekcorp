@@ -1019,27 +1019,28 @@
 
     async function syncServerLeads() {
       try {
-        const res = await fetch("assets/data/leads_backup.json?t=" + Date.now());
-        if (res.ok) {
-          const serverLeads = await res.json();
-          if (Array.isArray(serverLeads) && serverLeads.length > 0) {
-            let local = JSON.parse(localStorage.getItem("omtech_enquiries")) || JSON.parse(localStorage.getItem("omtek_enquiries")) || [];
-            const existingIds = new Set(local.map(x => String(x.id)));
-            let updated = false;
-            
-            serverLeads.forEach(sLead => {
-              if (sLead && sLead.id && !existingIds.has(String(sLead.id))) {
-                local.unshift(sLead);
-                existingIds.add(String(sLead.id));
-                updated = true;
-              }
-            });
-
-            if (updated) {
-              localStorage.setItem("omtech_enquiries", JSON.stringify(local));
-              renderEnquiries();
-            }
+        let serverLeads = null;
+        // 1. Try PHP API (connects to Hostinger MySQL & server log)
+        try {
+          const res = await fetch("send-enquiry.php?action=get_leads&t=" + Date.now());
+          if (res.ok) {
+            serverLeads = await res.json();
           }
+        } catch (e) {}
+
+        // 2. Fallback to backup JSON file directly if PHP endpoint wasn't reached
+        if (!Array.isArray(serverLeads)) {
+          try {
+            const res2 = await fetch("assets/data/leads_backup.json?t=" + Date.now());
+            if (res2.ok) {
+              serverLeads = await res2.json();
+            }
+          } catch (e) {}
+        }
+
+        if (Array.isArray(serverLeads)) {
+          localStorage.setItem("omtech_enquiries", JSON.stringify(serverLeads));
+          renderEnquiries();
         }
       } catch (err) {
         // Silently handle offline/local mode
@@ -1081,28 +1082,33 @@
     }
 
     function renderEnquiries() {
-      const stored = JSON.parse(localStorage.getItem("omtech_enquiries")) || JSON.parse(localStorage.getItem("omtek_enquiries")) || sampleEnquiries;
+      const stored = JSON.parse(localStorage.getItem("omtech_enquiries")) || [];
       const tbody = document.getElementById("enquiriesTableBody");
       
-      const newCount = stored.filter(x => x.status === 'New').length;
-      const inProgressCount = stored.filter(x => x.status === 'Contacted' || x.status === 'In Progress' || x.status === 'Pending').length;
-      const completedCount = stored.filter(x => x.status === 'Completed' || x.status === 'Converted').length;
+      const newCount = stored.filter(x => (x.status || 'New').toLowerCase() === 'new').length;
+      const inProgressCount = stored.filter(x => ['contacted', 'in progress', 'pending'].includes((x.status || '').toLowerCase())).length;
+      const completedCount = stored.filter(x => ['completed', 'converted'].includes((x.status || '').toLowerCase())).length;
 
       document.getElementById("totalLeadsCount").innerText = stored.length;
       document.getElementById("newLeadsCount").innerText = newCount;
       document.getElementById("contactedLeadsCount").innerText = inProgressCount;
       document.getElementById("completedLeadsCount").innerText = completedCount;
 
+      if (stored.length === 0) {
+        tbody.innerHTML = `<tr><td colspan="7" style="text-align: center; padding: 36px 16px; color: #71717a; font-size: 0.92rem;">✨ No customer enquiries logged yet. New submissions will appear here live across all devices.</td></tr>`;
+        return;
+      }
+
       tbody.innerHTML = stored.map(item => `
         <tr>
-          <td style="font-size: 0.82rem; color: #52525b; white-space: nowrap;">${item.date}</td>
-          <td><strong>${item.name}</strong></td>
+          <td style="font-size: 0.82rem; color: #52525b; white-space: nowrap;">${item.date || '-'}</td>
+          <td><strong>${item.name || '-'}</strong></td>
           <td>${item.company || 'Direct Engagement'}</td>
           <td><span style="font-size: 0.84rem; color: #3f3f46;">${item.contact || (item.email ? (item.email + ' | ' + (item.phone || '')) : '-')}</span></td>
-          <td><span style="font-weight: 600; color: #c2410c;">${item.service}</span></td>
+          <td><span style="font-weight: 600; color: #c2410c;">${item.service || '-'}</span></td>
           <td>
-            <select class="status-badge-select ${getBadgeClass(item.status)}" onchange="updateLeadStatusDirectly('${item.id}', this.value)">
-              <option value="New" ${item.status === 'New' ? 'selected' : ''}>🔵 New</option>
+            <select class="status-badge-select ${getBadgeClass(item.status)}" onchange="updateLeadStatusDirectly('${item.id || item.reference_id}', this.value)">
+              <option value="New" ${(item.status || 'New') === 'New' ? 'selected' : ''}>🔵 New</option>
               <option value="Contacted" ${item.status === 'Contacted' ? 'selected' : ''}>🟡 Contacted</option>
               <option value="In Progress" ${item.status === 'In Progress' ? 'selected' : ''}>🟠 In Progress</option>
               <option value="Pending" ${item.status === 'Pending' ? 'selected' : ''}>🟣 Pending</option>
@@ -1111,26 +1117,35 @@
           </td>
           <td>
             <div style="display: flex; gap: 6px; white-space: nowrap;">
-              <button type="button" class="btn btn-primary" style="padding: 6px 12px; font-size: 0.78rem; cursor: pointer;" onclick="openLeadModal('${item.id}')">👁️ View</button>
-              <button type="button" style="padding: 6px 10px; font-size: 0.78rem; background: #fee2e2; color: #dc2626; border: 1px solid #fca5a5; border-radius: 6px; cursor: pointer;" onclick="deleteLeadDirectly('${item.id}')" title="Delete Lead">🗑️</button>
+              <button type="button" class="btn btn-primary" style="padding: 6px 12px; font-size: 0.78rem; cursor: pointer;" onclick="openLeadModal('${item.id || item.reference_id}')">👁️ View</button>
+              <button type="button" style="padding: 6px 10px; font-size: 0.78rem; background: #fee2e2; color: #dc2626; border: 1px solid #fca5a5; border-radius: 6px; cursor: pointer;" onclick="deleteLeadDirectly('${item.id || item.reference_id}')" title="Delete Lead">🗑️</button>
             </div>
           </td>
         </tr>
       `).join('');
     }
 
-    function updateLeadStatusDirectly(id, newStatus) {
-      let stored = JSON.parse(localStorage.getItem("omtech_enquiries")) || JSON.parse(localStorage.getItem("omtek_enquiries")) || sampleEnquiries;
-      const index = stored.findIndex(x => String(x.id) === String(id));
+    async function updateLeadStatusDirectly(id, newStatus) {
+      let stored = JSON.parse(localStorage.getItem("omtech_enquiries")) || [];
+      const index = stored.findIndex(x => String(x.id) === String(id) || String(x.reference_id) === String(id));
       if (index !== -1) {
         stored[index].status = newStatus;
         localStorage.setItem("omtech_enquiries", JSON.stringify(stored));
         renderEnquiries();
       }
+
+      // Sync status to Hostinger server/MySQL
+      try {
+        await fetch("send-enquiry.php", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ action: "update_status", id: id, status: newStatus })
+        });
+      } catch (e) {}
     }
 
     function openLeadModal(id) {
-      let stored = JSON.parse(localStorage.getItem("omtech_enquiries")) || JSON.parse(localStorage.getItem("omtek_enquiries")) || sampleEnquiries;
+      let stored = JSON.parse(localStorage.getItem("omtech_enquiries")) || [];
       let item = stored.find(x => String(x.id) === String(id));
       if (!item && typeof id === 'number') {
         item = stored[id];
@@ -1244,12 +1259,21 @@
       closeLeadModal();
     }
 
-    function deleteLeadDirectly(id) {
+    async function deleteLeadDirectly(id) {
       if (confirm("Are you sure you want to delete this enquiry lead?")) {
-        let stored = JSON.parse(localStorage.getItem("omtech_enquiries")) || JSON.parse(localStorage.getItem("omtek_enquiries")) || sampleEnquiries;
-        stored = stored.filter(x => String(x.id) !== String(id));
+        let stored = JSON.parse(localStorage.getItem("omtech_enquiries")) || [];
+        stored = stored.filter(x => String(x.id) !== String(id) && String(x.reference_id) !== String(id));
         localStorage.setItem("omtech_enquiries", JSON.stringify(stored));
         renderEnquiries();
+
+        // Sync deletion to Hostinger server/MySQL
+        try {
+          await fetch("send-enquiry.php", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ action: "delete_lead", id: id })
+          });
+        } catch (e) {}
       }
     }
 
@@ -1261,7 +1285,7 @@
     }
 
     function exportEnquiriesCSV() {
-      const stored = JSON.parse(localStorage.getItem("omtech_enquiries")) || JSON.parse(localStorage.getItem("omtek_enquiries")) || sampleEnquiries;
+      const stored = JSON.parse(localStorage.getItem("omtech_enquiries")) || [];
       let csvContent = "data:text/csv;charset=utf-8,Date,Name,Company,Contact,Service,Status\n";
       
       stored.forEach(row => {
