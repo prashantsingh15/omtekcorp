@@ -526,11 +526,10 @@
         <h2>Content Management Portal</h2>
         <p>Omtech Corporation Admin Access</p>
       </div>
-      <form id="loginForm">
+      <form id="loginForm" autocomplete="off">
         <div class="form-group">
           <label class="form-label">Passcode / Access Key</label>
-          <input type="password" id="passcodeInput" class="form-input" placeholder="Enter Admin Passcode" required>
-          <span style="font-size: 0.75rem; color: #71717a; margin-top: 4px;">Default Key: <strong>omtech2026</strong></span>
+          <input type="password" id="passcodeInput" name="admin_access_code" class="form-input" placeholder="Enter Admin Passcode" autocomplete="new-password" autocorrect="off" autocapitalize="off" spellcheck="false" required>
         </div>
         <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 14px;">Log In to Dashboard</button>
       </form>
