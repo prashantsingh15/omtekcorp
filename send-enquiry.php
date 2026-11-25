@@ -174,6 +174,39 @@ $b_size    = isset($input['batchSize']) ? trim(strip_tags($input['batchSize'])) 
 $message   = isset($input['message']) ? trim(strip_tags($input['message'])) : '';
 $ref_id    = isset($input['referenceId']) ? trim(strip_tags($input['referenceId'])) : ('OTC-' . date('Ym') . '-' . rand(1000, 9999));
 
+// Prevent duplicate submissions with identical reference ID
+$pdo = get_db_connection();
+if ($pdo && !empty($ref_id)) {
+    try {
+        $dup_stmt = $pdo->prepare("SELECT id FROM enquiries WHERE reference_id = ? LIMIT 1");
+        $dup_stmt->execute([$ref_id]);
+        if ($dup_stmt->fetch()) {
+            echo json_encode([
+                "status" => "success",
+                "reference_id" => $ref_id,
+                "message" => "Enquiry already registered; duplicate ignored."
+            ]);
+            exit();
+        }
+    } catch (Exception $e) {}
+}
+
+if (file_exists($log_file) && !empty($ref_id)) {
+    $existing_leads = json_decode(@file_get_contents($log_file), true);
+    if (is_array($existing_leads)) {
+        foreach ($existing_leads as $el) {
+            if (isset($el['reference_id']) && $el['reference_id'] === $ref_id) {
+                echo json_encode([
+                    "status" => "success",
+                    "reference_id" => $ref_id,
+                    "message" => "Enquiry already registered; duplicate ignored."
+                ]);
+                exit();
+            }
+        }
+    }
+}
+
 if (empty($name) || (empty($email) && empty($phone))) {
     http_response_code(400);
     echo json_encode(["status" => "error", "message" => "Name and at least one contact method (email or phone) are required."]);

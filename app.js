@@ -70,7 +70,23 @@ document.addEventListener('DOMContentLoaded', () => {
     modal.classList.add('active');
     document.body.style.overflow = 'hidden';
     if (serviceName && modalServiceSelect) {
-      modalServiceSelect.value = serviceName;
+      let matched = false;
+      for (let i = 0; i < modalServiceSelect.options.length; i++) {
+        const opt = modalServiceSelect.options[i];
+        if (opt.value && (opt.value.toLowerCase() === serviceName.toLowerCase() || opt.text.toLowerCase() === serviceName.toLowerCase() || serviceName.toLowerCase().startsWith(opt.value.toLowerCase()))) {
+          modalServiceSelect.selectedIndex = i;
+          matched = true;
+          break;
+        }
+      }
+      if (!matched) {
+        const newOpt = document.createElement('option');
+        newOpt.value = serviceName;
+        newOpt.textContent = serviceName;
+        newOpt.selected = true;
+        modalServiceSelect.appendChild(newOpt);
+        modalServiceSelect.value = serviceName;
+      }
     }
   };
 

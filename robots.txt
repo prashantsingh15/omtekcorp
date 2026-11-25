@@ -3,4 +3,4 @@ Allow: /
 Disallow: /admin.html
 Disallow: /send-enquiry.php
 
-Sitemap: https://omtekcorp.vercel.app/sitemap.xml
+Sitemap: https://omtechcorporation.com/sitemap.xml
